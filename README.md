@@ -125,29 +125,84 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 </table>
 
 ---
-
 ## 🏆 Achievements & Leadership
 
-• Developed **[RigRush Studio <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://create.roblox.com/store/asset/9698793088)**,  
-a Roblox Studio plugin with **142,000+ global users**, used by developers to streamline game development workflows.  
+<table>
+<tr>
+<td width="70%">
 
-• Secured **4th place** at **Flowathon 2025 (National – Indore, India)**, competing among top developers nationwide.  
+### 🚀 RigRush Studio  
+Developed **[RigRush Studio <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://create.roblox.com/store/asset/9698793088)**,  
+a Roblox Studio plugin used by **142,000+ global users** to streamline game development workflows.
 
-• **Finalist** at **Level Supermind Hackathon 2025 (National – Mumbai, India)**, demonstrating strong problem-solving and app development skills.  
+</td>
+<td width="30%" align="center">
 
-• Solved **230+ problems** on **[LeetCode <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://leetcode.com/u/tushar_gour/)**, strengthening data structures, algorithms, and problem-solving proficiency.  
+**Impact**  
+🌍 Global  
+📦 Production Tool  
+👥 142K+ Users
 
-• Earned **Gold** badges in **Problem Solving** and **C++**, and **Silver** in **C** on  
-**[HackerRank <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://www.hackerrank.com/profile/Tushar_Gour)**.  
+</td>
+</tr>
 
-• Cleared **TCS CodeVita 2025 – Round 1**, showcasing strong algorithmic thinking and competitive programming fundamentals.  
+<tr>
+<td>
 
-• Served as **Flutter Lead** at  
-**[GDG on Campus <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://gdg.community.dev/u/mj2dgn/#/about)**, leading technical initiatives, mentoring peers, and driving community-driven development efforts.  
+### 🥇 Competitive Achievements  
+• **4th Place** — Flowathon 2025 *(National, Indore)*  
+• **Finalist** — Level Supermind Hackathon 2025 *(National, Mumbai)*  
+• Cleared **TCS CodeVita 2025 – Round 1**
 
-• Contributed to **12+ Roblox games** as a **Game Developer, Scripter, Modeler, Builder, and UI Designer**, enhancing gameplay mechanics and immersive environments.  
+</td>
+<td align="center">
 
-• Certified in **Flutter**, **Kotlin**, **Google Cloud Computing**, and **Java**, validating expertise across mobile, backend, and cloud technologies.
+**Level**  
+🏆 National  
+🧠 Competitive  
+⚡ High Impact
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+### 🧠 Problem Solving  
+• Solved **230+ problems** on **[LeetCode <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://leetcode.com/u/tushar_gour/)**  
+• **Gold** in Problem Solving & C++, **Silver** in C on  
+**[HackerRank <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://www.hackerrank.com/profile/Tushar_Gour)**
+
+</td>
+<td align="center">
+
+**Focus**  
+📊 DSA  
+⚙ Algorithms  
+💡 Consistency
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+### 👥 Leadership & Community  
+• **Flutter Lead** at **[GDG on Campus <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://gdg.community.dev/u/mj2dgn/#/about)**  
+• Core Team Member at **E-Cell**  
+• Contributor to **12+ Roblox games** in multiple technical roles
+
+</td>
+<td align="center">
+
+**Role**  
+🎯 Leadership  
+🤝 Mentorship  
+🌱 Community
+
+</td>
+</tr>
+</table>
 
 ---
 
