@@ -116,11 +116,20 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 
 <td valign="top">
 
-• Windows<br>## 🏆 Achievements & Leadership
+• Windows<br>
+• Linux (Ubuntu)<br>
+• macOS<br>
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🏆 Achievements & Leadership
 
 <table width="100%">
 
-<!-- RigRush -->
 <tr>
 <td colspan="2">
 
@@ -144,7 +153,6 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 </td>
 </tr>
 
-<!-- Competitive -->
 <tr>
 <td colspan="2">
 
@@ -169,7 +177,6 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 </td>
 </tr>
 
-<!-- Problem Solving -->
 <tr>
 <td colspan="2">
 
@@ -196,7 +203,6 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 </td>
 </tr>
 
-<!-- Leadership -->
 <tr>
 <td colspan="2">
 
