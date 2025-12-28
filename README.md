@@ -125,42 +125,28 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 </table>
 
 ---
-
-## 🛠️ Core Competencies
-
-• Cross-platform mobile application development  
-• Backend API design and system integration  
-• Scalable system architecture and performance optimization  
-• Game development and real-time interactive systems  
-• Applied machine learning and computer vision  
-
----
-
 ## 🏆 Achievements & Leadership
 
 • Secured **4th place** at **Flowathon 2025 (National – Indore, India)**, competing among top developers nationwide.  
 
 • **Finalist** at **Level Supermind Hackathon 2025 (National – Mumbai, India)**, demonstrating strong problem-solving and app development skills.  
 
-• Cleared **TCS CodeVita 2025 – Round 1**, showcasing strong algorithmic thinking and problem-solving ability.  
+• Cleared **TCS CodeVita 2025 – Round 1**, showcasing strong algorithmic thinking and competitive programming fundamentals.  
 
-• Developed **RigRush Studio**, a **Roblox Studio plugin** with **142,000+ users**, used by developers to streamline game development workflows.  
-🔗 https://create.roblox.com/store/asset/9698793088  
+• Developed **[RigRush Studio](https://create.roblox.com/store/asset/9698793088)**, a Roblox Studio plugin with **142,000+ global users**, used by developers to streamline game development workflows.  
 
-• Earned **Gold** badges in **Problem Solving** and **C++**, and **Silver** in **C** on **HackerRank**.  
-🔗 https://www.hackerrank.com  
+• Earned **Gold** badges in **Problem Solving** and **C++**, and **Silver** in **C** on **[HackerRank](https://www.hackerrank.com/profile/Tushar_Gour)**.  
 
-• Solved **230+ problems** on **LeetCode**, strengthening data structures and algorithmic fundamentals.  
-🔗 https://leetcode.com  
+• Solved **230+ problems** on **[LeetCode](https://leetcode.com/u/tushar_gour/)**, strengthening data structures, algorithms, and problem-solving proficiency.  
 
-• Contributed to **12+ Roblox games** as a **Game Developer, Scripter, Modeler, Builder, and UI Designer**, improving gameplay systems and environments.  
+• Contributed to **12+ Roblox games** as a **Game Developer, Scripter, Modeler, Builder, and UI Designer**, enhancing gameplay mechanics and immersive environments.  
 
-• Certified in **Flutter**, **Kotlin**, **Google Cloud Computing**, and **Java**.  
+• Certified in **Flutter**, **Kotlin**, **Google Cloud Computing**, and **Java**, validating expertise across mobile, backend, and cloud technologies.  
 
-• **Flutter Lead** at **GDG on Campus**, leading technical initiatives and community-driven development efforts.  
-🔗 https://developers.google.com/community/gdg  
+• Served as **Flutter Lead** at **[GDG on Campus](https://gdg.community.dev/u/mj2dgn/#/about)**, leading technical initiatives, mentoring peers, and driving community-driven development efforts.  
 
-• **Core Team Member** at **E-Cell**, contributing to innovation programs, technical events, and entrepreneurial initiatives.
+• Active **Core Team Member** at **E-Cell**, contributing to innovation programs, technical events, and entrepreneurial initiatives.
+
 
 ---
 
