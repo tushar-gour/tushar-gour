@@ -116,20 +116,13 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 
 <td valign="top">
 
-• Windows<br>
-• Linux (Ubuntu)<br>
-• MacOS<br>
+• Windows<br>## 🏆 Achievements & Leadership
 
-</td>
-</tr>
-</table>
+<table width="100%">
 
----
-## 🏆 Achievements & Leadership
-
-<table>
+<!-- RigRush -->
 <tr>
-<td width="70%" valign="top">
+<td colspan="2">
 
 ### 🚀 RigRush Studio
 
@@ -137,7 +130,11 @@ Developed **[RigRush Studio <img src="https://drive.google.com/uc?export=view&id
 a Roblox Studio plugin used by **142,000+ global users** to streamline game development workflows.
 
 </td>
-<td width="30%" valign="top">
+</tr>
+
+<tr>
+<td width="70%"></td>
+<td width="30%">
 
 **Impact**  
 🌍 Global  
@@ -147,8 +144,9 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 </td>
 </tr>
 
+<!-- Competitive -->
 <tr>
-<td valign="top">
+<td colspan="2">
 
 ### 🥇 Competitive Achievements
 
@@ -157,7 +155,11 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 • Cleared **TCS CodeVita 2025 – Round 1**
 
 </td>
-<td valign="top">
+</tr>
+
+<tr>
+<td width="70%"></td>
+<td width="30%">
 
 **Level**  
 🏆 National  
@@ -167,8 +169,9 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 </td>
 </tr>
 
+<!-- Problem Solving -->
 <tr>
-<td valign="top">
+<td colspan="2">
 
 ### 🧠 Problem Solving
 
@@ -179,7 +182,11 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 **[HackerRank <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://www.hackerrank.com/profile/Tushar_Gour)**
 
 </td>
-<td valign="top">
+</tr>
+
+<tr>
+<td width="70%"></td>
+<td width="30%">
 
 **Focus**  
 📊 DSA  
@@ -189,8 +196,9 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 </td>
 </tr>
 
+<!-- Leadership -->
 <tr>
-<td valign="top">
+<td colspan="2">
 
 ### 👥 Leadership & Community
 
@@ -202,7 +210,11 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 • Contributor to **12+ Roblox games** in multiple technical roles  
 
 </td>
-<td valign="top">
+</tr>
+
+<tr>
+<td width="70%"></td>
+<td width="30%">
 
 **Role**  
 🎯 Leadership  
@@ -211,6 +223,7 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 
 </td>
 </tr>
+
 </table>
 
 ---
