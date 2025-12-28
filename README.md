@@ -127,82 +127,30 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 ---
 ## 🏆 Achievements & Leadership
 
-<table>
-<tr>
-<td width="70%">
+### 🚀 2025 — Product & Scale
+**[RigRush Studio <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://create.roblox.com/store/asset/9698793088)**  
+→ Roblox Studio plugin with **142,000+ global users**
 
-### 🚀 RigRush Studio  
-Developed **[RigRush Studio <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://create.roblox.com/store/asset/9698793088)**,  
-a Roblox Studio plugin used by **142,000+ global users** to streamline game development workflows.
+---
 
-</td>
-<td width="30%" align="center">
-
-**Impact**  
-🌍 Global  
-📦 Production Tool  
-👥 142K+ Users
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-### 🥇 Competitive Achievements  
-• **4th Place** — Flowathon 2025 *(National, Indore)*  
-• **Finalist** — Level Supermind Hackathon 2025 *(National, Mumbai)*  
+### 🥇 2025 — Competitive Programming & Hackathons
+• **4th Place** — Flowathon *(National, Indore)*  
+• **Finalist** — Level Supermind Hackathon *(National, Mumbai)*  
 • Cleared **TCS CodeVita 2025 – Round 1**
 
-</td>
-<td align="center">
+---
 
-**Level**  
-🏆 National  
-🧠 Competitive  
-⚡ High Impact
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-### 🧠 Problem Solving  
-• Solved **230+ problems** on **[LeetCode <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://leetcode.com/u/tushar_gour/)**  
-• **Gold** in Problem Solving & C++, **Silver** in C on  
+### 🧠 Problem Solving
+• **230+ problems** solved on **[LeetCode <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://leetcode.com/u/tushar_gour/)**  
+• **Gold** (Problem Solving, C++) & **Silver** (C) on  
 **[HackerRank <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://www.hackerrank.com/profile/Tushar_Gour)**
 
-</td>
-<td align="center">
+---
 
-**Focus**  
-📊 DSA  
-⚙ Algorithms  
-💡 Consistency
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-### 👥 Leadership & Community  
-• **Flutter Lead** at **[GDG on Campus <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://gdg.community.dev/u/mj2dgn/#/about)**  
-• Core Team Member at **E-Cell**  
-• Contributor to **12+ Roblox games** in multiple technical roles
-
-</td>
-<td align="center">
-
-**Role**  
-🎯 Leadership  
-🤝 Mentorship  
-🌱 Community
-
-</td>
-</tr>
-</table>
+### 👥 Leadership
+• **Flutter Lead** — **[GDG on Campus <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://gdg.community.dev/u/mj2dgn/#/about)**  
+• Core Team Member — E-Cell  
+• Developer on **12+ Roblox games**
 
 ---
 
