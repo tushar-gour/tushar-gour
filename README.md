@@ -1,4 +1,4 @@
-# 💫 About Me:
+# 🚀 About Me:
 Hi, I’m Tushar, a Computer Science Engineer focused on building scalable, production-grade software systems.<br>I specialize in cross-platform mobile development, backend engineering, and system architecture, with hands-on experience delivering real-world applications used at scale.<br>I bring a problem-first mindset, strong fundamentals in data structures, system design, and cloud-ready development, and a constant drive to engineer solutions that are robust, performant, and maintainable.
 
 
