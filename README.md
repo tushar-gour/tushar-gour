@@ -125,6 +125,7 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 </table>
 
 ---
+
 ## 🏆 Achievements & Leadership
 
 <table width="100%">
@@ -210,6 +211,7 @@ Developed **[RigRush Studio](https://create.roblox.com/store/asset/9698793088)**
 </tr>
 
 </table>
+
 ---
 
 ## 📊 GitHub Stats
