@@ -225,5 +225,3 @@ Developed **[RigRush Studio](https://create.roblox.com/store/asset/9698793088)**
 ---
 
 ![](https://komarev.com/ghpvc/?username=tushar-gour)
-
-fix
