@@ -134,9 +134,7 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 <td width="70%" valign="top">
 
 ### 🚀 RigRush Studio
-
-Developed **[RigRush Studio](https://create.roblox.com/store/asset/9698793088)** —  
-a Roblox Studio plugin used by **142,000+ global users** to streamline game development workflows.
+Developed **[RigRush Studio](https://create.roblox.com/store/asset/9698793088)**, a Roblox Studio plugin used by **142,000+ global users** to streamline game development workflows.
 
 </td>
 <td width="30%" valign="top">
@@ -155,9 +153,9 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 
 ### 🥇 Competitive Achievements
 
-- **4th Place** — Flowathon 2025 *(National, Indore)*  
-- **Finalist** — Level Supermind Hackathon 2025 *(National, Mumbai)*  
-- Cleared **TCS CodeVita 2025 – Round 1**
+- **4th Place** Flowathon 2025 *(National Level, Indore, India)*  
+- Cleared first round and secured position in **Finalist Team** in Level Supermind Hackathon 2025 *(National Level, Mumbai, India)*
+- Cleared **TCS CodeVita 2025 - Round 1**
 
 </td>
 <td width="30%" valign="top">
@@ -176,10 +174,8 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 
 ### 🧠 Problem Solving
 
-- Solved **230+ problems** on  
-  **[LeetCode](https://leetcode.com/u/tushar_gour/)**  
-- Earned **Gold** in **Problem Solving & C++**,  
-  **Silver** in **C** on **[HackerRank](https://www.hackerrank.com/profile/Tushar_Gour)**
+- Solved **230+ problems** on **[LeetCode](https://leetcode.com/u/tushar_gour/)**  
+- Earned **Gold** in **Problem Solving & C++**, **Silver** in **C** on **[HackerRank](https://www.hackerrank.com/profile/Tushar_Gour)**
 
 </td>
 <td width="30%" valign="top">
@@ -200,7 +196,7 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 
 - **Flutter Lead** at **[GDG on Campus](https://gdg.community.dev/u/mj2dgn/#/about)**  
 - Core Team Member at **E-Cell**  
-- Contributor to **12+ Roblox games** in multiple technical roles  
+- Contributor to **12+ Roblox games** in multiple technical roles
 
 </td>
 <td width="30%" valign="top">
