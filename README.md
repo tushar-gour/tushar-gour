@@ -127,22 +127,19 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 ---
 ## 🏆 Achievements & Leadership
 
-<table width="100%" cellpadding="8" cellspacing="0">
+<table width="100%">
 
 <!-- RigRush -->
 <tr>
-<td colspan="2">
+<td width="70%" valign="top">
 
-### 🚀 RigRush Studio  
-Developed **[RigRush Studio <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://create.roblox.com/store/asset/9698793088)** —  
+### 🚀 RigRush Studio
+
+Developed **[RigRush Studio](https://create.roblox.com/store/asset/9698793088)** —  
 a Roblox Studio plugin used by **142,000+ global users** to streamline game development workflows.
 
 </td>
-</tr>
-
-<tr>
-<td></td>
-<td width="28%" valign="top">
+<td width="30%" valign="top">
 
 **Impact**  
 🌍 Global  
@@ -154,19 +151,16 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 
 <!-- Competitive -->
 <tr>
-<td colspan="2">
+<td width="70%" valign="top">
 
-### 🥇 Competitive Achievements  
+### 🥇 Competitive Achievements
+
 - **4th Place** — Flowathon 2025 *(National, Indore)*  
 - **Finalist** — Level Supermind Hackathon 2025 *(National, Mumbai)*  
 - Cleared **TCS CodeVita 2025 – Round 1**
 
 </td>
-</tr>
-
-<tr>
-<td></td>
-<td valign="top">
+<td width="30%" valign="top">
 
 **Level**  
 🏆 National  
@@ -178,20 +172,17 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 
 <!-- Problem Solving -->
 <tr>
-<td colspan="2">
+<td width="70%" valign="top">
 
-### 🧠 Problem Solving  
+### 🧠 Problem Solving
+
 - Solved **230+ problems** on  
-  **[LeetCode <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://leetcode.com/u/tushar_gour/)**  
-- Earned **Gold** in **Problem Solving** & **C++**, and **Silver** in **C** on  
-  **[HackerRank <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://www.hackerrank.com/profile/Tushar_Gour)**
+  **[LeetCode](https://leetcode.com/u/tushar_gour/)**  
+- Earned **Gold** in **Problem Solving & C++**,  
+  **Silver** in **C** on **[HackerRank](https://www.hackerrank.com/profile/Tushar_Gour)**
 
 </td>
-</tr>
-
-<tr>
-<td></td>
-<td valign="top">
+<td width="30%" valign="top">
 
 **Focus**  
 📊 DSA  
@@ -203,20 +194,16 @@ a Roblox Studio plugin used by **142,000+ global users** to streamline game deve
 
 <!-- Leadership -->
 <tr>
-<td colspan="2">
+<td width="70%" valign="top">
 
-### 👥 Leadership & Community  
-- **Flutter Lead** at  
-  **[GDG on Campus <img src="https://drive.google.com/uc?export=view&id=1Dce-674BEMa7JOZdiXjVDm8BcONHWA2o" height="12"/>](https://gdg.community.dev/u/mj2dgn/#/about)**  
+### 👥 Leadership & Community
+
+- **Flutter Lead** at **[GDG on Campus](https://gdg.community.dev/u/mj2dgn/#/about)**  
 - Core Team Member at **E-Cell**  
 - Contributor to **12+ Roblox games** in multiple technical roles  
 
 </td>
-</tr>
-
-<tr>
-<td></td>
-<td valign="top">
+<td width="30%" valign="top">
 
 **Role**  
 🎯 Leadership  
