@@ -123,7 +123,3 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 </td>
 </tr>
 </table>
-
----
-
-![](https://komarev.com/ghpvc/?username=tushar-gour)
