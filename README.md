@@ -125,10 +125,10 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 
 ---
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Avi-2024&show_icons=true&theme=tokyonight" height="160"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Avi-2024&layout=compact&theme=tokyonight" height="160"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=tushar-gour&show_icons=true&theme=tokyonight" height="160"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tushar-gour&layout=compact&theme=tokyonight" height="160"/>
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Avi-2024&theme=tokyonight"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=tushar-gour&theme=tokyonight"/>
 </p>
