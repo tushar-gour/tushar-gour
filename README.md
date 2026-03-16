@@ -116,7 +116,8 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 <td valign="top">
 
 • Windows<br>
-• Linux (Ubuntu)<br>
+• Linux<br>
+• (Ubuntu)<br>
 • macOS<br>
 
 </td>
