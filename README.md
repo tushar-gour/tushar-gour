@@ -58,6 +58,7 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 
 • ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)<br>
 • ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)<br>
+• ![PostgreSQL](https://img.shields.io/badge/postgresql.svg?style=for-the-badge&logo=mysql&logoColor=white)<br>
 • ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)<br>
 • ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)<br>
 
