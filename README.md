@@ -111,6 +111,7 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 • ![Unity](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white)<br>
 • ![Blender](https://img.shields.io/badge/blender-%23F5792A.svg?style=for-the-badge&logo=blender&logoColor=white)<br>
 • ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white)<br>
+• ![Roblox Studio]([https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.kibrispdr.org%2Fdata%2F838%2Froblox-studio-logo-59.png&f=1&nofb=1&ipt=9e137a256eef008fa384b9aef70c99048deb8d3f161bde67034c263b19eb156b))<br>
 
 </td>
 
