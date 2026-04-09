@@ -111,7 +111,7 @@ I bring a **problem-first mindset**, strong fundamentals in **data structures, s
 • ![Unity](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white)<br>
 • ![Blender](https://img.shields.io/badge/blender-%23F5792A.svg?style=for-the-badge&logo=blender&logoColor=white)<br>
 • ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white)<br>
-• !Roblox Studio<br>
+• Roblox Studio<br>
 
 </td>
 
