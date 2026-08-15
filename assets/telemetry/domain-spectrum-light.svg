@@ -1,101 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" height="100%">
-  <defs>
-    <style>
-      .mono-hdr {
-        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-        font-weight: 700;
-        letter-spacing: 1.5px;
-      }
-      .mono-meta {
-        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-        font-weight: 600;
-        letter-spacing: 1px;
-      }
-      .sans-bold {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-        font-weight: 700;
-      }
-      .sans-medium {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-        font-weight: 500;
-      }
-      .mono-val {
-        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-        font-weight: 700;
-      }
-    </style>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="100%" height="100%">
+  <defs><style>.m{font-family:'SF Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.s{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}</style></defs>
 
-  <!-- Base Outer Container -->
-  <rect width="1200" height="320" rx="12" fill="#F6F8FA" stroke="#D0D7DE" stroke-width="1" />
+  <rect width="1200" height="340" rx="10" fill="#FFFFFF"/>
+  <rect width="1200" height="340" rx="10" fill="none" stroke="#D0D7DE" stroke-width="1.2"/>
 
-  <!-- Vertical Hairline Column Divider -->
-  <line x1="400" y1="24" x2="400" y2="296" stroke="#D0D7DE" stroke-width="1" />
+  <!-- LEFT PANEL -->
+  <text class="m" x="42" y="58" font-size="12" font-weight="800" fill="#B85C3F" letter-spacing="2">LANGUAGE</text>
+  <text class="s" x="42" y="128" font-size="56" font-weight="900" fill="#1F2328" letter-spacing="-2">FOOTPRINT</text>
+  <text class="m" x="42" y="158" font-size="11" font-weight="600" fill="#8A9299" letter-spacing="2">AGGREGATED REPOSITORY BYTES</text>
 
-  <!-- LEFT SIDE: Title, Meta & Segmented Spectrum -->
-  <g transform="translate(48, 52)">
-    <text class="mono-hdr" x="0" y="0" font-size="16" fill="#B85C3F">LANGUAGE</text>
-    <text class="sans-bold" x="0" y="32" font-size="28" fill="#1F2328">FOOTPRINT</text>
-    <text class="mono-meta" x="0" y="62" font-size="13" fill="#59636E">AGGREGATED REPOSITORY BYTES</text>
+  <!-- Spectrum bar -->
+  <rect x="42"  y="190" width="129" height="18" rx="3" fill="#B85C3F"/>
+  <rect x="174" y="190" width="111" height="18" rx="3" fill="#7A8A9A"/>
+  <rect x="288" y="190" width="62"  height="18" rx="3" fill="#9AAFBE"/>
+  <rect x="353" y="190" width="6"   height="18" rx="3" fill="#B8CCDA"/>
+  <rect x="362" y="190" width="4"   height="18" rx="3" fill="#CCD8E4"/>
+  <rect x="369" y="190" width="8"   height="18" rx="3" fill="#DDE8F0"/>
 
-    <!-- Full Segmented Horizontal Language Spectrum -->
-    <g transform="translate(0, 102)">
-      <rect x="0" y="0" width="126" height="12" rx="3" fill="#B85C3F" />
-      <rect x="129" y="0" width="108" height="12" rx="3" fill="#1F2328" />
-      <rect x="240" y="0" width="60" height="12" rx="3" fill="#59636E" />
-      <rect x="303" y="0" width="6" height="12" rx="1.5" fill="#8C959F" />
-      <rect x="311" y="0" width="4" height="12" rx="1" fill="#AFB8C1" />
-    </g>
+  <circle cx="388" cy="199" r="8"   fill="none" stroke="#B85C3F" stroke-width="1.8"/>
+  <circle cx="388" cy="199" r="3.5" fill="#B85C3F"/>
 
-    <!-- Summary Details -->
-    <g transform="translate(0, 154)">
-      <text class="mono-meta" x="0" y="0" font-size="12" fill="#8C959F">TOTAL INDEXED: 9.5 MB</text>
-      <text class="mono-meta" x="0" y="22" font-size="12" fill="#8C959F">SOURCE: VERIFIED CODEBASE BYTES</text>
-    </g>
-  </g>
+  <!-- DB icon -->
+  <ellipse cx="51" cy="248" rx="9" ry="3.5" fill="none" stroke="#59636E" stroke-width="1.3"/>
+  <line x1="42" y1="248" x2="42" y2="260" stroke="#59636E" stroke-width="1.3"/>
+  <line x1="60" y1="248" x2="60" y2="260" stroke="#59636E" stroke-width="1.3"/>
+  <ellipse cx="51" cy="260" rx="9" ry="3.5" fill="none" stroke="#59636E" stroke-width="1.3"/>
+  <text class="m" x="70" y="262" font-size="11.5" font-weight="600" fill="#8A9299" letter-spacing="1">TOTAL INDEXED: 9.5 MB</text>
 
-  <!-- RIGHT SIDE: Ranked Language List -->
-  <g transform="translate(440, 48)">
-    <g transform="translate(0, 0)">
-      <text class="sans-bold" x="0" y="16" font-size="18" fill="#1F2328">JavaScript</text>
-      <text class="mono-val" x="664" y="16" font-size="16" fill="#B85C3F" text-anchor="end">40.4%</text>
-      <rect x="0" y="24" width="664" height="4" rx="2" fill="#E1E4E8" />
-      <rect x="0" y="24" width="268" height="4" rx="2" fill="#B85C3F" />
-    </g>
+  <!-- Shield icon -->
+  <path d="M 51 276 Q 42 272 42 265 L 42 282 Q 42 294 51 298 Q 60 294 60 282 L 60 265 Q 60 272 51 276 Z" fill="none" stroke="#59636E" stroke-width="1.3"/>
+  <text class="m" x="70" y="294" font-size="11.5" font-weight="600" fill="#59636E" letter-spacing="1">SOURCE: VERIFIED CODEBASE BYTES</text>
 
-    <g transform="translate(0, 42)">
-      <text class="sans-medium" x="0" y="16" font-size="18" fill="#1F2328">TypeScript</text>
-      <text class="mono-val" x="664" y="16" font-size="16" fill="#1F2328" text-anchor="end">34.7%</text>
-      <rect x="0" y="24" width="664" height="4" rx="2" fill="#E1E4E8" />
-      <rect x="0" y="24" width="230" height="4" rx="2" fill="#1F2328" />
-    </g>
+  <line x1="424" y1="20" x2="424" y2="320" stroke="#D0D7DE" stroke-width="1"/>
 
-    <g transform="translate(0, 84)">
-      <text class="sans-medium" x="0" y="16" font-size="18" fill="#59636E">Dart</text>
-      <text class="mono-val" x="664" y="16" font-size="16" fill="#59636E" text-anchor="end">19.4%</text>
-      <rect x="0" y="24" width="664" height="4" rx="2" fill="#E1E4E8" />
-      <rect x="0" y="24" width="129" height="4" rx="2" fill="#59636E" />
-    </g>
+  <!-- RIGHT PANEL -->
+  <text class="s" x="460" y="58"  font-size="16" font-weight="500" fill="#1F2328">JavaScript</text>
+  <text class="m" x="1158" y="58" font-size="14" font-weight="700" fill="#B85C3F" text-anchor="end">40.4%</text>
+  <rect x="460" y="66" width="282" height="7" rx="3.5" fill="#B85C3F"/>
 
-    <g transform="translate(0, 126)">
-      <text class="sans-medium" x="0" y="16" font-size="18" fill="#59636E">C++ / Native</text>
-      <text class="mono-val" x="664" y="16" font-size="16" fill="#8C959F" text-anchor="end">2.0%</text>
-      <rect x="0" y="24" width="664" height="4" rx="2" fill="#E1E4E8" />
-      <rect x="0" y="24" width="14" height="4" rx="2" fill="#8C959F" />
-    </g>
+  <text class="s" x="460" y="104"  font-size="16" font-weight="500" fill="#1F2328">TypeScript</text>
+  <text class="m" x="1158" y="104" font-size="14" font-weight="700" fill="#1F2328" text-anchor="end">34.7%</text>
+  <rect x="460" y="112" width="242" height="7" rx="3.5" fill="#6A7A8A"/>
 
-    <g transform="translate(0, 168)">
-      <text class="sans-medium" x="0" y="16" font-size="18" fill="#59636E">Kotlin</text>
-      <text class="mono-val" x="664" y="16" font-size="16" fill="#8C959F" text-anchor="end">1.1%</text>
-      <rect x="0" y="24" width="664" height="4" rx="2" fill="#E1E4E8" />
-      <rect x="0" y="24" width="8" height="4" rx="2" fill="#AFB8C1" />
-    </g>
+  <text class="s" x="460" y="150"  font-size="16" font-weight="500" fill="#1F2328">Dart</text>
+  <text class="m" x="1158" y="150" font-size="14" font-weight="700" fill="#1F2328" text-anchor="end">19.4%</text>
+  <rect x="460" y="158" width="135" height="7" rx="3.5" fill="#90A8B8"/>
 
-    <g transform="translate(0, 210)">
-      <text class="sans-medium" x="0" y="16" font-size="18" fill="#8C959F">Other (Swift, HTML, CSS, C)</text>
-      <text class="mono-val" x="664" y="16" font-size="16" fill="#8C959F" text-anchor="end">2.4%</text>
-      <rect x="0" y="24" width="664" height="4" rx="2" fill="#E1E4E8" />
-      <rect x="0" y="24" width="16" height="4" rx="2" fill="#D0D7DE" />
-    </g>
-  </g>
+  <text class="s" x="460" y="196"  font-size="16" font-weight="500" fill="#1F2328">C++ / Native</text>
+  <text class="m" x="1158" y="196" font-size="14" font-weight="700" fill="#1F2328" text-anchor="end">2.0%</text>
+  <rect x="460" y="204" width="14" height="7" rx="3.5" fill="#B0C8D8"/>
+
+  <text class="s" x="460" y="242"  font-size="16" font-weight="500" fill="#1F2328">Kotlin</text>
+  <text class="m" x="1158" y="242" font-size="14" font-weight="700" fill="#1F2328" text-anchor="end">1.1%</text>
+  <rect x="460" y="250" width="8" height="7" rx="3.5" fill="#C8D8E8"/>
+
+  <text class="s" x="460" y="288"  font-size="16" font-weight="500" fill="#1F2328">Other (Swift, HTML, CSS, C)</text>
+  <text class="m" x="1158" y="288" font-size="14" font-weight="700" fill="#1F2328" text-anchor="end">2.4%</text>
+  <rect x="460" y="296" width="17" height="7" rx="3.5" fill="#D8E8F0"/>
 </svg>
