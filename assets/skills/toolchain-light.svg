@@ -74,9 +74,9 @@
 
   <!-- Header -->
   <g transform="translate(42, 42)">
-    <text class="monoL" font-size="16" font-weight="800" fill="#C96A4B" letter-spacing="1.5">ENGINEERING STACK</text>
-    <text class="monoL" x="220" font-size="13" font-weight="600" fill="#8A9299" letter-spacing="1.5">/ TOOLS ACROSS THE SOFTWARE DELIVERY PATH</text>
-    <text class="monoL" x="1392" font-size="12" font-weight="600" fill="#8A9299" letter-spacing="1.5" text-anchor="end">SIGNAL TRANSMISSION</text>
+    <text class="monoL" x="0" y="2" font-size="22" font-weight="900" fill="#0D1117" letter-spacing="2">ENGINEERING STACK</text>
+    <text class="monoL" x="300" y="0" font-size="13" font-weight="600" fill="#8A9299" letter-spacing="1.5">/ TOOLS ACROSS THE SOFTWARE DELIVERY PATH</text>
+    <text class="monoL" x="1392" y="0" font-size="12" font-weight="600" fill="#8A9299" letter-spacing="1.5" text-anchor="end">SIGNAL TRANSMISSION</text>
     <circle cx="1400" cy="-4" r="4.5" fill="#C96A4B" opacity="0.9"/>
     <circle cx="1400" cy="-4" r="8" fill="#C96A4B" opacity="0.25"/>
   </g>

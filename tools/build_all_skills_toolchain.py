@@ -248,6 +248,8 @@ def build_toolchain(is_dark=True):
     <circle cx="1340" cy="670" r="0.8"/><circle cx="40" cy="330" r="0.7"/><circle cx="1485" cy="340" r="0.9"/>
   </g>''')
 
+    hdr_title_color = "#FFFFFF" if is_dark else "#0D1117"
+
     svg_parts.append(f'''  <!-- Left orbital arc trajectory -->
   <path d="M 170 680 C -40 520 -40 180 170 40" fill="none" stroke="{accent}" stroke-width="1.4" opacity="0.2"/>
   <g transform="translate(90, 375)">
@@ -259,9 +261,9 @@ def build_toolchain(is_dark=True):
 
   <!-- Header -->
   <g transform="translate(42, 42)">
-    <text class="mono{theme_suffix}" font-size="16" font-weight="800" fill="{accent}" letter-spacing="1.5">ENGINEERING STACK</text>
-    <text class="mono{theme_suffix}" x="220" font-size="13" font-weight="600" fill="{hdr_sub}" letter-spacing="1.5">/ TOOLS ACROSS THE SOFTWARE DELIVERY PATH</text>
-    <text class="mono{theme_suffix}" x="1392" font-size="12" font-weight="600" fill="{hdr_sub}" letter-spacing="1.5" text-anchor="end">SIGNAL TRANSMISSION</text>
+    <text class="mono{theme_suffix}" x="0" y="2" font-size="22" font-weight="900" fill="{hdr_title_color}" letter-spacing="2">ENGINEERING STACK</text>
+    <text class="mono{theme_suffix}" x="300" y="0" font-size="13" font-weight="600" fill="{hdr_sub}" letter-spacing="1.5">/ TOOLS ACROSS THE SOFTWARE DELIVERY PATH</text>
+    <text class="mono{theme_suffix}" x="1392" y="0" font-size="12" font-weight="600" fill="{hdr_sub}" letter-spacing="1.5" text-anchor="end">SIGNAL TRANSMISSION</text>
     <circle cx="1400" cy="-4" r="4.5" fill="{accent}" opacity="0.9"/>
     <circle cx="1400" cy="-4" r="8" fill="{accent}" opacity="0.25"/>
   </g>
