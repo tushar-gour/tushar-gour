@@ -275,7 +275,7 @@ def build_toolchain(is_dark=True):
             svg_parts.append(f'''
     <!-- Spacecraft (rocket) -->
     <g transform="translate(820, 0)">
-      <image href="data:image/png;base64,{rocket_b64}" x="-60" y="-23" width="120" height="46"/>
+      <image href="data:image/png;base64,{rocket_b64}" x="-60" y="-25" width="120" height="50"/>
     </g>''')
 
         svg_parts.append('  </g>')
