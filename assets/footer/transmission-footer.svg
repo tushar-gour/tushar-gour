@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="footerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1017" />
+      <stop offset="100%" stop-color="#06090D" />
+    </linearGradient>
+
+    <filter id="fGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <style>
+      @keyframes beaconBlink {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+      }
+      .mono { font-family: 'SF Mono', 'Fira Code', monospace; }
+      .sans { font-family: 'Segoe UI', -apple-system, sans-serif; }
+      .title { font-family: 'Segoe UI', -apple-system, sans-serif; font-weight: 800; }
+      .beacon { animation: beaconBlink 2s infinite ease-in-out; }
+    </style>
+  </defs>
+
+  <!-- Base Panel -->
+  <rect width="1200" height="160" rx="12" fill="url(#footerBg)" stroke="#1B2535" stroke-width="1.5" />
+
+  <!-- Top Line -->
+  <line x1="32" y1="24" x2="1168" y2="24" stroke="#1B2535" stroke-width="1" />
+
+  <!-- Left: Identity & Title -->
+  <g transform="translate(32, 60)">
+    <text class="title" x="0" y="24" font-size="22" fill="#F1EEE7" letter-spacing="-0.5">TUSHAR GOUR</text>
+    <text class="mono" x="0" y="48" font-size="11" fill="#FF5722" font-weight="700" letter-spacing="1.5">
+      FULL-STACK SOFTWARE ENGINEER &amp; SYSTEMS ARCHITECT
+    </text>
+    <text class="sans" x="0" y="68" font-size="11" fill="#7E8B9B">
+      Evidence over adjectives · Predictable systems over clever code
+    </text>
+  </g>
+
+  <!-- Center: Geographic Coordinates & Registry -->
+  <g transform="translate(560, 60)" class="mono" font-size="10" fill="#7E8B9B">
+    <text x="0" y="24">LOC: <tspan fill="#F1EEE7">INDORE, INDIA</tspan> [22.7196° N, 75.8577° E]</text>
+    <text x="0" y="44">REG: <tspan fill="#F1EEE7">SYSTEM ARCHIVE 2026</tspan></text>
+    <text x="0" y="64">TARGET: <tspan fill="#00E5FF">github.com/tushar-gour</tspan></text>
+  </g>
+
+  <!-- Right: Fifth Mark Signature & Telemetry Beacon -->
+  <g transform="translate(1000, 60)">
+    <g stroke="#7E8B9B" stroke-width="3" stroke-linecap="round">
+      <line x1="0" y1="15" x2="0" y2="35" />
+      <line x1="16" y1="15" x2="16" y2="35" />
+      <line x1="32" y1="15" x2="32" y2="35" />
+      <line x1="48" y1="15" x2="48" y2="35" />
+    </g>
+    <!-- Fifth Mark Accent Beacon -->
+    <line x1="64" y1="15" x2="64" y2="35" stroke="#FF5722" stroke-width="3" stroke-linecap="round" filter="url(#fGlow)" />
+    
+    <circle class="beacon" cx="120" cy="25" r="4" fill="#00E676" filter="url(#fGlow)" />
+    <text class="mono" x="132" y="29" font-size="10" fill="#69F0AE" font-weight="700">ONLINE</text>
+
+    <text class="mono" x="0" y="58" font-size="9" fill="#58677C" letter-spacing="1">FIFTH MARK RESOLVED</text>
+  </g>
+
+  <!-- Corner Crosshairs -->
+  <g stroke="#FF5722" stroke-width="1" opacity="0.5">
+    <path d="M16 12 H24 M20 8 V16" />
+    <path d="M1176 12 H1184 M1180 8 V16" />
+    <path d="M16 148 H24 M20 144 V152" />
+    <path d="M1176 148 H1184 M1180 144 V152" />
+  </g>
+</svg>

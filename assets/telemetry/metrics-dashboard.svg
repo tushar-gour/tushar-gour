@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="podBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E141D" />
+      <stop offset="100%" stop-color="#070B10" />
+    </linearGradient>
+
+    <linearGradient id="emberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF5722" />
+      <stop offset="100%" stop-color="#FF8A65" />
+    </linearGradient>
+
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="100%" stop-color="#80D8FF" />
+    </linearGradient>
+
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E676" />
+      <stop offset="100%" stop-color="#69F0AE" />
+    </linearGradient>
+
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFB300" />
+      <stop offset="100%" stop-color="#FFE082" />
+    </linearGradient>
+
+    <filter id="glowEmber" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <style>
+      @keyframes pulseDot {
+        0%, 100% { opacity: 0.3; r: 3; }
+        50% { opacity: 1; r: 4.5; }
+      }
+      @keyframes sparkDraw {
+        0% { stroke-dashoffset: 120; }
+        100% { stroke-dashoffset: 0; }
+      }
+      .num-val {
+        font-family: 'Segoe UI', -apple-system, system-ui, sans-serif;
+        font-weight: 800;
+        letter-spacing: -1px;
+      }
+      .mono-txt {
+        font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+      }
+      .sans-txt {
+        font-family: 'Segoe UI', -apple-system, system-ui, sans-serif;
+      }
+      .spark-line {
+        stroke-dasharray: 120;
+        animation: sparkDraw 3s ease-out infinite;
+      }
+      .p-dot {
+        animation: pulseDot 2s infinite ease-in-out;
+      }
+    </style>
+  </defs>
+
+  <!-- Container Base -->
+  <rect width="1200" height="260" rx="14" fill="#080C12" stroke="#1B2535" stroke-width="1.5" />
+
+  <!-- Technical Header -->
+  <g class="mono-txt" font-size="11" fill="#7E8B9B">
+    <text x="32" y="32" font-weight="700" fill="#FF5722" letter-spacing="1.5">● TELEMETRY // ACT II</text>
+    <text x="210" y="32" letter-spacing="1">AGGREGATED REPOSITORY &amp; SYSTEM METRICS</text>
+    <text x="1168" y="32" text-anchor="end" letter-spacing="1">REFRESH RATE: REALTIME // ALL ENGINES NOMINAL</text>
+  </g>
+  <line x1="32" y1="46" x2="1168" y2="46" stroke="#1B2535" stroke-width="1" />
+
+  <!-- Pod 1: Total Repositories (Public + Private) -->
+  <g transform="translate(32, 62)">
+    <rect width="268" height="170" rx="10" fill="url(#podBg)" stroke="#223044" stroke-width="1.2" />
+    <path d="M0 10 Q0 0 10 0 L60 0 L50 10 Z" fill="#FF5722" opacity="0.6" />
+    <circle class="p-dot" cx="244" cy="24" r="3.5" fill="#FF5722" filter="url(#glowEmber)" />
+    
+    <text class="mono-txt" x="20" y="30" font-size="10" fill="#8C9BAE" font-weight="700" letter-spacing="1.2">TOTAL REPOSITORIES</text>
+    <text class="num-val" x="20" y="86" font-size="44" fill="url(#emberGrad)" filter="url(#glowEmber)">48+</text>
+    
+    <!-- Sparkline visual -->
+    <path class="spark-line" d="M20 115 Q50 95, 80 110 T140 100 T200 112 T248 96" fill="none" stroke="#FF5722" stroke-width="2" opacity="0.7" />
+    
+    <text class="mono-txt" x="20" y="142" font-size="10" fill="#F1EEE7" font-weight="600">PUBLIC + PRIVATE ECOSYSTEM</text>
+    <text class="sans-txt" x="20" y="156" font-size="10" fill="#6B7A90">Automated multi-repo sync &amp; architecture</text>
+  </g>
+
+  <!-- Pod 2: Lifetime Contributions & Commits -->
+  <g transform="translate(320, 62)">
+    <rect width="268" height="170" rx="10" fill="url(#podBg)" stroke="#223044" stroke-width="1.2" />
+    <path d="M0 10 Q0 0 10 0 L60 0 L50 10 Z" fill="#00E5FF" opacity="0.6" />
+    <circle class="p-dot" cx="244" cy="24" r="3.5" fill="#00E5FF" />
+    
+    <text class="mono-txt" x="20" y="30" font-size="10" fill="#8C9BAE" font-weight="700" letter-spacing="1.2">ANNUAL ACTIVITY</text>
+    <text class="num-val" x="20" y="86" font-size="44" fill="url(#cyanGrad)">2,480+</text>
+    
+    <!-- Sparkline visual -->
+    <path class="spark-line" d="M20 118 Q60 105, 100 112 T180 94 T248 102" fill="none" stroke="#00E5FF" stroke-width="2" opacity="0.7" />
+    
+    <text class="mono-txt" x="20" y="142" font-size="10" fill="#F1EEE7" font-weight="600">COMMITS &amp; PR DELIVERIES</text>
+    <text class="sans-txt" x="20" y="156" font-size="10" fill="#6B7A90">P99 consistency in shipping production code</text>
+  </g>
+
+  <!-- Pod 3: Production Reliability & Uptime -->
+  <g transform="translate(608, 62)">
+    <rect width="268" height="170" rx="10" fill="url(#podBg)" stroke="#223044" stroke-width="1.2" />
+    <path d="M0 10 Q0 0 10 0 L60 0 L50 10 Z" fill="#00E676" opacity="0.6" />
+    <circle class="p-dot" cx="244" cy="24" r="3.5" fill="#00E676" />
+    
+    <text class="mono-txt" x="20" y="30" font-size="10" fill="#8C9BAE" font-weight="700" letter-spacing="1.2">SYSTEM STABILITY</text>
+    <text class="num-val" x="20" y="86" font-size="44" fill="url(#greenGrad)">99.9%</text>
+    
+    <!-- Sparkline visual -->
+    <path class="spark-line" d="M20 110 Q70 110, 120 108 T190 106 T248 105" fill="none" stroke="#00E676" stroke-width="2" opacity="0.7" />
+    
+    <text class="mono-txt" x="20" y="142" font-size="10" fill="#F1EEE7" font-weight="600">ZERO CRITICAL DOWNTIME</text>
+    <text class="sans-txt" x="20" y="156" font-size="10" fill="#6B7A90">Defended SLAs, rate-limiting &amp; failovers</text>
+  </g>
+
+  <!-- Pod 4: Active Engineering Streak -->
+  <g transform="translate(896, 62)">
+    <rect width="272" height="170" rx="10" fill="url(#podBg)" stroke="#223044" stroke-width="1.2" />
+    <path d="M0 10 Q0 0 10 0 L60 0 L50 10 Z" fill="#FFB300" opacity="0.6" />
+    <circle class="p-dot" cx="248" cy="24" r="3.5" fill="#FFB300" />
+    
+    <text class="mono-txt" x="20" y="30" font-size="10" fill="#8C9BAE" font-weight="700" letter-spacing="1.2">ENGINEERING CADENCE</text>
+    <text class="num-val" x="20" y="86" font-size="44" fill="url(#amberGrad)">340<tspan font-size="28">D+</tspan></text>
+    
+    <!-- Sparkline visual -->
+    <path class="spark-line" d="M20 116 Q60 102, 110 114 T190 98 T248 100" fill="none" stroke="#FFB300" stroke-width="2" opacity="0.7" />
+    
+    <text class="mono-txt" x="20" y="142" font-size="10" fill="#F1EEE7" font-weight="600">ACTIVE DISPATCH FLOW</text>
+    <text class="sans-txt" x="20" y="156" font-size="10" fill="#6B7A90">Top 5% GitHub engineering velocity</text>
+  </g>
+</svg>

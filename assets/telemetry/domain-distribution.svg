@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="domainBar1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF5722" />
+      <stop offset="100%" stop-color="#FF8A65" />
+    </linearGradient>
+    <linearGradient id="domainBar2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="100%" stop-color="#80D8FF" />
+    </linearGradient>
+    <linearGradient id="domainBar3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E676" />
+      <stop offset="100%" stop-color="#69F0AE" />
+    </linearGradient>
+    <linearGradient id="domainBar4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFB300" />
+      <stop offset="100%" stop-color="#FFE082" />
+    </linearGradient>
+
+    <style>
+      .mono { font-family: 'SF Mono', 'Fira Code', monospace; }
+      .sans { font-family: 'Segoe UI', -apple-system, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Background Container -->
+  <rect width="1200" height="260" rx="14" fill="#080C12" stroke="#1B2535" stroke-width="1.5" />
+
+  <!-- Section Header -->
+  <g class="mono" font-size="11" fill="#7E8B9B">
+    <text x="32" y="32" font-weight="700" fill="#FF5722" letter-spacing="1.5">● DOMAIN TELEMETRY</text>
+    <text x="190" y="32" letter-spacing="1">SYSTEMS RESPONSIBILITY &amp; LANGUAGE DISTRIBUTION</text>
+    <text x="1168" y="32" text-anchor="end" letter-spacing="1">ALLOCATION WEIGHTED BY PRODUCTION IMPACT</text>
+  </g>
+  <line x1="32" y1="46" x2="1168" y2="46" stroke="#1B2535" stroke-width="1" />
+
+  <!-- Left Column: Engineering Domain Allocation -->
+  <g transform="translate(32, 60)">
+    <text class="mono" x="0" y="16" font-size="12" fill="#F1EEE7" font-weight="700" letter-spacing="1">SYSTEMS RESPONSIBILITY DISTRIBUTION</text>
+
+    <!-- Master Stacked Bar -->
+    <g transform="translate(0, 30)">
+      <rect x="0" y="0" width="540" height="18" rx="9" fill="#131B26" />
+      <!-- Segment 1: Product Surface (38%) = 205px -->
+      <rect x="0" y="0" width="205" height="18" rx="9" fill="url(#domainBar1)" />
+      <!-- Segment 2: Backend & Systems (34%) = 184px -->
+      <rect x="208" y="0" width="184" height="18" fill="url(#domainBar2)" />
+      <!-- Segment 3: Cloud & DevOps (16%) = 86px -->
+      <rect x="395" y="0" width="86" height="18" fill="url(#domainBar3)" />
+      <!-- Segment 4: Data & AI (12%) = 56px -->
+      <rect x="484" y="0" width="56" height="18" rx="9" fill="url(#domainBar4)" />
+    </g>
+
+    <!-- Detailed Domain Breakdown Items -->
+    <g transform="translate(0, 68)" class="mono" font-size="11">
+      <!-- Domain 1 -->
+      <g transform="translate(0, 0)">
+        <circle cx="6" cy="8" r="5" fill="#FF5722" />
+        <text x="20" y="12" fill="#F1EEE7" font-weight="700">38%</text>
+        <text class="sans" x="55" y="12" fill="#A0AEC0">Product Surface (Flutter, React 19, TS, Vite)</text>
+      </g>
+      <!-- Domain 2 -->
+      <g transform="translate(0, 24)">
+        <circle cx="6" cy="8" r="5" fill="#00E5FF" />
+        <text x="20" y="12" fill="#F1EEE7" font-weight="700">34%</text>
+        <text class="sans" x="55" y="12" fill="#A0AEC0">Distributed Backend &amp; APIs (Node, Java, Sockets)</text>
+      </g>
+      <!-- Domain 3 -->
+      <g transform="translate(0, 48)">
+        <circle cx="6" cy="8" r="5" fill="#00E676" />
+        <text x="20" y="12" fill="#F1EEE7" font-weight="700">16%</text>
+        <text class="sans" x="55" y="12" fill="#A0AEC0">Cloud Infra &amp; Delivery (AWS, Docker, CI/CD)</text>
+      </g>
+      <!-- Domain 4 -->
+      <g transform="translate(0, 72)">
+        <circle cx="6" cy="8" r="5" fill="#FFB300" />
+        <text x="20" y="12" fill="#F1EEE7" font-weight="700">12%</text>
+        <text class="sans" x="55" y="12" fill="#A0AEC0">Data &amp; Inference (PostgreSQL, Redis, Applied AI)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Center Divider Line -->
+  <line x1="600" y1="60" x2="600" y2="235" stroke="#1B2535" stroke-width="1" stroke-dasharray="3 3" />
+
+  <!-- Right Column: Language & Runtime Allocation -->
+  <g transform="translate(632, 60)">
+    <text class="mono" x="0" y="16" font-size="12" fill="#F1EEE7" font-weight="700" letter-spacing="1">PRIMARY RUNTIME &amp; LANGUAGE SPECTRUM</text>
+
+    <!-- Language 1: TypeScript & JS -->
+    <g transform="translate(0, 36)">
+      <text class="mono" x="0" y="10" font-size="11" fill="#F1EEE7" font-weight="600">TypeScript / JavaScript</text>
+      <text class="mono" x="536" y="10" font-size="11" fill="#00E5FF" text-anchor="end" font-weight="700">36.5%</text>
+      <rect x="0" y="16" width="536" height="8" rx="4" fill="#131B26" />
+      <rect x="0" y="16" width="195" height="8" rx="4" fill="#00E5FF" />
+    </g>
+
+    <!-- Language 2: Dart (Flutter Engine) -->
+    <g transform="translate(0, 68)">
+      <text class="mono" x="0" y="10" font-size="11" fill="#F1EEE7" font-weight="600">Dart (Flutter Framework)</text>
+      <text class="mono" x="536" y="10" font-size="11" fill="#FF5722" text-anchor="end" font-weight="700">28.0%</text>
+      <rect x="0" y="16" width="536" height="8" rx="4" fill="#131B26" />
+      <rect x="0" y="16" width="150" height="8" rx="4" fill="#FF5722" />
+    </g>
+
+    <!-- Language 3: Java & C / C++ / Python -->
+    <g transform="translate(0, 100)">
+      <text class="mono" x="0" y="10" font-size="11" fill="#F1EEE7" font-weight="600">Java / C++ / Python</text>
+      <text class="mono" x="536" y="10" font-size="11" fill="#00E676" text-anchor="end" font-weight="700">21.5%</text>
+      <rect x="0" y="16" width="536" height="8" rx="4" fill="#131B26" />
+      <rect x="0" y="16" width="115" height="8" rx="4" fill="#00E676" />
+    </g>
+
+    <!-- Language 4: SQL & Shell / Lua -->
+    <g transform="translate(0, 132)">
+      <text class="mono" x="0" y="10" font-size="11" fill="#F1EEE7" font-weight="600">SQL / Prisma / Shell / Lua</text>
+      <text class="mono" x="536" y="10" font-size="11" fill="#FFB300" text-anchor="end" font-weight="700">14.0%</text>
+      <rect x="0" y="16" width="536" height="8" rx="4" fill="#131B26" />
+      <rect x="0" y="16" width="75" height="8" rx="4" fill="#FFB300" />
+    </g>
+  </g>
+</svg>
