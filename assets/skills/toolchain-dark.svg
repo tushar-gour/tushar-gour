@@ -1,587 +1,620 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="100%" height="100%">
   <defs>
-    <!-- Background Radial Vignette -->
-    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="#0E131A" />
-      <stop offset="100%" stop-color="#080B0F" />
+    <radialGradient id="bgVignette" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#0F1923"/>
+      <stop offset="100%" stop-color="#080C11"/>
     </radialGradient>
 
-    <!-- Laser Bullet Gradient Fade Tail -->
-    <linearGradient id="laserTailDark" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#FF6B35" stop-opacity="0" />
-      <stop offset="30%" stop-color="#FF6B35" stop-opacity="0.25" />
-      <stop offset="70%" stop-color="#FF8C42" stop-opacity="0.8" />
-      <stop offset="92%" stop-color="#FFA875" stop-opacity="0.95" />
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1" />
+    <!-- Laser bullet gradient tail -->
+    <linearGradient id="laserTail" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6B35" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#FF6B35" stop-opacity="0.15"/>
+      <stop offset="60%" stop-color="#FF7F50" stop-opacity="0.7"/>
+      <stop offset="85%" stop-color="#FFAA80" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
     </linearGradient>
 
-    <!-- Laser Diffuse Aura Filter -->
-    <filter id="laserGlow" x="-60%" y="-150%" width="220%" height="400%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur1" />
-      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur2" />
-      <feMerge>
-        <feMergeNode in="blur2" />
-        <feMergeNode in="blur1" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
+    <!-- Orange orbital flare radial -->
+    <radialGradient id="flareGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6B35" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#FF6B35" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#FF6B35" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Laser head glow filter -->
+    <filter id="laserGlow" x="-200%" y="-400%" width="500%" height="900%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b2"/>
+      <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
-    <!-- Primary Node Terracotta Border Glow -->
-    <filter id="primaryNodeGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="2.5" result="blur" />
-      <feFlood flood-color="#FF6B35" flood-opacity="0.35" result="color" />
-      <feComposite in="color" in2="blur" operator="in" result="glow" />
-      <feMerge>
-        <feMergeNode in="glow" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
+    <!-- Primary card terracotta glow -->
+    <filter id="cardGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#FF6B35" flood-opacity="0.45" result="c"/>
+      <feComposite in="c" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
     <style>
-      .mono-hdr {
-        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-        font-weight: 700;
-        letter-spacing: 1.5px;
+      .mono { font-family: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 700; }
+
+      @keyframes bullet1 {
+        0%   { transform: translateX(-80px); opacity:0; }
+        3%   { opacity:1; }
+        45%  { transform: translateX(980px); opacity:1; }
+        49%  { opacity:0; }
+        100% { transform: translateX(980px); opacity:0; }
       }
-      .lane-num {
-        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-        font-weight: 800;
-        letter-spacing: 1px;
+      @keyframes bullet2 {
+        0%   { transform: translateX(-80px); opacity:0; }
+        3%   { opacity:1; }
+        45%  { transform: translateX(980px); opacity:1; }
+        49%  { opacity:0; }
+        100% { transform: translateX(980px); opacity:0; }
       }
-      .lane-name {
-        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-        font-weight: 800;
-        letter-spacing: 1.5px;
+      @keyframes bullet3 {
+        0%   { transform: translateX(-80px); opacity:0; }
+        3%   { opacity:1; }
+        45%  { transform: translateX(980px); opacity:1; }
+        49%  { opacity:0; }
+        100% { transform: translateX(980px); opacity:0; }
       }
-      .node-txt {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-        font-weight: 700;
-        letter-spacing: -0.2px;
+      @keyframes bullet4 {
+        0%   { transform: translateX(-80px); opacity:0; }
+        3%   { opacity:1; }
+        45%  { transform: translateX(980px); opacity:1; }
+        49%  { opacity:0; }
+        100% { transform: translateX(980px); opacity:0; }
+      }
+      @keyframes bullet5 {
+        0%   { transform: translateX(-80px); opacity:0; }
+        3%   { opacity:1; }
+        45%  { transform: translateX(980px); opacity:1; }
+        49%  { opacity:0; }
+        100% { transform: translateX(980px); opacity:0; }
       }
 
-      /* Animated Pulsing Laser Bullets */
-      @keyframes laserPath1 {
-        0% { transform: translateX(200px); opacity: 0; }
-        2% { opacity: 1; }
-        40% { transform: translateX(1120px); opacity: 1; }
-        44% { opacity: 0; }
-        100% { transform: translateX(1120px); opacity: 0; }
-      }
-      @keyframes laserPath2 {
-        0% { transform: translateX(200px); opacity: 0; }
-        3% { opacity: 1; }
-        42% { transform: translateX(1120px); opacity: 1; }
-        46% { opacity: 0; }
-        100% { transform: translateX(1120px); opacity: 0; }
-      }
-      @keyframes laserPath3 {
-        0% { transform: translateX(200px); opacity: 0; }
-        2% { opacity: 1; }
-        38% { transform: translateX(1120px); opacity: 1; }
-        42% { opacity: 0; }
-        100% { transform: translateX(1120px); opacity: 0; }
-      }
-      @keyframes laserPath4 {
-        0% { transform: translateX(200px); opacity: 0; }
-        3% { opacity: 1; }
-        44% { transform: translateX(1120px); opacity: 1; }
-        48% { opacity: 0; }
-        100% { transform: translateX(1120px); opacity: 0; }
-      }
-      @keyframes laserPath5 {
-        0% { transform: translateX(200px); opacity: 0; }
-        2% { opacity: 1; }
-        41% { transform: translateX(1120px); opacity: 1; }
-        45% { opacity: 0; }
-        100% { transform: translateX(1120px); opacity: 0; }
-      }
+      .b1 { animation: bullet1 10s cubic-bezier(.2,0,.2,1) infinite; }
+      .b2 { animation: bullet2 13s cubic-bezier(.2,0,.2,1) infinite; animation-delay: 2.5s; }
+      .b3 { animation: bullet3 11s cubic-bezier(.2,0,.2,1) infinite; animation-delay: 5s; }
+      .b4 { animation: bullet4 14s cubic-bezier(.2,0,.2,1) infinite; animation-delay: 1.2s; }
+      .b5 { animation: bullet5 12s cubic-bezier(.2,0,.2,1) infinite; animation-delay: 3.8s; }
 
-      .bullet-1 { animation: laserPath1 9.4s cubic-bezier(0.2, 0, 0.2, 1) infinite; }
-      .bullet-2 { animation: laserPath2 12.1s cubic-bezier(0.2, 0, 0.2, 1) infinite; animation-delay: 2.2s; }
-      .bullet-3 { animation: laserPath3 10.5s cubic-bezier(0.2, 0, 0.2, 1) infinite; animation-delay: 4.6s; }
-      .bullet-4 { animation: laserPath4 13.8s cubic-bezier(0.2, 0, 0.2, 1) infinite; animation-delay: 1.2s; }
-      .bullet-5 { animation: laserPath5 11.2s cubic-bezier(0.2, 0, 0.2, 1) infinite; animation-delay: 5.4s; }
-
-      /* Subtle breathing border animation on primary nodes */
-      @keyframes borderBreathe {
-        0%, 100% { stroke-opacity: 0.85; stroke-width: 2px; }
-        50% { stroke-opacity: 1; stroke-width: 2.4px; }
+      @keyframes cardPulse {
+        0%,100% { stroke-opacity:0.9; }
+        50% { stroke-opacity:1; }
       }
-      .pri-box {
-        animation: borderBreathe 4s ease-in-out infinite;
-      }
+      .pri { animation: cardPulse 3.5s ease-in-out infinite; }
     </style>
   </defs>
 
-  <!-- Outer Frame & Deep Space Canvas -->
-  <rect width="1200" height="760" rx="16" fill="url(#bgGrad)" stroke="#1A222C" stroke-width="1.2" />
+  <!-- Background -->
+  <rect width="1200" height="660" rx="14" fill="url(#bgVignette)"/>
 
-  <!-- Subtle Celestial Stars -->
-  <g fill="#FFFFFF" opacity="0.12">
-    <circle cx="95" cy="110" r="1" /><circle cx="215" cy="85" r="1.2" />
-    <circle cx="380" cy="65" r="0.8" /><circle cx="730" cy="90" r="1.2" />
-    <circle cx="1060" cy="80" r="1" /><circle cx="1140" cy="220" r="0.8" />
-    <circle cx="140" cy="360" r="1" /><circle cx="680" cy="330" r="0.8" />
-    <circle cx="980" cy="340" r="1.2" /><circle cx="1090" cy="460" r="1" />
-    <circle cx="160" cy="590" r="1" /><circle cx="490" cy="610" r="0.8" />
-    <circle cx="820" cy="690" r="1" /><circle cx="1120" cy="630" r="1.2" />
+  <!-- Subtle star field -->
+  <g fill="#FFFFFF" opacity="0.35">
+    <circle cx="82" cy="44" r="0.8"/><circle cx="220" cy="28" r="1"/><circle cx="410" cy="52" r="0.7"/>
+    <circle cx="660" cy="30" r="0.9"/><circle cx="870" cy="45" r="0.7"/><circle cx="1080" cy="25" r="1"/>
+    <circle cx="135" cy="620" r="0.8"/><circle cx="490" cy="635" r="0.7"/><circle cx="940" cy="625" r="1"/>
+    <circle cx="1140" cy="610" r="0.8"/><circle cx="40" cy="330" r="0.7"/><circle cx="1165" cy="340" r="0.9"/>
   </g>
 
-  <!-- Large Left Orbital Trajectory Arc & Stellar Flare -->
-  <path d="M 310 730 C 50 560 50 200 310 30" fill="none" stroke="#FF6B35" stroke-width="1.2" opacity="0.15" />
-  <!-- Left Stellar Flare on Arc (Y=396) -->
-  <g transform="translate(142, 396)">
-    <circle cx="0" cy="0" r="3" fill="#FFFFFF" />
-    <circle cx="0" cy="0" r="6" fill="#FF6B35" opacity="0.4" filter="url(#laserGlow)" />
-    <line x1="-16" y1="0" x2="16" y2="0" stroke="#FF6B35" stroke-width="1.5" opacity="0.7" />
+  <!-- Left orbital arc trajectory -->
+  <path d="M 170 620 C -40 480 -40 180 170 40" fill="none" stroke="#FF6B35" stroke-width="1.4" opacity="0.2"/>
+  <!-- Lane 03 stellar flare node on arc -->
+  <g transform="translate(90, 393)">
+    <circle cx="0" cy="0" r="5" fill="url(#flareGrad)" opacity="0.9"/>
+    <circle cx="0" cy="0" r="3" fill="#FF6B35"/>
+    <line x1="-14" y1="0" x2="14" y2="0" stroke="#FF6B35" stroke-width="1.2" opacity="0.6"/>
+    <line x1="0" y1="-14" x2="0" y2="14" stroke="#FF6B35" stroke-width="1.2" opacity="0.6"/>
   </g>
 
-  <!-- Header Section -->
-  <g transform="translate(48, 46)">
-    <text class="mono-hdr" x="0" y="0" font-size="17" fill="#FF6B35">ENGINEERING STACK</text>
-    <text class="mono-hdr" x="225" y="0" font-size="15" fill="#6E7A8A">/ TOOLS ACROSS THE SOFTWARE DELIVERY PATH</text>
-    
-    <g transform="translate(1090, 0)">
-      <text class="mono-hdr" x="-18" y="0" font-size="13" fill="#5F6B7A" text-anchor="end">SIGNAL TRANSMISSION</text>
-      <circle cx="0" cy="-4" r="3" fill="#FF6B35" />
-      <circle cx="0" cy="-4" r="6" fill="#FF6B35" opacity="0.4" />
-    </g>
+  <!-- ─── HEADER ─── -->
+  <g transform="translate(42, 42)">
+    <text class="mono" font-size="16" font-weight="800" fill="#FF6B35" letter-spacing="1.5">ENGINEERING STACK</text>
+    <text class="mono" x="220" font-size="13" font-weight="600" fill="#586068" letter-spacing="1.5">/ TOOLS ACROSS THE SOFTWARE DELIVERY PATH</text>
+    <!-- Signal Transmission right -->
+    <text class="mono" x="1072" font-size="12" font-weight="600" fill="#586068" letter-spacing="1.5" text-anchor="end">SIGNAL TRANSMISSION</text>
+    <circle cx="1080" cy="-4" r="4.5" fill="#FF6B35" opacity="0.9"/>
+    <circle cx="1080" cy="-4" r="8" fill="#FF6B35" opacity="0.25"/>
   </g>
+  <line x1="42" y1="58" x2="1158" y2="58" stroke="#1E2830" stroke-width="1.2"/>
 
-  <!-- Header Underline -->
-  <line x1="48" y1="64" x2="1152" y2="64" stroke="#18202A" stroke-width="1" />
-
-  <!-- ============================================================= -->
-  <!-- LANE 01: PRODUCT (Y=140)                                      -->
-  <!-- ============================================================= -->
+  <!-- ════════════════════════════════════════
+       LANE 01 — PRODUCT  (centred at Y=140)
+       ════════════════════════════════════════ -->
   <g transform="translate(0, 140)">
-    <!-- Main Transmission Path Line -->
-    <line x1="200" y1="0" x2="1100" y2="0" stroke="#222B36" stroke-width="2" />
-    <line x1="1100" y1="0" x2="1136" y2="0" stroke="#222B36" stroke-width="2" stroke-dasharray="3 4" />
-    <!-- Terminal Target Ring -->
-    <circle cx="1144" cy="0" r="5" fill="none" stroke="#334050" stroke-width="1.5" />
-    <circle cx="1144" cy="0" r="2" fill="#334050" />
+    <!-- Track line -->
+    <line x1="175" y1="0" x2="1100" y2="0" stroke="#1E2830" stroke-width="2.5"/>
+    <!-- Dotted extension + terminal ring -->
+    <line x1="1100" y1="0" x2="1140" y2="0" stroke="#1E2830" stroke-width="2" stroke-dasharray="3,4"/>
+    <circle cx="1150" cy="0" r="5.5" fill="none" stroke="#374448" stroke-width="2"/>
+    <circle cx="1150" cy="0" r="2" fill="#374448"/>
 
-    <!-- Laser Bullet with Glowing Gradient Fade Tail -->
-    <g class="bullet-1">
-      <line x1="-70" y1="0" x2="0" y2="0" stroke="url(#laserTailDark)" stroke-width="4" stroke-linecap="round" />
-      <circle cx="0" cy="0" r="3.8" fill="#FFFFFF" filter="url(#laserGlow)" />
-      <circle cx="0" cy="0" r="2" fill="#FFFFFF" />
+    <!-- Laser bullet -->
+    <g class="b1">
+      <line x1="-75" y1="0" x2="0" y2="0" stroke="url(#laserTail)" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" filter="url(#laserGlow)"/>
+      <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
     </g>
 
-    <!-- Lane Header & Micro-ticks -->
-    <g transform="translate(48, 0)">
-      <text class="lane-num" x="0" y="-12" font-size="20" fill="#FF6B35">01</text>
-      <text class="lane-name" x="0" y="10" font-size="15" fill="#EAE8E2">PRODUCT</text>
-      <!-- 5 Micro Ticks -->
-      <g transform="translate(0, 22)" fill="#2C3746">
-        <rect x="0" y="0" width="3" height="3" rx="0.5" />
-        <rect x="6" y="0" width="3" height="3" rx="0.5" />
-        <rect x="12" y="0" width="3" height="3" rx="0.5" />
-        <rect x="18" y="0" width="3" height="3" rx="0.5" />
-        <rect x="24" y="0" width="3" height="3" rx="0.5" />
+    <!-- Lane label -->
+    <g transform="translate(42, 0)">
+      <text class="mono" x="0" y="-16" font-size="22" font-weight="900" fill="#FF6B35" letter-spacing="0.5">01</text>
+      <text class="mono" x="0" y="8" font-size="13" font-weight="700" fill="#C8D0D8" letter-spacing="1.5">PRODUCT</text>
+      <g transform="translate(0, 20)" fill="#374448">
+        <rect x="0" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="7" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="14" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="21" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="28" y="0" width="3.5" height="3.5" rx="0.5"/>
       </g>
     </g>
 
-    <!-- Node 1: Flutter (Primary - 74px, Terracotta Border) -->
-    <g transform="translate(260, 0)">
-      <rect class="pri-box" x="-37" y="-37" width="74" height="74" rx="16" fill="#10151D" stroke="#FF6B35" stroke-width="2" filter="url(#primaryNodeGlow)" />
-      <path d="M -14 -16 L 8 6 L -14 28 L -22 20 L -3 6 L -22 -8 Z" fill="#47C5FB" />
-      <path d="M -3 6 L 8 17 L 1 24 L -10 13 Z" fill="#02569B" />
-      <text class="node-txt" x="0" y="56" font-size="18" fill="#FFFFFF" text-anchor="middle">Flutter</text>
+    <!-- Flutter (PRIMARY – orange border, big) -->
+    <g transform="translate(230, 0)">
+      <rect class="pri" x="-40" y="-40" width="80" height="80" rx="18" fill="#141C26" stroke="#FF6B35" stroke-width="2.5" filter="url(#cardGlow)"/>
+      <!-- Flutter F chevron logo -->
+      <g transform="translate(-16,-20)">
+        <polygon points="0,0 8,0 32,24 24,32" fill="#47C5FB"/>
+        <polygon points="8,32 16,24 32,40 24,48" fill="#47C5FB"/>
+        <polygon points="16,24 32,40 24,48 8,32" fill="#0E3C6E" opacity="0.7"/>
+        <polygon points="8,0 32,24 24,32 0,8" fill="#54D2F9" opacity="0.5"/>
+      </g>
+      <text class="label" x="0" y="60" font-size="17" fill="#C8D0D8" text-anchor="middle">Flutter</text>
     </g>
 
-    <!-- Node 2: Dart (Secondary - 60px) -->
-    <g transform="translate(400, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <path d="M -12 -12 L 6 -12 L 14 0 L -4 14 L -12 14 Z" fill="#0175C2" />
-      <path d="M -4 14 L 14 0 L 14 6 L 4 14 Z" fill="#02569B" opacity="0.6" />
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">Dart</text>
+    <!-- Dart (secondary) -->
+    <g transform="translate(368, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Dart logo: angular dart shape -->
+      <g transform="translate(-14,-18)">
+        <polygon points="2,0 18,0 28,10 28,28 14,36 2,36 2,24 10,24 10,12 2,12" fill="#0175C2"/>
+        <polygon points="10,0 18,0 28,10 18,10" fill="#13B9FD"/>
+        <polygon points="2,24 10,24 10,36 2,36" fill="#13B9FD" opacity="0.7"/>
+      </g>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Dart</text>
     </g>
 
-    <!-- Node 3: React (Primary - 74px, Terracotta Border) -->
-    <g transform="translate(540, 0)">
-      <rect class="pri-box" x="-37" y="-37" width="74" height="74" rx="16" fill="#10151D" stroke="#FF6B35" stroke-width="2" filter="url(#primaryNodeGlow)" />
-      <ellipse cx="0" cy="0" rx="16" ry="7" fill="none" stroke="#61DAFB" stroke-width="1.8" />
-      <ellipse cx="0" cy="0" rx="16" ry="7" transform="rotate(60)" fill="none" stroke="#61DAFB" stroke-width="1.8" />
-      <ellipse cx="0" cy="0" rx="16" ry="7" transform="rotate(120)" fill="none" stroke="#61DAFB" stroke-width="1.8" />
-      <circle cx="0" cy="0" r="3.5" fill="#61DAFB" />
-      <text class="node-txt" x="0" y="56" font-size="18" fill="#FFFFFF" text-anchor="middle">React</text>
+    <!-- React (PRIMARY) -->
+    <g transform="translate(506, 0)">
+      <rect class="pri" x="-40" y="-40" width="80" height="80" rx="18" fill="#141C26" stroke="#FF6B35" stroke-width="2.5" filter="url(#cardGlow)"/>
+      <!-- React atom -->
+      <ellipse cx="0" cy="0" rx="22" ry="9" fill="none" stroke="#61DAFB" stroke-width="2.2"/>
+      <ellipse cx="0" cy="0" rx="22" ry="9" transform="rotate(60)" fill="none" stroke="#61DAFB" stroke-width="2.2"/>
+      <ellipse cx="0" cy="0" rx="22" ry="9" transform="rotate(120)" fill="none" stroke="#61DAFB" stroke-width="2.2"/>
+      <circle cx="0" cy="0" r="4" fill="#61DAFB"/>
+      <text class="label" x="0" y="60" font-size="17" fill="#C8D0D8" text-anchor="middle">React</text>
     </g>
 
-    <!-- Node 4: TypeScript (Primary - 74px, Terracotta Border) -->
-    <g transform="translate(680, 0)">
-      <rect class="pri-box" x="-37" y="-37" width="74" height="74" rx="16" fill="#10151D" stroke="#FF6B35" stroke-width="2" filter="url(#primaryNodeGlow)" />
-      <rect x="-24" y="-24" width="48" height="48" rx="6" fill="#3178C6" />
-      <text class="mono-hdr" x="0" y="10" font-size="24" fill="#FFFFFF" text-anchor="middle">TS</text>
-      <text class="node-txt" x="0" y="56" font-size="18" fill="#FFFFFF" text-anchor="middle">TypeScript</text>
+    <!-- TypeScript (PRIMARY) -->
+    <g transform="translate(644, 0)">
+      <rect class="pri" x="-40" y="-40" width="80" height="80" rx="18" fill="#141C26" stroke="#FF6B35" stroke-width="2.5" filter="url(#cardGlow)"/>
+      <!-- TS badge -->
+      <rect x="-28" y="-28" width="56" height="56" rx="8" fill="#3178C6"/>
+      <text class="mono" x="0" y="14" font-size="28" font-weight="900" fill="#FFFFFF" text-anchor="middle">TS</text>
+      <text class="label" x="0" y="60" font-size="17" fill="#C8D0D8" text-anchor="middle">TypeScript</text>
     </g>
 
-    <!-- Node 5: Tailwind (Secondary - 60px) -->
-    <g transform="translate(820, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <path d="M -13 -5 C -11 -12 -2 -11 0 -5 C 3 1 11 1 11 7 C 7 13 -3 12 -5 6 C -6 2 -13 2 -13 -5 Z" fill="#38BDF8" />
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">Tailwind</text>
+    <!-- Tailwind (secondary) -->
+    <g transform="translate(782, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Tailwind wave mark -->
+      <path d="M -20,-8 C -20,-18 -6,-22 0,-12 C 6,-2 14,-6 20,-16 M -20,4 C -20,-6 -6,-10 0,0 C 6,10 14,6 20,-4" stroke="#38BDF8" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Tailwind</text>
     </g>
 
-    <!-- Node 6: Vite (Secondary - 60px) -->
-    <g transform="translate(950, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <path d="M -13 -14 L 0 14 L 13 -14 L 5 -14 L 0 -3 L -5 -14 Z" fill="url(#viteGrad)" />
-      <linearGradient id="viteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#41D1FF" />
-        <stop offset="50%" stop-color="#BD34FE" />
-        <stop offset="100%" stop-color="#FFEA83" />
-      </linearGradient>
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">Vite</text>
+    <!-- Vite (secondary) -->
+    <g transform="translate(910, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Vite lightning V -->
+      <path d="M 0,-26 L 14,2 L 4,2 L 0,26 L -14,-2 L -4,-2 Z" fill="none"/>
+      <polygon points="0,-26 14,2 4,2 0,10" fill="#BD34FE"/>
+      <polygon points="0,10 -4,-2 -14,-2 0,-26" fill="#BD34FE" opacity="0.5"/>
+      <polygon points="0,10 4,2 14,2 22,18 0,26 -22,18 -14,-2 -4,-2" fill="#FFC920"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Vite</text>
     </g>
   </g>
 
-  <!-- ============================================================= -->
-  <!-- LANE 02: SERVICES (Y=268)                                     -->
-  <!-- ============================================================= -->
+  <!-- ════════════════════════════════════════
+       LANE 02 — SERVICES  (Y=268)
+       ════════════════════════════════════════ -->
   <g transform="translate(0, 268)">
-    <line x1="200" y1="0" x2="1100" y2="0" stroke="#222B36" stroke-width="2" />
-    <line x1="1100" y1="0" x2="1136" y2="0" stroke="#222B36" stroke-width="2" stroke-dasharray="3 4" />
-    <circle cx="1144" cy="0" r="5" fill="none" stroke="#334050" stroke-width="1.5" />
-    <circle cx="1144" cy="0" r="2" fill="#334050" />
+    <line x1="175" y1="0" x2="1100" y2="0" stroke="#1E2830" stroke-width="2.5"/>
+    <line x1="1100" y1="0" x2="1140" y2="0" stroke="#1E2830" stroke-width="2" stroke-dasharray="3,4"/>
+    <circle cx="1150" cy="0" r="5.5" fill="none" stroke="#374448" stroke-width="2"/>
+    <circle cx="1150" cy="0" r="2" fill="#374448"/>
 
-    <!-- Laser Bullet with Glowing Tail -->
-    <g class="bullet-2">
-      <line x1="-70" y1="0" x2="0" y2="0" stroke="url(#laserTailDark)" stroke-width="4" stroke-linecap="round" />
-      <circle cx="0" cy="0" r="3.8" fill="#FFFFFF" filter="url(#laserGlow)" />
-      <circle cx="0" cy="0" r="2" fill="#FFFFFF" />
+    <g class="b2">
+      <line x1="-75" y1="0" x2="0" y2="0" stroke="url(#laserTail)" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" filter="url(#laserGlow)"/>
+      <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
     </g>
 
-    <!-- Lane Header & Micro-ticks -->
-    <g transform="translate(48, 0)">
-      <text class="lane-num" x="0" y="-12" font-size="20" fill="#FF6B35">02</text>
-      <text class="lane-name" x="0" y="10" font-size="15" fill="#EAE8E2">SERVICES</text>
-      <g transform="translate(0, 22)" fill="#2C3746">
-        <rect x="0" y="0" width="3" height="3" rx="0.5" />
-        <rect x="6" y="0" width="3" height="3" rx="0.5" />
-        <rect x="12" y="0" width="3" height="3" rx="0.5" />
-        <rect x="18" y="0" width="3" height="3" rx="0.5" />
-        <rect x="24" y="0" width="3" height="3" rx="0.5" />
+    <g transform="translate(42, 0)">
+      <text class="mono" x="0" y="-16" font-size="22" font-weight="900" fill="#FF6B35" letter-spacing="0.5">02</text>
+      <text class="mono" x="0" y="8" font-size="13" font-weight="700" fill="#C8D0D8" letter-spacing="1.5">SERVICES</text>
+      <g transform="translate(0, 20)" fill="#374448">
+        <rect x="0" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="7" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="14" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="21" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="28" y="0" width="3.5" height="3.5" rx="0.5"/>
       </g>
     </g>
 
-    <!-- Node 1: Node.js (Primary - 74px, Terracotta Border) -->
-    <g transform="translate(260, 0)">
-      <rect class="pri-box" x="-37" y="-37" width="74" height="74" rx="16" fill="#10151D" stroke="#FF6B35" stroke-width="2" filter="url(#primaryNodeGlow)" />
-      <path d="M 0 -17 L 16 -8 L 16 8 L 0 17 L -16 8 L -16 -8 Z" fill="none" stroke="#5FA04E" stroke-width="2.6" />
-      <text class="node-txt" x="0" y="5" font-size="12" fill="#5FA04E" text-anchor="middle">JS</text>
-      <text class="node-txt" x="0" y="56" font-size="18" fill="#FFFFFF" text-anchor="middle">Node.js</text>
+    <!-- Node.js (PRIMARY) -->
+    <g transform="translate(230, 0)">
+      <rect class="pri" x="-40" y="-40" width="80" height="80" rx="18" fill="#141C26" stroke="#FF6B35" stroke-width="2.5" filter="url(#cardGlow)"/>
+      <!-- Nodejs hexagon logo -->
+      <polygon points="0,-28 24,-14 24,14 0,28 -24,14 -24,-14" fill="none" stroke="#43853D" stroke-width="3"/>
+      <text class="mono" x="0" y="8" font-size="18" font-weight="900" fill="#43853D" text-anchor="middle">JS</text>
+      <text class="label" x="0" y="60" font-size="17" fill="#C8D0D8" text-anchor="middle">Node.js</text>
     </g>
 
-    <!-- Node 2: Express (Secondary - 60px) -->
-    <g transform="translate(410, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <text class="mono-hdr" x="0" y="8" font-size="22" fill="#EAE8E2" text-anchor="middle">ex</text>
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">Express</text>
+    <!-- Express (secondary) -->
+    <g transform="translate(368, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <text class="mono" x="0" y="10" font-size="30" font-weight="700" fill="#C8D0D8" text-anchor="middle">ex</text>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Express</text>
     </g>
 
-    <!-- Node 3: Socket.IO (Secondary - 60px) -->
-    <g transform="translate(550, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <circle cx="0" cy="0" r="18" fill="none" stroke="#EAE8E2" stroke-width="1.5" />
-      <path d="M -2 -10 L 3 -1 L -1 -1 L 2 10 L -3 1 L 1 1 Z" fill="#EAE8E2" />
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">Socket.IO</text>
+    <!-- Socket.IO (secondary) -->
+    <g transform="translate(506, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Socket.IO: circle with lightning bolt -->
+      <circle cx="0" cy="0" r="22" fill="none" stroke="#FFFFFF" stroke-width="2.2"/>
+      <polygon points="6,-16 -2,-2 4,-2 -6,16 2,2 -4,2" fill="#FFFFFF"/>
+      <text class="label" x="0" y="55" font-size="15" fill="#C8D0D8" text-anchor="middle">Socket.IO</text>
     </g>
 
-    <!-- Node 4: Java (Primary - 74px, Terracotta Border) -->
-    <g transform="translate(690, 0)">
-      <rect class="pri-box" x="-37" y="-37" width="74" height="74" rx="16" fill="#10151D" stroke="#FF6B35" stroke-width="2" filter="url(#primaryNodeGlow)" />
-      <path d="M -6 11 C -3 12 5 12 8 11 C 9 7 5 5 0 3 C -6 1 -8 -4 -5 -6 C -1 -10 5 -10 9 -6" fill="none" stroke="#5382A1" stroke-width="2.2" />
-      <path d="M -2 7 C 2 8 6 8 8 7 C 9 4 6 2 2 1" fill="none" stroke="#E76F00" stroke-width="2.2" />
-      <text class="node-txt" x="0" y="56" font-size="18" fill="#FFFFFF" text-anchor="middle">Java</text>
+    <!-- Java (PRIMARY) -->
+    <g transform="translate(644, 0)">
+      <rect class="pri" x="-40" y="-40" width="80" height="80" rx="18" fill="#141C26" stroke="#FF6B35" stroke-width="2.5" filter="url(#cardGlow)"/>
+      <!-- Java coffee cup steaming logo -->
+      <rect x="-16" y="2" width="32" height="22" rx="3" fill="none" stroke="#D97706" stroke-width="2.2"/>
+      <path d="M 16,8 Q 26,8 26,14 Q 26,20 16,20" fill="none" stroke="#D97706" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Steam wisps -->
+      <path d="M -8,-14 Q -5,-22 -8,-28" fill="none" stroke="#5382A1" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 0,-14 Q 3,-22 0,-28" fill="none" stroke="#5382A1" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 8,-14 Q 11,-22 8,-28" fill="none" stroke="#5382A1" stroke-width="2" stroke-linecap="round"/>
+      <text class="label" x="0" y="60" font-size="17" fill="#C8D0D8" text-anchor="middle">Java</text>
     </g>
 
-    <!-- Technical Spacecraft Flying Along Trajectory Line -->
-    <g transform="translate(840, 0)">
-      <!-- Jet exhaust flare -->
-      <polygon points="-12,0 -4,-2 -4,2" fill="#FF6B35" opacity="0.8" />
-      <!-- Spacecraft Hull -->
-      <polygon points="16,0 -8,-9 -4,-3 -10,0 -4,3 -8,9" fill="#5F6E80" stroke="#8A9BB0" stroke-width="1" />
-      <!-- Center Cockpit Node -->
-      <circle cx="2" cy="0" r="2" fill="#00E5FF" />
+    <!-- Spacecraft (decorative on track) -->
+    <g transform="translate(820, 0)">
+      <!-- fuselage -->
+      <polygon points="22,0 -14,-10 -8,-3 -18,0 -8,3 -14,10" fill="#2A3844" stroke="#4A5A66" stroke-width="1"/>
+      <!-- cockpit bubble -->
+      <ellipse cx="6" cy="0" rx="5" ry="3.5" fill="#0E6EA6" opacity="0.9"/>
+      <!-- engine glow -->
+      <polygon points="-14,-10 -22,-5 -18,0 -22,5 -14,10" fill="#FF6B35" opacity="0.6"/>
     </g>
   </g>
 
-  <!-- ============================================================= -->
-  <!-- LANE 03: DATA (Y=396)                                         -->
-  <!-- ============================================================= -->
-  <g transform="translate(0, 396)">
-    <line x1="200" y1="0" x2="1100" y2="0" stroke="#222B36" stroke-width="2" />
-    <line x1="1100" y1="0" x2="1136" y2="0" stroke="#222B36" stroke-width="2" stroke-dasharray="3 4" />
-    <circle cx="1144" cy="0" r="5" fill="none" stroke="#334050" stroke-width="1.5" />
-    <circle cx="1144" cy="0" r="2" fill="#334050" />
+  <!-- ════════════════════════════════════════
+       LANE 03 — DATA  (Y=393)
+       ════════════════════════════════════════ -->
+  <g transform="translate(0, 393)">
+    <line x1="175" y1="0" x2="1100" y2="0" stroke="#1E2830" stroke-width="2.5"/>
+    <line x1="1100" y1="0" x2="1140" y2="0" stroke="#1E2830" stroke-width="2" stroke-dasharray="3,4"/>
+    <circle cx="1150" cy="0" r="5.5" fill="none" stroke="#374448" stroke-width="2"/>
+    <circle cx="1150" cy="0" r="2" fill="#374448"/>
 
-    <!-- Laser Bullet with Glowing Tail -->
-    <g class="bullet-3">
-      <line x1="-70" y1="0" x2="0" y2="0" stroke="url(#laserTailDark)" stroke-width="4" stroke-linecap="round" />
-      <circle cx="0" cy="0" r="3.8" fill="#FFFFFF" filter="url(#laserGlow)" />
-      <circle cx="0" cy="0" r="2" fill="#FFFFFF" />
+    <g class="b3">
+      <line x1="-75" y1="0" x2="0" y2="0" stroke="url(#laserTail)" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" filter="url(#laserGlow)"/>
+      <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
     </g>
 
-    <!-- Lane Header & Micro-ticks -->
-    <g transform="translate(48, 0)">
-      <text class="lane-num" x="0" y="-12" font-size="20" fill="#FF6B35">03</text>
-      <text class="lane-name" x="0" y="10" font-size="15" fill="#EAE8E2">DATA</text>
-      <g transform="translate(0, 22)" fill="#2C3746">
-        <rect x="0" y="0" width="3" height="3" rx="0.5" />
-        <rect x="6" y="0" width="3" height="3" rx="0.5" />
-        <rect x="12" y="0" width="3" height="3" rx="0.5" />
-        <rect x="18" y="0" width="3" height="3" rx="0.5" />
-        <rect x="24" y="0" width="3" height="3" rx="0.5" />
+    <g transform="translate(42, 0)">
+      <text class="mono" x="0" y="-16" font-size="22" font-weight="900" fill="#FF6B35" letter-spacing="0.5">03</text>
+      <text class="mono" x="0" y="8" font-size="13" font-weight="700" fill="#C8D0D8" letter-spacing="1.5">DATA</text>
+      <g transform="translate(0, 20)" fill="#374448">
+        <rect x="0" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="7" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="14" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="21" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="28" y="0" width="3.5" height="3.5" rx="0.5"/>
       </g>
     </g>
 
-    <!-- Node 1: PostgreSQL (Primary - 74px, Terracotta Border) -->
-    <g transform="translate(260, 0)">
-      <rect class="pri-box" x="-37" y="-37" width="74" height="74" rx="16" fill="#10151D" stroke="#FF6B35" stroke-width="2" filter="url(#primaryNodeGlow)" />
-      <path d="M 0 -16 C 9 -16 16 -9 16 0 C 16 9 9 16 0 16 C -9 16 -16 9 -16 0 C -16 -9 -9 -16 0 -16 Z" fill="none" stroke="#336791" stroke-width="2" />
-      <path d="M -7 -4 C -7 -10 7 -10 7 -4 C 7 3 2 7 0 12 C -2 7 -7 3 -7 -4 Z" fill="#336791" />
-      <text class="node-txt" x="0" y="56" font-size="17" fill="#FFFFFF" text-anchor="middle">PostgreSQL</text>
+    <!-- PostgreSQL (PRIMARY) -->
+    <g transform="translate(215, 0)">
+      <rect class="pri" x="-40" y="-40" width="80" height="80" rx="18" fill="#141C26" stroke="#FF6B35" stroke-width="2.5" filter="url(#cardGlow)"/>
+      <!-- PG elephant -->
+      <ellipse cx="-4" cy="-4" rx="20" ry="18" fill="#336791"/>
+      <ellipse cx="-4" cy="-4" rx="13" ry="12" fill="#FFFFFF" opacity="0.1"/>
+      <!-- eye -->
+      <circle cx="-10" cy="-10" r="2.5" fill="#FFFFFF"/>
+      <circle cx="4" cy="-10" r="2.5" fill="#FFFFFF"/>
+      <!-- trunk -->
+      <path d="M -4,14 Q -8,24 -12,20" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- ear -->
+      <ellipse cx="18" cy="-8" rx="5" ry="8" fill="#336791" stroke="#FFFFFF" stroke-width="1.5" opacity="0.8"/>
+      <text class="label" x="0" y="60" font-size="15" fill="#C8D0D8" text-anchor="middle">PostgreSQL</text>
     </g>
 
-    <!-- Node 2: MongoDB (Secondary - 60px) -->
-    <g transform="translate(380, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <path d="M 0 -15 C 7 -7 8 7 0 15 C -8 7 -7 -7 0 -15 Z" fill="#47A248" />
-      <path d="M 0 -15 V 15" stroke="#10151D" stroke-width="1.2" />
-      <text class="node-txt" x="0" y="48" font-size="16" fill="#D2D6DC" text-anchor="middle">MongoDB</text>
+    <!-- MongoDB (secondary) -->
+    <g transform="translate(345, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- MongoDB leaf -->
+      <path d="M 0,-25 C 10,-14 14,0 12,14 Q 6,20 0,22 Q -6,20 -12,14 C -14,0 -10,-14 0,-25 Z" fill="#47A248"/>
+      <line x1="0" y1="-6" x2="0" y2="22" stroke="#B8E4A6" stroke-width="1.5"/>
+      <text class="label" x="0" y="55" font-size="15" fill="#C8D0D8" text-anchor="middle">MongoDB</text>
     </g>
 
-    <!-- Node 3: Redis (Primary - 74px, Terracotta Border) -->
-    <g transform="translate(495, 0)">
-      <rect class="pri-box" x="-37" y="-37" width="74" height="74" rx="16" fill="#10151D" stroke="#FF6B35" stroke-width="2" filter="url(#primaryNodeGlow)" />
-      <path d="M 0 -12 L 14 -6 L 0 0 L -14 -6 Z M -14 0 L 0 6 L 14 0 M -14 6 L 0 12 L 14 6" fill="none" stroke="#DC382D" stroke-width="2.2" />
-      <text class="node-txt" x="0" y="56" font-size="18" fill="#FFFFFF" text-anchor="middle">Redis</text>
+    <!-- Redis (PRIMARY) -->
+    <g transform="translate(466, 0)">
+      <rect class="pri" x="-40" y="-40" width="80" height="80" rx="18" fill="#141C26" stroke="#FF6B35" stroke-width="2.5" filter="url(#cardGlow)"/>
+      <!-- Redis stacked layers -->
+      <ellipse cx="0" cy="-18" rx="22" ry="8" fill="#DC382D"/>
+      <rect x="-22" y="-18" width="44" height="10" fill="#DC382D"/>
+      <ellipse cx="0" cy="-8" rx="22" ry="8" fill="#C62828"/>
+      <rect x="-22" y="-8" width="44" height="10" fill="#A91E1E"/>
+      <ellipse cx="0" cy="2" rx="22" ry="8" fill="#FF5252"/>
+      <rect x="-22" y="2" width="44" height="10" fill="#DC382D"/>
+      <ellipse cx="0" cy="12" rx="22" ry="8" fill="#C62828"/>
+      <text class="label" x="0" y="62" font-size="17" fill="#C8D0D8" text-anchor="middle">Redis</text>
     </g>
 
-    <!-- Node 4: MySQL (Secondary - 60px) -->
-    <g transform="translate(605, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <path d="M -12 8 C -8 -6 8 -12 12 -4 C 14 2 10 8 6 10 C 2 12 -6 12 -12 8 Z" fill="none" stroke="#00758F" stroke-width="2" />
-      <text class="node-txt" x="0" y="48" font-size="16" fill="#D2D6DC" text-anchor="middle">MySQL</text>
+    <!-- MySQL (secondary) -->
+    <g transform="translate(580, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- MySQL dolphin simplified -->
+      <path d="M -16,-20 C -8,-28 8,-28 16,-20 C 22,-10 20,8 12,16 C 4,22 -4,22 -12,16 C -20,8 -22,-10 -16,-20 Z" fill="none" stroke="#00758F" stroke-width="2.2"/>
+      <path d="M 0,-14 Q 4,-6 0,4 Q -4,-6 0,-14 Z" fill="#00758F"/>
+      <circle cx="-8" cy="-10" r="2" fill="#FFFFFF"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">MySQL</text>
     </g>
 
-    <!-- Node 5: Prisma (Secondary - 60px) -->
-    <g transform="translate(710, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <path d="M -10 11 L 0 -14 L 10 11 Z" fill="none" stroke="#FFFFFF" stroke-width="2.2" />
-      <text class="node-txt" x="0" y="48" font-size="16" fill="#D2D6DC" text-anchor="middle">Prisma</text>
+    <!-- Prisma (secondary) -->
+    <g transform="translate(686, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Prisma triangle prism -->
+      <polygon points="0,-26 22,14 -22,14" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+      <line x1="0" y1="-26" x2="0" y2="14" stroke="#FFFFFF" stroke-width="1.5" opacity="0.4"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Prisma</text>
     </g>
 
-    <!-- Node 6: Drizzle (Secondary - 60px) -->
-    <g transform="translate(815, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <path d="M -7 9 L 7 -9 M -3 10 L 10 -5" stroke="#C5F74F" stroke-width="2.4" stroke-linecap="round" />
-      <text class="node-txt" x="0" y="48" font-size="16" fill="#D2D6DC" text-anchor="middle">Drizzle</text>
+    <!-- Drizzle (secondary) -->
+    <g transform="translate(782, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Drizzle double-line mark -->
+      <line x1="-14" y1="10" x2="10" y2="-16" stroke="#8DC63F" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="-4" y1="18" x2="20" y2="-8" stroke="#8DC63F" stroke-width="3.5" stroke-linecap="round"/>
+      <text class="label" x="3" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Drizzle</text>
     </g>
 
-    <!-- Node 7: SQLite (Secondary - 60px) -->
-    <g transform="translate(915, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <rect x="-18" y="-18" width="36" height="36" rx="4" fill="#003B57" />
-      <path d="M -8 8 C -4 -4 4 -4 8 -8" stroke="#00A2E8" stroke-width="2" stroke-linecap="round" fill="none" />
-      <text class="node-txt" x="0" y="48" font-size="16" fill="#D2D6DC" text-anchor="middle">SQLite</text>
+    <!-- SQLite (secondary) -->
+    <g transform="translate(874, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- SQLite feather/leaf mark -->
+      <rect x="-22" y="-24" width="44" height="48" rx="5" fill="#003B57"/>
+      <path d="M -8,16 Q -2,-6 8,-16 Q 14,-8 8,8 Q 2,18 -8,16 Z" fill="#00A2E8"/>
+      <line x1="4" y1="-18" x2="-10" y2="14" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">SQLite</text>
     </g>
 
-    <!-- Node 8: Supabase (Secondary - 60px) -->
-    <g transform="translate(1015, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <path d="M 4 -12 L -7 1 L 0 1 L -4 12 L 7 -1 L 0 -1 Z" fill="#3ECF8E" />
-      <text class="node-txt" x="0" y="48" font-size="16" fill="#D2D6DC" text-anchor="middle">Supabase</text>
+    <!-- Supabase (secondary) -->
+    <g transform="translate(966, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Supabase lightning bolt -->
+      <polygon points="8,-28 -4,2 6,2 -8,28 14,-2 4,-2 16,-28" fill="#10B981"/>
+      <text class="label" x="0" y="55" font-size="15" fill="#C8D0D8" text-anchor="middle">Supabase</text>
     </g>
   </g>
 
-  <!-- ============================================================= -->
-  <!-- LANE 04: DELIVERY (Y=524)                                     -->
-  <!-- ============================================================= -->
-  <g transform="translate(0, 524)">
-    <line x1="200" y1="0" x2="1100" y2="0" stroke="#222B36" stroke-width="2" />
-    <line x1="1100" y1="0" x2="1136" y2="0" stroke="#222B36" stroke-width="2" stroke-dasharray="3 4" />
-    <circle cx="1144" cy="0" r="5" fill="none" stroke="#334050" stroke-width="1.5" />
-    <circle cx="1144" cy="0" r="2" fill="#334050" />
+  <!-- ════════════════════════════════════════
+       LANE 04 — DELIVERY  (Y=518)
+       ════════════════════════════════════════ -->
+  <g transform="translate(0, 518)">
+    <line x1="175" y1="0" x2="1100" y2="0" stroke="#1E2830" stroke-width="2.5"/>
+    <line x1="1100" y1="0" x2="1140" y2="0" stroke="#1E2830" stroke-width="2" stroke-dasharray="3,4"/>
+    <circle cx="1150" cy="0" r="5.5" fill="none" stroke="#374448" stroke-width="2"/>
+    <circle cx="1150" cy="0" r="2" fill="#374448"/>
 
-    <!-- Laser Bullet with Glowing Tail -->
-    <g class="bullet-4">
-      <line x1="-70" y1="0" x2="0" y2="0" stroke="url(#laserTailDark)" stroke-width="4" stroke-linecap="round" />
-      <circle cx="0" cy="0" r="3.8" fill="#FFFFFF" filter="url(#laserGlow)" />
-      <circle cx="0" cy="0" r="2" fill="#FFFFFF" />
+    <g class="b4">
+      <line x1="-75" y1="0" x2="0" y2="0" stroke="url(#laserTail)" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" filter="url(#laserGlow)"/>
+      <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
     </g>
 
-    <!-- Lane Header & Micro-ticks -->
-    <g transform="translate(48, 0)">
-      <text class="lane-num" x="0" y="-12" font-size="20" fill="#FF6B35">04</text>
-      <text class="lane-name" x="0" y="10" font-size="15" fill="#EAE8E2">DELIVERY</text>
-      <g transform="translate(0, 22)" fill="#2C3746">
-        <rect x="0" y="0" width="3" height="3" rx="0.5" />
-        <rect x="6" y="0" width="3" height="3" rx="0.5" />
-        <rect x="12" y="0" width="3" height="3" rx="0.5" />
-        <rect x="18" y="0" width="3" height="3" rx="0.5" />
-        <rect x="24" y="0" width="3" height="3" rx="0.5" />
+    <g transform="translate(42, 0)">
+      <text class="mono" x="0" y="-16" font-size="22" font-weight="900" fill="#FF6B35" letter-spacing="0.5">04</text>
+      <text class="mono" x="0" y="8" font-size="13" font-weight="700" fill="#C8D0D8" letter-spacing="1.5">DELIVERY</text>
+      <g transform="translate(0, 20)" fill="#374448">
+        <rect x="0" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="7" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="14" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="21" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="28" y="0" width="3.5" height="3.5" rx="0.5"/>
       </g>
     </g>
 
-    <!-- Node 1: AWS (Primary - 74px, Terracotta Border) -->
-    <g transform="translate(260, 0)">
-      <rect class="pri-box" x="-37" y="-37" width="74" height="74" rx="16" fill="#10151D" stroke="#FF6B35" stroke-width="2" filter="url(#primaryNodeGlow)" />
-      <text class="node-txt" x="0" y="-2" font-size="20" fill="#FFFFFF" text-anchor="middle">aws</text>
-      <path d="M -12 7 C -5 13 5 13 12 7 M 10 7 L 12 7 L 11 9" fill="none" stroke="#FF9900" stroke-width="2" />
-      <text class="node-txt" x="0" y="56" font-size="18" fill="#FFFFFF" text-anchor="middle">AWS</text>
+    <!-- AWS (PRIMARY) -->
+    <g transform="translate(230, 0)">
+      <rect class="pri" x="-40" y="-40" width="80" height="80" rx="18" fill="#141C26" stroke="#FF6B35" stroke-width="2.5" filter="url(#cardGlow)"/>
+      <!-- AWS wordmark + smile arrow -->
+      <text class="mono" x="0" y="-4" font-size="20" font-weight="900" fill="#F59E0B" text-anchor="middle">aws</text>
+      <path d="M -16,12 Q 0,22 16,12" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+      <polygon points="14,8 18,12 14,16" fill="#F59E0B"/>
+      <text class="label" x="0" y="60" font-size="17" fill="#C8D0D8" text-anchor="middle">AWS</text>
     </g>
 
-    <!-- Node 2: GCP (Secondary - 60px) -->
-    <g transform="translate(390, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <path d="M -6 4 C -9 4 -10 1 -9 -2 C -8 -7 1 -7 5 -2 C 9 -2 10 4 6 4 Z" fill="none" stroke="#4285F4" stroke-width="2" />
-      <circle cx="-6" cy="3" r="2" fill="#EA4335" />
-      <circle cx="5" cy="3" r="2" fill="#FBBC05" />
-      <circle cx="0" cy="-4" r="2" fill="#34A853" />
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">GCP</text>
+    <!-- GCP (secondary) -->
+    <g transform="translate(356, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- GCP cloud + color dots -->
+      <path d="M -14,4 Q -16,-8 -6,-12 Q -2,-22 10,-18 Q 22,-18 22,-6 Q 26,-2 24,8 Q 22,14 14,12 H -10 Q -18,12 -14,4 Z" fill="none" stroke="#4285F4" stroke-width="2.2"/>
+      <circle cx="-8" cy="4" r="2.5" fill="#EA4335"/>
+      <circle cx="0" cy="-2" r="2.5" fill="#FBBC04"/>
+      <circle cx="8" cy="4" r="2.5" fill="#34A853"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">GCP</text>
     </g>
 
-    <!-- Node 3: Docker (Primary - 74px, Terracotta Border) -->
-    <g transform="translate(515, 0)">
-      <rect class="pri-box" x="-37" y="-37" width="74" height="74" rx="16" fill="#10151D" stroke="#FF6B35" stroke-width="2" filter="url(#primaryNodeGlow)" />
-      <rect x="-10" y="-9" width="4.5" height="4.5" fill="#2496ED" />
-      <rect x="-3.5" y="-9" width="4.5" height="4.5" fill="#2496ED" />
-      <rect x="3.5" y="-9" width="4.5" height="4.5" fill="#2496ED" />
-      <rect x="-3.5" y="-15.5" width="4.5" height="4.5" fill="#2496ED" />
-      <path d="M -15 -1 C -15 8 13 9 15 0 Z" fill="none" stroke="#2496ED" stroke-width="2.2" />
-      <text class="node-txt" x="0" y="56" font-size="18" fill="#FFFFFF" text-anchor="middle">Docker</text>
+    <!-- Docker (PRIMARY) -->
+    <g transform="translate(476, 0)">
+      <rect class="pri" x="-40" y="-40" width="80" height="80" rx="18" fill="#141C26" stroke="#FF6B35" stroke-width="2.5" filter="url(#cardGlow)"/>
+      <!-- Docker whale -->
+      <!-- Water wave -->
+      <path d="M -28,10 Q -14,4 0,10 Q 14,16 28,10 L 28,22 Q 14,28 0,22 Q -14,16 -28,22 Z" fill="#0284C7"/>
+      <!-- Whale body -->
+      <ellipse cx="-2" cy="-4" rx="20" ry="14" fill="#0284C7"/>
+      <!-- Containers on whale back -->
+      <rect x="-18" y="-18" width="10" height="8" rx="1.5" fill="#FFFFFF" opacity="0.9"/>
+      <rect x="-5" y="-20" width="10" height="8" rx="1.5" fill="#FFFFFF" opacity="0.9"/>
+      <rect x="8" y="-18" width="10" height="8" rx="1.5" fill="#FFFFFF" opacity="0.9"/>
+      <!-- Spout -->
+      <path d="M 16,-16 Q 22,-22 24,-16" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+      <!-- Eye -->
+      <circle cx="-14" cy="-2" r="2" fill="#FFFFFF"/>
+      <text class="label" x="0" y="60" font-size="17" fill="#C8D0D8" text-anchor="middle">Docker</text>
     </g>
 
-    <!-- Node 4: Linux (Secondary - 60px) -->
-    <g transform="translate(640, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <!-- Tux Penguin silhouette -->
-      <ellipse cx="0" cy="-2" rx="9" ry="12" fill="#FFFFFF" />
-      <ellipse cx="0" cy="-2" rx="6" ry="8" fill="#10151D" />
-      <ellipse cx="0" cy="0" rx="4" ry="6" fill="#FFFFFF" />
-      <circle cx="-2" cy="-7" r="1" fill="#10151D" /><circle cx="2" cy="-7" r="1" fill="#10151D" />
-      <polygon points="-2,-4 2,-4 0,-1" fill="#FFA500" />
-      <ellipse cx="-4" cy="11" rx="4" ry="2" fill="#FFA500" />
-      <ellipse cx="4" cy="11" rx="4" ry="2" fill="#FFA500" />
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">Linux</text>
+    <!-- Linux (secondary) -->
+    <g transform="translate(596, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Tux penguin -->
+      <!-- Body -->
+      <ellipse cx="0" cy="6" rx="16" ry="20" fill="#1F2328"/>
+      <!-- Belly -->
+      <ellipse cx="0" cy="10" rx="10" ry="12" fill="#F5F5F5"/>
+      <!-- Head -->
+      <ellipse cx="0" cy="-14" rx="12" ry="10" fill="#1F2328"/>
+      <!-- Eyes -->
+      <circle cx="-4" cy="-16" r="2.5" fill="#FFFFFF"/>
+      <circle cx="4" cy="-16" r="2.5" fill="#FFFFFF"/>
+      <circle cx="-4" cy="-16" r="1.2" fill="#1F2328"/>
+      <circle cx="4" cy="-16" r="1.2" fill="#1F2328"/>
+      <!-- Beak -->
+      <polygon points="-3,-10 3,-10 0,-6" fill="#F59E0B"/>
+      <!-- Feet -->
+      <ellipse cx="-7" cy="26" rx="5" ry="2.5" fill="#F59E0B"/>
+      <ellipse cx="7" cy="26" rx="5" ry="2.5" fill="#F59E0B"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Linux</text>
     </g>
 
-    <!-- Node 5: CI/CD (Secondary - 60px) -->
-    <g transform="translate(765, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <circle cx="0" cy="-7" r="3.5" fill="#2088FF" />
-      <circle cx="-7" cy="7" r="3.5" fill="#2088FF" />
-      <circle cx="7" cy="7" r="3.5" fill="#2088FF" />
-      <path d="M 0 -7 L -7 7 M 0 -7 L 7 7" stroke="#2088FF" stroke-width="2" />
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">CI/CD</text>
+    <!-- CI/CD (secondary) -->
+    <g transform="translate(714, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- CI/CD three-node pipeline -->
+      <circle cx="-18" cy="-10" r="5" fill="none" stroke="#3B82F6" stroke-width="2.2"/>
+      <circle cx="0" cy="10" r="5" fill="none" stroke="#3B82F6" stroke-width="2.2"/>
+      <circle cx="18" cy="-10" r="5" fill="none" stroke="#3B82F6" stroke-width="2.2"/>
+      <line x1="-13" y1="-8" x2="-5" y2="7" stroke="#3B82F6" stroke-width="1.8"/>
+      <line x1="5" y1="7" x2="13" y2="-8" stroke="#3B82F6" stroke-width="1.8"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">CI/CD</text>
     </g>
 
-    <!-- Node 6: Vercel (Secondary - 60px) -->
-    <g transform="translate(890, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <polygon points="0,-12 13,10 -13,10" fill="#FFFFFF" />
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">Vercel</text>
+    <!-- Vercel (secondary) -->
+    <g transform="translate(828, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Vercel triangle -->
+      <polygon points="0,-24 22,16 -22,16" fill="#FFFFFF"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Vercel</text>
     </g>
   </g>
 
-  <!-- ============================================================= -->
-  <!-- LANE 05: AI & TOOLS (Y=652)                                   -->
-  <!-- ============================================================= -->
-  <g transform="translate(0, 652)">
-    <line x1="200" y1="0" x2="1100" y2="0" stroke="#222B36" stroke-width="2" />
-    <line x1="1100" y1="0" x2="1136" y2="0" stroke="#222B36" stroke-width="2" stroke-dasharray="3 4" />
-    <circle cx="1144" cy="0" r="5" fill="none" stroke="#334050" stroke-width="1.5" />
-    <circle cx="1144" cy="0" r="2" fill="#334050" />
+  <!-- ════════════════════════════════════════
+       LANE 05 — AI & TOOLS  (Y=610)
+       ════════════════════════════════════════ -->
+  <g transform="translate(0, 610)">
+    <line x1="175" y1="0" x2="1100" y2="0" stroke="#1E2830" stroke-width="2.5"/>
+    <line x1="1100" y1="0" x2="1140" y2="0" stroke="#1E2830" stroke-width="2" stroke-dasharray="3,4"/>
+    <circle cx="1150" cy="0" r="5.5" fill="none" stroke="#374448" stroke-width="2"/>
+    <circle cx="1150" cy="0" r="2" fill="#374448"/>
 
-    <!-- Laser Bullet with Glowing Tail -->
-    <g class="bullet-5">
-      <line x1="-70" y1="0" x2="0" y2="0" stroke="url(#laserTailDark)" stroke-width="4" stroke-linecap="round" />
-      <circle cx="0" cy="0" r="3.8" fill="#FFFFFF" filter="url(#laserGlow)" />
-      <circle cx="0" cy="0" r="2" fill="#FFFFFF" />
+    <g class="b5">
+      <line x1="-75" y1="0" x2="0" y2="0" stroke="url(#laserTail)" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" filter="url(#laserGlow)"/>
+      <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
     </g>
 
-    <!-- Lane Header & Micro-ticks -->
-    <g transform="translate(48, 0)">
-      <text class="lane-num" x="0" y="-12" font-size="20" fill="#FF6B35">05</text>
-      <text class="lane-name" x="0" y="10" font-size="15" fill="#EAE8E2">AI &amp; TOOLS</text>
-      <g transform="translate(0, 22)" fill="#2C3746">
-        <rect x="0" y="0" width="3" height="3" rx="0.5" />
-        <rect x="6" y="0" width="3" height="3" rx="0.5" />
-        <rect x="12" y="0" width="3" height="3" rx="0.5" />
-        <rect x="18" y="0" width="3" height="3" rx="0.5" />
-        <rect x="24" y="0" width="3" height="3" rx="0.5" />
+    <g transform="translate(42, 0)">
+      <text class="mono" x="0" y="-16" font-size="22" font-weight="900" fill="#FF6B35" letter-spacing="0.5">05</text>
+      <text class="mono" x="0" y="8" font-size="13" font-weight="700" fill="#C8D0D8" letter-spacing="1.5">AI &amp; TOOLS</text>
+      <g transform="translate(0, 20)" fill="#374448">
+        <rect x="0" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="7" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="14" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="21" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="28" y="0" width="3.5" height="3.5" rx="0.5"/>
       </g>
     </g>
 
-    <!-- Node 1: Python (Primary - 74px, Terracotta Border) -->
-    <g transform="translate(260, 0)">
-      <rect class="pri-box" x="-37" y="-37" width="74" height="74" rx="16" fill="#10151D" stroke="#FF6B35" stroke-width="2" filter="url(#primaryNodeGlow)" />
-      <!-- Two-Tone Snake Emblem -->
-      <path d="M -2 -14 C -8 -14 -12 -10 -12 -5 C -12 0 -7 0 -7 0 H 3 V 4 H -8 C -14 4 -14 10 -14 10 V 12 H -9 V 8 C -9 5 -6 5 -3 5 H 3 C 8 5 8 0 8 0 V -5 C 8 -11 3 -14 -2 -14 Z" fill="#3776AB" />
-      <circle cx="-6" cy="-8" r="1.5" fill="#FFFFFF" />
-      <path d="M 2 14 C 8 14 12 10 12 5 C 12 0 7 0 7 0 H -3 V -4 H 8 C 14 -4 14 -10 14 -10 V -12 H 9 V -8 C 9 -5 6 -5 3 -5 H -3 C -8 -5 -8 0 -8 0 V 5 C -8 11 -3 14 2 14 Z" fill="#FFD43B" />
-      <circle cx="6" cy="8" r="1.5" fill="#10151D" />
-      <text class="node-txt" x="0" y="56" font-size="18" fill="#FFFFFF" text-anchor="middle">Python</text>
+    <!-- Python (PRIMARY) -->
+    <g transform="translate(230, 0)">
+      <rect class="pri" x="-40" y="-40" width="80" height="80" rx="18" fill="#141C26" stroke="#FF6B35" stroke-width="2.5" filter="url(#cardGlow)"/>
+      <!-- Python dual snake -->
+      <path d="M -2,-24 C -14,-24 -18,-16 -18,-6 C -18,2 -14,4 -8,4 H 4 C 4,4 4,16 4,16 H -10 C -18,16 -20,22 -20,28" fill="none" stroke="#3B6EA8" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M 2,24 C 14,24 18,16 18,6 C 18,-2 14,-4 8,-4 H -4 C -4,-4 -4,-16 -4,-16 H 10 C 18,-16 20,-22 20,-28" fill="none" stroke="#F0C045" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="-10" cy="-18" r="3" fill="#3B6EA8"/>
+      <circle cx="10" cy="18" r="3" fill="#F0C045"/>
+      <text class="label" x="0" y="60" font-size="17" fill="#C8D0D8" text-anchor="middle">Python</text>
     </g>
 
-    <!-- Node 2: PyTorch (Secondary - 60px) -->
-    <g transform="translate(390, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <path d="M -1 -12 C 6 -6 8 4 1 10 C -6 16 -12 7 -9 1 C -8 -3 -5 -5 -1 -8" fill="none" stroke="#EE4C2C" stroke-width="2.4" />
-      <circle cx="4" cy="-9" r="1.8" fill="#EE4C2C" />
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">PyTorch</text>
+    <!-- PyTorch (secondary) -->
+    <g transform="translate(355, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- PyTorch flame -->
+      <path d="M 0,-26 C 0,-10 14,2 14,14 C 14,24 6,30 0,30 C -6,30 -14,24 -14,14 C -14,2 0,-10 0,-26 Z" fill="#EE4C2C"/>
+      <path d="M 0,-26 C 4,-18 6,-8 4,4 C 8,-4 8,-14 0,-26 Z" fill="#F7C59F" opacity="0.6"/>
+      <circle cx="6" cy="-10" r="3" fill="#FFFFFF" opacity="0.8"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">PyTorch</text>
     </g>
 
-    <!-- Node 3: Git (Secondary - 60px) -->
-    <g transform="translate(515, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
+    <!-- Git (secondary) -->
+    <g transform="translate(472, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Git diamond -->
       <g transform="rotate(45)">
-        <rect x="-14" y="-14" width="28" height="28" rx="4" fill="#F05032" />
-        <circle cx="-4" cy="-4" r="2.2" fill="#FFFFFF" />
-        <circle cx="4" cy="4" r="2.2" fill="#FFFFFF" />
-        <line x1="-4" y1="-4" x2="4" y2="4" stroke="#FFFFFF" stroke-width="1.8" />
+        <rect x="-18" y="-18" width="36" height="36" rx="5" fill="#F05032"/>
       </g>
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">Git</text>
+      <!-- Git graph nodes -->
+      <circle cx="-8" cy="-8" r="3.5" fill="#FFFFFF"/>
+      <circle cx="8" cy="8" r="3.5" fill="#FFFFFF"/>
+      <line x1="-8" y1="-8" x2="8" y2="8" stroke="#FFFFFF" stroke-width="2.2"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Git</text>
     </g>
 
-    <!-- Node 4: Postman (Secondary - 60px) -->
-    <g transform="translate(640, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <circle cx="0" cy="0" r="16" fill="#FF6C37" />
-      <path d="M -7 -4 L 7 4 M -7 4 L 7 -4" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" />
-      <circle cx="0" cy="0" r="4" fill="#FFFFFF" />
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">Postman</text>
+    <!-- Postman (secondary) -->
+    <g transform="translate(584, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Postman icon: orange circle with astronaut -->
+      <circle cx="0" cy="0" r="22" fill="#FF6C37"/>
+      <path d="M -6,-4 Q 0,-10 6,-4 Q 10,2 6,8 Q 0,12 -6,8 Q -10,2 -6,-4 Z" fill="#FFFFFF"/>
+      <circle cx="0" cy="0" r="4" fill="#FF6C37"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Postman</text>
     </g>
 
-    <!-- Node 5: Figma (Secondary - 60px) -->
-    <g transform="translate(765, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <circle cx="-5" cy="-8" r="4.2" fill="#F24E1E" />
-      <circle cx="5" cy="-8" r="4.2" fill="#FF7262" />
-      <circle cx="-5" cy="0" r="4.2" fill="#A259FF" />
-      <circle cx="5" cy="0" r="4.2" fill="#1ABCFE" />
-      <circle cx="-5" cy="8" r="4.2" fill="#0ACF83" />
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">Figma</text>
+    <!-- Figma (secondary) -->
+    <g transform="translate(696, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Figma 5-component grid -->
+      <rect x="-16" y="-24" width="14" height="14" rx="7" fill="#FF7262"/>
+      <rect x="2" y="-24" width="14" height="14" rx="7" fill="#1ABCFE"/>
+      <rect x="-16" y="-8" width="14" height="14" rx="3" fill="#A259FF"/>
+      <rect x="2" y="-8" width="14" height="14" rx="3" fill="#0ACF83"/>
+      <rect x="-16" y="8" width="14" height="14" rx="7" fill="#FF7262"/>
+      <circle cx="9" cy="15" r="7" fill="none" stroke="#0ACF83" stroke-width="2"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Figma</text>
     </g>
 
-    <!-- Node 6: Blender (Secondary - 60px) -->
-    <g transform="translate(890, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <circle cx="2" cy="2" r="10" fill="none" stroke="#EA7600" stroke-width="2.2" />
-      <circle cx="2" cy="2" r="4" fill="#2257D5" />
-      <path d="M -7 -7 L 0 0" stroke="#EA7600" stroke-width="2.2" stroke-linecap="round" />
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">Blender</text>
+    <!-- Blender (secondary) -->
+    <g transform="translate(808, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Blender orbital ring + dot -->
+      <ellipse cx="4" cy="4" rx="20" ry="8" fill="none" stroke="#EA7600" stroke-width="2.5" transform="rotate(-15,4,4)"/>
+      <circle cx="4" cy="4" r="9" fill="#2563EB"/>
+      <circle cx="4" cy="4" r="4" fill="#FFFFFF" opacity="0.9"/>
+      <circle cx="-16" cy="-4" r="4" fill="#EA7600"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Blender</text>
     </g>
 
-    <!-- Node 7: Unity (Secondary - 60px) -->
-    <g transform="translate(1015, 0)">
-      <rect x="-30" y="-30" width="60" height="60" rx="14" fill="#10151D" stroke="#252E3A" stroke-width="1.4" />
-      <path d="M 0 -12 L 12 8 L -12 8 Z" fill="none" stroke="#EAE8E2" stroke-width="2" />
-      <circle cx="0" cy="0" r="2.5" fill="#EAE8E2" />
-      <text class="node-txt" x="0" y="48" font-size="17" fill="#D2D6DC" text-anchor="middle">Unity</text>
+    <!-- Unity (secondary) -->
+    <g transform="translate(920, 0)">
+      <rect x="-36" y="-36" width="72" height="72" rx="16" fill="#141C26" stroke="#252E3A" stroke-width="1.8"/>
+      <!-- Unity cube logo -->
+      <polygon points="0,-26 22,-12 22,12 0,26 -22,12 -22,-12" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+      <line x1="0" y1="-26" x2="0" y2="0" stroke="#FFFFFF" stroke-width="1.8"/>
+      <line x1="22" y1="-12" x2="0" y2="0" stroke="#FFFFFF" stroke-width="1.8"/>
+      <line x1="-22" y1="-12" x2="0" y2="0" stroke="#FFFFFF" stroke-width="1.8"/>
+      <text class="label" x="0" y="55" font-size="16" fill="#C8D0D8" text-anchor="middle">Unity</text>
     </g>
   </g>
 </svg>
