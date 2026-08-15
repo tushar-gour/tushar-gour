@@ -1,243 +1,186 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 406" width="100%" height="100%">
   <defs>
     <style>
-      .mono-hdr {
-        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-        font-weight: 700;
-        letter-spacing: 1.5px;
-      }
-      .mono-meta {
-        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-        font-weight: 600;
-        letter-spacing: 1px;
-      }
-      .mono-tick {
-        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-        font-weight: 500;
-      }
-      .sans-bold {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-        font-weight: 700;
-      }
+      .m { font-family: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .s { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
     </style>
   </defs>
 
-  <!-- Base Outer Container -->
-  <rect width="1200" height="360" rx="12" fill="#F6F8FA" stroke="#D0D7DE" stroke-width="1" />
+  <rect width="1200" height="406" rx="10" fill="#FFFFFF"/>
+  <rect width="1200" height="406" rx="10" fill="none" stroke="#D0D7DE" stroke-width="1.2"/>
 
-  <!-- Top Header Bar -->
-  <g transform="translate(48, 44)">
-    <text class="mono-hdr" x="0" y="0" font-size="18" fill="#B85C3F">METRIC</text>
-    <text class="sans-bold" x="90" y="0" font-size="24" fill="#1F2328">CONTRIBUTION PULSE</text>
-    <text class="mono-hdr" x="420" y="0" font-size="16" fill="#59636E">/ 52 DISCRETE WEEKS</text>
-    
-    <text class="mono-meta" x="1104" y="0" font-size="15" fill="#8C959F" text-anchor="end">
-      SEP 2025 – AUG 2026
-    </text>
-  </g>
+  <!-- HEADER -->
+  <text class="m" x="42" y="44" font-size="11" font-weight="800" fill="#B85C3F" letter-spacing="2">METRIC</text>
+  <text class="s" x="105" y="44" font-size="22" font-weight="900" fill="#1F2328" letter-spacing="-0.5">CONTRIBUTION PULSE</text>
+  <text class="m" x="335" y="44" font-size="13" font-weight="600" fill="#8A9299" letter-spacing="1">/ 52 DISCRETE WEEKS</text>
+  <text class="m" x="1158" y="44" font-size="12" font-weight="600" fill="#8A9299" letter-spacing="1" text-anchor="end">SEP 2025 — AUG 2026</text>
 
-  <line x1="48" y1="62" x2="1152" y2="62" stroke="#E1E4E8" stroke-width="1" />
+  <!-- Stats strip -->
+  <text class="m" x="42" y="72" font-size="11.5" font-weight="600" fill="#8A9299" letter-spacing="0.5">TOTAL 365D:</text>
+  <text class="m" x="135" y="72" font-size="11.5" font-weight="700" fill="#3A4450" letter-spacing="0.5">2,450</text>
+  <text class="m" x="192" y="72" font-size="11.5" fill="#D0D7DE">  |  </text>
+  <text class="m" x="218" y="72" font-size="11.5" font-weight="600" fill="#8A9299" letter-spacing="0.5">ACTIVE DAYS:</text>
+  <text class="m" x="310" y="72" font-size="11.5" font-weight="700" fill="#3A4450" letter-spacing="0.5">300</text>
+  <text class="m" x="340" y="72" font-size="11.5" fill="#D0D7DE">  |  </text>
+  <text class="m" x="368" y="72" font-size="11.5" font-weight="600" fill="#8A9299" letter-spacing="0.5">PEAK WEEK:</text>
+  <text class="m" x="452" y="72" font-size="11.5" font-weight="800" fill="#B85C3F" letter-spacing="0.5">84</text>
+  <text class="m" x="475" y="72" font-size="11.5" fill="#D0D7DE">  |  </text>
+  <text class="m" x="503" y="72" font-size="11.5" font-weight="600" fill="#8A9299" letter-spacing="0.5">CURRENT WEEK:</text>
+  <text class="m" x="611" y="72" font-size="11.5" font-weight="800" fill="#3A4450" letter-spacing="0.5">31</text>
 
-  <!-- Summary Derived Badges -->
-  <g transform="translate(48, 92)">
-    <g transform="translate(0, 0)">
-      <text class="mono-meta" x="0" y="0" font-size="13" fill="#59636E">TOTAL 365D:</text>
-      <text class="mono-meta" x="95" y="0" font-size="13" fill="#1F2328">2,450</text>
-    </g>
-    <g transform="translate(180, 0)">
-      <text class="mono-meta" x="0" y="0" font-size="13" fill="#59636E">ACTIVE DAYS:</text>
-      <text class="mono-meta" x="105" y="0" font-size="13" fill="#1F2328">300</text>
-    </g>
-    <g transform="translate(360, 0)">
-      <text class="mono-meta" x="0" y="0" font-size="13" fill="#59636E">PEAK WEEK:</text>
-      <text class="mono-meta" x="95" y="0" font-size="13" fill="#B85C3F">84</text>
-    </g>
-    <g transform="translate(520, 0)">
-      <text class="mono-meta" x="0" y="0" font-size="13" fill="#59636E">CURRENT WEEK:</text>
-      <text class="mono-meta" x="120" y="0" font-size="13" fill="#1F2328">31</text>
-    </g>
-  </g>
+  <line x1="42" y1="84" x2="1158" y2="84" stroke="#E8ECF0" stroke-width="1"/>
 
-  <!-- Horizontal Guidelines -->
-  <g stroke="#D0D7DE" stroke-width="1" opacity="0.6">
-    <line x1="85" y1="120" x2="1145" y2="120" stroke-dasharray="2 4" />
-    <line x1="85" y1="165" x2="1145" y2="165" stroke-dasharray="2 4" />
-    <line x1="85" y1="210" x2="1145" y2="210" stroke-dasharray="2 4" />
-  </g>
+  <!-- Grid lines -->
+  <line x1="64" y1="112" x2="1158" y2="112" stroke="#E8ECF0" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="64" y1="175" x2="1158" y2="175" stroke="#E8ECF0" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="64" y1="237" x2="1158" y2="237" stroke="#E8ECF0" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="64" y1="300" x2="1158" y2="300" stroke="#E8ECF0" stroke-width="1" stroke-dasharray="4 4"/>
 
-  <!-- Y-Axis Scale -->
-  <g class="mono-tick" font-size="12" fill="#8C959F" text-anchor="end">
-    <text x="75" y="124">80</text>
-    <text x="75" y="169">50</text>
-    <text x="75" y="214">25</text>
-    <text x="75" y="254">0</text>
-  </g>
+  <!-- Y-axis -->
+  <text class="m" x="56" y="116" font-size="11" fill="#8A9299" text-anchor="end">100</text>
+  <text class="m" x="56" y="179" font-size="11" fill="#8A9299" text-anchor="end">75</text>
+  <text class="m" x="56" y="241" font-size="11" fill="#8A9299" text-anchor="end">50</text>
+  <text class="m" x="56" y="304" font-size="11" fill="#8A9299" text-anchor="end">25</text>
+  <text class="m" x="56" y="366" font-size="11" fill="#8A9299" text-anchor="end">0</text>
 
-  <!-- Solid Baseline -->
-  <line x1="85" y1="250" x2="1145" y2="250" stroke="#D0D7DE" stroke-width="1.5" />
+  <!-- BARS (same structure, light colors) -->
+  <rect x="64"   y="282" width="15" height="80"  rx="2" fill="#C8D4DC"/>
+  <rect x="85"   y="222" width="15" height="140" rx="2" fill="#A0B4C4"/>
+  <rect x="106"  y="247" width="15" height="115" rx="2" fill="#B0C0CC"/>
+  <rect x="127"  y="272" width="15" height="90"  rx="2" fill="#C8D4DC"/>
+  <rect x="148"  y="217" width="15" height="145" rx="2" fill="#A0B4C4"/>
+  <rect x="169"  y="232" width="15" height="130" rx="2" fill="#B0C0CC"/>
+  <rect x="190"  y="242" width="15" height="120" rx="2" fill="#B0C0CC"/>
+  <rect x="211"  y="227" width="15" height="135" rx="2" fill="#B0C0CC"/>
+  <rect x="232"  y="175" width="15" height="188" rx="2" fill="#7E9DB0"/>
+  <rect x="253"  y="217" width="15" height="145" rx="2" fill="#A0B4C4"/>
+  <rect x="274"  y="207" width="15" height="155" rx="2" fill="#A0B4C4"/>
+  <rect x="295"  y="257" width="15" height="105" rx="2" fill="#B0C0CC"/>
+  <rect x="316"  y="237" width="15" height="125" rx="2" fill="#B0C0CC"/>
+  <rect x="337"  y="222" width="15" height="140" rx="2" fill="#A0B4C4"/>
+  <rect x="358"  y="167" width="15" height="195" rx="2" fill="#7E9DB0"/>
+  <rect x="379"  y="225" width="15" height="138" rx="2" fill="#B0C0CC"/>
+  <rect x="400"  y="237" width="15" height="125" rx="2" fill="#B0C0CC"/>
+  <rect x="421"  y="227" width="15" height="135" rx="2" fill="#B0C0CC"/>
+  <rect x="442"  y="252" width="15" height="110" rx="2" fill="#B0C0CC"/>
+  <rect x="463"  y="275" width="15" height="88"  rx="2" fill="#C8D4DC"/>
+  <rect x="484"  y="287" width="15" height="75"  rx="2" fill="#C8D4DC"/>
+  <rect x="505"  y="267" width="15" height="95"  rx="2" fill="#C8D4DC"/>
+  <rect x="526"  y="172" width="15" height="190" rx="2" fill="#7E9DB0"/>
+  <rect x="547"  y="182" width="15" height="180" rx="2" fill="#7E9DB0"/>
+  <rect x="568"  y="207" width="15" height="155" rx="2" fill="#A0B4C4"/>
+  <rect x="589"  y="242" width="15" height="120" rx="2" fill="#B0C0CC"/>
+  <rect x="610"  y="217" width="15" height="145" rx="2" fill="#A0B4C4"/>
+  <rect x="631"  y="225" width="15" height="138" rx="2" fill="#B0C0CC"/>
+  <rect x="652"  y="200" width="15" height="163" rx="2" fill="#A0B4C4"/>
+  <rect x="673"  y="187" width="15" height="175" rx="2" fill="#A0B4C4"/>
+  <rect x="694"  y="217" width="15" height="145" rx="2" fill="#A0B4C4"/>
+  <!-- PEAK -->
+  <rect x="715"  y="152" width="15" height="210" rx="2" fill="#B85C3F"/>
+  <rect x="736"  y="182" width="15" height="180" rx="2" fill="#7E9DB0"/>
+  <rect x="757"  y="192" width="15" height="170" rx="2" fill="#A0B4C4"/>
+  <rect x="778"  y="207" width="15" height="155" rx="2" fill="#A0B4C4"/>
+  <rect x="799"  y="212" width="15" height="150" rx="2" fill="#A0B4C4"/>
+  <rect x="820"  y="227" width="15" height="135" rx="2" fill="#B0C0CC"/>
+  <rect x="841"  y="242" width="15" height="120" rx="2" fill="#B0C0CC"/>
+  <rect x="862"  y="262" width="15" height="100" rx="2" fill="#B0C0CC"/>
+  <rect x="883"  y="187" width="15" height="175" rx="2" fill="#A0B4C4"/>
+  <rect x="904"  y="237" width="15" height="125" rx="2" fill="#B0C0CC"/>
+  <rect x="925"  y="262" width="15" height="100" rx="2" fill="#B0C0CC"/>
+  <rect x="946"  y="242" width="15" height="120" rx="2" fill="#B0C0CC"/>
+  <rect x="967"  y="275" width="15" height="88"  rx="2" fill="#C8D4DC"/>
+  <rect x="988"  y="182" width="15" height="180" rx="2" fill="#7E9DB0"/>
+  <rect x="1009" y="207" width="15" height="155" rx="2" fill="#A0B4C4"/>
+  <rect x="1030" y="225" width="15" height="138" rx="2" fill="#B0C0CC"/>
+  <rect x="1051" y="262" width="15" height="100" rx="2" fill="#B0C0CC"/>
+  <rect x="1072" y="242" width="15" height="120" rx="2" fill="#B0C0CC"/>
+  <rect x="1093" y="257" width="15" height="105" rx="2" fill="#B0C0CC"/>
+  <rect x="1114" y="272" width="15" height="90"  rx="2" fill="#C8D4DC"/>
+  <!-- CURRENT -->
+  <rect x="1135" y="285" width="15" height="78"  rx="2" fill="#B85C3F"/>
 
-  <!-- 52 Discrete Vertical Weekly Bars -->
-  <g>
-    <!-- Month 1: SEP -->
-    <rect x="85" y="189" width="11" height="61" rx="1.5" fill="#D0D7DE" />
-    <rect x="105" y="196" width="11" height="54" rx="1.5" fill="#D0D7DE" />
-    <rect x="125" y="163" width="11" height="87" rx="1.5" fill="#8C959F" />
-    <rect x="145" y="177" width="11" height="73" rx="1.5" fill="#D0D7DE" />
+  <!-- PEAK tooltip -->
+  <rect x="682" y="120" width="92" height="24" rx="4" fill="#EEF2F6"/>
+  <rect x="682" y="120" width="92" height="24" rx="4" fill="none" stroke="#C8D0D8" stroke-width="1"/>
+  <text class="m" x="691" y="136" font-size="11.5" fill="#8A9299" letter-spacing="0.5">PEAK:</text>
+  <text class="m" x="730" y="136" font-size="11.5" font-weight="800" fill="#B85C3F" letter-spacing="0.5">84</text>
+  <polygon points="722,144 716,152 728,152" fill="#EEF2F6"/>
+  <line x1="722" y1="144" x2="722" y2="152" stroke="#C8D0D8" stroke-width="1"/>
 
-    <!-- Month 2: OCT -->
-    <rect x="166" y="150" width="11" height="100" rx="1.5" fill="#8C959F" />
-    <rect x="186" y="173" width="11" height="77" rx="1.5" fill="#8C959F" />
-    <rect x="206" y="181" width="11" height="69" rx="1.5" fill="#D0D7DE" />
-    <rect x="226" y="158" width="11" height="92" rx="1.5" fill="#8C959F" />
+  <!-- CURRENT tooltip -->
+  <rect x="1042" y="364" width="114" height="24" rx="4" fill="#EEF2F6"/>
+  <rect x="1042" y="364" width="114" height="24" rx="4" fill="none" stroke="#C8D0D8" stroke-width="1"/>
+  <text class="m" x="1050" y="380" font-size="11.5" fill="#8A9299" letter-spacing="0.5">CURRENT:</text>
+  <text class="m" x="1121" y="380" font-size="11.5" font-weight="800" fill="#B85C3F" letter-spacing="0.5">31</text>
+  <line x1="1142" y1="364" x2="1142" y2="285" stroke="#C8D0D8" stroke-width="1" stroke-dasharray="3 3"/>
 
-    <!-- Month 3: NOV -->
-    <rect x="247" y="144" width="11" height="106" rx="1.5" fill="#8C959F" />
-    <rect x="267" y="131" width="11" height="119" rx="1.5" fill="#1F2328" />
-    <rect x="287" y="165" width="11" height="85" rx="1.5" fill="#8C959F" />
-    <rect x="307" y="175" width="11" height="75" rx="1.5" fill="#D0D7DE" />
-    <rect x="327" y="154" width="11" height="96" rx="1.5" fill="#8C959F" />
+  <!-- X-axis labels -->
+  <text class="m" x="103"  y="376" font-size="11.5" fill="#8A9299" text-anchor="middle" letter-spacing="0.5">SEP</text>
+  <text class="m" x="187"  y="376" font-size="11.5" fill="#8A9299" text-anchor="middle" letter-spacing="0.5">OCT</text>
+  <text class="m" x="282"  y="376" font-size="11.5" fill="#8A9299" text-anchor="middle" letter-spacing="0.5">NOV</text>
+  <text class="m" x="376"  y="376" font-size="11.5" fill="#8A9299" text-anchor="middle" letter-spacing="0.5">DEC</text>
+  <text class="m" x="471"  y="376" font-size="11.5" fill="#8A9299" text-anchor="middle" letter-spacing="0.5">JAN</text>
+  <text class="m" x="565"  y="376" font-size="11.5" fill="#8A9299" text-anchor="middle" letter-spacing="0.5">FEB</text>
+  <text class="m" x="660"  y="376" font-size="11.5" fill="#8A9299" text-anchor="middle" letter-spacing="0.5">MAR</text>
+  <text class="m" x="754"  y="376" font-size="11.5" fill="#B85C3F" text-anchor="middle" letter-spacing="0.5">APR</text>
+  <text class="m" x="838"  y="376" font-size="11.5" fill="#8A9299" text-anchor="middle" letter-spacing="0.5">MAY</text>
+  <text class="m" x="933"  y="376" font-size="11.5" fill="#8A9299" text-anchor="middle" letter-spacing="0.5">JUN</text>
+  <text class="m" x="1027" y="376" font-size="11.5" fill="#8A9299" text-anchor="middle" letter-spacing="0.5">JUL</text>
+  <text class="m" x="1111" y="376" font-size="11.5" fill="#B85C3F" text-anchor="middle" letter-spacing="0.5">AUG</text>
 
-    <!-- Month 4: DEC -->
-    <rect x="348" y="169" width="11" height="81" rx="1.5" fill="#8C959F" />
-    <rect x="368" y="135" width="11" height="115" rx="1.5" fill="#1F2328" />
-    <rect x="388" y="139" width="11" height="111" rx="1.5" fill="#1F2328" />
-    <rect x="408" y="127" width="11" height="123" rx="1.5" fill="#1F2328" />
-
-    <!-- Month 5: JAN -->
-    <rect x="429" y="158" width="11" height="92" rx="1.5" fill="#8C959F" />
-    <rect x="449" y="150" width="11" height="100" rx="1.5" fill="#8C959F" />
-    <rect x="469" y="161" width="11" height="89" rx="1.5" fill="#8C959F" />
-    <rect x="489" y="115" width="11" height="135" rx="1.5" fill="#1F2328" />
-    <rect x="509" y="119" width="11" height="131" rx="1.5" fill="#1F2328" />
-
-    <!-- Month 6: FEB -->
-    <rect x="530" y="146" width="11" height="104" rx="1.5" fill="#8C959F" />
-    <rect x="550" y="156" width="11" height="94" rx="1.5" fill="#8C959F" />
-    <rect x="570" y="139" width="11" height="111" rx="1.5" fill="#1F2328" />
-    <rect x="590" y="131" width="11" height="119" rx="1.5" fill="#1F2328" />
-
-    <!-- Month 7: MAR -->
-    <rect x="611" y="106" width="11" height="144" rx="1.5" fill="#1F2328" />
-    <rect x="631" y="119" width="11" height="131" rx="1.5" fill="#1F2328" />
-    <rect x="651" y="142" width="11" height="108" rx="1.5" fill="#8C959F" />
-    <rect x="671" y="135" width="11" height="115" rx="1.5" fill="#1F2328" />
-
-    <!-- Month 8: APR -->
-    <rect x="692" y="111" width="11" height="139" rx="1.5" fill="#1F2328" />
-    <rect x="712" y="96" width="11" height="154" rx="1.5" fill="#B85C3F" />
-    <rect x="732" y="100" width="11" height="150" rx="1.5" fill="#1F2328" />
-    <rect x="752" y="88" width="11" height="162" rx="1.5" fill="#B85C3F" />
-    <rect x="772" y="123" width="11" height="127" rx="1.5" fill="#1F2328" />
-
-    <!-- Month 9: MAY -->
-    <rect x="793" y="150" width="11" height="100" rx="1.5" fill="#8C959F" />
-    <rect x="813" y="158" width="11" height="92" rx="1.5" fill="#8C959F" />
-    <rect x="833" y="169" width="11" height="81" rx="1.5" fill="#8C959F" />
-    <rect x="853" y="142" width="11" height="108" rx="1.5" fill="#1F2328" />
-
-    <!-- Month 10: JUN -->
-    <rect x="874" y="127" width="11" height="123" rx="1.5" fill="#1F2328" />
-    <rect x="894" y="154" width="11" height="96" rx="1.5" fill="#8C959F" />
-    <rect x="914" y="161" width="11" height="89" rx="1.5" fill="#8C959F" />
-    <rect x="934" y="177" width="11" height="73" rx="1.5" fill="#D0D7DE" />
-
-    <!-- Month 11: JUL -->
-    <rect x="955" y="165" width="11" height="85" rx="1.5" fill="#8C959F" />
-    <rect x="975" y="150" width="11" height="100" rx="1.5" fill="#8C959F" />
-    <rect x="995" y="158" width="11" height="92" rx="1.5" fill="#8C959F" />
-    <rect x="1015" y="181" width="11" height="69" rx="1.5" fill="#D0D7DE" />
-    <rect x="1035" y="173" width="11" height="77" rx="1.5" fill="#8C959F" />
-
-    <!-- Month 12: AUG -->
-    <rect x="1056" y="185" width="11" height="65" rx="1.5" fill="#D0D7DE" />
-    <rect x="1076" y="169" width="11" height="81" rx="1.5" fill="#8C959F" />
-    <rect x="1096" y="177" width="11" height="73" rx="1.5" fill="#D0D7DE" />
-    <rect x="1116" y="191" width="11" height="59" rx="1.5" fill="#B85C3F" />
-  </g>
-
-  <!-- Factual Peak Callout -->
-  <g transform="translate(757, 84)">
-    <line x1="0" y1="0" x2="0" y2="-12" stroke="#B85C3F" stroke-width="1" />
-    <rect x="-38" y="-30" width="76" height="18" rx="3" fill="#FFFFFF" stroke="#B85C3F" stroke-width="1" />
-    <text class="mono-tick" x="0" y="-17" font-size="11" fill="#B85C3F" text-anchor="middle" font-weight="700">PEAK: 84</text>
-  </g>
-
-  <!-- Factual Current Week Callout -->
-  <g transform="translate(1121, 187)">
-    <line x1="0" y1="0" x2="0" y2="-12" stroke="#8C959F" stroke-width="1" />
-    <rect x="-42" y="-30" width="84" height="18" rx="3" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" />
-    <text class="mono-tick" x="0" y="-17" font-size="11" fill="#1F2328" text-anchor="middle" font-weight="700">CURRENT: 31</text>
-  </g>
-
-  <!-- Rolling Month Labels -->
-  <g class="mono-meta" font-size="13" fill="#59636E" transform="translate(0, 276)">
-    <text x="115" y="0" text-anchor="middle">SEP</text>
-    <text x="206" y="0" text-anchor="middle">OCT</text>
-    <text x="287" y="0" text-anchor="middle">NOV</text>
-    <text x="388" y="0" text-anchor="middle">DEC</text>
-    <text x="479" y="0" text-anchor="middle">JAN</text>
-    <text x="560" y="0" text-anchor="middle">FEB</text>
-    <text x="651" y="0" text-anchor="middle">MAR</text>
-    <text x="742" y="0" text-anchor="middle">APR</text>
-    <text x="833" y="0" text-anchor="middle">MAY</text>
-    <text x="914" y="0" text-anchor="middle">JUN</text>
-    <text x="1005" y="0" text-anchor="middle">JUL</text>
-    <text x="1096" y="0" text-anchor="middle">AUG</text>
-  </g>
-
-  <!-- 52-Cell Weekly Heat Strip -->
-  <g transform="translate(85, 305)">
-    <rect x="0" y="0" width="16" height="5" rx="1" fill="#D0D7DE" />
-    <rect x="20" y="0" width="16" height="5" rx="1" fill="#D0D7DE" />
-    <rect x="40" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="60" y="0" width="16" height="5" rx="1" fill="#D0D7DE" />
-    <rect x="81" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="101" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="121" y="0" width="16" height="5" rx="1" fill="#D0D7DE" />
-    <rect x="141" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="162" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="182" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="202" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="222" y="0" width="16" height="5" rx="1" fill="#D0D7DE" />
-    <rect x="242" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="263" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="283" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="303" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="323" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="344" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="364" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="384" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="404" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="424" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="445" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="465" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="485" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="505" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="526" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="546" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="566" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="586" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="607" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="627" y="0" width="16" height="5" rx="1" fill="#B85C3F" />
-    <rect x="647" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="667" y="0" width="16" height="5" rx="1" fill="#B85C3F" />
-    <rect x="687" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="708" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="728" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="748" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="768" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="789" y="0" width="16" height="5" rx="1" fill="#1F2328" />
-    <rect x="809" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="829" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="849" y="0" width="16" height="5" rx="1" fill="#D0D7DE" />
-    <rect x="870" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="890" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="910" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="930" y="0" width="16" height="5" rx="1" fill="#D0D7DE" />
-    <rect x="950" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="971" y="0" width="16" height="5" rx="1" fill="#D0D7DE" />
-    <rect x="991" y="0" width="16" height="5" rx="1" fill="#8C959F" />
-    <rect x="1011" y="0" width="16" height="5" rx="1" fill="#D0D7DE" />
-    <rect x="1031" y="0" width="16" height="5" rx="1" fill="#B85C3F" />
-  </g>
+  <!-- Bottom strip (light) -->
+  <rect x="64"   y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="85"   y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="106"  y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="127"  y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="148"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="169"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="190"  y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="211"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="232"  y="386" width="15" height="8" rx="1.5" fill="#7E9DB0"/>
+  <rect x="253"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="274"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="295"  y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="316"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="337"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="358"  y="386" width="15" height="8" rx="1.5" fill="#7E9DB0"/>
+  <rect x="379"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="400"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="421"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="442"  y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="463"  y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="484"  y="386" width="15" height="8" rx="1.5" fill="#D8E0E8"/>
+  <rect x="505"  y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="526"  y="386" width="15" height="8" rx="1.5" fill="#7E9DB0"/>
+  <rect x="547"  y="386" width="15" height="8" rx="1.5" fill="#7E9DB0"/>
+  <rect x="568"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="589"  y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="610"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="631"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="652"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="673"  y="386" width="15" height="8" rx="1.5" fill="#90A8B8"/>
+  <rect x="694"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <!-- APR peak -->
+  <rect x="715"  y="386" width="15" height="8" rx="1.5" fill="#B85C3F"/>
+  <rect x="736"  y="386" width="15" height="8" rx="1.5" fill="#7E9DB0"/>
+  <rect x="757"  y="386" width="15" height="8" rx="1.5" fill="#90A8B8"/>
+  <rect x="778"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="799"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="820"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="841"  y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="862"  y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="883"  y="386" width="15" height="8" rx="1.5" fill="#90A8B8"/>
+  <rect x="904"  y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="925"  y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="946"  y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="967"  y="386" width="15" height="8" rx="1.5" fill="#D8E0E8"/>
+  <rect x="988"  y="386" width="15" height="8" rx="1.5" fill="#7E9DB0"/>
+  <rect x="1009" y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="1030" y="386" width="15" height="8" rx="1.5" fill="#A8BCC8"/>
+  <rect x="1051" y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="1072" y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="1093" y="386" width="15" height="8" rx="1.5" fill="#C8D4DC"/>
+  <rect x="1114" y="386" width="15" height="8" rx="1.5" fill="#D8E0E8"/>
+  <!-- AUG current -->
+  <rect x="1135" y="386" width="15" height="8" rx="1.5" fill="#B85C3F"/>
 </svg>

@@ -1,88 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 172" width="100%" height="100%">
   <defs>
     <style>
-      .num-val {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-        font-weight: 800;
-        letter-spacing: -1.5px;
-      }
-      .lbl-meta {
-        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-        font-weight: 600;
-        letter-spacing: 1.5px;
-      }
-      .desc-txt {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-        font-weight: 600;
-      }
+      .m { font-family: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .s { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
     </style>
   </defs>
 
-  <!-- Base Outer Container (60% Graphite Base) -->
-  <rect width="1200" height="240" rx="12" fill="#0D1117" stroke="#28313A" stroke-width="1" />
+  <!-- Background -->
+  <rect width="1200" height="172" rx="10" fill="#0C1018"/>
+  <rect width="1200" height="172" rx="10" fill="none" stroke="#1C2632" stroke-width="1.2"/>
 
-  <!-- Subtle Alternating Vertical Column Backgrounds (1% Opacity) -->
-  <rect x="300" y="0" width="300" height="240" fill="#FFFFFF" opacity="0.012" />
-  <rect x="900" y="0" width="300" height="240" rx="0 12 12 0" fill="#FFFFFF" opacity="0.012" />
+  <!-- Column dividers -->
+  <line x1="300" y1="16" x2="300" y2="156" stroke="#192230" stroke-width="1"/>
+  <line x1="600" y1="16" x2="600" y2="156" stroke="#192230" stroke-width="1"/>
+  <line x1="900" y1="16" x2="900" y2="156" stroke="#192230" stroke-width="1"/>
 
-  <!-- Vertical Hairline Column Dividers -->
-  <line x1="300" y1="24" x2="300" y2="216" stroke="#28313A" stroke-width="1" />
-  <line x1="600" y1="24" x2="600" y2="216" stroke="#28313A" stroke-width="1" />
-  <line x1="900" y1="24" x2="900" y2="216" stroke="#28313A" stroke-width="1" />
+  <!-- ── COL 1: TOTAL REPOSITORIES / 47 (terracotta) ── -->
+  <text class="m" x="42" y="44" font-size="11" font-weight="600" fill="#4E6070" letter-spacing="2">TOTAL REPOSITORIES</text>
+  <text class="s" x="42" y="114" font-size="70" font-weight="900" fill="#C97B4B" letter-spacing="-2">47</text>
+  <line x1="42" y1="126" x2="114" y2="126" stroke="#C97B4B" stroke-width="2.5" stroke-linecap="round"/>
+  <text class="m" x="42" y="153" font-size="11" font-weight="600" fill="#374A5C" letter-spacing="2">PUBLIC REPOSITORIES</text>
 
-  <!-- Col 1: Repositories (Terracotta Focal Metric) -->
-  <g transform="translate(48, 52)">
-    <text class="lbl-meta" x="0" y="0" font-size="16" fill="#7B858F">TOTAL REPOSITORIES</text>
-    <text class="num-val" x="0" y="62" font-size="64" fill="#C96A4B">47</text>
-    
-    <!-- Micro Graphic: Stacked Repositories Bar -->
-    <g transform="translate(0, 84)">
-      <rect width="140" height="4" rx="2" fill="#28313A" />
-      <rect width="140" height="4" rx="2" fill="#C96A4B" />
-    </g>
-    
-    <text class="desc-txt" x="0" y="118" font-size="16" fill="#5F6974">PUBLIC REPOSITORIES</text>
-  </g>
+  <!-- ── COL 2: CONTRIBUTIONS / 2,450 ── -->
+  <text class="m" x="342" y="44" font-size="11" font-weight="600" fill="#4E6070" letter-spacing="2">CONTRIBUTIONS</text>
+  <text class="s" x="342" y="114" font-size="70" font-weight="900" fill="#DED5C6" letter-spacing="-2">2,450</text>
+  <line x1="342" y1="126" x2="476" y2="126" stroke="#263646" stroke-width="2.5" stroke-linecap="round"/>
+  <text class="m" x="342" y="153" font-size="11" font-weight="600" fill="#374A5C" letter-spacing="2">PAST 365 DAYS</text>
 
-  <!-- Col 2: Contributions (Off-White & Steel) -->
-  <g transform="translate(348, 52)">
-    <text class="lbl-meta" x="0" y="0" font-size="16" fill="#7B858F">CONTRIBUTIONS</text>
-    <text class="num-val" x="0" y="62" font-size="64" fill="#F0EEE8">2,450</text>
-    
-    <!-- Micro Graphic: Relative 12-Month Mini Line -->
-    <g transform="translate(0, 84)">
-      <rect width="140" height="4" rx="2" fill="#28313A" />
-      <rect width="125" height="4" rx="2" fill="#7B858F" />
-    </g>
-    
-    <text class="desc-txt" x="0" y="118" font-size="16" fill="#5F6974">PAST 365 DAYS</text>
-  </g>
+  <!-- ── COL 3: PULL REQUESTS / 140 ── -->
+  <text class="m" x="642" y="44" font-size="11" font-weight="600" fill="#4E6070" letter-spacing="2">PULL REQUESTS</text>
+  <text class="s" x="642" y="114" font-size="70" font-weight="900" fill="#DED5C6" letter-spacing="-2">140</text>
+  <line x1="642" y1="126" x2="738" y2="126" stroke="#263646" stroke-width="2.5" stroke-linecap="round"/>
+  <text class="m" x="642" y="153" font-size="11" font-weight="600" fill="#374A5C" letter-spacing="2">MERGED &amp; DELIVERED</text>
 
-  <!-- Col 3: Pull Requests (Off-White & Steel) -->
-  <g transform="translate(648, 52)">
-    <text class="lbl-meta" x="0" y="0" font-size="16" fill="#7B858F">PULL REQUESTS</text>
-    <text class="num-val" x="0" y="62" font-size="64" fill="#F0EEE8">140</text>
-    
-    <!-- Micro Graphic: Thin Tick Sequence Indicator -->
-    <g transform="translate(0, 84)">
-      <rect width="140" height="4" rx="2" fill="#28313A" />
-      <rect width="105" height="4" rx="2" fill="#7B858F" />
-    </g>
-    
-    <text class="desc-txt" x="0" y="118" font-size="16" fill="#5F6974">MERGED &amp; DELIVERED</text>
-  </g>
-
-  <!-- Col 4: Active Days (Off-White & Steel) -->
-  <g transform="translate(948, 52)">
-    <text class="lbl-meta" x="0" y="0" font-size="16" fill="#7B858F">ACTIVE DAYS</text>
-    <text class="num-val" x="0" y="62" font-size="64" fill="#F0EEE8">300</text>
-    
-    <!-- Micro Graphic: Thin Occupancy Line -->
-    <g transform="translate(0, 84)">
-      <rect width="140" height="4" rx="2" fill="#28313A" />
-      <rect width="118" height="4" rx="2" fill="#7B858F" />
-    </g>
-    
-    <text class="desc-txt" x="0" y="118" font-size="16" fill="#5F6974">PAST 365 DAYS</text>
-  </g>
+  <!-- ── COL 4: ACTIVE DAYS / 300 ── -->
+  <text class="m" x="942" y="44" font-size="11" font-weight="600" fill="#4E6070" letter-spacing="2">ACTIVE DAYS</text>
+  <text class="s" x="942" y="114" font-size="70" font-weight="900" fill="#DED5C6" letter-spacing="-2">300</text>
+  <line x1="942" y1="126" x2="1036" y2="126" stroke="#263646" stroke-width="2.5" stroke-linecap="round"/>
+  <text class="m" x="942" y="153" font-size="11" font-weight="600" fill="#374A5C" letter-spacing="2">PAST 365 DAYS</text>
 </svg>
