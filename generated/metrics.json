@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-08-15T13:59:42.785575+00:00",
+  "period": {
+    "from": "2025-08-01T00:00:00Z",
+    "to": "2026-08-15T13:59:42Z",
+    "label": "AUG 2025 \u2013 AUG 2026"
+  },
+  "repositories": {
+    "public": 47,
+    "private": 0,
+    "total": 47,
+    "hasPrivateAccess": false,
+    "visibilityLabel": "PUBLIC REPOSITORIES"
+  },
+  "contributions": {
+    "total365": 2450,
+    "activeDays365": 300,
+    "pullRequests": 140
+  },
+  "languages": {
+    "totalBytes": 4632057,
+    "breakdown": [
+      {
+        "language": "TypeScript",
+        "bytes": 2514240,
+        "percentage": 54.3
+      },
+      {
+        "language": "JavaScript",
+        "bytes": 1705198,
+        "percentage": 36.8
+      },
+      {
+        "language": "Dart",
+        "bytes": 197523,
+        "percentage": 4.3
+      },
+      {
+        "language": "C++",
+        "bytes": 95018,
+        "percentage": 2.1
+      },
+      {
+        "language": "CMake",
+        "bytes": 76494,
+        "percentage": 1.7
+      },
+      {
+        "language": "Other",
+        "bytes": 43584,
+        "percentage": 0.8
+      }
+    ]
+  }
+}

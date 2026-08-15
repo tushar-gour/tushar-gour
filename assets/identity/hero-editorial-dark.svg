@@ -1,138 +1,143 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" height="100%">
   <defs>
     <style>
-      .serif-display {
-        font-family: Georgia, 'Times New Roman', 'Source Serif Pro', serif;
-        font-weight: 700;
+      .sans-display {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 800;
         letter-spacing: -2.5px;
-      }
-      .sans-medium {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-        font-weight: 500;
-      }
-      .sans-bold {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-        font-weight: 700;
       }
       .mono-meta {
         font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
         font-weight: 600;
         letter-spacing: 1.5px;
       }
+      .sans-sub {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+      .sans-scope {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 600;
+      }
     </style>
   </defs>
 
-  <!-- Base Editorial Frame (60% Graphite Base) -->
-  <rect width="1200" height="400" rx="12" fill="#0D1117" stroke="#28313A" stroke-width="1" />
+  <!-- Base Outer Container (60% Graphite Base) -->
+  <rect width="1200" height="320" rx="12" fill="#0D1117" stroke="#28313A" stroke-width="1" />
 
-  <!-- Partial 3% Technical Construction Grid (Right Side Only) -->
+  <!-- Partial 3.5% Construction Grid (Right Side Only) -->
   <g stroke="#F0EEE8" stroke-width="0.75" opacity="0.035">
-    <line x1="640" y1="40" x2="1152" y2="40" />
-    <line x1="640" y1="80" x2="1152" y2="80" />
-    <line x1="640" y1="120" x2="1152" y2="120" />
-    <line x1="640" y1="160" x2="1152" y2="160" />
-    <line x1="640" y1="200" x2="1152" y2="200" />
-    <line x1="640" y1="240" x2="1152" y2="240" />
-    <line x1="640" y1="280" x2="1152" y2="280" />
-    <line x1="640" y1="320" x2="1152" y2="320" />
-    <line x1="640" y1="360" x2="1152" y2="360" />
-    <line x1="640" y1="40" x2="640" y2="360" />
-    <line x1="720" y1="40" x2="720" y2="360" />
-    <line x1="800" y1="40" x2="800" y2="360" />
-    <line x1="880" y1="40" x2="880" y2="360" />
-    <line x1="960" y1="40" x2="960" y2="360" />
-    <line x1="1040" y1="40" x2="1040" y2="360" />
-    <line x1="1120" y1="40" x2="1120" y2="360" />
+    <line x1="720" y1="30" x2="1152" y2="30" />
+    <line x1="720" y1="70" x2="1152" y2="70" />
+    <line x1="720" y1="110" x2="1152" y2="110" />
+    <line x1="720" y1="150" x2="1152" y2="150" />
+    <line x1="720" y1="190" x2="1152" y2="190" />
+    <line x1="720" y1="230" x2="1152" y2="230" />
+    <line x1="720" y1="270" x2="1152" y2="270" />
+    <line x1="720" y1="30" x2="720" y2="290" />
+    <line x1="800" y1="30" x2="800" y2="290" />
+    <line x1="880" y1="30" x2="880" y2="290" />
+    <line x1="960" y1="30" x2="960" y2="290" />
+    <line x1="1040" y1="30" x2="1040" y2="290" />
+    <line x1="1120" y1="30" x2="1120" y2="290" />
   </g>
 
   <!-- Top Metadata Bar -->
-  <g transform="translate(48, 48)">
-    <text class="mono-meta" x="0" y="0" font-size="20" fill="#C96A4B">01</text>
-    <text class="mono-meta" x="38" y="0" font-size="20" fill="#7B858F">/ IDENTITY</text>
-    
-    <text class="mono-meta" x="1104" y="0" font-size="18" fill="#5F6974" text-anchor="end">PROFILE // 2026</text>
+  <g transform="translate(48, 42)">
+    <text class="mono-meta" x="0" y="0" font-size="16" fill="#7B858F">SOFTWARE ENGINEERING</text>
+    <text class="mono-meta" x="1104" y="0" font-size="16" fill="#5F6974" text-anchor="end">PROFILE // 2026</text>
   </g>
 
-  <line x1="48" y1="68" x2="1152" y2="68" stroke="#1C252E" stroke-width="1" />
+  <line x1="48" y1="58" x2="1152" y2="58" stroke="#1C252E" stroke-width="1" />
 
-  <!-- LEFT SIDE: Oversized Dominant Typography (~65% Width) -->
-  <g transform="translate(48, 175)">
-    <!-- Main Display Name (104px Source Size) -->
-    <text class="serif-display" x="0" y="0" font-size="104" fill="#F0EEE8">
-      Tushar Gour
-    </text>
-
-    <!-- Subtitle & Role Scope (24px / 28px) -->
-    <g transform="translate(4, 48)">
-      <text class="mono-meta" x="0" y="0" font-size="20" fill="#C96A4B">SOFTWARE ENGINEER</text>
-      <text class="sans-bold" x="250" y="0" font-size="22" fill="#D7D5CF">·&nbsp; MOBILE · WEB · BACKEND · SYSTEMS</text>
+  <!-- LEFT SIDE: Identity & Monogram (~65% Width) -->
+  <g transform="translate(48, 95)">
+    <!-- Geometric TG Monogram (Swiss Engineering Studio Mark) -->
+    <g transform="translate(0, 8)">
+      <rect width="64" height="64" rx="8" fill="#111820" stroke="#28313A" stroke-width="1.2" />
+      <line x1="16" y1="22" x2="48" y2="22" stroke="#F0EEE8" stroke-width="3" stroke-linecap="round" />
+      <line x1="32" y1="22" x2="32" y2="44" stroke="#F0EEE8" stroke-width="3" stroke-linecap="round" />
+      <path d="M 44 32 A 13 13 0 1 0 44 44 H 36" fill="none" stroke="#7B858F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <circle cx="44" cy="44" r="2.5" fill="#C96A4B" />
     </g>
 
-    <!-- Concise Two-Line Positioning Statement (25px) -->
-    <g transform="translate(4, 94)">
-      <text class="sans-medium" x="0" y="0" font-size="25" fill="#7B858F">
-        Building production software across interfaces, services,
+    <!-- Dominant Name & Roles -->
+    <g transform="translate(86, 0)">
+      <text class="sans-display" x="0" y="48" font-size="58" fill="#F0EEE8">
+        TUSHAR GOUR
       </text>
-      <text class="sans-medium" x="0" y="34" font-size="25" fill="#7B858F">
-        data architectures, and cloud infrastructure.
+
+      <text class="sans-sub" x="2" y="80" font-size="18" fill="#C96A4B">
+        SOFTWARE ENGINEER
       </text>
+
+      <text class="sans-scope" x="2" y="112" font-size="17" fill="#D7D5CF">
+        MOBILE &nbsp;·&nbsp; WEB &nbsp;·&nbsp; SYSTEMS &nbsp;·&nbsp; AI &nbsp;·&nbsp; DELIVERY
+      </text>
+    </g>
+
+    <!-- Graphical Action Controls (LinkedIn, GitHub, Mail) -->
+    <g transform="translate(88, 144)">
+      <a href="https://linkedin.com/in/tushar-gour" target="_blank">
+        <g transform="translate(0, 0)">
+          <rect width="36" height="36" rx="6" fill="#111820" stroke="#28313A" stroke-width="1" />
+          <path d="M 12 16 H 15 V 25 H 12 Z M 13.5 12 A 1.5 1.5 0 1 1 13.5 15 A 1.5 1.5 0 1 1 13.5 12 Z M 17 16 H 20 V 17.5 C 20.5 16.5 21.8 15.8 23 15.8 C 25.5 15.8 26 17.2 26 19.5 V 25 H 23 V 20 C 23 18.8 22.5 18 21.5 18 C 20.5 18 20 18.8 20 20 V 25 H 17 Z" fill="#F0EEE8" />
+        </g>
+      </a>
+
+      <a href="https://github.com/tushar-gour" target="_blank">
+        <g transform="translate(48, 0)">
+          <rect width="36" height="36" rx="6" fill="#111820" stroke="#28313A" stroke-width="1" />
+          <path d="M 18 10 C 13.6 10 10 13.6 10 18 C 10 21.5 12.3 24.5 15.5 25.6 C 15.9 25.7 16 25.4 16 25.2 V 23.8 C 13.8 24.3 13.3 22.8 13.3 22.8 C 12.9 21.8 12.4 21.5 12.4 21.5 C 11.7 21 12.5 21 12.5 21 C 13.3 21.1 13.7 21.9 13.7 21.9 C 14.4 23.1 15.5 22.8 15.9 22.6 C 16 22.1 16.2 21.7 16.4 21.5 C 14.6 21.3 12.8 20.6 12.8 17.5 C 12.8 16.6 13.1 15.9 13.6 15.3 C 13.5 15.1 13.2 14.2 13.7 13.1 C 13.7 13.1 14.4 12.9 16 14 C 16.7 13.8 17.4 13.7 18.1 13.7 C 18.8 13.7 19.5 13.8 20.2 14 C 21.8 12.9 22.5 13.1 22.5 13.1 C 23 14.2 22.7 15.1 22.6 15.3 C 23.1 15.9 23.4 16.6 23.4 17.5 C 23.4 20.6 21.5 21.3 19.7 21.5 C 20 21.8 20.2 22.3 20.2 23 V 25.2 C 20.2 25.4 20.4 25.7 20.8 25.6 C 24 24.5 26.3 21.5 26.3 18 C 26.3 13.6 22.7 10 18 10 Z" fill="#F0EEE8" />
+        </g>
+      </a>
+
+      <a href="mailto:tushargour004@gmail.com" target="_blank">
+        <g transform="translate(96, 0)">
+          <rect width="36" height="36" rx="6" fill="#111820" stroke="#28313A" stroke-width="1" />
+          <path d="M 12 13 H 24 C 24.6 13 25 13.4 25 14 V 22 C 25 22.6 24.6 23 24 23 H 12 C 11.4 23 11 22.6 11 22 V 14 C 11 13.4 11.4 13 12 13 Z M 12.8 14.5 L 18 18.2 L 23.2 14.5 Z M 12.5 21.5 H 23.5 V 16 L 18 20 L 12.5 16 Z" fill="#F0EEE8" />
+        </g>
+      </a>
     </g>
   </g>
 
-  <!-- RIGHT SIDE: Abstract 4-Plane Geometric System Path (~35% Width) -->
-  <g transform="translate(740, 110)">
-    <!-- Plane 1: Surface -->
+  <!-- RIGHT SIDE: Abstract 5-Plane Geometric System Path -->
+  <g transform="translate(760, 92)">
     <g transform="translate(0, 0)">
-      <line x1="0" y1="25" x2="380" y2="25" stroke="#28313A" stroke-width="1" />
-      <text class="mono-meta" x="0" y="10" font-size="18" fill="#7B858F">01 SURFACE</text>
+      <line x1="0" y1="18" x2="350" y2="18" stroke="#28313A" stroke-width="1" />
+      <text class="mono-meta" x="0" y="8" font-size="14" fill="#7B858F">01 PRODUCT</text>
     </g>
 
-    <!-- Plane 2: Services (Active Layer) -->
-    <g transform="translate(30, 65)">
-      <line x1="0" y1="25" x2="350" y2="25" stroke="#28313A" stroke-width="1" />
-      <text class="mono-meta" x="0" y="10" font-size="18" fill="#C96A4B">02 SERVICES</text>
+    <g transform="translate(25, 42)">
+      <line x1="0" y1="18" x2="325" y2="18" stroke="#28313A" stroke-width="1" />
+      <text class="mono-meta" x="0" y="8" font-size="14" fill="#7B858F">02 SERVICES</text>
     </g>
 
-    <!-- Plane 3: Data -->
-    <g transform="translate(60, 130)">
-      <line x1="0" y1="25" x2="320" y2="25" stroke="#28313A" stroke-width="1" />
-      <text class="mono-meta" x="0" y="10" font-size="18" fill="#7B858F">03 DATA PLANE</text>
+    <g transform="translate(50, 84)">
+      <line x1="0" y1="18" x2="300" y2="18" stroke="#28313A" stroke-width="1" />
+      <text class="mono-meta" x="0" y="8" font-size="14" fill="#7B858F">03 DATA</text>
     </g>
 
-    <!-- Plane 4: Delivery -->
-    <g transform="translate(90, 195)">
-      <line x1="0" y1="25" x2="290" y2="25" stroke="#28313A" stroke-width="1" />
-      <text class="mono-meta" x="0" y="10" font-size="18" fill="#7B858F">04 INFRASTRUCTURE</text>
+    <g transform="translate(75, 126)">
+      <line x1="0" y1="18" x2="275" y2="18" stroke="#28313A" stroke-width="1" />
+      <text class="mono-meta" x="0" y="8" font-size="14" fill="#C96A4B">04 INTELLIGENCE</text>
     </g>
 
-    <!-- Connecting Traversing Path (Terracotta & Steel) -->
-    <path d="M 120 25 L 180 90 L 220 155 L 260 220" 
+    <g transform="translate(100, 168)">
+      <line x1="0" y1="18" x2="250" y2="18" stroke="#28313A" stroke-width="1" />
+      <text class="mono-meta" x="0" y="8" font-size="14" fill="#7B858F">05 DELIVERY</text>
+    </g>
+
+    <path d="M 110 18 L 155 60 L 195 102 L 235 144 L 275 186" 
           fill="none" stroke="#28313A" stroke-width="1.5" />
-    <path d="M 120 25 L 180 90" 
+    <path d="M 155 60 L 235 144" 
           fill="none" stroke="#C96A4B" stroke-width="2" />
 
-    <!-- Traversal Nodes -->
-    <circle cx="120" cy="25" r="4" fill="#0D1117" stroke="#7B858F" stroke-width="1.5" />
-    <circle cx="180" cy="90" r="5.5" fill="#C96A4B" />
-    <circle cx="220" cy="155" r="4" fill="#0D1117" stroke="#7B858F" stroke-width="1.5" />
-    <circle cx="260" cy="220" r="4" fill="#0D1117" stroke="#7B858F" stroke-width="1.5" />
-  </g>
-
-  <!-- Bottom System Continuum & Fifth Mark -->
-  <line x1="48" y1="355" x2="1152" y2="355" stroke="#1C252E" stroke-width="1" />
-
-  <g transform="translate(48, 380)">
-    <text class="mono-meta" x="0" y="0" font-size="18" fill="#5F6974">
-      INTERFACE &nbsp;→&nbsp; SERVICES &nbsp;→&nbsp; DATA &nbsp;→&nbsp; INFRASTRUCTURE
-    </text>
-  </g>
-
-  <!-- Fifth Mark Signature Motif (Bottom Right) -->
-  <g transform="translate(1088, 368)" stroke-width="3.5" stroke-linecap="round">
-    <line x1="0" y1="0" x2="0" y2="16" stroke="#28313A" />
-    <line x1="14" y1="0" x2="14" y2="16" stroke="#28313A" />
-    <line x1="28" y1="0" x2="28" y2="16" stroke="#28313A" />
-    <line x1="42" y1="0" x2="42" y2="16" stroke="#28313A" />
-    <line x1="56" y1="0" x2="56" y2="16" stroke="#C96A4B" />
+    <circle cx="110" cy="18" r="3.5" fill="#0D1117" stroke="#7B858F" stroke-width="1.5" />
+    <circle cx="155" cy="60" r="3.5" fill="#0D1117" stroke="#7B858F" stroke-width="1.5" />
+    <circle cx="195" cy="102" r="3.5" fill="#0D1117" stroke="#7B858F" stroke-width="1.5" />
+    <circle cx="235" cy="144" r="5" fill="#C96A4B" />
+    <circle cx="275" cy="186" r="3.5" fill="#0D1117" stroke="#7B858F" stroke-width="1.5" />
   </g>
 </svg>

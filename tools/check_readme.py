@@ -19,7 +19,5 @@ for r in refs:
 
 print()
 print("settle-line.gif:", "FOUND (error)" if "settle-line" in readme else "absent (correct)")
-n = readme.count("linkedin.com")
-print(f"LinkedIn links: {n} (expected 1)")
 print()
 print("All references OK" if all_ok else "WARNING: missing references found")

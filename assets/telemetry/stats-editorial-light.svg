@@ -13,7 +13,7 @@
       }
       .desc-txt {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-        font-weight: 500;
+        font-weight: 600;
       }
     </style>
   </defs>
@@ -32,53 +32,53 @@
 
   <!-- Col 1: Repositories -->
   <g transform="translate(48, 52)">
-    <text class="lbl-meta" x="0" y="0" font-size="18" fill="#59636E">TOTAL REPOSITORIES</text>
-    <text class="num-val" x="0" y="62" font-size="64" fill="#1F2328">48<tspan font-size="36" fill="#B85C3F">+</tspan></text>
+    <text class="lbl-meta" x="0" y="0" font-size="16" fill="#59636E">TOTAL REPOSITORIES</text>
+    <text class="num-val" x="0" y="62" font-size="64" fill="#B85C3F">47</text>
     
     <g transform="translate(0, 84)">
       <rect width="140" height="4" rx="2" fill="#E1E4E8" />
-      <rect width="95" height="4" rx="2" fill="#B85C3F" />
+      <rect width="140" height="4" rx="2" fill="#B85C3F" />
     </g>
     
-    <text class="desc-txt" x="0" y="118" font-size="18" fill="#8C959F">PUBLIC + PRIVATE</text>
+    <text class="desc-txt" x="0" y="118" font-size="16" fill="#8C959F">PUBLIC REPOSITORIES</text>
   </g>
 
   <!-- Col 2: Contributions -->
   <g transform="translate(348, 52)">
-    <text class="lbl-meta" x="0" y="0" font-size="18" fill="#59636E">CONTRIBUTIONS</text>
-    <text class="num-val" x="0" y="62" font-size="64" fill="#1F2328">2,450<tspan font-size="36" fill="#59636E">+</tspan></text>
+    <text class="lbl-meta" x="0" y="0" font-size="16" fill="#59636E">CONTRIBUTIONS</text>
+    <text class="num-val" x="0" y="62" font-size="64" fill="#1F2328">2,450</text>
     
     <g transform="translate(0, 84)">
       <rect width="140" height="4" rx="2" fill="#E1E4E8" />
       <rect width="125" height="4" rx="2" fill="#59636E" />
     </g>
     
-    <text class="desc-txt" x="0" y="118" font-size="18" fill="#8C959F">PAST 365 DAYS</text>
+    <text class="desc-txt" x="0" y="118" font-size="16" fill="#8C959F">PAST 365 DAYS</text>
   </g>
 
   <!-- Col 3: Pull Requests -->
   <g transform="translate(648, 52)">
-    <text class="lbl-meta" x="0" y="0" font-size="18" fill="#59636E">PULL REQUESTS</text>
-    <text class="num-val" x="0" y="62" font-size="64" fill="#1F2328">140<tspan font-size="36" fill="#59636E">+</tspan></text>
+    <text class="lbl-meta" x="0" y="0" font-size="16" fill="#59636E">PULL REQUESTS</text>
+    <text class="num-val" x="0" y="62" font-size="64" fill="#1F2328">140</text>
     
     <g transform="translate(0, 84)">
       <rect width="140" height="4" rx="2" fill="#E1E4E8" />
       <rect width="105" height="4" rx="2" fill="#59636E" />
     </g>
     
-    <text class="desc-txt" x="0" y="118" font-size="18" fill="#8C959F">MERGED &amp; REVIEWED</text>
+    <text class="desc-txt" x="0" y="118" font-size="16" fill="#8C959F">MERGED &amp; DELIVERED</text>
   </g>
 
-  <!-- Col 4: Active Cadence -->
+  <!-- Col 4: Active Days -->
   <g transform="translate(948, 52)">
-    <text class="lbl-meta" x="0" y="0" font-size="18" fill="#59636E">ACTIVE CADENCE</text>
-    <text class="num-val" x="0" y="62" font-size="64" fill="#1F2328">300<tspan font-size="36" fill="#59636E">D+</tspan></text>
+    <text class="lbl-meta" x="0" y="0" font-size="16" fill="#59636E">ACTIVE DAYS</text>
+    <text class="num-val" x="0" y="62" font-size="64" fill="#1F2328">300</text>
     
     <g transform="translate(0, 84)">
       <rect width="140" height="4" rx="2" fill="#E1E4E8" />
       <rect width="118" height="4" rx="2" fill="#59636E" />
     </g>
     
-    <text class="desc-txt" x="0" y="118" font-size="18" fill="#8C959F">ANNUAL ACTIVITY FLOW</text>
+    <text class="desc-txt" x="0" y="118" font-size="16" fill="#8C959F">PAST 365 DAYS</text>
   </g>
 </svg>

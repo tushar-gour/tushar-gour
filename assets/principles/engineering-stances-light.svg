@@ -28,11 +28,11 @@
 
   <!-- Ghost Large Numerals Behind Columns -->
   <g class="ghost-num" font-size="96" fill="#1F2328" opacity="0.03">
-    <text x="70" y="160">01</text>
-    <text x="310" y="160">02</text>
-    <text x="550" y="160">03</text>
-    <text x="790" y="160">04</text>
-    <text x="1030" y="160">05</text>
+    <text x="65" y="160">01</text>
+    <text x="305" y="160">02</text>
+    <text x="545" y="160">03</text>
+    <text x="785" y="160">04</text>
+    <text x="1025" y="160">05</text>
   </g>
 
   <!-- Vertical Hairline Column Dividers -->
@@ -41,43 +41,43 @@
   <line x1="720" y1="24" x2="720" y2="216" stroke="#D0D7DE" stroke-width="1" />
   <line x1="960" y1="24" x2="960" y2="216" stroke="#D0D7DE" stroke-width="1" />
 
-  <!-- Stance 01: Boundaries -->
-  <g transform="translate(36, 54)">
-    <text class="mono-num" x="0" y="0" font-size="20" fill="#B85C3F">01</text>
-    <text class="stance-title" x="0" y="36" font-size="24" fill="#1F2328">BOUNDARIES</text>
-    <text class="stance-desc" x="0" y="72" font-size="18" fill="#59636E">Explicit ownership,</text>
-    <text class="stance-desc" x="0" y="98" font-size="18" fill="#59636E">typed schemas &amp; contracts.</text>
+  <!-- Principle 01: Explicit Boundaries -->
+  <g transform="translate(36, 52)">
+    <text class="mono-num" x="0" y="0" font-size="18" fill="#B85C3F">01</text>
+    <text class="stance-title" x="0" y="32" font-size="20" fill="#1F2328">EXPLICIT BOUNDARIES</text>
+    <text class="stance-desc" x="0" y="66" font-size="16" fill="#59636E">Ownership, schemas</text>
+    <text class="stance-desc" x="0" y="90" font-size="16" fill="#59636E">&amp; contracts stay visible.</text>
   </g>
 
-  <!-- Stance 02: Failure -->
-  <g transform="translate(276, 54)">
-    <text class="mono-num" x="0" y="0" font-size="20" fill="#59636E">02</text>
-    <text class="stance-title" x="0" y="36" font-size="24" fill="#1F2328">FAILURE</text>
-    <text class="stance-desc" x="0" y="72" font-size="18" fill="#59636E">Recovery is intentional</text>
-    <text class="stance-desc" x="0" y="98" font-size="18" fill="#59636E">product UX behavior.</text>
+  <!-- Principle 02: Designed Failure -->
+  <g transform="translate(276, 52)">
+    <text class="mono-num" x="0" y="0" font-size="18" fill="#59636E">02</text>
+    <text class="stance-title" x="0" y="32" font-size="20" fill="#1F2328">DESIGNED FAILURE</text>
+    <text class="stance-desc" x="0" y="66" font-size="16" fill="#59636E">Retries &amp; recovery are</text>
+    <text class="stance-desc" x="0" y="90" font-size="16" fill="#59636E">part of system behavior.</text>
   </g>
 
-  <!-- Stance 03: Predictability -->
-  <g transform="translate(516, 54)">
-    <text class="mono-num" x="0" y="0" font-size="20" fill="#59636E">03</text>
-    <text class="stance-title" x="0" y="36" font-size="24" fill="#1F2328">PREDICTABILITY</text>
-    <text class="stance-desc" x="0" y="72" font-size="18" fill="#59636E">Understandable systems</text>
-    <text class="stance-desc" x="0" y="98" font-size="18" fill="#59636E">over clever monoliths.</text>
+  <!-- Principle 03: Predictable Systems -->
+  <g transform="translate(516, 52)">
+    <text class="mono-num" x="0" y="0" font-size="18" fill="#59636E">03</text>
+    <text class="stance-title" x="0" y="32" font-size="20" fill="#1F2328">PREDICTABLE SYSTEMS</text>
+    <text class="stance-desc" x="0" y="66" font-size="16" fill="#59636E">Prefer understandable</text>
+    <text class="stance-desc" x="0" y="90" font-size="16" fill="#59636E">flow over clever tricks.</text>
   </g>
 
-  <!-- Stance 04: Maintainability -->
-  <g transform="translate(756, 54)">
-    <text class="mono-num" x="0" y="0" font-size="20" fill="#59636E">04</text>
-    <text class="stance-title" x="0" y="36" font-size="24" fill="#1F2328">MAINTAIN</text>
-    <text class="stance-desc" x="0" y="72" font-size="18" fill="#59636E">Optimize code for the</text>
-    <text class="stance-desc" x="0" y="98" font-size="18" fill="#59636E">next engineer's change.</text>
+  <!-- Principle 04: Changeability -->
+  <g transform="translate(756, 52)">
+    <text class="mono-num" x="0" y="0" font-size="18" fill="#59636E">04</text>
+    <text class="stance-title" x="0" y="32" font-size="20" fill="#1F2328">CHANGEABILITY</text>
+    <text class="stance-desc" x="0" y="66" font-size="16" fill="#59636E">Structure software to</text>
+    <text class="stance-desc" x="0" y="90" font-size="16" fill="#59636E">ease the next change.</text>
   </g>
 
-  <!-- Stance 05: Applied AI -->
-  <g transform="translate(996, 54)">
-    <text class="mono-num" x="0" y="0" font-size="20" fill="#59636E">05</text>
-    <text class="stance-title" x="0" y="36" font-size="24" fill="#1F2328">APPLIED AI</text>
-    <text class="stance-desc" x="0" y="72" font-size="18" fill="#59636E">Bounded dependencies</text>
-    <text class="stance-desc" x="0" y="98" font-size="18" fill="#59636E">with latency budgets.</text>
+  <!-- Principle 05: Bounded Intelligence -->
+  <g transform="translate(996, 52)">
+    <text class="mono-num" x="0" y="0" font-size="18" fill="#59636E">05</text>
+    <text class="stance-title" x="0" y="32" font-size="20" fill="#1F2328">BOUNDED AI</text>
+    <text class="stance-desc" x="0" y="66" font-size="16" fill="#59636E">Engineered dependencies</text>
+    <text class="stance-desc" x="0" y="90" font-size="16" fill="#59636E">with latency budgets.</text>
   </g>
 </svg>

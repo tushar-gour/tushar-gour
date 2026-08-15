@@ -6,12 +6,33 @@
 
 <br>
 
-I build production software across mobile, web, backend services, and cloud infrastructure — from the client surface down to the systems and persistence running underneath. The focus is finished software: applications that ship, services that remain predictable under real load, and architectures that stay coherent past the first version.
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="3" bgcolor="#C96A4B" style="background:#C96A4B; width:3px; padding:0; border:none;"></td>
+    <td width="16" style="width:16px; padding:0; border:none;"></td>
+    <td style="padding:0; border:none;">
+      <p style="margin:0; font-size:16px; line-height:1.6; color:#D7D5CF;">
+        I engineer and deliver production systems end to end, from product interfaces and backend services to data platforms, AI capabilities, cloud infrastructure, and deployment. My focus is software that moves from architecture to operation as a coherent system: observable, maintainable, and designed for real-world load.
+      </p>
+    </td>
+  </tr>
+</table>
 
 <br>
 
 <!-- ================================================================= -->
-<!-- 02 — REPOSITORY STATISTICS & CADENCE                              -->
+<!-- 03 — SKILL CONSTELLATION                                          -->
+<!-- ================================================================= -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/skills/constellation-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/skills/constellation-light.svg">
+  <img src="./assets/skills/constellation-dark.svg" alt="Core Engineering Skill Constellation" width="100%">
+</picture>
+
+<br><br>
+
+<!-- ================================================================= -->
+<!-- 04 — REPOSITORY STATISTICS & METRICS                              -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/stats-editorial-dark.svg">
@@ -22,7 +43,7 @@ I build production software across mobile, web, backend services, and cloud infr
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 03 — CONTRIBUTION ACTIVITY TIMELINE                               -->
+<!-- 05 — CONTRIBUTION ACTIVITY TIMELINE                               -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/activity-chart-dark.svg">
@@ -33,7 +54,7 @@ I build production software across mobile, web, backend services, and cloud infr
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 04 — SECOND DATA VISUAL: LANGUAGE FOOTPRINT                       -->
+<!-- 06 — LANGUAGE FOOTPRINT                                           -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/domain-spectrum-dark.svg">
@@ -44,58 +65,32 @@ I build production software across mobile, web, backend services, and cloud infr
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 05 — CAPABILITY & SYSTEM RELATIONSHIPS MAP                        -->
+<!-- 07 — ENGINEERING SCOPE & SYSTEMS CROSS-SECTION                    -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/architecture/system-stack-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/architecture/system-stack-light.svg">
-  <img src="./assets/architecture/system-stack-dark.svg" alt="End-to-End Capability Map &amp; System Architecture" width="100%">
+  <img src="./assets/architecture/system-stack-dark.svg" alt="Engineering Scope &amp; Systems Cross-Section" width="100%">
 </picture>
 
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 06 — CORE ENGINEERING PRINCIPLES                                  -->
+<!-- 08 — CORE ENGINEERING PRINCIPLES                                  -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/principles/engineering-stances-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/principles/engineering-stances-light.svg">
-  <img src="./assets/principles/engineering-stances-dark.svg" alt="Core Engineering Stances" width="100%">
+  <img src="./assets/principles/engineering-stances-dark.svg" alt="Core Engineering Principles" width="100%">
 </picture>
 
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 07 — COLLAPSIBLE TECHNICAL TOOLBOX                                -->
-<!-- ================================================================= -->
-<details>
-<summary><strong>The complete technical toolbox</strong> — languages, platforms, and environments</summary>
-
-<br>
-
-- **Languages** &nbsp;—&nbsp; TypeScript · JavaScript · Dart · Java · Python · C · C++ · Kotlin · Lua · SQL
-- **Frameworks &amp; Runtime** &nbsp;—&nbsp; Flutter · React 19 · Next.js · Node.js · Express · Socket.IO · Tailwind CSS · Vite
-- **Data &amp; Persistence** &nbsp;—&nbsp; PostgreSQL · Redis · MongoDB · MySQL · SQLite · Prisma · Drizzle · Supabase
-- **Cloud &amp; Infrastructure** &nbsp;—&nbsp; AWS · Google Cloud · Docker · Linux · GitHub Actions CI/CD · Vercel · Render
-- **Tools &amp; Graphics** &nbsp;—&nbsp; Git · Unity · Blender · Postman · Figma
-
-</details>
-
-<br>
-
-<!-- ================================================================= -->
-<!-- 08 — FOOTER & DIRECTORY LINKS                                     -->
+<!-- 09 — PROFESSIONAL CLOSING MASTHEAD & FOOTER                       -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/footer/footer-editorial-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/footer/footer-editorial-light.svg">
   <img src="./assets/footer/footer-editorial-dark.svg" alt="Tushar Gour — Software Engineer" width="100%">
 </picture>
-
-<br>
-
-<div align="center">
-
-[LinkedIn ↗](https://linkedin.com/in/tushar-gour) &nbsp;&nbsp;·&nbsp;&nbsp; [GitHub Repositories ↗](https://github.com/tushar-gour)
-
-</div>

@@ -13,7 +13,7 @@
       }
       .desc-txt {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-        font-weight: 500;
+        font-weight: 600;
       }
     </style>
   </defs>
@@ -32,22 +32,22 @@
 
   <!-- Col 1: Repositories (Terracotta Focal Metric) -->
   <g transform="translate(48, 52)">
-    <text class="lbl-meta" x="0" y="0" font-size="18" fill="#7B858F">TOTAL REPOSITORIES</text>
-    <text class="num-val" x="0" y="62" font-size="64" fill="#F0EEE8">48<tspan font-size="36" fill="#C96A4B">+</tspan></text>
+    <text class="lbl-meta" x="0" y="0" font-size="16" fill="#7B858F">TOTAL REPOSITORIES</text>
+    <text class="num-val" x="0" y="62" font-size="64" fill="#C96A4B">47</text>
     
-    <!-- Micro Graphic: Stacked Public / Private Indicator Line -->
+    <!-- Micro Graphic: Stacked Repositories Bar -->
     <g transform="translate(0, 84)">
       <rect width="140" height="4" rx="2" fill="#28313A" />
-      <rect width="95" height="4" rx="2" fill="#C96A4B" />
+      <rect width="140" height="4" rx="2" fill="#C96A4B" />
     </g>
     
-    <text class="desc-txt" x="0" y="118" font-size="18" fill="#5F6974">PUBLIC + PRIVATE</text>
+    <text class="desc-txt" x="0" y="118" font-size="16" fill="#5F6974">PUBLIC REPOSITORIES</text>
   </g>
 
   <!-- Col 2: Contributions (Off-White & Steel) -->
   <g transform="translate(348, 52)">
-    <text class="lbl-meta" x="0" y="0" font-size="18" fill="#7B858F">CONTRIBUTIONS</text>
-    <text class="num-val" x="0" y="62" font-size="64" fill="#F0EEE8">2,450<tspan font-size="36" fill="#7B858F">+</tspan></text>
+    <text class="lbl-meta" x="0" y="0" font-size="16" fill="#7B858F">CONTRIBUTIONS</text>
+    <text class="num-val" x="0" y="62" font-size="64" fill="#F0EEE8">2,450</text>
     
     <!-- Micro Graphic: Relative 12-Month Mini Line -->
     <g transform="translate(0, 84)">
@@ -55,13 +55,13 @@
       <rect width="125" height="4" rx="2" fill="#7B858F" />
     </g>
     
-    <text class="desc-txt" x="0" y="118" font-size="18" fill="#5F6974">PAST 365 DAYS</text>
+    <text class="desc-txt" x="0" y="118" font-size="16" fill="#5F6974">PAST 365 DAYS</text>
   </g>
 
   <!-- Col 3: Pull Requests (Off-White & Steel) -->
   <g transform="translate(648, 52)">
-    <text class="lbl-meta" x="0" y="0" font-size="18" fill="#7B858F">PULL REQUESTS</text>
-    <text class="num-val" x="0" y="62" font-size="64" fill="#F0EEE8">140<tspan font-size="36" fill="#7B858F">+</tspan></text>
+    <text class="lbl-meta" x="0" y="0" font-size="16" fill="#7B858F">PULL REQUESTS</text>
+    <text class="num-val" x="0" y="62" font-size="64" fill="#F0EEE8">140</text>
     
     <!-- Micro Graphic: Thin Tick Sequence Indicator -->
     <g transform="translate(0, 84)">
@@ -69,13 +69,13 @@
       <rect width="105" height="4" rx="2" fill="#7B858F" />
     </g>
     
-    <text class="desc-txt" x="0" y="118" font-size="18" fill="#5F6974">MERGED &amp; REVIEWED</text>
+    <text class="desc-txt" x="0" y="118" font-size="16" fill="#5F6974">MERGED &amp; DELIVERED</text>
   </g>
 
-  <!-- Col 4: Active Cadence (Off-White & Steel) -->
+  <!-- Col 4: Active Days (Off-White & Steel) -->
   <g transform="translate(948, 52)">
-    <text class="lbl-meta" x="0" y="0" font-size="18" fill="#7B858F">ACTIVE CADENCE</text>
-    <text class="num-val" x="0" y="62" font-size="64" fill="#F0EEE8">300<tspan font-size="36" fill="#7B858F">D+</tspan></text>
+    <text class="lbl-meta" x="0" y="0" font-size="16" fill="#7B858F">ACTIVE DAYS</text>
+    <text class="num-val" x="0" y="62" font-size="64" fill="#F0EEE8">300</text>
     
     <!-- Micro Graphic: Thin Occupancy Line -->
     <g transform="translate(0, 84)">
@@ -83,6 +83,6 @@
       <rect width="118" height="4" rx="2" fill="#7B858F" />
     </g>
     
-    <text class="desc-txt" x="0" y="118" font-size="18" fill="#5F6974">ANNUAL ACTIVITY FLOW</text>
+    <text class="desc-txt" x="0" y="118" font-size="16" fill="#5F6974">PAST 365 DAYS</text>
   </g>
 </svg>

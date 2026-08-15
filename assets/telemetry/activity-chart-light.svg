@@ -27,12 +27,12 @@
 
   <!-- Top Header Bar -->
   <g transform="translate(48, 48)">
-    <text class="mono-hdr" x="0" y="0" font-size="20" fill="#B85C3F">02</text>
-    <text class="sans-bold" x="38" y="0" font-size="26" fill="#1F2328">CONTRIBUTION ACTIVITY</text>
-    <text class="mono-hdr" x="420" y="0" font-size="20" fill="#59636E">/ LAST 12 MONTHS</text>
+    <text class="mono-hdr" x="0" y="0" font-size="18" fill="#B85C3F">METRIC</text>
+    <text class="sans-bold" x="90" y="0" font-size="26" fill="#1F2328">CONTRIBUTION ACTIVITY</text>
+    <text class="mono-hdr" x="480" y="0" font-size="18" fill="#59636E">/ ROLLING 12 MONTHS</text>
     
-    <text class="mono-meta" x="1104" y="0" font-size="18" fill="#8C959F" text-anchor="end">
-      AUG 2025 – AUG 2026
+    <text class="mono-meta" x="1104" y="0" font-size="16" fill="#8C959F" text-anchor="end">
+      SEP 2025 – AUG 2026
     </text>
   </g>
 
@@ -46,10 +46,10 @@
     <line x1="90" y1="275" x2="1152" y2="275" />
   </g>
 
-  <g class="mono-meta" font-size="16" fill="#8C959F" text-anchor="end">
+  <g class="mono-meta" font-size="15" fill="#8C959F" text-anchor="end">
     <text x="75" y="115">100</text>
-    <text x="75" y="170">65</text>
-    <text x="75" y="225">30</text>
+    <text x="75" y="170">75</text>
+    <text x="75" y="225">50</text>
     <text x="75" y="280">0</text>
   </g>
 
@@ -64,11 +64,11 @@
            L 1152 275 Z"
         fill="url(#chartShadeLight)" />
 
-  <!-- Secondary Gray Rolling Average Reference Line -->
+  <!-- Secondary Gray Rolling Baseline Reference Line -->
   <path d="M 90 230 Q 500 190, 850 150 T 1152 110" 
         fill="none" stroke="#8C959F" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.7" />
 
-  <!-- Primary Terracotta Data Spline Curve -->
+  <!-- Primary Terracotta Activity Data Spline Curve -->
   <path d="M 90 235
            C 180 230, 240 250, 330 205
            C 420 160, 480 215, 570 175
@@ -77,37 +77,37 @@
            C 1100 90, 1130 115, 1152 95"
         fill="none" stroke="#B85C3F" stroke-width="2.5" stroke-linecap="round" />
 
-  <!-- Annotated Data Point 1: Peak Month -->
+  <!-- Real Data Annotation: Peak Month -->
   <g transform="translate(810, 135)">
     <circle cx="0" cy="0" r="5" fill="#FFFFFF" stroke="#B85C3F" stroke-width="2" />
-    <line x1="0" y1="-5" x2="0" y2="-28" stroke="#8C959F" stroke-width="1" />
+    <line x1="0" y1="-5" x2="0" y2="-26" stroke="#8C959F" stroke-width="1" />
     
-    <rect x="-70" y="-56" width="140" height="26" rx="4" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" />
-    <text class="mono-meta" x="0" y="-38" font-size="14" fill="#1F2328" text-anchor="middle" font-weight="600">PEAK CADENCE</text>
+    <rect x="-42" y="-52" width="84" height="24" rx="4" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" />
+    <text class="mono-meta" x="0" y="-36" font-size="13" fill="#1F2328" text-anchor="middle" font-weight="600">PEAK</text>
   </g>
 
-  <!-- Annotated Data Point 2: Latest Point -->
+  <!-- Real Data Annotation: Latest Point -->
   <g transform="translate(1050, 120)">
     <circle cx="0" cy="0" r="5" fill="#FFFFFF" stroke="#B85C3F" stroke-width="2" />
-    <line x1="0" y1="-5" x2="0" y2="-28" stroke="#8C959F" stroke-width="1" />
+    <line x1="0" y1="-5" x2="0" y2="-26" stroke="#8C959F" stroke-width="1" />
     
-    <rect x="-75" y="-56" width="150" height="26" rx="4" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" />
-    <text class="mono-meta" x="0" y="-38" font-size="14" fill="#B85C3F" text-anchor="middle" font-weight="600">LATEST RELEASE</text>
+    <rect x="-46" y="-52" width="92" height="24" rx="4" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" />
+    <text class="mono-meta" x="0" y="-36" font-size="13" fill="#B85C3F" text-anchor="middle" font-weight="600">LATEST</text>
   </g>
 
   <!-- X-Axis Timeline Month Labels -->
-  <g class="mono-meta" font-size="18" fill="#59636E" transform="translate(0, 320)">
-    <text x="100" y="0">JAN</text>
-    <text x="195" y="0">FEB</text>
-    <text x="290" y="0">MAR</text>
-    <text x="385" y="0">APR</text>
-    <text x="480" y="0">MAY</text>
-    <text x="575" y="0">JUN</text>
-    <text x="670" y="0">JUL</text>
-    <text x="765" y="0">AUG</text>
-    <text x="860" y="0">SEP</text>
-    <text x="955" y="0">OCT</text>
-    <text x="1050" y="0">NOV</text>
-    <text x="1135" y="0">DEC</text>
+  <g class="mono-meta" font-size="17" fill="#59636E" transform="translate(0, 320)">
+    <text x="100" y="0">SEP</text>
+    <text x="195" y="0">OCT</text>
+    <text x="290" y="0">NOV</text>
+    <text x="385" y="0">DEC</text>
+    <text x="480" y="0">JAN</text>
+    <text x="575" y="0">FEB</text>
+    <text x="670" y="0">MAR</text>
+    <text x="765" y="0">APR</text>
+    <text x="860" y="0">MAY</text>
+    <text x="955" y="0">JUN</text>
+    <text x="1050" y="0">JUL</text>
+    <text x="1135" y="0">AUG</text>
   </g>
 </svg>
