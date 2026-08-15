@@ -3,6 +3,7 @@ import urllib.request
 import os
 import re
 import base64
+import xml.etree.ElementTree as ET
 
 CACHE_DIR = os.path.join(os.path.dirname(__file__), "skillicons_cache")
 os.makedirs(CACHE_DIR, exist_ok=True)
@@ -81,7 +82,7 @@ LANE_LABELS = {
     5: ("05", "PLATFORMS &amp; ENGINES"),
 }
 
-def get_icon_svg(filename, is_dark):
+def get_icon_svg(skill_id, filename, is_dark):
     bg = "#242938" if is_dark else "#FFFFFF"
     fg = "#FFFFFF" if is_dark else "#1F2328"
 
@@ -141,9 +142,20 @@ def get_icon_svg(filename, is_dark):
 
     # Extract inside of <svg ...> ... </svg>
     match = re.search(r'<svg[^>]*>(.*)</svg>', content, re.DOTALL)
-    if match:
-        return match.group(1).strip()
-    return content
+    inner = match.group(1).strip() if match else content
+
+    # Scope all IDs with skill_id to prevent collision
+    ids = re.findall(r'id=["\']([^"\']+)["\']', inner)
+    for id_val in set(ids):
+        new_id = f"{skill_id}_{id_val}"
+        inner = inner.replace(f'id="{id_val}"', f'id="{new_id}"')
+        inner = inner.replace(f'id=\'{id_val}\'', f'id=\'{new_id}\'')
+        inner = inner.replace(f'url(#{id_val})', f'url(#{new_id})')
+        inner = inner.replace(f'url(\'#{id_val}\')', f'url(\'#{new_id}\')')
+        inner = inner.replace(f'url("#{id_val}")', f'url("#{new_id}")')
+        inner = inner.replace(f'href="#{id_val}"', f'href="#{new_id}"')
+
+    return inner
 
 def build_toolchain(is_dark=True):
     theme_suffix = "" if is_dark else "L"
@@ -163,7 +175,7 @@ def build_toolchain(is_dark=True):
         rocket_b64 = base64.b64encode(f.read()).decode("utf-8")
 
     svg_parts = []
-    svg_parts.append(f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 720" width="100%" height="100%">
+    svg_parts.append(f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1520 720" width="100%" height="100%">
   <defs>
     <radialGradient id="bgVignette{theme_suffix}" cx="50%" cy="50%" r="75%">
       <stop offset="0%" stop-color="{bg_vignette}"/>
@@ -296,7 +308,7 @@ def build_toolchain(is_dark=True):
         for skill in lane_skills:
             _, col_idx, skill_id, label, is_pri, icon_dark, icon_light = skill
             icon_file = icon_dark if is_dark else icon_light
-            inner_svg = get_icon_svg(icon_file, is_dark)
+            inner_svg = get_icon_svg(skill_id, icon_file, is_dark)
             cx = COL_X[col_idx]
 
             # Card size: 68x68 for compact crisp grid
@@ -320,7 +332,7 @@ def build_toolchain(is_dark=True):
       <text class="label{theme_suffix}" x="0" y="54" font-size="13" fill="{label_txt}" text-anchor="middle">{label}</text>
     </g>''')
 
-        # Add rocket in Lane 01 or Lane 03 where there are 9 items (at x=1260 / 1375)
+        # Add rocket in Lane 01 where there are 9 items (at x=1320)
         if lane_idx == 1:
             svg_parts.append(f'''
     <!-- Spacecraft (rocket) -->
@@ -336,6 +348,21 @@ def build_toolchain(is_dark=True):
 if __name__ == "__main__":
     dark_svg = build_toolchain(is_dark=True)
     light_svg = build_toolchain(is_dark=False)
+
+    # Validate XML with ElementTree
+    try:
+        ET.fromstring(dark_svg)
+        print("dark_svg is VALID XML!")
+    except Exception as e:
+        print("dark_svg XML ERROR:", e)
+        exit(1)
+
+    try:
+        ET.fromstring(light_svg)
+        print("light_svg is VALID XML!")
+    except Exception as e:
+        print("light_svg XML ERROR:", e)
+        exit(1)
 
     out_dark = os.path.join(os.path.dirname(__file__), "..", "assets", "skills", "toolchain-dark.svg")
     out_light = os.path.join(os.path.dirname(__file__), "..", "assets", "skills", "toolchain-light.svg")
