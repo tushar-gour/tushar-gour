@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
+  <title id="title">Tushar Gour — Software Engineer</title>
+  <desc id="desc">Animated editorial hero panel, light theme. Lines draw across on load. Name and statement reveal with staggered timing. The Fifth Mark accent mark settles into alignment. Statement: I engineer software that feels considered at the surface and predictable underneath.</desc>
+
+  <defs>
+    <style>
+      @keyframes reveal {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      @keyframes breathe {
+        0%, 100% { opacity: 0.2; r: 2.2px; }
+        50%       { opacity: 0.55; r: 2.8px; }
+      }
+      @keyframes breatheSm {
+        0%, 100% { opacity: 0.14; r: 1.4px; }
+        50%       { opacity: 0.45; r: 1.8px; }
+      }
+
+      .lbl {
+        fill: #6F716D;
+        font-family: system-ui,-apple-system,'Segoe UI',sans-serif;
+        font-size: 13px; font-weight: 600; letter-spacing: 2.4px;
+        opacity: 0; animation: reveal .65s ease .18s both;
+      }
+      .nm { fill: #202320; font-family: Georgia,'Times New Roman',serif; font-size: 80px; letter-spacing: -2px; }
+      .n1  { opacity: 0; animation: reveal .75s ease .44s both; }
+      .n2  { opacity: 0; animation: reveal .75s ease .62s both; }
+      .sl  { fill: #202320; font-family: system-ui,-apple-system,'Segoe UI',sans-serif; font-size: 23px; font-weight: 500; }
+      .s1  { opacity: 0; animation: reveal .65s ease .90s both; }
+      .s2  { opacity: 0; animation: reveal .65s ease 1.06s both; }
+      .s3  { opacity: 0; animation: reveal .65s ease 1.22s both; }
+      .tags {
+        fill: #8A8D87;
+        font-family: system-ui,-apple-system,'Segoe UI',sans-serif;
+        font-size: 12px; letter-spacing: 1.5px;
+        opacity: 0; animation: reveal .65s ease 1.40s both;
+      }
+      .foot {
+        fill: #8A8D87;
+        font-family: system-ui,-apple-system,'Segoe UI',sans-serif;
+        font-size: 11px; letter-spacing: 1.6px;
+        opacity: 0; animation: reveal .65s ease 1.60s both;
+      }
+      .xhair { opacity: 0; animation: reveal .45s ease .22s both; }
+      .col-n  { opacity: 0; animation: reveal .45s ease .98s both; }
+      .bot-n  { opacity: 0; animation: reveal .45s ease 1.24s both; }
+      .a05 {
+        fill: #BE6848; font-family: system-ui,sans-serif; font-size: 9px;
+        opacity: 0; animation: reveal .45s ease 2.05s both;
+      }
+
+      .dot-lg { animation: breathe   5.5s ease-in-out infinite; }
+      .dot-sm { animation: breatheSm 6.5s ease-in-out infinite; }
+      .d1 { animation-delay: 0s; }
+      .d2 { animation-delay: 1.7s; }
+      .d3 { animation-delay: 3.2s; }
+      .d4 { animation-delay: 0.9s; }
+      .d5 { animation-delay: 4.1s; }
+    </style>
+
+    <radialGradient id="warmGlow" cx="22%" cy="62%" r="32%">
+      <stop offset="0%"   stop-color="#BE6848" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#F7F4EE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="390" fill="#F7F4EE"/>
+  <rect width="1200" height="390" fill="url(#warmGlow)"/>
+
+  <!-- Ambient dots -->
+  <circle class="dot-lg d1" cx="872" cy="84"  r="2.2" fill="#DDD8CE"/>
+  <circle class="dot-sm d2" cx="944" cy="156" r="1.4" fill="#DDD8CE"/>
+  <circle class="dot-lg d3" cx="1062" cy="108" r="2.0" fill="#DDD8CE"/>
+  <circle class="dot-sm d4" cx="1008" cy="218" r="1.6" fill="#DDD8CE"/>
+  <circle class="dot-sm d5" cx="820"  cy="190" r="1.3" fill="#DDD8CE"/>
+
+  <!-- Top rule draws left → right -->
+  <path d="M64 72H1136" stroke="#D6D1C7" stroke-width="1"
+        stroke-dasharray="1200" stroke-dashoffset="1200">
+    <animate attributeName="stroke-dashoffset"
+             from="1200" to="0" dur="1.05s" begin="0.08s"
+             calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"
+             fill="freeze"/>
+  </path>
+
+  <!-- Registration crosshair -->
+  <g class="xhair" stroke="#D6D1C7" stroke-width="0.5">
+    <path d="M551 72H565"/><path d="M558 65V79"/>
+  </g>
+
+  <text class="lbl" x="64" y="52">TG / SOFTWARE ENGINEER</text>
+
+  <text class="nm n1" x="64" y="184">Tushar</text>
+  <text class="nm n2" x="64" y="262">Gour</text>
+
+  <!-- Column separator: four neutral dashes -->
+  <g class="col-n" stroke="#D0CBC0" stroke-width="1.5" stroke-linecap="round">
+    <path d="M558 145V157"/>
+    <path d="M558 165V177"/>
+    <path d="M558 185V197"/>
+    <path d="M558 205V217"/>
+  </g>
+
+  <!-- Accent dash settles from above -->
+  <path d="M558 225V237" stroke="#BE6848" stroke-width="2" stroke-linecap="round" opacity="0">
+    <animate attributeName="opacity"
+             from="0" to="1" dur="0.22s" begin="1.62s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="translate"
+                      values="0,-18; 0,3; 0,-1; 0,0"
+                      keyTimes="0; 0.62; 0.82; 1"
+                      keySplines="0.2 0 0.1 1; 0.4 0 0.8 1; 0.4 0 0.6 1"
+                      calcMode="spline"
+                      dur="0.88s" begin="1.62s" fill="freeze"/>
+  </path>
+
+  <text class="a05" x="566" y="237">05</text>
+
+  <text class="sl s1" x="614" y="152">I engineer software that feels</text>
+  <text class="sl s2" x="614" y="188">considered at the surface and</text>
+  <text class="sl s3" x="614" y="224">predictable underneath.</text>
+
+  <text class="tags" x="614" y="290">INTERFACE · SERVICES · DATA · DELIVERY · FINISH</text>
+
+  <!-- Bottom rule draws left → right -->
+  <path d="M64 326H1028" stroke="#D6D1C7" stroke-width="1"
+        stroke-dasharray="1100" stroke-dashoffset="1100">
+    <animate attributeName="stroke-dashoffset"
+             from="1100" to="0" dur="0.9s" begin="1.05s"
+             calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"
+             fill="freeze"/>
+  </path>
+
+  <!-- Four neutral bottom marks -->
+  <g class="bot-n" stroke="#8A8D87" stroke-width="3" stroke-linecap="round">
+    <path d="M1057 318V334"/>
+    <path d="M1075 318V334"/>
+    <path d="M1093 318V334"/>
+    <path d="M1111 318V334"/>
+  </g>
+
+  <!-- Bottom accent mark: settles -->
+  <path d="M1129 306V322" stroke="#BE6848" stroke-width="3" stroke-linecap="round" opacity="0">
+    <animate attributeName="opacity"
+             from="0" to="1" dur="0.22s" begin="1.92s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="translate"
+                      values="0,-12; 0,2; 0,0"
+                      keyTimes="0; 0.68; 1"
+                      keySplines="0.2 0 0.1 1; 0.4 0 0.6 1"
+                      calcMode="spline"
+                      dur="0.82s" begin="1.92s" fill="freeze"/>
+  </path>
+
+  <text class="foot" x="64" y="360">THE FIFTH MARK / FIT &amp; FINISH LIVES OUTSIDE THE STACK DIAGRAM</text>
+</svg>
