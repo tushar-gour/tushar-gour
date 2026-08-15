@@ -10,204 +10,98 @@
   <rect width="1200" height="406" rx="10" fill="#0C1018"/>
   <rect width="1200" height="406" rx="10" fill="none" stroke="#1C2632" stroke-width="1.2"/>
 
-  <!-- ═══════════ HEADER ═══════════ -->
+  <!-- HEADER -->
   <text class="m" x="42" y="44" font-size="11" font-weight="800" fill="#C97B4B" letter-spacing="2">METRIC</text>
   <text class="s" x="105" y="44" font-size="22" font-weight="900" fill="#DED5C6" letter-spacing="-0.5">CONTRIBUTION PULSE</text>
   <text class="m" x="335" y="44" font-size="13" font-weight="600" fill="#4A5E6E" letter-spacing="1">/ 52 DISCRETE WEEKS</text>
-  <text class="m" x="1158" y="44" font-size="12" font-weight="600" fill="#4A5E6E" letter-spacing="1" text-anchor="end">SEP 2025 — AUG 2026</text>
+  <text class="m" x="1158" y="44" font-size="12" font-weight="600" fill="#4A5E6E" letter-spacing="1" text-anchor="end">AUG 2025 — AUG 2026</text>
 
   <!-- Stats summary strip -->
   <text class="m" x="42" y="72" font-size="11.5" font-weight="600" fill="#4A5E6E" letter-spacing="0.5">TOTAL 365D:</text>
-  <text class="m" x="135" y="72" font-size="11.5" font-weight="700" fill="#C8C0B2" letter-spacing="0.5">2,450</text>
-  <text class="m" x="192" y="72" font-size="11.5" fill="#2E3E4E">  |  </text>
+  <text class="m" x="135" y="72" font-size="11.5" font-weight="700" fill="#C8C0B2" letter-spacing="0.5">2,257</text>
+  <text class="m" x="192" y="72" font-size="11.5" fill="#3A4E5E">  |  </text>
   <text class="m" x="218" y="72" font-size="11.5" font-weight="600" fill="#4A5E6E" letter-spacing="0.5">ACTIVE DAYS:</text>
-  <text class="m" x="310" y="72" font-size="11.5" font-weight="700" fill="#C8C0B2" letter-spacing="0.5">300</text>
-  <text class="m" x="340" y="72" font-size="11.5" fill="#2E3E4E">  |  </text>
+  <text class="m" x="310" y="72" font-size="11.5" font-weight="700" fill="#C8C0B2" letter-spacing="0.5">226</text>
+  <text class="m" x="340" y="72" font-size="11.5" fill="#3A4E5E">  |  </text>
   <text class="m" x="368" y="72" font-size="11.5" font-weight="600" fill="#4A5E6E" letter-spacing="0.5">PEAK WEEK:</text>
-  <text class="m" x="452" y="72" font-size="11.5" font-weight="800" fill="#C97B4B" letter-spacing="0.5">84</text>
-  <text class="m" x="475" y="72" font-size="11.5" fill="#2E3E4E">  |  </text>
-  <text class="m" x="503" y="72" font-size="11.5" font-weight="600" fill="#4A5E6E" letter-spacing="0.5">CURRENT WEEK:</text>
-  <text class="m" x="611" y="72" font-size="11.5" font-weight="800" fill="#C8C0B2" letter-spacing="0.5">31</text>
+  <text class="m" x="452" y="72" font-size="11.5" font-weight="800" fill="#C97B4B" letter-spacing="0.5">153</text>
+  <text class="m" x="480" y="72" font-size="11.5" fill="#3A4E5E">  |  </text>
+  <text class="m" x="508" y="72" font-size="11.5" font-weight="600" fill="#4A5E6E" letter-spacing="0.5">CURRENT WEEK:</text>
+  <text class="m" x="616" y="72" font-size="11.5" font-weight="800" fill="#C8C0B2" letter-spacing="0.5">70</text>
 
-  <!-- Thin divider -->
+  <!-- Divider -->
   <line x1="42" y1="84" x2="1158" y2="84" stroke="#192230" stroke-width="1"/>
-
-  <!-- ═══════════ CHART GRID LINES (y values: 100=112, 75=175, 50=237, 25=300) ═══════════ -->
-  <line x1="64" y1="112" x2="1158" y2="112" stroke="#1A2838" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="64" y1="175" x2="1158" y2="175" stroke="#1A2838" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="64" y1="237" x2="1158" y2="237" stroke="#1A2838" stroke-width="1" stroke-dasharray="4 4"/>
-  <line x1="64" y1="300" x2="1158" y2="300" stroke="#1A2838" stroke-width="1" stroke-dasharray="4 4"/>
-
-  <!-- Y-axis labels -->
-  <text class="m" x="56" y="116" font-size="11" fill="#3A4E5E" text-anchor="end">100</text>
-  <text class="m" x="56" y="179" font-size="11" fill="#3A4E5E" text-anchor="end">75</text>
-  <text class="m" x="56" y="241" font-size="11" fill="#3A4E5E" text-anchor="end">50</text>
-  <text class="m" x="56" y="304" font-size="11" fill="#3A4E5E" text-anchor="end">25</text>
+  <line x1="64" y1="122.0" x2="1158" y2="122.0" stroke="#1A2838" stroke-width="1" stroke-dasharray="4 4"/>
+  <text class="m" x="56" y="126.0" font-size="11" fill="#3A4E5E" text-anchor="end">160</text>
+  <line x1="64" y1="182.0" x2="1158" y2="182.0" stroke="#1A2838" stroke-width="1" stroke-dasharray="4 4"/>
+  <text class="m" x="56" y="186.0" font-size="11" fill="#3A4E5E" text-anchor="end">120</text>
+  <line x1="64" y1="242.0" x2="1158" y2="242.0" stroke="#1A2838" stroke-width="1" stroke-dasharray="4 4"/>
+  <text class="m" x="56" y="246.0" font-size="11" fill="#3A4E5E" text-anchor="end">80</text>
+  <line x1="64" y1="302.0" x2="1158" y2="302.0" stroke="#1A2838" stroke-width="1" stroke-dasharray="4 4"/>
+  <text class="m" x="56" y="306.0" font-size="11" fill="#3A4E5E" text-anchor="end">40</text>
   <text class="m" x="56" y="366" font-size="11" fill="#3A4E5E" text-anchor="end">0</text>
-
-  <!-- ═══════════ BARS (52 weeks, bar_w=15, gap=6, unit=21, x=64+i*21, y_zero=362, ppu=2.5) ═══════════ -->
-  <!-- SEP (bars 0-3) -->
-  <rect x="64"  y="282" width="15" height="80"  rx="2" fill="#2A3A48"/>
-  <rect x="85"  y="222" width="15" height="140" rx="2" fill="#4A6272"/>
-  <rect x="106" y="247" width="15" height="115" rx="2" fill="#384C5C"/>
-  <rect x="127" y="272" width="15" height="90"  rx="2" fill="#2A3A48"/>
-  <!-- OCT (bars 4-7) -->
-  <rect x="148" y="217" width="15" height="145" rx="2" fill="#4A6272"/>
-  <rect x="169" y="232" width="15" height="130" rx="2" fill="#384C5C"/>
-  <rect x="190" y="242" width="15" height="120" rx="2" fill="#384C5C"/>
-  <rect x="211" y="227" width="15" height="135" rx="2" fill="#384C5C"/>
-  <!-- NOV (bars 8-12) -->
-  <rect x="232" y="175" width="15" height="188" rx="2" fill="#6A7F8E"/>
-  <rect x="253" y="217" width="15" height="145" rx="2" fill="#4A6272"/>
-  <rect x="274" y="207" width="15" height="155" rx="2" fill="#4A6272"/>
-  <rect x="295" y="257" width="15" height="105" rx="2" fill="#384C5C"/>
-  <rect x="316" y="237" width="15" height="125" rx="2" fill="#384C5C"/>
-  <!-- DEC (bars 13-16) -->
-  <rect x="337" y="222" width="15" height="140" rx="2" fill="#4A6272"/>
-  <rect x="358" y="167" width="15" height="195" rx="2" fill="#6A7F8E"/>
-  <rect x="379" y="225" width="15" height="138" rx="2" fill="#384C5C"/>
-  <rect x="400" y="237" width="15" height="125" rx="2" fill="#384C5C"/>
-  <!-- JAN (bars 17-21) -->
-  <rect x="421" y="227" width="15" height="135" rx="2" fill="#384C5C"/>
-  <rect x="442" y="252" width="15" height="110" rx="2" fill="#384C5C"/>
-  <rect x="463" y="275" width="15" height="88"  rx="2" fill="#2A3A48"/>
-  <rect x="484" y="287" width="15" height="75"  rx="2" fill="#2A3A48"/>
-  <rect x="505" y="267" width="15" height="95"  rx="2" fill="#2A3A48"/>
-  <!-- FEB (bars 22-25) -->
-  <rect x="526" y="172" width="15" height="190" rx="2" fill="#6A7F8E"/>
-  <rect x="547" y="182" width="15" height="180" rx="2" fill="#6A7F8E"/>
-  <rect x="568" y="207" width="15" height="155" rx="2" fill="#4A6272"/>
-  <rect x="589" y="242" width="15" height="120" rx="2" fill="#384C5C"/>
-  <!-- MAR (bars 26-30) -->
-  <rect x="610" y="217" width="15" height="145" rx="2" fill="#4A6272"/>
-  <rect x="631" y="225" width="15" height="138" rx="2" fill="#384C5C"/>
-  <rect x="652" y="200" width="15" height="163" rx="2" fill="#4A6272"/>
-  <rect x="673" y="187" width="15" height="175" rx="2" fill="#4A6272"/>
-  <rect x="694" y="217" width="15" height="145" rx="2" fill="#4A6272"/>
-  <!-- APR (bars 31-34) — bar 31 = PEAK: 84 -->
-  <rect x="715" y="152" width="15" height="210" rx="2" fill="#C97B4B"/>
-  <rect x="736" y="182" width="15" height="180" rx="2" fill="#6A7F8E"/>
-  <rect x="757" y="192" width="15" height="170" rx="2" fill="#4A6272"/>
-  <rect x="778" y="207" width="15" height="155" rx="2" fill="#4A6272"/>
-  <!-- MAY (bars 35-38) -->
-  <rect x="799" y="212" width="15" height="150" rx="2" fill="#4A6272"/>
-  <rect x="820" y="227" width="15" height="135" rx="2" fill="#384C5C"/>
-  <rect x="841" y="242" width="15" height="120" rx="2" fill="#384C5C"/>
-  <rect x="862" y="262" width="15" height="100" rx="2" fill="#384C5C"/>
-  <!-- JUN (bars 39-43) -->
-  <rect x="883" y="187" width="15" height="175" rx="2" fill="#4A6272"/>
-  <rect x="904" y="237" width="15" height="125" rx="2" fill="#384C5C"/>
-  <rect x="925" y="262" width="15" height="100" rx="2" fill="#384C5C"/>
-  <rect x="946" y="242" width="15" height="120" rx="2" fill="#384C5C"/>
-  <rect x="967" y="275" width="15" height="88"  rx="2" fill="#2A3A48"/>
-  <!-- JUL (bars 44-47) -->
-  <rect x="988"  y="182" width="15" height="180" rx="2" fill="#6A7F8E"/>
-  <rect x="1009" y="207" width="15" height="155" rx="2" fill="#4A6272"/>
-  <rect x="1030" y="225" width="15" height="138" rx="2" fill="#384C5C"/>
-  <rect x="1051" y="262" width="15" height="100" rx="2" fill="#384C5C"/>
-  <!-- AUG (bars 48-51) — bar 51 = CURRENT: 31 -->
-  <rect x="1072" y="242" width="15" height="120" rx="2" fill="#384C5C"/>
-  <rect x="1093" y="257" width="15" height="105" rx="2" fill="#384C5C"/>
-  <rect x="1114" y="272" width="15" height="90"  rx="2" fill="#2A3A48"/>
-  <rect x="1135" y="285" width="15" height="78"  rx="2" fill="#C97B4B"/>
-
-  <!-- ═══════════ PEAK: 84 TOOLTIP ═══════════ -->
-  <!-- Box -->
-  <rect x="682" y="120" width="92" height="24" rx="4" fill="#1A2838"/>
-  <rect x="682" y="120" width="92" height="24" rx="4" fill="none" stroke="#2A3E50" stroke-width="1"/>
-  <text class="m" x="691" y="136" font-size="11.5" fill="#6A8090" letter-spacing="0.5">PEAK:</text>
-  <text class="m" x="730" y="136" font-size="11.5" font-weight="800" fill="#E8A070" letter-spacing="0.5">84</text>
-  <!-- Arrow down from tooltip to bar -->
-  <polygon points="722,144 716,152 728,152" fill="#1A2838"/>
-  <line x1="722" y1="144" x2="722" y2="152" stroke="#2A3E50" stroke-width="1"/>
-
-  <!-- ═══════════ CURRENT: 31 TOOLTIP ═══════════ -->
-  <!-- Box positioned upper-right area near current bar -->
-  <rect x="1042" y="364" width="114" height="24" rx="4" fill="#1A2838"/>
-  <rect x="1042" y="364" width="114" height="24" rx="4" fill="none" stroke="#2A3E50" stroke-width="1"/>
-  <text class="m" x="1050" y="380" font-size="11.5" fill="#6A8090" letter-spacing="0.5">CURRENT:</text>
-  <text class="m" x="1121" y="380" font-size="11.5" font-weight="800" fill="#E8A070" letter-spacing="0.5">31</text>
-  <!-- Small arrow from tooltip to last bar -->
-  <line x1="1142" y1="364" x2="1142" y2="285" stroke="#2A3E50" stroke-width="1" stroke-dasharray="3 3"/>
-  <polygon points="1142,283 1137,291 1147,291" fill="#2A3E50"/>
-
-  <!-- ═══════════ X-AXIS MONTH LABELS ═══════════ -->
-  <text class="m" x="103"  y="376" font-size="11.5" fill="#4A6070" text-anchor="middle" letter-spacing="0.5">SEP</text>
-  <text class="m" x="187"  y="376" font-size="11.5" fill="#4A6070" text-anchor="middle" letter-spacing="0.5">OCT</text>
-  <text class="m" x="282"  y="376" font-size="11.5" fill="#4A6070" text-anchor="middle" letter-spacing="0.5">NOV</text>
-  <text class="m" x="376"  y="376" font-size="11.5" fill="#4A6070" text-anchor="middle" letter-spacing="0.5">DEC</text>
-  <text class="m" x="471"  y="376" font-size="11.5" fill="#4A6070" text-anchor="middle" letter-spacing="0.5">JAN</text>
-  <text class="m" x="565"  y="376" font-size="11.5" fill="#4A6070" text-anchor="middle" letter-spacing="0.5">FEB</text>
-  <text class="m" x="660"  y="376" font-size="11.5" fill="#4A6070" text-anchor="middle" letter-spacing="0.5">MAR</text>
-  <text class="m" x="754"  y="376" font-size="11.5" fill="#C97B4B" text-anchor="middle" letter-spacing="0.5">APR</text>
-  <text class="m" x="838"  y="376" font-size="11.5" fill="#4A6070" text-anchor="middle" letter-spacing="0.5">MAY</text>
-  <text class="m" x="933"  y="376" font-size="11.5" fill="#4A6070" text-anchor="middle" letter-spacing="0.5">JUN</text>
-  <text class="m" x="1027" y="376" font-size="11.5" fill="#4A6070" text-anchor="middle" letter-spacing="0.5">JUL</text>
-  <text class="m" x="1111" y="376" font-size="11.5" fill="#C97B4B" text-anchor="middle" letter-spacing="0.5">AUG</text>
-
-  <!-- ═══════════ BOTTOM ACTIVITY STRIP ═══════════ -->
-  <!-- SEP (0-3) -->
-  <rect x="64"   y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <rect x="85"   y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="106"  y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <rect x="127"  y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <!-- OCT (4-7) -->
-  <rect x="148"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="169"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="190"  y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <rect x="211"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <!-- NOV (8-12) -->
-  <rect x="232"  y="386" width="15" height="8" rx="1.5" fill="#567080"/>
-  <rect x="253"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="274"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="295"  y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <rect x="316"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <!-- DEC (13-16) -->
-  <rect x="337"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="358"  y="386" width="15" height="8" rx="1.5" fill="#567080"/>
-  <rect x="379"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="400"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <!-- JAN (17-21) -->
-  <rect x="421"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="442"  y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <rect x="463"  y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <rect x="484"  y="386" width="15" height="8" rx="1.5" fill="#1C2C38"/>
-  <rect x="505"  y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <!-- FEB (22-25) -->
-  <rect x="526"  y="386" width="15" height="8" rx="1.5" fill="#567080"/>
-  <rect x="547"  y="386" width="15" height="8" rx="1.5" fill="#567080"/>
-  <rect x="568"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="589"  y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <!-- MAR (26-30) -->
-  <rect x="610"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="631"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="652"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="673"  y="386" width="15" height="8" rx="1.5" fill="#4A6272"/>
-  <rect x="694"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <!-- APR (31-34) — bar 31 peak -->
-  <rect x="715"  y="386" width="15" height="8" rx="1.5" fill="#C97B4B"/>
-  <rect x="736"  y="386" width="15" height="8" rx="1.5" fill="#567080"/>
-  <rect x="757"  y="386" width="15" height="8" rx="1.5" fill="#4A6272"/>
-  <rect x="778"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <!-- MAY (35-38) -->
-  <rect x="799"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="820"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="841"  y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <rect x="862"  y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <!-- JUN (39-43) -->
-  <rect x="883"  y="386" width="15" height="8" rx="1.5" fill="#4A6272"/>
-  <rect x="904"  y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="925"  y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <rect x="946"  y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <rect x="967"  y="386" width="15" height="8" rx="1.5" fill="#1C2C38"/>
-  <!-- JUL (44-47) -->
-  <rect x="988"  y="386" width="15" height="8" rx="1.5" fill="#567080"/>
-  <rect x="1009" y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="1030" y="386" width="15" height="8" rx="1.5" fill="#3E5264"/>
-  <rect x="1051" y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <!-- AUG (48-51) — bar 51 current -->
-  <rect x="1072" y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <rect x="1093" y="386" width="15" height="8" rx="1.5" fill="#2A3A48"/>
-  <rect x="1114" y="386" width="15" height="8" rx="1.5" fill="#1C2C38"/>
-  <rect x="1135" y="386" width="15" height="8" rx="1.5" fill="#C97B4B"/>
+  <rect x="64" y="359.0" width="15" height="3.0" rx="2" fill="#2A3A48"/>
+  <rect x="85" y="359.0" width="15" height="3.0" rx="2" fill="#16202C"/>
+  <rect x="106" y="359.0" width="15" height="3.0" rx="2" fill="#16202C"/>
+  <rect x="127" y="357.5" width="15" height="4.5" rx="2" fill="#2A3A48"/>
+  <rect x="148" y="354.5" width="15" height="7.5" rx="2" fill="#2A3A48"/>
+  <rect x="169" y="338.0" width="15" height="24.0" rx="2" fill="#2A3A48"/>
+  <rect x="190" y="359.0" width="15" height="3.0" rx="2" fill="#2A3A48"/>
+  <rect x="211" y="356.0" width="15" height="6.0" rx="2" fill="#2A3A48"/>
+  <rect x="232" y="356.0" width="15" height="6.0" rx="2" fill="#2A3A48"/>
+  <rect x="253" y="356.0" width="15" height="6.0" rx="2" fill="#2A3A48"/>
+  <rect x="274" y="338.0" width="15" height="24.0" rx="2" fill="#2A3A48"/>
+  <rect x="295" y="359.0" width="15" height="3.0" rx="2" fill="#2A3A48"/>
+  <rect x="316" y="353.0" width="15" height="9.0" rx="2" fill="#2A3A48"/>
+  <rect x="337" y="359.0" width="15" height="3.0" rx="2" fill="#2A3A48"/>
+  <rect x="358" y="348.5" width="15" height="13.5" rx="2" fill="#2A3A48"/>
+  <rect x="379" y="357.5" width="15" height="4.5" rx="2" fill="#2A3A48"/>
+  <rect x="400" y="318.5" width="15" height="43.5" rx="2" fill="#2A3A48"/>
+  <rect x="421" y="351.5" width="15" height="10.5" rx="2" fill="#2A3A48"/>
+  <rect x="442" y="327.5" width="15" height="34.5" rx="2" fill="#2A3A48"/>
+  <rect x="463" y="291.5" width="15" height="70.5" rx="2" fill="#4A6272"/>
+  <rect x="484" y="351.5" width="15" height="10.5" rx="2" fill="#2A3A48"/>
+  <rect x="505" y="354.5" width="15" height="7.5" rx="2" fill="#2A3A48"/>
+  <rect x="526" y="317.0" width="15" height="45.0" rx="2" fill="#2A3A48"/>
+  <rect x="547" y="356.0" width="15" height="6.0" rx="2" fill="#2A3A48"/>
+  <rect x="568" y="351.5" width="15" height="10.5" rx="2" fill="#2A3A48"/>
+  <rect x="589" y="216.5" width="15" height="145.5" rx="2" fill="#6A7F8E"/>
+  <rect x="610" y="162.5" width="15" height="199.5" rx="2" fill="#6A7F8E"/>
+  <rect x="631" y="167.0" width="15" height="195.0" rx="2" fill="#6A7F8E"/>
+  <rect x="652" y="305.0" width="15" height="57.0" rx="2" fill="#2A3A48"/>
+  <rect x="673" y="188.0" width="15" height="174.0" rx="2" fill="#6A7F8E"/>
+  <rect x="694" y="213.5" width="15" height="148.5" rx="2" fill="#6A7F8E"/>
+  <rect x="715" y="266.0" width="15" height="96.0" rx="2" fill="#4A6272"/>
+  <rect x="736" y="224.0" width="15" height="138.0" rx="2" fill="#6A7F8E"/>
+  <rect x="757" y="207.5" width="15" height="154.5" rx="2" fill="#6A7F8E"/>
+  <rect x="778" y="327.5" width="15" height="34.5" rx="2" fill="#2A3A48"/>
+  <rect x="799" y="329.0" width="15" height="33.0" rx="2" fill="#2A3A48"/>
+  <rect x="820" y="324.5" width="15" height="37.5" rx="2" fill="#2A3A48"/>
+  <rect x="841" y="272.0" width="15" height="90.0" rx="2" fill="#4A6272"/>
+  <rect x="862" y="290.0" width="15" height="72.0" rx="2" fill="#4A6272"/>
+  <rect x="883" y="219.5" width="15" height="142.5" rx="2" fill="#6A7F8E"/>
+  <rect x="904" y="258.5" width="15" height="103.5" rx="2" fill="#4A6272"/>
+  <rect x="925" y="254.0" width="15" height="108.0" rx="2" fill="#4A6272"/>
+  <rect x="946" y="243.5" width="15" height="118.5" rx="2" fill="#4A6272"/>
+  <rect x="967" y="132.5" width="15" height="229.5" rx="2" fill="#C97B4B"/>
+  <rect x="988" y="245.0" width="15" height="117.0" rx="2" fill="#4A6272"/>
+  <rect x="1009" y="212.0" width="15" height="150.0" rx="2" fill="#6A7F8E"/>
+  <rect x="1030" y="246.5" width="15" height="115.5" rx="2" fill="#4A6272"/>
+  <rect x="1051" y="327.5" width="15" height="34.5" rx="2" fill="#2A3A48"/>
+  <rect x="1072" y="198.5" width="15" height="163.5" rx="2" fill="#6A7F8E"/>
+  <rect x="1093" y="335.0" width="15" height="27.0" rx="2" fill="#2A3A48"/>
+  <rect x="1114" y="320.0" width="15" height="42.0" rx="2" fill="#2A3A48"/>
+  <rect x="1135" y="257.0" width="15" height="105.0" rx="2" fill="#4A6272"/>
+  <text class="m" x="64" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">SEP</text>
+  <text class="m" x="148" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">OCT</text>
+  <text class="m" x="232" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">NOV</text>
+  <text class="m" x="316" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">DEC</text>
+  <text class="m" x="421" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">JAN</text>
+  <text class="m" x="505" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">FEB</text>
+  <text class="m" x="589" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">MAR</text>
+  <text class="m" x="694" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">APR</text>
+  <text class="m" x="778" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">MAY</text>
+  <text class="m" x="862" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">JUN</text>
+  <text class="m" x="967" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">JUL</text>
+  <text class="m" x="1051" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">AUG</text>
 </svg>

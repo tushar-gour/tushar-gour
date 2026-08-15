@@ -1,0 +1,51 @@
+name: Automated Profile Telemetry Refresh
+
+on:
+  schedule:
+    # Run daily at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'tools/update_all_telemetry.py'
+      - 'tools/build_all_skills_toolchain.py'
+      - '.github/workflows/update-telemetry.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-telemetry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Telemetry Ingestion Pipeline
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: ${{ github.repository_owner }}
+        run: |
+          python tools/update_all_telemetry.py
+
+      - name: Commit and Push Updated Telemetry SVGs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/telemetry/ generated/
+          if git diff --staged --quiet; then
+            echo "No telemetry changes to commit."
+          else
+            git commit -m "chore(telemetry): auto-update live contribution pulse and language footprint [skip ci]"
+            git push origin main
+          fi

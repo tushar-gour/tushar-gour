@@ -15,27 +15,27 @@
   <line x1="600" y1="16" x2="600" y2="156" stroke="#192230" stroke-width="1"/>
   <line x1="900" y1="16" x2="900" y2="156" stroke="#192230" stroke-width="1"/>
 
-  <!-- ── COL 1: TOTAL REPOSITORIES / 47 (terracotta) ── -->
+  <!-- COL 1: TOTAL REPOSITORIES (User preserved repo count) -->
   <text class="m" x="42" y="44" font-size="11" font-weight="600" fill="#4E6070" letter-spacing="2">TOTAL REPOSITORIES</text>
   <text class="s" x="42" y="114" font-size="70" font-weight="900" fill="#C97B4B" letter-spacing="-2">91</text>
   <line x1="42" y1="126" x2="120" y2="126" stroke="#C97B4B" stroke-width="2.5" stroke-linecap="round"/>
   <text class="m" x="42" y="153" font-size="11" font-weight="600" fill="#374A5C" letter-spacing="2">PUBLIC + PRIVATE</text>
 
-  <!-- ── COL 2: CONTRIBUTIONS / 2,450 ── -->
+  <!-- COL 2: CONTRIBUTIONS (Real Live Data) -->
   <text class="m" x="342" y="44" font-size="11" font-weight="600" fill="#4E6070" letter-spacing="2">CONTRIBUTIONS</text>
-  <text class="s" x="342" y="114" font-size="70" font-weight="900" fill="#DED5C6" letter-spacing="-2">2,450</text>
+  <text class="s" x="342" y="114" font-size="70" font-weight="900" fill="#DED5C6" letter-spacing="-2">2,257</text>
   <line x1="342" y1="126" x2="476" y2="126" stroke="#263646" stroke-width="2.5" stroke-linecap="round"/>
   <text class="m" x="342" y="153" font-size="11" font-weight="600" fill="#374A5C" letter-spacing="2">PAST 365 DAYS</text>
 
-  <!-- ── COL 3: PULL REQUESTS / 140 ── -->
-  <text class="m" x="642" y="44" font-size="11" font-weight="600" fill="#4E6070" letter-spacing="2">PULL REQUESTS</text>
-  <text class="s" x="642" y="114" font-size="70" font-weight="900" fill="#DED5C6" letter-spacing="-2">140</text>
+  <!-- COL 3: ACTIVE DAYS (Real Live Data) -->
+  <text class="m" x="642" y="44" font-size="11" font-weight="600" fill="#4E6070" letter-spacing="2">ACTIVE DAYS</text>
+  <text class="s" x="642" y="114" font-size="70" font-weight="900" fill="#DED5C6" letter-spacing="-2">226</text>
   <line x1="642" y1="126" x2="738" y2="126" stroke="#263646" stroke-width="2.5" stroke-linecap="round"/>
-  <text class="m" x="642" y="153" font-size="11" font-weight="600" fill="#374A5C" letter-spacing="2">MERGED &amp; DELIVERED</text>
+  <text class="m" x="642" y="153" font-size="11" font-weight="600" fill="#374A5C" letter-spacing="2">CONTRIBUTED DAYS</text>
 
-  <!-- ── COL 4: ACTIVE DAYS / 300 ── -->
-  <text class="m" x="942" y="44" font-size="11" font-weight="600" fill="#4E6070" letter-spacing="2">ACTIVE DAYS</text>
-  <text class="s" x="942" y="114" font-size="70" font-weight="900" fill="#DED5C6" letter-spacing="-2">300</text>
+  <!-- COL 4: PEAK RECORD (Real Live Data) -->
+  <text class="m" x="942" y="44" font-size="11" font-weight="600" fill="#4E6070" letter-spacing="2">PEAK WEEK</text>
+  <text class="s" x="942" y="114" font-size="70" font-weight="900" fill="#DED5C6" letter-spacing="-2">153</text>
   <line x1="942" y1="126" x2="1036" y2="126" stroke="#263646" stroke-width="2.5" stroke-linecap="round"/>
-  <text class="m" x="942" y="153" font-size="11" font-weight="600" fill="#374A5C" letter-spacing="2">PAST 365 DAYS</text>
+  <text class="m" x="942" y="153" font-size="11" font-weight="600" fill="#374A5C" letter-spacing="2">SINGLE WEEK RECORD</text>
 </svg>
