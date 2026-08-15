@@ -49,8 +49,4 @@
 <!-- ================================================================= -->
 <!-- 06 — PROFESSIONAL IDENTITY FOOTER                                 -->
 <!-- ================================================================= -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/footer/footer-editorial-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/footer/footer-editorial-light.svg">
-  <img src="./assets/footer/footer-editorial-dark.svg" alt="Tushar Gour — Software Engineer" width="100%">
-</picture>
+<p align="center"><a href="https://github.com/tushar-gour" target="_blank" rel="noopener noreferrer"><img src="./assets/footer/footer-col1.png" alt="GitHub: tushar-gour" width="43.457%"></a><a href="https://www.linkedin.com/in/tushar-gour/" target="_blank" rel="noopener noreferrer"><img src="./assets/footer/footer-col2.png" alt="LinkedIn: tushar-gour" width="13.867%"></a><a href="mailto:tushargour004@gmail.com" target="_blank" rel="noopener noreferrer"><img src="./assets/footer/footer-col3.png" alt="Email: tushargour004@gmail.com" width="42.676%"></a></p>
