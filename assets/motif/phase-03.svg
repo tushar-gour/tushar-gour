@@ -1,5 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 34">
+  <!--
+    Phase 03 of 04 — The accent mark is 2px above the neutral baseline.
+    Almost indistinguishable from settled — but not yet there.
+    This is the "close enough" state that a careful engineer would still fix.
+  -->
   <path d="M0 17H1082" stroke="#8C918A" stroke-width="1" opacity=".55"/>
-  <g stroke="#8C918A" stroke-width="3" stroke-linecap="round"><path d="M1112 9V25"/><path d="M1130 9V25"/><path d="M1148 9V25"/><path d="M1166 9V25"/></g>
+  <g stroke="#8C918A" stroke-width="3" stroke-linecap="round">
+    <path d="M1112 9V25"/>
+    <path d="M1130 9V25"/>
+    <path d="M1148 9V25"/>
+    <path d="M1166 9V25"/>
+  </g>
+  <!-- Accent: y=7 to y=23 — displaced 2px above neutral (y=9–25). Nearly aligned. -->
   <path d="M1184 7V23" stroke="#BE6848" stroke-width="3" stroke-linecap="round"/>
 </svg>

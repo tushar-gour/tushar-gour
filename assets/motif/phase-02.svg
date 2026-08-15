@@ -1,5 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 34">
+  <!--
+    Phase 02 of 04 — The accent mark has moved 6px closer to the neutral baseline.
+    It is no longer clipped: the mark is fully visible but still clearly above alignment.
+    The reader is moving through the stack layers. The mark is drifting toward rest.
+  -->
   <path d="M0 17H1082" stroke="#8C918A" stroke-width="1" opacity=".55"/>
-  <g stroke="#8C918A" stroke-width="3" stroke-linecap="round"><path d="M1112 9V25"/><path d="M1130 9V25"/><path d="M1148 9V25"/><path d="M1166 9V25"/></g>
-  <path d="M1184 4V20" stroke="#BE6848" stroke-width="3" stroke-linecap="round"/>
+  <g stroke="#8C918A" stroke-width="3" stroke-linecap="round">
+    <path d="M1112 9V25"/>
+    <path d="M1130 9V25"/>
+    <path d="M1148 9V25"/>
+    <path d="M1166 9V25"/>
+  </g>
+  <!-- Accent: y=3 to y=19 — displaced 6px above neutral (y=9–25). Fully visible. -->
+  <path d="M1184 3V19" stroke="#BE6848" stroke-width="3" stroke-linecap="round"/>
 </svg>

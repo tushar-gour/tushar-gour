@@ -1,5 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 34">
+  <!--
+    Phase 04 of 04 — The accent mark is exactly aligned with the four neutrals.
+    The system has resolved. The fifth mark has settled.
+    This is the closing state of the profile's visual arc.
+  -->
   <path d="M0 17H1082" stroke="#8C918A" stroke-width="1" opacity=".55"/>
-  <g stroke="#8C918A" stroke-width="3" stroke-linecap="round"><path d="M1112 9V25"/><path d="M1130 9V25"/><path d="M1148 9V25"/><path d="M1166 9V25"/></g>
+  <g stroke="#8C918A" stroke-width="3" stroke-linecap="round">
+    <path d="M1112 9V25"/>
+    <path d="M1130 9V25"/>
+    <path d="M1148 9V25"/>
+    <path d="M1166 9V25"/>
+  </g>
+  <!-- Accent: y=9 to y=25 — exactly aligned with neutral baseline. Fully resolved. -->
   <path d="M1184 9V25" stroke="#BE6848" stroke-width="3" stroke-linecap="round"/>
 </svg>

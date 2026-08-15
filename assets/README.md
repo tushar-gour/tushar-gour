@@ -1,31 +1,69 @@
 # Asset system
 
 This profile uses a deliberately small asset surface.
+All committed binary assets are generated from source — no third-party services.
 
-- `identity/` contains editable SVG source plus committed light/dark PNG renders selected through `<picture>` and `prefers-color-scheme`.
-- `motif/` contains four SVG source phases of **The Fifth Mark** plus committed PNG renders. The first four ticks stay fixed while the fifth resolves into alignment as the reader moves down the profile.
-- `motion/` contains two tiny GIFs. They are ornamental, slow, and non-essential to understanding the README.
+## Directory map
 
-## Why the README embeds PNG, not SVG
+- `identity/` — editable SVG source for the hero panel + committed PNG renders.
+  Light and dark variants, selected via `<picture>` and `prefers-color-scheme`.
 
-GitHub can display SVG, but GitHub's current documentation notes that SVGs may not render in Firefox and that SVG inline scripting/animation is unsupported. The profile therefore keeps SVG as the editable source format and embeds deterministic PNG renders for the identity and divider artwork. Motion uses committed GIFs, which GitHub explicitly supports.
+- `motif/` — four SVG phase dividers + committed PNG renders.
+  Together they form the **Signal / Resolve** arc: the accent mark is displaced
+  in Phase 01 and settles to exact alignment by Phase 04.
+
+- `motion/` — one GIF: `fifth-mark.gif`.
+  Shows the same arc compressed into a single ~7.8s motion moment.
+  Transparent background; works on both light and dark GitHub themes.
+
+## The Signal / Resolve motif
+
+The Fifth Mark is the structural concept of this profile.
+
+Four neutral marks establish a baseline. The fifth (accent, terracotta) starts
+out of alignment and progressively resolves:
+
+| Asset | Accent position | Displacement from baseline |
+|---|---|---|
+| `hero` (bottom row) | y = 306–322 | −12 px |
+| `phase-01` | y = −3–13 (top 3px clipped) | −12 px |
+| `phase-02` | y = 3–19 | −6 px |
+| `phase-03` | y = 7–23 | −2 px |
+| `phase-04` | y = 9–25 | 0 px — fully resolved |
+
+The `fifth-mark.gif` animates the same 12px → 0px journey in the motion domain.
+
+## Why PNG, not SVG
+
+GitHub renders SVG via `<img>` but SVG animation is unsupported in that context,
+and Firefox has historically shown rendering inconsistencies with `<img src="*.svg">`.
+The profile commits deterministic PNG renders (2× resolution for retina) from
+well-structured SVG source, eliminating runtime rendering variance.
+
+Motion is handled by committed GIF, which GitHub explicitly supports.
 
 ## Palette
 
-- Warm paper: `#F7F4EE`
-- Charcoal: `#151816`
-- Ink: `#202320`
-- Quiet neutral: `#8C918A`
-- Signature terracotta: `#BE6848` (light) / `#D98362` (dark hero)
+| Token | Light | Dark | Semantic role |
+|---|---|---|---|
+| Background | `#F7F4EE` | `#151816` | Warm paper / deep charcoal |
+| Primary text | `#202320` | `#F1EEE7` | Ink — slightly warm, not stark |
+| Secondary text | `#6F716D` | `#A4A9A4` | Labels, captions |
+| Rule | `#D6D1C7` | `#2C322E` | Dividing lines |
+| Neutral marks | `#8C918A` | `#A4A9A4` | The four settled marks |
+| Accent | `#BE6848` | `#D98362` | The fifth mark, links |
 
-The accent is intentionally warm rather than neon or blue-purple: it adds human optimism to an otherwise precise neutral system.
+The terracotta accent is intentionally warm rather than neon or blue-purple.
+Against the precision of the neutral system it signals: this engineer is a person,
+not a machine.
 
 ## Rebuilding assets
 
 ```bash
 python -m pip install -r requirements-dev.txt
-python tools/render_static.py
-python tools/render_motion.py
+python tools/render_static.py   # regenerate hero and motif PNGs
+python tools/render_motion.py   # regenerate fifth-mark.gif
 ```
 
-Generated assets are committed so the profile has no runtime dependency on third-party badge, stats, or animation services.
+Generated assets are committed so the profile has no runtime dependency
+on any external service.
