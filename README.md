@@ -4,35 +4,21 @@
   <img src="./assets/identity/hero-editorial-dark.svg" alt="Tushar Gour — Software Engineer" width="100%">
 </picture>
 
-<br>
-
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
-  <tr>
-    <td width="3" bgcolor="#C96A4B" style="background:#C96A4B; width:3px; padding:0; border:none;"></td>
-    <td width="16" style="width:16px; padding:0; border:none;"></td>
-    <td style="padding:0; border:none;">
-      <p style="margin:0; font-size:16px; line-height:1.6; color:#D7D5CF;">
-        I engineer and deliver production systems end to end, from product interfaces and backend services to data platforms, AI capabilities, cloud infrastructure, and deployment. My focus is software that moves from architecture to operation as a coherent system: observable, maintainable, and designed for real-world load.
-      </p>
-    </td>
-  </tr>
-</table>
-
-<br>
+<br><br>
 
 <!-- ================================================================= -->
-<!-- 02 — ENGINEERING TOOLCHAIN (ORBITAL LANES)                         -->
+<!-- 02 — ENGINEERING STACK & SIGNAL LANES                             -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/skills/toolchain-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/skills/toolchain-light.svg">
-  <img src="./assets/skills/toolchain-dark.svg" alt="Engineering Toolchain Orbital Lanes" width="100%">
+  <img src="./assets/skills/toolchain-dark.svg" alt="Engineering Stack &amp; Tools Across The Software Delivery Path" width="100%">
 </picture>
 
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 03 — GITHUB METRICS & REPOSITORY STATISTICS                       -->
+<!-- 03 — GITHUB METRICS & REPOSITORY STATISTICS (LOCKED)              -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/stats-editorial-dark.svg">
@@ -43,7 +29,7 @@
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 04 — 52-WEEK CONTRIBUTION PULSE                                   -->
+<!-- 04 — 52-WEEK CONTRIBUTION PULSE (LOCKED)                          -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/pulse-52w-dark.svg">
@@ -54,7 +40,7 @@
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 05 — LANGUAGE FOOTPRINT                                           -->
+<!-- 05 — LANGUAGE FOOTPRINT (LOCKED)                                  -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/domain-spectrum-dark.svg">
