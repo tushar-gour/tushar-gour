@@ -5,12 +5,13 @@
       <stop offset="100%" stop-color="#080C11"/>
     </radialGradient>
 
-    <!-- Laser bullet gradient tail -->
+    <!-- Laser bullet gradient tail: 0% opacity at pointed left tip (x=-100) ramping smoothly to warm orange -> cream -> glowing white at head (x=0) -->
     <linearGradient id="laserTail" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#FF6B35" stop-opacity="0"/>
-      <stop offset="25%" stop-color="#FF6B35" stop-opacity="0.15"/>
-      <stop offset="60%" stop-color="#FF7F50" stop-opacity="0.7"/>
-      <stop offset="85%" stop-color="#FFAA80" stop-opacity="0.95"/>
+      <stop offset="20%" stop-color="#FF6B35" stop-opacity="0.12"/>
+      <stop offset="50%" stop-color="#FF7A45" stop-opacity="0.45"/>
+      <stop offset="80%" stop-color="#FFA880" stop-opacity="0.8"/>
+      <stop offset="95%" stop-color="#FFF0EB" stop-opacity="0.95"/>
       <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
     </linearGradient>
 
@@ -40,47 +41,19 @@
       .mono { font-family: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
       .label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 700; }
 
-      @keyframes bullet1 {
-        0%   { transform: translateX(-80px); opacity:0; }
-        3%   { opacity:1; }
-        45%  { transform: translateX(1000px); opacity:1; }
-        49%  { opacity:0; }
-        100% { transform: translateX(1000px); opacity:0; }
-      }
-      @keyframes bullet2 {
-        0%   { transform: translateX(-80px); opacity:0; }
-        3%   { opacity:1; }
-        45%  { transform: translateX(1000px); opacity:1; }
-        49%  { opacity:0; }
-        100% { transform: translateX(1000px); opacity:0; }
-      }
-      @keyframes bullet3 {
-        0%   { transform: translateX(-80px); opacity:0; }
-        3%   { opacity:1; }
-        45%  { transform: translateX(1000px); opacity:1; }
-        49%  { opacity:0; }
-        100% { transform: translateX(1000px); opacity:0; }
-      }
-      @keyframes bullet4 {
-        0%   { transform: translateX(-80px); opacity:0; }
-        3%   { opacity:1; }
-        45%  { transform: translateX(1000px); opacity:1; }
-        49%  { opacity:0; }
-        100% { transform: translateX(1000px); opacity:0; }
-      }
-      @keyframes bullet5 {
-        0%   { transform: translateX(-80px); opacity:0; }
-        3%   { opacity:1; }
-        45%  { transform: translateX(1000px); opacity:1; }
-        49%  { opacity:0; }
-        100% { transform: translateX(1000px); opacity:0; }
+      @keyframes bulletAnim {
+        0%   { transform: translateX(100px); opacity: 0; }
+        3%   { transform: translateX(160px); opacity: 1; }
+        56%  { transform: translateX(1100px); opacity: 1; }
+        62%  { transform: translateX(1162px); opacity: 0; }
+        100% { transform: translateX(1162px); opacity: 0; }
       }
 
-      .b1 { animation: bullet1 10s cubic-bezier(.2,0,.2,1) infinite; }
-      .b2 { animation: bullet2 13s cubic-bezier(.2,0,.2,1) infinite; animation-delay: 2.5s; }
-      .b3 { animation: bullet3 11s cubic-bezier(.2,0,.2,1) infinite; animation-delay: 5s; }
-      .b4 { animation: bullet4 14s cubic-bezier(.2,0,.2,1) infinite; animation-delay: 1.2s; }
-      .b5 { animation: bullet5 12s cubic-bezier(.2,0,.2,1) infinite; animation-delay: 3.8s; }
+      .b1 { animation: bulletAnim 6.5s cubic-bezier(.25,0,.25,1) infinite; }
+      .b2 { animation: bulletAnim 8.0s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 1.8s; }
+      .b3 { animation: bulletAnim 7.2s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 3.5s; }
+      .b4 { animation: bulletAnim 8.5s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 0.8s; }
+      .b5 { animation: bulletAnim 7.6s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 2.6s; }
 
       @keyframes cardPulse {
         0%,100% { stroke-opacity:0.9; }
@@ -131,9 +104,10 @@
     <circle cx="1158" cy="0" r="5.5" fill="none" stroke="#374448" stroke-width="2"/>
     <circle cx="1158" cy="0" r="2" fill="#374448"/>
 
-    <!-- Laser bullet -->
+    <!-- Laser bullet with tapered tail -->
     <g class="b1">
-      <line x1="-75" y1="0" x2="0" y2="0" stroke="url(#laserTail)" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M -100 0 C -60 -1.2, -20 -3.5, 0 -3.5 L 0 3.5 C -20 3.5, -60 1.2, -100 0 Z" fill="url(#laserTail)"/>
+      <ellipse cx="-3" cy="0" rx="10" ry="4" fill="url(#flareGrad)" opacity="0.65"/>
       <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" filter="url(#laserGlow)"/>
       <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
     </g>
@@ -219,7 +193,8 @@
     <circle cx="1158" cy="0" r="2" fill="#374448"/>
 
     <g class="b2">
-      <line x1="-75" y1="0" x2="0" y2="0" stroke="url(#laserTail)" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M -100 0 C -60 -1.2, -20 -3.5, 0 -3.5 L 0 3.5 C -20 3.5, -60 1.2, -100 0 Z" fill="url(#laserTail)"/>
+      <ellipse cx="-3" cy="0" rx="10" ry="4" fill="url(#flareGrad)" opacity="0.65"/>
       <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" filter="url(#laserGlow)"/>
       <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
     </g>
@@ -286,7 +261,8 @@
     <circle cx="1158" cy="0" r="2" fill="#374448"/>
 
     <g class="b3">
-      <line x1="-75" y1="0" x2="0" y2="0" stroke="url(#laserTail)" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M -100 0 C -60 -1.2, -20 -3.5, 0 -3.5 L 0 3.5 C -20 3.5, -60 1.2, -100 0 Z" fill="url(#laserTail)"/>
+      <ellipse cx="-3" cy="0" rx="10" ry="4" fill="url(#flareGrad)" opacity="0.65"/>
       <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" filter="url(#laserGlow)"/>
       <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
     </g>
@@ -386,7 +362,8 @@
     <circle cx="1158" cy="0" r="2" fill="#374448"/>
 
     <g class="b4">
-      <line x1="-75" y1="0" x2="0" y2="0" stroke="url(#laserTail)" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M -100 0 C -60 -1.2, -20 -3.5, 0 -3.5 L 0 3.5 C -20 3.5, -60 1.2, -100 0 Z" fill="url(#laserTail)"/>
+      <ellipse cx="-3" cy="0" rx="10" ry="4" fill="url(#flareGrad)" opacity="0.65"/>
       <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" filter="url(#laserGlow)"/>
       <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
     </g>
@@ -478,7 +455,8 @@
     <circle cx="1158" cy="0" r="2" fill="#374448"/>
 
     <g class="b5">
-      <line x1="-75" y1="0" x2="0" y2="0" stroke="url(#laserTail)" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M -100 0 C -60 -1.2, -20 -3.5, 0 -3.5 L 0 3.5 C -20 3.5, -60 1.2, -100 0 Z" fill="url(#laserTail)"/>
+      <ellipse cx="-3" cy="0" rx="10" ry="4" fill="url(#flareGrad)" opacity="0.65"/>
       <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" filter="url(#laserGlow)"/>
       <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
     </g>
