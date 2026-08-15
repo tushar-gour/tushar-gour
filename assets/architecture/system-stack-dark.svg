@@ -17,7 +17,7 @@
     </style>
   </defs>
 
-  <!-- Background Canvas -->
+  <!-- Background Canvas (60% Graphite Base) -->
   <rect width="1200" height="240" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1" />
 
   <!-- Section Top Label -->
@@ -25,6 +25,7 @@
     <text class="num-hdr" x="0" y="0" font-size="11" fill="#8B949E">
       SYSTEM ARCHITECTURE &amp; RESPONSIBILITY LAYERS
     </text>
+    <!-- Rare Terracotta Accent (Single visual focal point in section) -->
     <text class="num-hdr" x="1104" y="0" font-size="11" fill="#D97757" text-anchor="end">
       01 → 02 → 03 → 04
     </text>
@@ -36,9 +37,9 @@
   <line x1="600" y1="65" x2="600" y2="215" stroke="#21262D" stroke-width="1" />
   <line x1="880" y1="65" x2="880" y2="215" stroke="#21262D" stroke-width="1" />
 
-  <!-- Tier 1: Product Surface -->
+  <!-- Tier 1: Product Surface (Monochrome Structure) -->
   <g transform="translate(48, 76)">
-    <text class="num-hdr" x="0" y="0" font-size="11" fill="#D97757">01 / SURFACE</text>
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#8B949E">01 / SURFACE</text>
     <text class="tech-list" x="0" y="24" font-size="14" fill="#F0F6FC">Flutter · React 19 · TypeScript</text>
     <text class="tech-list" x="0" y="44" font-size="13" fill="#8B949E">Tailwind CSS · Vite</text>
     <text class="scope-desc" x="0" y="76" font-size="11" fill="#6E7681">
@@ -46,9 +47,9 @@
     </text>
   </g>
 
-  <!-- Tier 2: Services & APIs -->
+  <!-- Tier 2: Services & APIs (Monochrome Structure) -->
   <g transform="translate(340, 76)">
-    <text class="num-hdr" x="0" y="0" font-size="11" fill="#D97757">02 / SERVICES</text>
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#8B949E">02 / SERVICES</text>
     <text class="tech-list" x="0" y="24" font-size="14" fill="#F0F6FC">Node.js · Express · Java</text>
     <text class="tech-list" x="0" y="44" font-size="13" fill="#8B949E">Socket.IO · REST &amp; WSS</text>
     <text class="scope-desc" x="0" y="76" font-size="11" fill="#6E7681">
@@ -56,9 +57,9 @@
     </text>
   </g>
 
-  <!-- Tier 3: Data Plane -->
+  <!-- Tier 3: Data Plane (Monochrome Structure) -->
   <g transform="translate(620, 76)">
-    <text class="num-hdr" x="0" y="0" font-size="11" fill="#D97757">03 / DATA PLANE</text>
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#8B949E">03 / DATA PLANE</text>
     <text class="tech-list" x="0" y="24" font-size="14" fill="#F0F6FC">PostgreSQL · Redis · MongoDB</text>
     <text class="tech-list" x="0" y="44" font-size="13" fill="#8B949E">Prisma ORM · SQLite</text>
     <text class="scope-desc" x="0" y="76" font-size="11" fill="#6E7681">
@@ -66,9 +67,9 @@
     </text>
   </g>
 
-  <!-- Tier 4: Infrastructure -->
+  <!-- Tier 4: Infrastructure (Monochrome Structure) -->
   <g transform="translate(900, 76)">
-    <text class="num-hdr" x="0" y="0" font-size="11" fill="#D97757">04 / DELIVERY</text>
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#8B949E">04 / DELIVERY</text>
     <text class="tech-list" x="0" y="24" font-size="14" fill="#F0F6FC">AWS · Google Cloud · Docker</text>
     <text class="tech-list" x="0" y="44" font-size="13" fill="#8B949E">Linux · GitHub Actions</text>
     <text class="scope-desc" x="0" y="76" font-size="11" fill="#6E7681">

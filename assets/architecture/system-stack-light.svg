@@ -25,6 +25,7 @@
     <text class="num-hdr" x="0" y="0" font-size="11" fill="#656D76">
       SYSTEM ARCHITECTURE &amp; RESPONSIBILITY LAYERS
     </text>
+    <!-- Rare Terracotta Accent -->
     <text class="num-hdr" x="1104" y="0" font-size="11" fill="#C86446" text-anchor="end">
       01 → 02 → 03 → 04
     </text>
@@ -38,7 +39,7 @@
 
   <!-- Tier 1: Product Surface -->
   <g transform="translate(48, 76)">
-    <text class="num-hdr" x="0" y="0" font-size="11" fill="#C86446">01 / SURFACE</text>
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#656D76">01 / SURFACE</text>
     <text class="tech-list" x="0" y="24" font-size="14" fill="#1F2328">Flutter · React 19 · TypeScript</text>
     <text class="tech-list" x="0" y="44" font-size="13" fill="#656D76">Tailwind CSS · Vite</text>
     <text class="scope-desc" x="0" y="76" font-size="11" fill="#8C959F">
@@ -48,7 +49,7 @@
 
   <!-- Tier 2: Services & APIs -->
   <g transform="translate(340, 76)">
-    <text class="num-hdr" x="0" y="0" font-size="11" fill="#C86446">02 / SERVICES</text>
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#656D76">02 / SERVICES</text>
     <text class="tech-list" x="0" y="24" font-size="14" fill="#1F2328">Node.js · Express · Java</text>
     <text class="tech-list" x="0" y="44" font-size="13" fill="#656D76">Socket.IO · REST &amp; WSS</text>
     <text class="scope-desc" x="0" y="76" font-size="11" fill="#8C959F">
@@ -58,7 +59,7 @@
 
   <!-- Tier 3: Data Plane -->
   <g transform="translate(620, 76)">
-    <text class="num-hdr" x="0" y="0" font-size="11" fill="#C86446">03 / DATA PLANE</text>
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#656D76">03 / DATA PLANE</text>
     <text class="tech-list" x="0" y="24" font-size="14" fill="#1F2328">PostgreSQL · Redis · MongoDB</text>
     <text class="tech-list" x="0" y="44" font-size="13" fill="#656D76">Prisma ORM · SQLite</text>
     <text class="scope-desc" x="0" y="76" font-size="11" fill="#8C959F">
@@ -68,7 +69,7 @@
 
   <!-- Tier 4: Infrastructure -->
   <g transform="translate(900, 76)">
-    <text class="num-hdr" x="0" y="0" font-size="11" fill="#C86446">04 / DELIVERY</text>
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#656D76">04 / DELIVERY</text>
     <text class="tech-list" x="0" y="24" font-size="14" fill="#1F2328">AWS · Google Cloud · Docker</text>
     <text class="tech-list" x="0" y="44" font-size="13" fill="#656D76">Linux · GitHub Actions</text>
     <text class="scope-desc" x="0" y="76" font-size="11" fill="#8C959F">
