@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" width="100%" height="100%">
+  <defs>
+    <style>
+      .num-val {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+      .lbl-meta {
+        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+      }
+      .desc-txt {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="120" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1" />
+
+  <!-- Vertical Hairline Column Dividers -->
+  <line x1="300" y1="20" x2="300" y2="100" stroke="#21262D" stroke-width="1" />
+  <line x1="600" y1="20" x2="600" y2="100" stroke="#21262D" stroke-width="1" />
+  <line x1="900" y1="20" x2="900" y2="100" stroke="#21262D" stroke-width="1" />
+
+  <!-- Col 1: Repositories -->
+  <g transform="translate(48, 36)">
+    <text class="lbl-meta" x="0" y="0" font-size="10" fill="#8B949E">TOTAL REPOSITORIES</text>
+    <text class="num-val" x="0" y="38" font-size="34" fill="#F0F6FC">48<tspan font-size="22" fill="#D97757">+</tspan></text>
+    <text class="desc-txt" x="0" y="58" font-size="11" fill="#6E7681">Public &amp; private ecosystem</text>
+  </g>
+
+  <!-- Col 2: Contributions -->
+  <g transform="translate(348, 36)">
+    <text class="lbl-meta" x="0" y="0" font-size="10" fill="#8B949E">CONTRIBUTIONS</text>
+    <text class="num-val" x="0" y="38" font-size="34" fill="#F0F6FC">2,450<tspan font-size="22" fill="#D97757">+</tspan></text>
+    <text class="desc-txt" x="0" y="58" font-size="11" fill="#6E7681">Commits &amp; architecture updates</text>
+  </g>
+
+  <!-- Col 3: Pull Requests -->
+  <g transform="translate(648, 36)">
+    <text class="lbl-meta" x="0" y="0" font-size="10" fill="#8B949E">PULL REQUESTS</text>
+    <text class="num-val" x="0" y="38" font-size="34" fill="#F0F6FC">140<tspan font-size="22" fill="#D97757">+</tspan></text>
+    <text class="desc-txt" x="0" y="58" font-size="11" fill="#6E7681">Merged &amp; reviewed</text>
+  </g>
+
+  <!-- Col 4: Systems Scope -->
+  <g transform="translate(948, 36)">
+    <text class="lbl-meta" x="0" y="0" font-size="10" fill="#8B949E">CORE ARCHITECTURE</text>
+    <text class="num-val" x="0" y="38" font-size="30" fill="#F0F6FC">FULL-STACK</text>
+    <text class="desc-txt" x="0" y="58" font-size="11" fill="#6E7681">Mobile · Services · Cloud</text>
+  </g>
+</svg>

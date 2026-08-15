@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="100%" height="100%">
+  <defs>
+    <style>
+      .num-hdr {
+        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+      }
+      .tech-list {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 600;
+      }
+      .scope-desc {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        line-height: 1.4;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="240" rx="6" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" />
+
+  <!-- Section Top Label -->
+  <g transform="translate(48, 36)">
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#656D76">
+      SYSTEM ARCHITECTURE &amp; RESPONSIBILITY LAYERS
+    </text>
+    <text class="num-hdr" x="1104" y="0" font-size="11" fill="#C86446" text-anchor="end">
+      01 → 02 → 03 → 04
+    </text>
+  </g>
+  <line x1="48" y1="48" x2="1152" y2="48" stroke="#E1E4E8" stroke-width="1" />
+
+  <!-- Vertical Hairline Column Dividers -->
+  <line x1="320" y1="65" x2="320" y2="215" stroke="#E1E4E8" stroke-width="1" />
+  <line x1="600" y1="65" x2="600" y2="215" stroke="#E1E4E8" stroke-width="1" />
+  <line x1="880" y1="65" x2="880" y2="215" stroke="#E1E4E8" stroke-width="1" />
+
+  <!-- Tier 1: Product Surface -->
+  <g transform="translate(48, 76)">
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#C86446">01 / SURFACE</text>
+    <text class="tech-list" x="0" y="24" font-size="14" fill="#1F2328">Flutter · React 19 · TypeScript</text>
+    <text class="tech-list" x="0" y="44" font-size="13" fill="#656D76">Tailwind CSS · Vite</text>
+    <text class="scope-desc" x="0" y="76" font-size="11" fill="#8C959F">
+      Optimistic UI state, typed contracts, sub-50ms client render latency.
+    </text>
+  </g>
+
+  <!-- Tier 2: Services & APIs -->
+  <g transform="translate(340, 76)">
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#C86446">02 / SERVICES</text>
+    <text class="tech-list" x="0" y="24" font-size="14" fill="#1F2328">Node.js · Express · Java</text>
+    <text class="tech-list" x="0" y="44" font-size="13" fill="#656D76">Socket.IO · REST &amp; WSS</text>
+    <text class="scope-desc" x="0" y="76" font-size="11" fill="#8C959F">
+      Explicit boundary contracts, JWT auth guards, real-time event distribution.
+    </text>
+  </g>
+
+  <!-- Tier 3: Data Plane -->
+  <g transform="translate(620, 76)">
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#C86446">03 / DATA PLANE</text>
+    <text class="tech-list" x="0" y="24" font-size="14" fill="#1F2328">PostgreSQL · Redis · MongoDB</text>
+    <text class="tech-list" x="0" y="44" font-size="13" fill="#656D76">Prisma ORM · SQLite</text>
+    <text class="scope-desc" x="0" y="76" font-size="11" fill="#8C959F">
+      ACID transaction consistency, in-memory caching, access-pattern schemas.
+    </text>
+  </g>
+
+  <!-- Tier 4: Infrastructure -->
+  <g transform="translate(900, 76)">
+    <text class="num-hdr" x="0" y="0" font-size="11" fill="#C86446">04 / DELIVERY</text>
+    <text class="tech-list" x="0" y="24" font-size="14" fill="#1F2328">AWS · Google Cloud · Docker</text>
+    <text class="tech-list" x="0" y="44" font-size="13" fill="#656D76">Linux · GitHub Actions</text>
+    <text class="scope-desc" x="0" y="76" font-size="11" fill="#8C959F">
+      Containerized deployments, edge asset delivery, zero-downtime CI/CD.
+    </text>
+  </g>
+</svg>
