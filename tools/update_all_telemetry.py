@@ -389,16 +389,25 @@ def build_spectrum_svg(languages: list, is_dark=True):
   <text class="m" x="380" y="44" font-size="13" font-weight="600" fill="{lbl_color}" letter-spacing="1">/ AGGREGATED CODE VOLUME</text>
   <text class="m" x="1158" y="44" font-size="12" font-weight="600" fill="{lbl_color}" letter-spacing="1" text-anchor="end">ALL AUTHORED REPOSITORIES</text>
 
-  <!-- Stacked Full-Width Spectrum Bar (y=72, h=22, w=1116) -->
+  <!-- Stacked Full-Width Spectrum Bar with Gaps (y=72, h=22, w=1116) -->
   <g transform="translate(42, 72)">
-    <rect width="1116" height="22" rx="4" fill="{divider}"/>''']
+    <rect width="1116" height="22" rx="5" fill="{bg}" stroke="{divider}" stroke-width="1"/>''']
+
+    gap = 4
+    n_langs = len(languages)
+    total_gaps = (n_langs - 1) * gap
+    usable_width = 1116 - total_gaps
 
     cur_x = 0
     for i, lang in enumerate(languages):
-        w = max(3, int(1116 * (lang["percentage"] / 100.0)))
+        if i == n_langs - 1:
+            w = max(4, 1116 - cur_x)
+        else:
+            w = max(4, int(usable_width * (lang["percentage"] / 100.0)))
+        
         color = palette[i % len(palette)]
-        svg_parts.append(f'    <rect x="{cur_x}" y="0" width="{w}" height="22" rx="3" fill="{color}"/>')
-        cur_x += w
+        svg_parts.append(f'    <rect x="{cur_x}" y="0" width="{w}" height="22" rx="4" fill="{color}"/>')
+        cur_x += w + gap
 
     svg_parts.append('  </g>\n\n  <!-- Two-Column Language Details Grid -->')
 
