@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" width="100%" height="100%">
   <defs>
     <linearGradient id="chartFillLight" x1="0%" y1="0%" x2="0%" y2="1">
-      <stop offset="0%" stop-color="#C86446" stop-opacity="0.10" />
+      <stop offset="0%" stop-color="#C86446" stop-opacity="0.08" />
       <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0" />
     </linearGradient>
 
@@ -15,73 +15,88 @@
     </style>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="240" rx="6" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1" />
+  <!-- Background Base Frame -->
+  <rect width="1200" height="280" rx="8" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.2" />
 
-  <!-- Section Title -->
-  <g transform="translate(48, 36)">
+  <!-- Section Top Header Bar -->
+  <g transform="translate(48, 38)">
     <text class="mono-meta" x="0" y="0" font-size="11" fill="#656D76" font-weight="600" letter-spacing="1.5">
-      CONTRIBUTION ACTIVITY &amp; CADENCE
+      CONTRIBUTION ACTIVITY &amp; COMMIT CADENCE
     </text>
-    <text class="sans-text" x="1104" y="0" font-size="11" fill="#8C959F" text-anchor="end">
-      Rolling 52-week activity distribution
+    <text class="mono-meta" x="1104" y="0" font-size="11" fill="#8C959F" text-anchor="end">
+      ROLLING 52-WEEK VELOCITY // 2,450+ COMMITS
     </text>
   </g>
+  <line x1="48" y1="52" x2="1152" y2="52" stroke="#E1E4E8" stroke-width="1" />
 
-  <!-- Hairline Chart Grid -->
+  <!-- Hairline Grid Lines with Muted Y-Axis Labels -->
   <g stroke="#F0F2F5" stroke-width="1">
-    <line x1="48" y1="65" x2="1152" y2="65" />
-    <line x1="48" y1="105" x2="1152" y2="105" />
-    <line x1="48" y1="145" x2="1152" y2="145" />
-    <line x1="48" y1="185" x2="1152" y2="185" />
+    <line x1="80" y1="80" x2="1152" y2="80" />
+    <line x1="80" y1="125" x2="1152" y2="125" />
+    <line x1="80" y1="170" x2="1152" y2="170" />
+    <line x1="80" y1="215" x2="1152" y2="215" />
   </g>
 
-  <!-- Area Fill -->
-  <path d="M 48 185
-           L 48 160
-           C 120 155, 180 170, 240 140
-           C 300 110, 360 145, 420 120
-           C 480 95, 540 135, 600 100
-           C 660 65, 720 120, 780 90
-           C 840 60, 900 110, 960 85
-           C 1020 60, 1080 95, 1152 75
-           L 1152 185 Z"
+  <g class="mono-meta" font-size="9" fill="#8C959F" text-anchor="end">
+    <text x="70" y="83">100</text>
+    <text x="70" y="128">65</text>
+    <text x="70" y="173">30</text>
+    <text x="70" y="218">0</text>
+  </g>
+
+  <!-- Area Fill Under Spline -->
+  <path d="M 80 215
+           L 80 185
+           C 160 180, 220 195, 300 160
+           C 380 125, 440 165, 520 135
+           C 600 105, 660 150, 740 110
+           C 820 70, 880 135, 960 95
+           C 1040 65, 1100 115, 1152 85
+           L 1152 215 Z"
         fill="url(#chartFillLight)" />
 
-  <!-- Main Curve Stroke -->
-  <path d="M 48 160
-           C 120 155, 180 170, 240 140
-           C 300 110, 360 145, 420 120
-           C 480 95, 540 135, 600 100
-           C 660 65, 720 120, 780 90
-           C 840 60, 900 110, 960 85
-           C 1020 60, 1080 95, 1152 75"
-        fill="none" stroke="#C86446" stroke-width="1.8" stroke-linecap="round" />
+  <!-- Secondary Gray Rolling Average Reference Line -->
+  <path d="M 80 180 Q 400 150, 700 120 T 1152 95" 
+        fill="none" stroke="#D0D7DE" stroke-width="1.2" stroke-dasharray="4 4" />
 
-  <!-- Milestone Accent Markers -->
-  <g transform="translate(660, 65)">
-    <circle cx="0" cy="0" r="3.5" fill="#FFFFFF" stroke="#C86446" stroke-width="1.5" />
-    <text class="mono-meta" x="0" y="-12" font-size="9" fill="#656D76" text-anchor="middle">PEAK CADENCE</text>
+  <!-- Primary Terracotta Data Spline Curve -->
+  <path d="M 80 185
+           C 160 180, 220 195, 300 160
+           C 380 125, 440 165, 520 135
+           C 600 105, 660 150, 740 110
+           C 820 70, 880 135, 960 95
+           C 1040 65, 1100 115, 1152 85"
+        fill="none" stroke="#C86446" stroke-width="2.2" stroke-linecap="round" />
+
+  <!-- Milestone Marker 1: Peak Sprint -->
+  <g transform="translate(740, 110)">
+    <circle cx="0" cy="0" r="4" fill="#FFFFFF" stroke="#C86446" stroke-width="2" />
+    <line x1="0" y1="-4" x2="0" y2="-24" stroke="#D0D7DE" stroke-width="1" />
+    <rect x="-65" y="-42" width="130" height="18" rx="3" fill="#F6F8FA" stroke="#D0D7DE" stroke-width="1" />
+    <text class="mono-meta" x="0" y="-30" font-size="8" fill="#1F2328" text-anchor="middle" font-weight="600">Q3 · PEAK VELOCITY</text>
   </g>
 
-  <g transform="translate(1020, 60)">
-    <circle cx="0" cy="0" r="3.5" fill="#FFFFFF" stroke="#C86446" stroke-width="1.5" />
-    <text class="mono-meta" x="0" y="-12" font-size="9" fill="#656D76" text-anchor="middle">PRODUCTION RELEASE</text>
+  <!-- Milestone Marker 2: Production Delivery -->
+  <g transform="translate(1040, 72)">
+    <circle cx="0" cy="0" r="4" fill="#FFFFFF" stroke="#C86446" stroke-width="2" />
+    <line x1="0" y1="-4" x2="0" y2="-24" stroke="#D0D7DE" stroke-width="1" />
+    <rect x="-70" y="-42" width="140" height="18" rx="3" fill="#F6F8FA" stroke="#D0D7DE" stroke-width="1" />
+    <text class="mono-meta" x="0" y="-30" font-size="8" fill="#C86446" text-anchor="middle" font-weight="600">PROD RELEASE v2.6</text>
   </g>
 
-  <!-- X-Axis Timeline Labels -->
-  <g class="mono-meta" font-size="10" fill="#8C959F" transform="translate(0, 208)">
-    <text x="50" y="0">JAN</text>
-    <text x="150" y="0">FEB</text>
-    <text x="250" y="0">MAR</text>
-    <text x="350" y="0">APR</text>
-    <text x="450" y="0">MAY</text>
-    <text x="550" y="0">JUN</text>
-    <text x="650" y="0">JUL</text>
-    <text x="750" y="0">AUG</text>
+  <!-- X-Axis Timeline Month Labels -->
+  <g class="mono-meta" font-size="9" fill="#8C959F" transform="translate(0, 246)">
+    <text x="90" y="0">JAN</text>
+    <text x="185" y="0">FEB</text>
+    <text x="280" y="0">MAR</text>
+    <text x="375" y="0">APR</text>
+    <text x="470" y="0">MAY</text>
+    <text x="565" y="0">JUN</text>
+    <text x="660" y="0">JUL</text>
+    <text x="755" y="0">AUG</text>
     <text x="850" y="0">SEP</text>
-    <text x="950" y="0">OCT</text>
-    <text x="1050" y="0">NOV</text>
+    <text x="945" y="0">OCT</text>
+    <text x="1040" y="0">NOV</text>
     <text x="1130" y="0">DEC</text>
   </g>
 </svg>

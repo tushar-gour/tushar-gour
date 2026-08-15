@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" width="100%" height="100%">
   <defs>
     <style>
       .num-val {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
         font-weight: 700;
-        letter-spacing: -0.5px;
+        letter-spacing: -1px;
       }
       .lbl-meta {
         font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
@@ -17,39 +17,59 @@
     </style>
   </defs>
 
-  <!-- Background (60% Graphite Base) -->
-  <rect width="1200" height="120" rx="6" fill="#0D1117" stroke="#21262D" stroke-width="1" />
+  <!-- Background Base Frame (60% Graphite) -->
+  <rect width="1200" height="160" rx="8" fill="#0D1117" stroke="#21262D" stroke-width="1.2" />
 
   <!-- Vertical Hairline Column Dividers -->
-  <line x1="300" y1="20" x2="300" y2="100" stroke="#21262D" stroke-width="1" />
-  <line x1="600" y1="20" x2="600" y2="100" stroke="#21262D" stroke-width="1" />
-  <line x1="900" y1="20" x2="900" y2="100" stroke="#21262D" stroke-width="1" />
+  <line x1="300" y1="20" x2="300" y2="140" stroke="#21262D" stroke-width="1" />
+  <line x1="600" y1="20" x2="600" y2="140" stroke="#21262D" stroke-width="1" />
+  <line x1="900" y1="20" x2="900" y2="140" stroke="#21262D" stroke-width="1" />
 
-  <!-- Col 1: Repositories (Primary Metric Highlight with Rare Terracotta Accent) -->
-  <g transform="translate(48, 36)">
+  <!-- Col 1: Repositories (Terracotta Focal Metric) -->
+  <g transform="translate(48, 32)">
     <text class="lbl-meta" x="0" y="0" font-size="10" fill="#8B949E">TOTAL REPOSITORIES</text>
-    <text class="num-val" x="0" y="38" font-size="34" fill="#F0F6FC">48<tspan font-size="22" fill="#D97757">+</tspan></text>
-    <text class="desc-txt" x="0" y="58" font-size="11" fill="#6E7681">Public &amp; private ecosystem</text>
+    <text class="num-val" x="0" y="44" font-size="40" fill="#F0F6FC">48<tspan font-size="24" fill="#D97757">+</tspan></text>
+    
+    <!-- Micro Proportional Bar -->
+    <rect x="0" y="58" width="200" height="4" rx="2" fill="#1F242C" />
+    <rect x="0" y="58" width="160" height="4" rx="2" fill="#D97757" />
+    
+    <text class="desc-txt" x="0" y="82" font-size="11" fill="#6E7681">Public &amp; private architecture</text>
   </g>
 
-  <!-- Col 2: Contributions (Monochrome Off-White/Gray) -->
-  <g transform="translate(348, 36)">
-    <text class="lbl-meta" x="0" y="0" font-size="10" fill="#8B949E">CONTRIBUTIONS</text>
-    <text class="num-val" x="0" y="38" font-size="34" fill="#F0F6FC">2,450<tspan font-size="22" fill="#8B949E">+</tspan></text>
-    <text class="desc-txt" x="0" y="58" font-size="11" fill="#6E7681">Commits &amp; architecture updates</text>
+  <!-- Col 2: Lifetime Contributions (Monochrome Steel) -->
+  <g transform="translate(348, 32)">
+    <text class="lbl-meta" x="0" y="0" font-size="10" fill="#8B949E">LIFETIME CONTRIBUTIONS</text>
+    <text class="num-val" x="0" y="44" font-size="40" fill="#F0F6FC">2,450<tspan font-size="24" fill="#8B949E">+</tspan></text>
+    
+    <!-- Micro Proportional Bar -->
+    <rect x="0" y="58" width="200" height="4" rx="2" fill="#1F242C" />
+    <rect x="0" y="58" width="180" height="4" rx="2" fill="#8B949E" />
+    
+    <text class="desc-txt" x="0" y="82" font-size="11" fill="#6E7681">Commits, reviews &amp; deliveries</text>
   </g>
 
-  <!-- Col 3: Pull Requests (Monochrome Off-White/Gray) -->
-  <g transform="translate(648, 36)">
+  <!-- Col 3: Pull Requests (Monochrome Steel) -->
+  <g transform="translate(648, 32)">
     <text class="lbl-meta" x="0" y="0" font-size="10" fill="#8B949E">PULL REQUESTS</text>
-    <text class="num-val" x="0" y="38" font-size="34" fill="#F0F6FC">140<tspan font-size="22" fill="#8B949E">+</tspan></text>
-    <text class="desc-txt" x="0" y="58" font-size="11" fill="#6E7681">Merged &amp; reviewed</text>
+    <text class="num-val" x="0" y="44" font-size="40" fill="#F0F6FC">140<tspan font-size="24" fill="#8B949E">+</tspan></text>
+    
+    <!-- Micro Proportional Bar -->
+    <rect x="0" y="58" width="200" height="4" rx="2" fill="#1F242C" />
+    <rect x="0" y="58" width="130" height="4" rx="2" fill="#8B949E" />
+    
+    <text class="desc-txt" x="0" y="82" font-size="11" fill="#6E7681">Merged production PRs</text>
   </g>
 
-  <!-- Col 4: Systems Scope (Monochrome Off-White/Gray) -->
-  <g transform="translate(948, 36)">
-    <text class="lbl-meta" x="0" y="0" font-size="10" fill="#8B949E">CORE ARCHITECTURE</text>
-    <text class="num-val" x="0" y="38" font-size="30" fill="#F0F6FC">FULL-STACK</text>
-    <text class="desc-txt" x="0" y="58" font-size="11" fill="#6E7681">Mobile · Services · Cloud</text>
+  <!-- Col 4: Active Engineering Cadence (Monochrome Steel) -->
+  <g transform="translate(948, 32)">
+    <text class="lbl-meta" x="0" y="0" font-size="10" fill="#8B949E">ANNUAL CADENCE</text>
+    <text class="num-val" x="0" y="44" font-size="40" fill="#F0F6FC">300<tspan font-size="24" fill="#8B949E">D+</tspan></text>
+    
+    <!-- Micro Proportional Bar -->
+    <rect x="0" y="58" width="200" height="4" rx="2" fill="#1F242C" />
+    <rect x="0" y="58" width="170" height="4" rx="2" fill="#8B949E" />
+    
+    <text class="desc-txt" x="0" y="82" font-size="11" fill="#6E7681">Continuous engineering flow</text>
   </g>
 </svg>

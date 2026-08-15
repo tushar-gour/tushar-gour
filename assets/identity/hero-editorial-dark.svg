@@ -1,57 +1,102 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="100%" height="100%">
   <defs>
+    <!-- Subtle linear background gradation (Zero glow) -->
+    <linearGradient id="heroBgDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1218" />
+      <stop offset="100%" stop-color="#090C10" />
+    </linearGradient>
+
     <style>
-      .serif-title {
+      .serif-display {
         font-family: Georgia, 'Times New Roman', 'Source Serif Pro', serif;
         font-weight: 400;
-        letter-spacing: -1.5px;
+        letter-spacing: -2px;
       }
-      .sans-body {
+      .sans-medium {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 500;
       }
-      .mono-meta {
+      .mono-label {
         font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+        font-weight: 600;
+        letter-spacing: 1.5px;
       }
     </style>
   </defs>
 
-  <!-- Background Canvas -->
-  <rect width="1200" height="260" fill="#0D1117" />
+  <!-- Base Editorial Frame (60% Graphite) -->
+  <rect width="1200" height="340" rx="8" fill="url(#heroBgDark)" stroke="#21262D" stroke-width="1.2" />
 
-  <!-- Thin Hairline Border -->
-  <rect x="1" y="1" width="1198" height="258" rx="8" fill="none" stroke="#21262D" stroke-width="1" />
+  <!-- Subtle Architectural Grid Fragment (Light Geometry) -->
+  <g stroke="#1F242C" stroke-width="0.75" opacity="0.7">
+    <line x1="48" y1="56" x2="1152" y2="56" />
+    <line x1="48" y1="240" x2="1152" y2="240" />
+    <line x1="580" y1="56" x2="580" y2="240" stroke-dasharray="3 3" />
+  </g>
 
-  <!-- Top Metadata Label -->
-  <text class="mono-meta" x="48" y="46" font-size="11" fill="#8B949E" font-weight="600" letter-spacing="2">
-    TUSHAR GOUR &nbsp;·&nbsp; SOFTWARE ENGINEER
-  </text>
+  <!-- Top Metadata Header -->
+  <g transform="translate(48, 38)">
+    <text class="mono-label" x="0" y="0" font-size="11" fill="#8B949E">
+      TUSHAR GOUR &nbsp;·&nbsp; SOFTWARE ENGINEER
+    </text>
+    <text class="mono-label" x="1104" y="0" font-size="11" fill="#6E7681" text-anchor="end">
+      FULL-STACK &amp; SYSTEMS ARCHITECTURE
+    </text>
+  </g>
 
-  <!-- Main Name Display -->
-  <text class="serif-title" x="48" y="128" font-size="64" fill="#F0F6FC">
-    Tushar Gour
-  </text>
+  <!-- Left Column: Oversized Dominant Typography -->
+  <g transform="translate(48, 140)">
+    <text class="serif-display" x="0" y="0" font-size="74" fill="#F0F6FC">
+      Tushar Gour
+    </text>
+    <text class="sans-medium" x="4" y="38" font-size="17" fill="#8B949E">
+      Full-Stack Software Engineer &nbsp;·&nbsp; <tspan fill="#F0F6FC">Mobile · Web · Services · Cloud</tspan>
+    </text>
+    <text class="sans-medium" x="4" y="64" font-size="14" fill="#6E7681">
+      Engineering software that feels considered at the surface and predictable underneath.
+    </text>
+  </g>
 
-  <!-- Positioning Subtitle -->
-  <text class="sans-body" x="48" y="172" font-size="18" fill="#8B949E" font-weight="400">
-    Engineering production software across mobile, web, distributed services, and cloud infrastructure.
-  </text>
+  <!-- Right Column: Abstract Geometric System Path (The Architectural Motif) -->
+  <g transform="translate(630, 90)">
+    <!-- Main Path Trace -->
+    <path d="M 0 35 L 80 35 L 140 85 L 240 85 L 300 35 L 470 35" 
+          fill="none" stroke="#30363D" stroke-width="1.5" />
+    
+    <!-- Active Accent Segment -->
+    <path d="M 80 35 L 140 85 L 240 85" 
+          fill="none" stroke="#D97757" stroke-width="1.8" />
 
-  <!-- Subtle Bottom Hairline Divider -->
-  <line x1="48" y1="205" x2="1152" y2="205" stroke="#21262D" stroke-width="1" />
+    <!-- Node 1: Surface -->
+    <circle cx="0" cy="35" r="4" fill="#0E1218" stroke="#8B949E" stroke-width="1.5" />
+    <text class="mono-label" x="0" y="16" font-size="9" fill="#8B949E" text-anchor="middle">SURFACE</text>
 
-  <!-- System Continuum & Fifth Mark -->
-  <g transform="translate(48, 230)">
-    <text class="mono-meta" x="0" y="0" font-size="11" fill="#6E7681" letter-spacing="1.5">
-      PRODUCT SURFACE &nbsp;—&nbsp; APPLICATION SERVICES &nbsp;—&nbsp; DATA PLANE &nbsp;—&nbsp; INFRASTRUCTURE
+    <!-- Node 2: Services (Active Accent Node) -->
+    <circle cx="140" cy="85" r="4.5" fill="#D97757" />
+    <text class="mono-label" x="140" y="108" font-size="9" fill="#D97757" text-anchor="middle">SERVICES</text>
+
+    <!-- Node 3: Data -->
+    <circle cx="240" cy="85" r="4" fill="#0E1218" stroke="#8B949E" stroke-width="1.5" />
+    <text class="mono-label" x="240" y="108" font-size="9" fill="#8B949E" text-anchor="middle">DATA</text>
+
+    <!-- Node 4: Delivery -->
+    <circle cx="470" cy="35" r="4" fill="#0E1218" stroke="#8B949E" stroke-width="1.5" />
+    <text class="mono-label" x="470" y="16" font-size="9" fill="#8B949E" text-anchor="middle">DELIVERY</text>
+  </g>
+
+  <!-- Bottom System Continuum Bar -->
+  <g transform="translate(48, 285)">
+    <text class="mono-label" x="0" y="0" font-size="11" fill="#6E7681">
+      INTERFACE &nbsp;→&nbsp; SERVICES &nbsp;→&nbsp; DATA PLANE &nbsp;→&nbsp; CLOUD INFRASTRUCTURE
     </text>
   </g>
 
   <!-- Fifth Mark Signature Accent (Bottom Right) -->
-  <g transform="translate(1088, 220)" stroke-width="2.5" stroke-linecap="round">
-    <line x1="0" y1="0" x2="0" y2="12" stroke="#484F58" />
-    <line x1="12" y1="0" x2="12" y2="12" stroke="#484F58" />
-    <line x1="24" y1="0" x2="24" y2="12" stroke="#484F58" />
-    <line x1="36" y1="0" x2="36" y2="12" stroke="#484F58" />
-    <line x1="48" y1="0" x2="48" y2="12" stroke="#D97757" />
+  <g transform="translate(1088, 274)" stroke-width="3" stroke-linecap="round">
+    <line x1="0" y1="0" x2="0" y2="14" stroke="#484F58" />
+    <line x1="12" y1="0" x2="12" y2="14" stroke="#484F58" />
+    <line x1="24" y1="0" x2="24" y2="14" stroke="#484F58" />
+    <line x1="36" y1="0" x2="36" y2="14" stroke="#484F58" />
+    <line x1="48" y1="0" x2="48" y2="14" stroke="#D97757" />
   </g>
 </svg>

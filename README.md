@@ -10,14 +10,14 @@
 
 <br>
 
-I build production software across mobile, web, backend services, and cloud infrastructure — from the user interface down to the systems and persistence running beneath it. 
+I build production software across mobile, web, distributed services, and cloud infrastructure — from client interface down to the systems and persistence running beneath it.
 
 The focus is finished software: applications that ship, services that remain predictable under real load, and architectures that stay coherent past the first version.
 
 <br>
 
 <!-- ================================================================= -->
-<!-- GITHUB & REPOSITORY ACTIVITY DATA                                 -->
+<!-- 02 — REPOSITORY STATISTICS & CADENCE                              -->
 <!-- ================================================================= -->
 <div align="center">
 
@@ -29,40 +29,49 @@ The focus is finished software: applications that ship, services that remain pre
 
 <br><br>
 
+<!-- ================================================================= -->
+<!-- 03 — CONTRIBUTION ACTIVITY TIMELINE                               -->
+<!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/activity-chart-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry/activity-chart-light.svg">
   <img src="./assets/telemetry/activity-chart-dark.svg" alt="Contribution Activity &amp; Commit Cadence" width="100%">
 </picture>
 
-</div>
-
-<br>
+<br><br>
 
 <!-- ================================================================= -->
-<!-- SYSTEMS ARCHITECTURE & RESPONSIBILITY LAYERS                      -->
+<!-- 04 — SECOND DATA VISUAL: SYSTEMS DOMAIN SPECTRUM                  -->
 <!-- ================================================================= -->
-<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/domain-spectrum-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry/domain-spectrum-light.svg">
+  <img src="./assets/telemetry/domain-spectrum-dark.svg" alt="Systems Allocation &amp; Domain Spectrum" width="100%">
+</picture>
 
+<br><br>
+
+<!-- ================================================================= -->
+<!-- 05 — ARCHITECTURE & RESPONSIBILITY RELATIONSHIPS                  -->
+<!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/architecture/system-stack-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/architecture/system-stack-light.svg">
-  <img src="./assets/architecture/system-stack-dark.svg" alt="System Architecture &amp; Responsibility Layers" width="100%">
+  <img src="./assets/architecture/system-stack-dark.svg" alt="System Architecture &amp; Responsibility Relationships" width="100%">
+</picture>
+
+<br><br>
+
+<!-- ================================================================= -->
+<!-- 06 — ENGINEERING STANCES                                          -->
+<!-- ================================================================= -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/principles/engineering-stances-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/principles/engineering-stances-light.svg">
+  <img src="./assets/principles/engineering-stances-dark.svg" alt="Core Engineering Stances" width="100%">
 </picture>
 
 </div>
-
-<br>
-
----
-
-### Engineering Stances
-
-**Boundaries** &nbsp;·&nbsp; Explicit ownership, typed schemas, and strict contracts — no ambient global state.  
-**Failure** &nbsp;·&nbsp; Retries, invalid input, and offline recovery designed as intentional product behavior, not cleanup.  
-**Predictability** &nbsp;·&nbsp; Operational clarity and simplicity over fragile, complex abstractions.  
-**Maintainability** &nbsp;·&nbsp; Code structured to reduce the cognitive cost of the next decision.  
-**Applied AI** &nbsp;·&nbsp; Model inference engineered as bounded remote dependencies with strict schemas and latency budgets.
 
 <br>
 
