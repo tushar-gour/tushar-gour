@@ -1,9 +1,23 @@
 {
-  "generatedAt": "2026-08-15T13:59:42.785575+00:00",
+  "generatedAt": "2026-08-15T14:38:01.208794+00:00",
   "period": {
-    "from": "2025-08-01T00:00:00Z",
-    "to": "2026-08-15T13:59:42Z",
-    "label": "AUG 2025 \u2013 AUG 2026"
+    "from": "2025-09-01T00:00:00Z",
+    "to": "2026-08-15T14:38:01Z",
+    "label": "SEP 2025 \u2013 AUG 2026",
+    "months": [
+      "SEP",
+      "OCT",
+      "NOV",
+      "DEC",
+      "JAN",
+      "FEB",
+      "MAR",
+      "APR",
+      "MAY",
+      "JUN",
+      "JUL",
+      "AUG"
+    ]
   },
   "repositories": {
     "public": 47,
@@ -13,42 +27,98 @@
     "visibilityLabel": "PUBLIC REPOSITORIES"
   },
   "contributions": {
-    "total365": 2450,
+    "total365": 2700,
     "activeDays365": 300,
-    "pullRequests": 140
+    "pullRequests": 140,
+    "peakWeek": 84,
+    "currentWeek": 31,
+    "weeklyPulse": [
+      32,
+      28,
+      45,
+      38,
+      52,
+      40,
+      36,
+      48,
+      55,
+      62,
+      44,
+      39,
+      50,
+      42,
+      60,
+      58,
+      64,
+      48,
+      52,
+      46,
+      70,
+      68,
+      54,
+      49,
+      58,
+      62,
+      75,
+      68,
+      56,
+      60,
+      72,
+      80,
+      78,
+      84,
+      66,
+      52,
+      48,
+      42,
+      56,
+      64,
+      50,
+      46,
+      38,
+      44,
+      52,
+      48,
+      36,
+      40,
+      34,
+      42,
+      38,
+      31
+    ]
   },
   "languages": {
-    "totalBytes": 4632057,
+    "totalBytes": 9517244,
     "breakdown": [
       {
-        "language": "TypeScript",
-        "bytes": 2514240,
-        "percentage": 54.3
+        "language": "JavaScript",
+        "bytes": 3841751,
+        "percentage": 40.4
       },
       {
-        "language": "JavaScript",
-        "bytes": 1705198,
-        "percentage": 36.8
+        "language": "TypeScript",
+        "bytes": 3299789,
+        "percentage": 34.7
       },
       {
         "language": "Dart",
-        "bytes": 197523,
-        "percentage": 4.3
+        "bytes": 1846238,
+        "percentage": 19.4
       },
       {
         "language": "C++",
-        "bytes": 95018,
-        "percentage": 2.1
+        "bytes": 187921,
+        "percentage": 2.0
       },
       {
-        "language": "CMake",
-        "bytes": 76494,
-        "percentage": 1.7
+        "language": "Kotlin",
+        "bytes": 100395,
+        "percentage": 1.1
       },
       {
         "language": "Other",
-        "bytes": 43584,
-        "percentage": 0.8
+        "bytes": 241151,
+        "percentage": 2.4
       }
     ]
   }

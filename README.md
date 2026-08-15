@@ -21,73 +21,51 @@
 <br>
 
 <!-- ================================================================= -->
-<!-- 03 — SKILL CONSTELLATION                                          -->
+<!-- 02 — ENGINEERING TOOLCHAIN (ORBITAL LANES)                         -->
 <!-- ================================================================= -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/skills/constellation-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/skills/constellation-light.svg">
-  <img src="./assets/skills/constellation-dark.svg" alt="Core Engineering Skill Constellation" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/skills/toolchain-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/skills/toolchain-light.svg">
+  <img src="./assets/skills/toolchain-dark.svg" alt="Engineering Toolchain Orbital Lanes" width="100%">
 </picture>
 
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 04 — REPOSITORY STATISTICS & METRICS                              -->
+<!-- 03 — GITHUB METRICS & REPOSITORY STATISTICS                       -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/stats-editorial-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry/stats-editorial-light.svg">
-  <img src="./assets/telemetry/stats-editorial-dark.svg" alt="Repository Statistics &amp; Engineering Activity" width="100%">
+  <img src="./assets/telemetry/stats-editorial-dark.svg" alt="GitHub Metrics &amp; Repository Statistics" width="100%">
 </picture>
 
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 05 — CONTRIBUTION ACTIVITY TIMELINE                               -->
+<!-- 04 — 52-WEEK CONTRIBUTION PULSE                                   -->
 <!-- ================================================================= -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/activity-chart-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry/activity-chart-light.svg">
-  <img src="./assets/telemetry/activity-chart-dark.svg" alt="Contribution Activity &amp; Commit Cadence" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/pulse-52w-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry/pulse-52w-light.svg">
+  <img src="./assets/telemetry/pulse-52w-dark.svg" alt="52-Week Contribution Pulse" width="100%">
 </picture>
 
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 06 — LANGUAGE FOOTPRINT                                           -->
+<!-- 05 — LANGUAGE FOOTPRINT                                           -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/domain-spectrum-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry/domain-spectrum-light.svg">
-  <img src="./assets/telemetry/domain-spectrum-dark.svg" alt="Aggregated Language Footprint &amp; Repository Distribution" width="100%">
+  <img src="./assets/telemetry/domain-spectrum-dark.svg" alt="Aggregated Language Footprint" width="100%">
 </picture>
 
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 07 — ENGINEERING SCOPE & SYSTEMS CROSS-SECTION                    -->
-<!-- ================================================================= -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/architecture/system-stack-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/architecture/system-stack-light.svg">
-  <img src="./assets/architecture/system-stack-dark.svg" alt="Engineering Scope &amp; Systems Cross-Section" width="100%">
-</picture>
-
-<br><br>
-
-<!-- ================================================================= -->
-<!-- 08 — CORE ENGINEERING PRINCIPLES                                  -->
-<!-- ================================================================= -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/principles/engineering-stances-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/principles/engineering-stances-light.svg">
-  <img src="./assets/principles/engineering-stances-dark.svg" alt="Core Engineering Principles" width="100%">
-</picture>
-
-<br><br>
-
-<!-- ================================================================= -->
-<!-- 09 — PROFESSIONAL CLOSING MASTHEAD & FOOTER                       -->
+<!-- 06 — PROFESSIONAL IDENTITY FOOTER                                 -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/footer/footer-editorial-dark.svg">
