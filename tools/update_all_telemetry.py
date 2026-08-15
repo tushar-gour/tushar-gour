@@ -18,8 +18,13 @@ import urllib.error
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
+# ─── CONFIGURATION ────────────────────────────────────────────────────────────
 USERNAME = os.getenv("GITHUB_USER", "tushar-gour")
 TOKEN = os.getenv("GITHUB_TOKEN", "").strip()
+
+# >>> MANUALLY SET YOUR TOTAL REPOSITORY COUNT (PUBLIC + PRIVATE) HERE <<<
+TOTAL_REPOSITORIES = 92
+# ─────────────────────────────────────────────────────────────────────────────
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS_DIR = ROOT / "assets" / "telemetry"
@@ -197,7 +202,7 @@ def fetch_live_languages() -> list:
 
 # ─── SVG GENERATORS ───────────────────────────────────────────────────────────
 
-def build_stats_svg(total_repos=91, total_contribs=2257, active_days=226, peak_week=153, is_dark=True):
+def build_stats_svg(total_repos=TOTAL_REPOSITORIES, total_contribs=2257, active_days=226, peak_week=153, is_dark=True):
     bg = "#0C1018" if is_dark else "#F8FAFC"
     border = "#1C2632" if is_dark else "#D0D7DE"
     divider = "#192230" if is_dark else "#E1E4E8"
@@ -450,7 +455,7 @@ def main():
     contrib_data = fetch_live_contributions()
     languages = fetch_live_languages()
 
-    total_repos = 91  # Hardcoded repository count per explicit user directive
+    total_repos = TOTAL_REPOSITORIES  # Configured at top of file
     total_contribs = contrib_data["total"]
     active_days = contrib_data["active_days"]
     peak_week = contrib_data["peak_week"]
