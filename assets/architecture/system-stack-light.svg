@@ -1,125 +1,129 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
   <defs>
     <style>
-      .num-hdr {
+      .mono-hdr {
         font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-        font-weight: 700;
-        letter-spacing: 1.5px;
+        font-weight: 600;
+        letter-spacing: 1px;
       }
-      .tech-title {
+      .sans-bold {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 700;
+      }
+      .tech-names {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
         font-weight: 600;
+        line-height: 1.4;
       }
-      .scope-desc {
+      .desc-text {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 400;
         line-height: 1.4;
       }
     </style>
   </defs>
 
-  <!-- Base Editorial Frame -->
-  <rect width="1200" height="300" rx="8" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.2" />
+  <!-- Base Outer Container -->
+  <rect width="1200" height="420" rx="12" fill="#F6F8FA" stroke="#D0D7DE" stroke-width="1" />
 
-  <!-- Section Top Label Bar -->
-  <g transform="translate(48, 36)">
-    <text class="num-hdr" x="0" y="0" font-size="11" fill="#656D76">
-      END-TO-END ARCHITECTURAL CAPABILITY &amp; SYSTEM RELATIONSHIPS
-    </text>
-    <text class="num-hdr" x="1104" y="0" font-size="11" fill="#C86446" text-anchor="end">
+  <!-- Faint Architectural Trace -->
+  <g stroke="#1F2328" stroke-width="1" fill="none" opacity="0.03">
+    <path d="M 48 330 H 300 V 270 H 600 V 210 H 900 V 150 H 1152" />
+    <circle cx="300" cy="270" r="30" />
+    <circle cx="600" cy="210" r="30" />
+    <circle cx="900" cy="150" r="30" />
+  </g>
+
+  <!-- Top Header Bar -->
+  <g transform="translate(48, 48)">
+    <text class="mono-hdr" x="0" y="0" font-size="20" fill="#B85C3F">03</text>
+    <text class="sans-bold" x="38" y="0" font-size="26" fill="#1F2328">CAPABILITY MAP</text>
+    <text class="mono-hdr" x="320" y="0" font-size="20" fill="#59636E">/ FROM PRODUCT SURFACE TO DELIVERY</text>
+    
+    <text class="mono-hdr" x="1104" y="0" font-size="18" fill="#8C959F" text-anchor="end">
       01 → 02 → 03 → 04
     </text>
   </g>
-  <line x1="48" y1="50" x2="1152" y2="50" stroke="#E1E4E8" stroke-width="1" />
 
-  <!-- Architectural Flow Connector Lines -->
-  <g stroke-width="1.2" fill="none">
-    <path d="M 310 145 H 338" stroke="#CBD5E1" />
-    <path d="M 334 141 L 338 145 L 334 149" stroke="#CBD5E1" />
+  <line x1="48" y1="68" x2="1152" y2="68" stroke="#E1E4E8" stroke-width="1" />
 
-    <path d="M 590 145 H 618" stroke="#C86446" stroke-width="1.5" />
-    <path d="M 614 141 L 618 145 L 614 149" stroke="#C86446" stroke-width="1.5" />
+  <!-- Vertical Hairline Column Dividers -->
+  <line x1="320" y1="90" x2="320" y2="380" stroke="#D0D7DE" stroke-width="1" />
+  <line x1="610" y1="90" x2="610" y2="380" stroke="#D0D7DE" stroke-width="1" />
+  <line x1="900" y1="90" x2="900" y2="380" stroke="#D0D7DE" stroke-width="1" />
 
-    <path d="M 870 145 H 898" stroke="#CBD5E1" />
-    <path d="M 894 141 L 898 145 L 894 149" stroke="#CBD5E1" />
+  <!-- Central Horizontal Architectural Bus Path -->
+  <g transform="translate(0, 240)">
+    <line x1="160" y1="0" x2="1040" y2="0" stroke="#D0D7DE" stroke-width="1.5" />
+    <line x1="450" y1="0" x2="750" y2="0" stroke="#B85C3F" stroke-width="2" />
+
+    <circle cx="160" cy="0" r="6" fill="#F6F8FA" stroke="#59636E" stroke-width="2" />
+    <circle cx="450" cy="0" r="7" fill="#B85C3F" />
+    <circle cx="750" cy="0" r="6" fill="#F6F8FA" stroke="#59636E" stroke-width="2" />
+    <circle cx="1040" cy="0" r="6" fill="#F6F8FA" stroke="#59636E" stroke-width="2" />
   </g>
 
-  <!-- Tier 1: Product Surface -->
-  <g transform="translate(48, 72)">
-    <rect width="260" height="195" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-    <text class="num-hdr" x="20" y="32" font-size="10" fill="#656D76">01 / SURFACE</text>
-    <text class="tech-title" x="20" y="58" font-size="15" fill="#1F2328">Flutter &amp; React 19</text>
-    <text class="tech-title" x="20" y="78" font-size="13" fill="#656D76">TypeScript · Tailwind · Vite</text>
+  <!-- Territory 1: Product Surface -->
+  <g transform="translate(48, 105)">
+    <text class="mono-hdr" x="0" y="0" font-size="18" fill="#B85C3F">01</text>
+    <text class="sans-bold" x="32" y="0" font-size="24" fill="#1F2328">SURFACE</text>
     
-    <line x1="20" y1="96" x2="240" y2="96" stroke="#E2E8F0" stroke-width="1" />
-    
-    <text class="scope-desc" x="20" y="120" font-size="11" fill="#8C959F">
-      Optimistic UI state, typed API
-    </text>
-    <text class="scope-desc" x="20" y="136" font-size="11" fill="#8C959F">
-      contracts, and sub-50ms client
-    </text>
-    <text class="scope-desc" x="20" y="152" font-size="11" fill="#8C959F">
-      rendering lifecycle.
-    </text>
+    <g transform="translate(0, 36)">
+      <text class="tech-names" x="0" y="0" font-size="20" fill="#1F2328">Flutter · React 19</text>
+      <text class="tech-names" x="0" y="26" font-size="20" fill="#1F2328">TypeScript · Vite</text>
+    </g>
+
+    <g transform="translate(0, 190)">
+      <text class="desc-text" x="0" y="0" font-size="17" fill="#59636E">Client state, typed API</text>
+      <text class="desc-text" x="0" y="24" font-size="17" fill="#59636E">contracts, sub-50ms render loop.</text>
+    </g>
   </g>
 
-  <!-- Tier 2: Services & APIs -->
-  <g transform="translate(340, 72)">
-    <rect width="250" height="195" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-    <text class="num-hdr" x="20" y="32" font-size="10" fill="#656D76">02 / SERVICES</text>
-    <text class="tech-title" x="20" y="58" font-size="15" fill="#1F2328">Node.js &amp; Express</text>
-    <text class="tech-title" x="20" y="78" font-size="13" fill="#656D76">Java · Socket.IO · REST</text>
+  <!-- Territory 2: Services -->
+  <g transform="translate(340, 105)">
+    <text class="mono-hdr" x="0" y="0" font-size="18" fill="#59636E">02</text>
+    <text class="sans-bold" x="32" y="0" font-size="24" fill="#1F2328">SERVICES</text>
     
-    <line x1="20" y1="96" x2="230" y2="96" stroke="#E2E8F0" stroke-width="1" />
-    
-    <text class="scope-desc" x="20" y="120" font-size="11" fill="#8C959F">
-      Explicit boundary contracts,
-    </text>
-    <text class="scope-desc" x="20" y="136" font-size="11" fill="#8C959F">
-      JWT auth guards, and real-time
-    </text>
-    <text class="scope-desc" x="20" y="152" font-size="11" fill="#8C959F">
-      event distribution mesh.
-    </text>
+    <g transform="translate(0, 36)">
+      <text class="tech-names" x="0" y="0" font-size="20" fill="#1F2328">Node.js · Express</text>
+      <text class="tech-names" x="0" y="26" font-size="20" fill="#1F2328">Java · Socket.IO</text>
+    </g>
+
+    <g transform="translate(0, 190)">
+      <text class="desc-text" x="0" y="0" font-size="17" fill="#59636E">Boundary guards, JWT auth,</text>
+      <text class="desc-text" x="0" y="24" font-size="17" fill="#59636E">real-time event distribution.</text>
+    </g>
   </g>
 
-  <!-- Tier 3: Data Plane -->
-  <g transform="translate(620, 72)">
-    <rect width="250" height="195" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-    <text class="num-hdr" x="20" y="32" font-size="10" fill="#656D76">03 / DATA PLANE</text>
-    <text class="tech-title" x="20" y="58" font-size="15" fill="#1F2328">PostgreSQL &amp; Redis</text>
-    <text class="tech-title" x="20" y="78" font-size="13" fill="#656D76">MongoDB · Prisma · SQLite</text>
+  <!-- Territory 3: Data Plane -->
+  <g transform="translate(630, 105)">
+    <text class="mono-hdr" x="0" y="0" font-size="18" fill="#59636E">03</text>
+    <text class="sans-bold" x="32" y="0" font-size="24" fill="#1F2328">DATA PLANE</text>
     
-    <line x1="20" y1="96" x2="230" y2="96" stroke="#E2E8F0" stroke-width="1" />
-    
-    <text class="scope-desc" x="20" y="120" font-size="11" fill="#8C959F">
-      ACID transaction consistency,
-    </text>
-    <text class="scope-desc" x="20" y="136" font-size="11" fill="#8C959F">
-      sub-millisecond cache, and
-    </text>
-    <text class="scope-desc" x="20" y="152" font-size="11" fill="#8C959F">
-      access-pattern persistence.
-    </text>
+    <g transform="translate(0, 36)">
+      <text class="tech-names" x="0" y="0" font-size="20" fill="#1F2328">PostgreSQL · Redis</text>
+      <text class="tech-names" x="0" y="26" font-size="20" fill="#1F2328">MongoDB · Prisma</text>
+    </g>
+
+    <g transform="translate(0, 190)">
+      <text class="desc-text" x="0" y="0" font-size="17" fill="#59636E">ACID consistency, in-memory</text>
+      <text class="desc-text" x="0" y="24" font-size="17" fill="#59636E">cache, schema access patterns.</text>
+    </g>
   </g>
 
-  <!-- Tier 4: Cloud Infrastructure -->
-  <g transform="translate(900, 72)">
-    <rect width="252" height="195" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
-    <text class="num-hdr" x="20" y="32" font-size="10" fill="#656D76">04 / DELIVERY</text>
-    <text class="tech-title" x="20" y="58" font-size="15" fill="#1F2328">AWS &amp; Cloud Systems</text>
-    <text class="tech-title" x="20" y="78" font-size="13" fill="#656D76">Docker · Linux · CI/CD</text>
+  <!-- Territory 4: Delivery -->
+  <g transform="translate(920, 105)">
+    <text class="mono-hdr" x="0" y="0" font-size="18" fill="#59636E">04</text>
+    <text class="sans-bold" x="32" y="0" font-size="24" fill="#1F2328">DELIVERY</text>
     
-    <line x1="20" y1="96" x2="232" y2="96" stroke="#E2E8F0" stroke-width="1" />
-    
-    <text class="scope-desc" x="20" y="120" font-size="11" fill="#8C959F">
-      Multi-arch container builds,
-    </text>
-    <text class="scope-desc" x="20" y="136" font-size="11" fill="#8C959F">
-      global edge distribution, and
-    </text>
-    <text class="scope-desc" x="20" y="152" font-size="11" fill="#8C959F">
-      zero-downtime deployment.
-    </text>
+    <g transform="translate(0, 36)">
+      <text class="tech-names" x="0" y="0" font-size="20" fill="#1F2328">AWS · Cloud Infra</text>
+      <text class="tech-names" x="0" y="26" font-size="20" fill="#1F2328">Docker · Linux · CI/CD</text>
+    </g>
+
+    <g transform="translate(0, 190)">
+      <text class="desc-text" x="0" y="0" font-size="17" fill="#59636E">Containerized deployments,</text>
+      <text class="desc-text" x="0" y="24" font-size="17" fill="#59636E">edge delivery, zero-downtime.</text>
+    </g>
   </g>
 </svg>

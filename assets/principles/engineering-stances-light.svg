@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="100%" height="100%">
   <defs>
     <style>
-      .num-hdr {
+      .mono-num {
         font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
         font-weight: 700;
         letter-spacing: 1px;
@@ -13,57 +13,71 @@
       }
       .stance-desc {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-        line-height: 1.35;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+      .ghost-num {
+        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+        font-weight: 900;
       }
     </style>
   </defs>
 
-  <!-- Base Frame -->
-  <rect width="1200" height="160" rx="8" fill="#FFFFFF" stroke="#D0D7DE" stroke-width="1.2" />
+  <!-- Base Outer Container -->
+  <rect width="1200" height="240" rx="12" fill="#F6F8FA" stroke="#D0D7DE" stroke-width="1" />
+
+  <!-- Ghost Large Numerals Behind Columns -->
+  <g class="ghost-num" font-size="96" fill="#1F2328" opacity="0.03">
+    <text x="70" y="160">01</text>
+    <text x="310" y="160">02</text>
+    <text x="550" y="160">03</text>
+    <text x="790" y="160">04</text>
+    <text x="1030" y="160">05</text>
+  </g>
 
   <!-- Vertical Hairline Column Dividers -->
-  <line x1="240" y1="20" x2="240" y2="140" stroke="#E1E4E8" stroke-width="1" />
-  <line x1="480" y1="20" x2="480" y2="140" stroke="#E1E4E8" stroke-width="1" />
-  <line x1="720" y1="20" x2="720" y2="140" stroke="#E1E4E8" stroke-width="1" />
-  <line x1="960" y1="20" x2="960" y2="140" stroke="#E1E4E8" stroke-width="1" />
+  <line x1="240" y1="24" x2="240" y2="216" stroke="#D0D7DE" stroke-width="1" />
+  <line x1="480" y1="24" x2="480" y2="216" stroke="#D0D7DE" stroke-width="1" />
+  <line x1="720" y1="24" x2="720" y2="216" stroke="#D0D7DE" stroke-width="1" />
+  <line x1="960" y1="24" x2="960" y2="216" stroke="#D0D7DE" stroke-width="1" />
 
   <!-- Stance 01: Boundaries -->
-  <g transform="translate(32, 34)">
-    <text class="num-hdr" x="0" y="0" font-size="12" fill="#C86446">01</text>
-    <text class="stance-title" x="0" y="24" font-size="12" fill="#1F2328">BOUNDARIES</text>
-    <text class="stance-desc" x="0" y="46" font-size="11" fill="#656D76">Explicit ownership &amp;</text>
-    <text class="stance-desc" x="0" y="62" font-size="11" fill="#656D76">strictly typed contracts.</text>
+  <g transform="translate(36, 54)">
+    <text class="mono-num" x="0" y="0" font-size="20" fill="#B85C3F">01</text>
+    <text class="stance-title" x="0" y="36" font-size="24" fill="#1F2328">BOUNDARIES</text>
+    <text class="stance-desc" x="0" y="72" font-size="18" fill="#59636E">Explicit ownership,</text>
+    <text class="stance-desc" x="0" y="98" font-size="18" fill="#59636E">typed schemas &amp; contracts.</text>
   </g>
 
   <!-- Stance 02: Failure -->
-  <g transform="translate(272, 34)">
-    <text class="num-hdr" x="0" y="0" font-size="12" fill="#656D76">02</text>
-    <text class="stance-title" x="0" y="24" font-size="12" fill="#1F2328">FAILURE</text>
-    <text class="stance-desc" x="0" y="46" font-size="11" fill="#656D76">Recovery is intentional</text>
-    <text class="stance-desc" x="0" y="62" font-size="11" fill="#656D76">product UX behavior.</text>
+  <g transform="translate(276, 54)">
+    <text class="mono-num" x="0" y="0" font-size="20" fill="#59636E">02</text>
+    <text class="stance-title" x="0" y="36" font-size="24" fill="#1F2328">FAILURE</text>
+    <text class="stance-desc" x="0" y="72" font-size="18" fill="#59636E">Recovery is intentional</text>
+    <text class="stance-desc" x="0" y="98" font-size="18" fill="#59636E">product UX behavior.</text>
   </g>
 
   <!-- Stance 03: Predictability -->
-  <g transform="translate(512, 34)">
-    <text class="num-hdr" x="0" y="0" font-size="12" fill="#656D76">03</text>
-    <text class="stance-title" x="0" y="24" font-size="12" fill="#1F2328">PREDICTABILITY</text>
-    <text class="stance-desc" x="0" y="46" font-size="11" fill="#656D76">Understandable systems</text>
-    <text class="stance-desc" x="0" y="62" font-size="11" fill="#656D76">over clever monoliths.</text>
+  <g transform="translate(516, 54)">
+    <text class="mono-num" x="0" y="0" font-size="20" fill="#59636E">03</text>
+    <text class="stance-title" x="0" y="36" font-size="24" fill="#1F2328">PREDICTABILITY</text>
+    <text class="stance-desc" x="0" y="72" font-size="18" fill="#59636E">Understandable systems</text>
+    <text class="stance-desc" x="0" y="98" font-size="18" fill="#59636E">over clever monoliths.</text>
   </g>
 
   <!-- Stance 04: Maintainability -->
-  <g transform="translate(752, 34)">
-    <text class="num-hdr" x="0" y="0" font-size="12" fill="#656D76">04</text>
-    <text class="stance-title" x="0" y="24" font-size="12" fill="#1F2328">MAINTAINABILITY</text>
-    <text class="stance-desc" x="0" y="46" font-size="11" fill="#656D76">Optimize code for the</text>
-    <text class="stance-desc" x="0" y="62" font-size="11" fill="#656D76">next engineer's change.</text>
+  <g transform="translate(756, 54)">
+    <text class="mono-num" x="0" y="0" font-size="20" fill="#59636E">04</text>
+    <text class="stance-title" x="0" y="36" font-size="24" fill="#1F2328">MAINTAIN</text>
+    <text class="stance-desc" x="0" y="72" font-size="18" fill="#59636E">Optimize code for the</text>
+    <text class="stance-desc" x="0" y="98" font-size="18" fill="#59636E">next engineer's change.</text>
   </g>
 
   <!-- Stance 05: Applied AI -->
-  <g transform="translate(992, 34)">
-    <text class="num-hdr" x="0" y="0" font-size="12" fill="#656D76">05</text>
-    <text class="stance-title" x="0" y="24" font-size="12" fill="#1F2328">APPLIED AI</text>
-    <text class="stance-desc" x="0" y="46" font-size="11" fill="#656D76">Bounded dependencies</text>
-    <text class="stance-desc" x="0" y="62" font-size="11" fill="#656D76">with latency budgets.</text>
+  <g transform="translate(996, 54)">
+    <text class="mono-num" x="0" y="0" font-size="20" fill="#59636E">05</text>
+    <text class="stance-title" x="0" y="36" font-size="24" fill="#1F2328">APPLIED AI</text>
+    <text class="stance-desc" x="0" y="72" font-size="18" fill="#59636E">Bounded dependencies</text>
+    <text class="stance-desc" x="0" y="98" font-size="18" fill="#59636E">with latency budgets.</text>
   </g>
 </svg>

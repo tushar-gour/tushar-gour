@@ -1,39 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 90" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" width="100%" height="100%">
   <defs>
     <style>
+      .sans-bold {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
       .mono-meta {
         font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-      }
-      .sans-text {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 600;
+        letter-spacing: 1.5px;
       }
     </style>
   </defs>
 
-  <!-- Background Canvas -->
-  <rect width="1200" height="90" fill="#FFFFFF" />
-  <line x1="48" y1="15" x2="1152" y2="15" stroke="#E1E4E8" stroke-width="1" />
+  <!-- Top Multi-Tone Divider Line -->
+  <line x1="48" y1="20" x2="110" y2="20" stroke="#B85C3F" stroke-width="2" />
+  <line x1="110" y1="20" x2="1152" y2="20" stroke="#D0D7DE" stroke-width="1" />
 
-  <!-- Left: Identity -->
-  <g transform="translate(48, 52)">
-    <text class="mono-meta" x="0" y="0" font-size="11" fill="#656D76" font-weight="600" letter-spacing="1">
-      TUSHAR GOUR &nbsp;·&nbsp; SOFTWARE ENGINEER &nbsp;·&nbsp; INDORE, INDIA
+  <!-- Left: Identity Attribution -->
+  <g transform="translate(48, 65)">
+    <text class="sans-bold" x="0" y="0" font-size="22" fill="#1F2328">TUSHAR GOUR</text>
+    <text class="mono-meta" x="0" y="24" font-size="16" fill="#59636E">SOFTWARE ENGINEER</text>
+  </g>
+
+  <!-- Center: Engineering Philosophy Statement -->
+  <g transform="translate(600, 75)">
+    <text class="mono-meta" x="0" y="0" font-size="16" fill="#8C959F" text-anchor="middle">
+      2026 // SYSTEMS &amp; PRODUCTION DELIVERY
     </text>
   </g>
 
-  <!-- Center: Register Stamp -->
-  <g transform="translate(680, 52)">
-    <text class="mono-meta" x="0" y="0" font-size="11" fill="#8C959F" letter-spacing="1">
-      2026 &nbsp;·&nbsp; EVIDENCE OVER ADJECTIVES
-    </text>
-  </g>
-
-  <!-- Right: Fifth Mark Motif -->
-  <g transform="translate(1088, 42)" stroke-width="2.5" stroke-linecap="round">
-    <line x1="0" y1="0" x2="0" y2="12" stroke="#AFB8C1" />
-    <line x1="12" y1="0" x2="12" y2="12" stroke="#AFB8C1" />
-    <line x1="24" y1="0" x2="24" y2="12" stroke="#AFB8C1" />
-    <line x1="36" y1="0" x2="36" y2="12" stroke="#AFB8C1" />
-    <line x1="48" y1="0" x2="48" y2="12" stroke="#C86446" />
+  <!-- Right: Fifth Mark Signature Identity Motif -->
+  <g transform="translate(1088, 55)" stroke-width="3" stroke-linecap="round">
+    <line x1="0" y1="0" x2="0" y2="18" stroke="#D0D7DE" />
+    <line x1="14" y1="0" x2="14" y2="18" stroke="#D0D7DE" />
+    <line x1="28" y1="0" x2="28" y2="18" stroke="#D0D7DE" />
+    <line x1="42" y1="0" x2="42" y2="18" stroke="#D0D7DE" />
+    <line x1="56" y1="0" x2="56" y2="18" stroke="#B85C3F" />
   </g>
 </svg>
