@@ -1,4 +1,20 @@
 #!/usr/bin/env python3
+"""
+tools/build_all_skills_toolchain.py
+
+Builds the 5-lane animated Engineering Stack SVGs (Dark + Light) matching the user's rethought layout:
+- 2-line category labels to prevent truncation and provide clean spacing
+- Exact 5-lane arrangement & ordering from the approved layout:
+    01: CLIENT & UI (Flutter, Dart, React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Vite)
+    02: BACKEND & LANGUAGES (Node.js, Express, Socket.IO, Java, Python, C++, C, Kotlin, Lua, JWT)
+    03: DATA & PERSISTENCE (PostgreSQL, MongoDB, Redis, MySQL, SQLite, Prisma, Drizzle, Supabase, Firebase)
+    04: CLOUD & DELIVERY (AWS, GCP, Docker, Linux, Cloudflare, CI/CD, Vercel, Netlify, Render, Railway, Hostinger)
+    05: TOOLS & CREATIVE (Git, GitHub, Postman, npm, DNS, Windows, macOS, Figma, Blender, Unity, Roblox Studio)
+- Full laser pulse animation with tapered gradient tail across all lanes
+- Cruising rocket on track
+- Validated XML with scoped IDs and xlink namespace
+"""
+
 import urllib.request
 import os
 import re
@@ -10,7 +26,7 @@ os.makedirs(CACHE_DIR, exist_ok=True)
 
 # List of skill definitions: (lane_idx, col_idx, id, display_label, is_primary, icon_dark, icon_light)
 SKILLS = [
-    # Lane 01: PRODUCT & CLIENT (Y=135)
+    # ─── Lane 01: CLIENT & UI (Y=135) ───
     (1, 0, "Flutter", "Flutter", True, "Flutter-Dark.svg", "Flutter-Light.svg"),
     (1, 1, "Dart", "Dart", False, "Dart-Dark.svg", "Dart-Light.svg"),
     (1, 2, "React", "React", True, "React-Dark.svg", "React-Light.svg"),
@@ -18,10 +34,10 @@ SKILLS = [
     (1, 4, "JavaScript", "JavaScript", False, "JavaScript.svg", "JavaScript.svg"),
     (1, 5, "HTML5", "HTML5", False, "HTML.svg", "HTML.svg"),
     (1, 6, "CSS3", "CSS3", False, "CSS.svg", "CSS.svg"),
-    (1, 7, "Tailwind", "Tailwind", False, "TailwindCSS-Dark.svg", "TailwindCSS-Light.svg"),
+    (1, 7, "Tailwind", "Tailwind CSS", False, "TailwindCSS-Dark.svg", "TailwindCSS-Light.svg"),
     (1, 8, "Vite", "Vite", False, "Vite-Dark.svg", "Vite-Light.svg"),
 
-    # Lane 02: SERVICES & LANGUAGES (Y=255)
+    # ─── Lane 02: BACKEND & LANGUAGES (Y=255) ───
     (2, 0, "NodeJS", "Node.js", True, "NodeJS-Dark.svg", "NodeJS-Light.svg"),
     (2, 1, "Express", "Express", False, "ExpressJS-Dark.svg", "ExpressJS-Light.svg"),
     (2, 2, "SocketIO", "Socket.IO", False, "CUSTOM_SOCKETIO", "CUSTOM_SOCKETIO"),
@@ -33,52 +49,55 @@ SKILLS = [
     (2, 8, "Lua", "Lua", False, "Lua-Dark.svg", "Lua-Light.svg"),
     (2, 9, "JWT", "JWT", False, "CUSTOM_JWT", "CUSTOM_JWT"),
 
-    # Lane 03: DATA & STORAGE (Y=375)
+    # ─── Lane 03: DATA & PERSISTENCE (Y=375) ───
     (3, 0, "PostgreSQL", "PostgreSQL", True, "PostgreSQL-Dark.svg", "PostgreSQL-Light.svg"),
     (3, 1, "MongoDB", "MongoDB", False, "MongoDB.svg", "MongoDB.svg"),
     (3, 2, "Redis", "Redis", True, "Redis-Dark.svg", "Redis-Light.svg"),
     (3, 3, "MySQL", "MySQL", False, "MySQL-Dark.svg", "MySQL-Light.svg"),
-    (3, 4, "Supabase", "Supabase", False, "Supabase-Dark.svg", "Supabase-Light.svg"),
-    (3, 5, "Firebase", "Firebase", False, "Firebase-Dark.svg", "Firebase-Light.svg"),
-    (3, 6, "Prisma", "Prisma", False, "Prisma.svg", "Prisma.svg"),
-    (3, 7, "Drizzle", "Drizzle", False, "CUSTOM_DRIZZLE", "CUSTOM_DRIZZLE"),
-    (3, 8, "SQLite", "SQLite", False, "SQLite.svg", "SQLite.svg"),
+    (3, 4, "SQLite", "SQLite", False, "SQLite.svg", "SQLite.svg"),
+    (3, 5, "Prisma", "Prisma", False, "Prisma.svg", "Prisma.svg"),
+    (3, 6, "Drizzle", "Drizzle", False, "CUSTOM_DRIZZLE", "CUSTOM_DRIZZLE"),
+    (3, 7, "Supabase", "Supabase", False, "Supabase-Dark.svg", "Supabase-Light.svg"),
+    (3, 8, "Firebase", "Firebase", False, "Firebase-Dark.svg", "Firebase-Light.svg"),
 
-    # Lane 04: CLOUD & DELIVERY (Y=495)
+    # ─── Lane 04: CLOUD & DELIVERY (Y=495) ───
     (4, 0, "AWS", "AWS", True, "AWS-Dark.svg", "AWS-Light.svg"),
     (4, 1, "GCP", "GCP", False, "GCP-Dark.svg", "GCP-Light.svg"),
     (4, 2, "Docker", "Docker", True, "Docker.svg", "Docker.svg"),
     (4, 3, "Linux", "Linux", False, "Linux-Dark.svg", "Linux-Light.svg"),
-    (4, 4, "CICD", "CI/CD", False, "GithubActions-Dark.svg", "GithubActions-Light.svg"),
-    (4, 5, "Cloudflare", "Cloudflare", False, "Cloudflare-Dark.svg", "Cloudflare-Light.svg"),
+    (4, 4, "Cloudflare", "Cloudflare", False, "Cloudflare-Dark.svg", "Cloudflare-Light.svg"),
+    (4, 5, "CICD", "CI/CD", False, "GithubActions-Dark.svg", "GithubActions-Light.svg"),
     (4, 6, "Vercel", "Vercel", False, "Vercel-Dark.svg", "Vercel-Light.svg"),
     (4, 7, "Netlify", "Netlify", False, "Netlify-Dark.svg", "Netlify-Light.svg"),
     (4, 8, "Render", "Render", False, "CUSTOM_RENDER", "CUSTOM_RENDER"),
     (4, 9, "Railway", "Railway", False, "CUSTOM_RAILWAY", "CUSTOM_RAILWAY"),
     (4, 10, "Hostinger", "Hostinger", False, "CUSTOM_HOSTINGER", "CUSTOM_HOSTINGER"),
 
-    # Lane 05: PLATFORMS & ENGINES (Y=615)
+    # ─── Lane 05: TOOLS & CREATIVE (Y=615) ───
     (5, 0, "Git", "Git", True, "Git.svg", "Git.svg"),
     (5, 1, "GitHub", "GitHub", False, "Github-Dark.svg", "Github-Light.svg"),
     (5, 2, "Postman", "Postman", False, "Postman.svg", "Postman.svg"),
-    (5, 3, "NPM", "NPM", False, "Npm-Dark.svg", "Npm-Light.svg"),
+    (5, 3, "NPM", "npm", False, "Npm-Dark.svg", "Npm-Light.svg"),
     (5, 4, "DNS", "DNS", False, "CUSTOM_DNS", "CUSTOM_DNS"),
     (5, 5, "Windows", "Windows", False, "Windows-Dark.svg", "Windows-Light.svg"),
-    (5, 6, "macOS", "macOS", False, "Apple-Dark.svg", "Apple-Light.svg"),
+    (5, 6, "macOS", "macOS", False, "CUSTOM_MACOS", "CUSTOM_MACOS"),
     (5, 7, "Figma", "Figma", False, "Figma-Dark.svg", "Figma-Light.svg"),
     (5, 8, "Blender", "Blender", False, "Blender-Dark.svg", "Blender-Light.svg"),
     (5, 9, "Unity", "Unity", True, "Unity-Dark.svg", "Unity-Light.svg"),
     (5, 10, "Roblox", "Roblox Studio", False, "RobloxStudio.svg", "RobloxStudio.svg"),
 ]
 
+# 11 columns with 115px pitch
 COL_X = [225, 340, 455, 570, 685, 800, 915, 1030, 1145, 1260, 1375]
 LANE_Y = {1: 135, 2: 255, 3: 375, 4: 495, 5: 615}
+
+# 2-line category labels (escaped for XML)
 LANE_LABELS = {
-    1: ("01", "PRODUCT"),
-    2: ("02", "SERVICES"),
-    3: ("03", "DATA"),
-    4: ("04", "DELIVERY"),
-    5: ("05", "PLATFORMS &amp; ENGINES"),
+    1: ("01", "CLIENT &amp; UI", ""),
+    2: ("02", "BACKEND &amp;", "LANGUAGES"),
+    3: ("03", "DATA &amp;", "PERSISTENCE"),
+    4: ("04", "CLOUD &amp;", "DELIVERY"),
+    5: ("05", "TOOLS &amp;", "CREATIVE"),
 }
 
 def make_badge_from_path(path_d, fill_color, bg_color="#242938", scale=6.6667, translate=(48, 48)):
@@ -92,39 +111,53 @@ def get_icon_svg(skill_id, filename, is_dark):
     fg = "#FFFFFF" if is_dark else "#1F2328"
 
     if filename == "CUSTOM_RENDER":
-        # Official Render.com logomark path
         render_d = "M18.263.007c-3.121-.147-5.744 2.109-6.192 5.082-.018.138-.045.272-.067.405-.696 3.703-3.936 6.507-7.827 6.507-1.388 0-2.691-.356-3.825-.979a.2024.2024 0 0 0-.302.178V24H12v-8.999c0-1.656 1.338-3 2.987-3h2.988c3.382 0 6.103-2.817 5.97-6.244-.12-3.084-2.61-5.603-5.682-5.75"
         return make_badge_from_path(render_d, "#46E3B7" if is_dark else "#14B8A6", bg)
 
     if filename == "CUSTOM_RAILWAY":
-        # Official Railway.app logomark path
         railway_d = "M.113 10.27A13.026 13.026 0 000 11.48h18.23c-.064-.125-.15-.237-.235-.347-3.117-4.027-4.793-3.677-7.19-3.78-.8-.034-1.34-.048-4.524-.048-1.704 0-3.555.005-5.358.01-.234.63-.459 1.24-.567 1.737h9.342v1.216H.113v.002zm18.26 2.426H.009c.02.326.05.645.094.961h16.955c.754 0 1.179-.429 1.315-.96zm-17.318 4.28s2.81 6.902 10.93 7.024c4.855 0 9.027-2.883 10.92-7.024H1.056zM11.988 0C7.5 0 3.593 2.466 1.531 6.108l4.75-.005v-.002c3.71 0 3.849.016 4.573.047l.448.016c1.563.052 3.485.22 4.996 1.364.82.621 2.007 1.99 2.712 2.965.654.902.842 1.94.396 2.934-.408.914-1.289 1.458-2.353 1.458H.391s.099.42.249.886h22.748A12.026 12.026 0 0024 12.005C24 5.377 18.621 0 11.988 0z"
         return make_badge_from_path(railway_d, fg, bg)
 
     if filename == "CUSTOM_HOSTINGER":
-        # Official Hostinger logomark path
         hostinger_d = "M16.415 0v7.16l5.785 3.384V2.949L16.415 0ZM1.8 0v11.237h18.815L14.89 8.09l-7.457-.003V3.024L1.8 0Zm14.615 20.894v-5.019l-7.514-.005c.007.033-5.82-3.197-5.82-3.197l19.119.091V24l-5.785-3.106ZM1.8 13.551v7.343l5.633 2.949v-6.988L1.8 13.551Z"
         return make_badge_from_path(hostinger_d, "#673DE6", bg)
 
     if filename == "CUSTOM_SOCKETIO":
-        # Official Socket.io logomark path
         socket_d = "M11.9362.0137a12.1694 12.1694 0 00-2.9748.378C4.2816 1.5547.5678 5.7944.0918 10.6012c-.59 4.5488 1.7079 9.2856 5.6437 11.6345 3.8608 2.4179 9.0926 2.3199 12.8734-.223 3.3969-2.206 5.5118-6.2277 5.3858-10.2845-.058-4.0159-2.31-7.9167-5.7588-9.9796C16.354.5876 14.1431.0047 11.9362.0137zm-.063 1.696c4.9448-.007 9.7886 3.8137 10.2815 8.9245.945 5.6597-3.7528 11.4125-9.4875 11.5795-5.4538.544-10.7245-4.0798-10.8795-9.5566-.407-4.4338 2.5159-8.8346 6.6977-10.2995a9.1126 9.1126 0 013.3878-.647zm5.0908 3.2248c-2.6869 2.0849-5.2598 4.3078-7.8886 6.4567 1.2029.017 2.4118.016 3.6208.01 1.41-2.165 2.8589-4.3008 4.2678-6.4667zm-5.6647 7.6536c-1.41 2.166-2.86 4.3088-4.2699 6.4737 2.693-2.0799 5.2548-4.3198 7.9017-6.4557a255.4132 255.4132 0 00-3.6318-.018z"
         return make_badge_from_path(socket_d, fg, bg)
 
     if filename == "CUSTOM_DRIZZLE":
-        # Official Drizzle ORM logomark path
         drizzle_d = "M5.353 11.823a1.036 1.036 0 0 0-.395-1.422 1.063 1.063 0 0 0-1.437.399L.138 16.702a1.035 1.035 0 0 0 .395 1.422 1.063 1.063 0 0 0 1.437-.398l3.383-5.903Zm11.216 0a1.036 1.036 0 0 0-.394-1.422 1.064 1.064 0 0 0-1.438.399l-3.382 5.902a1.036 1.036 0 0 0 .394 1.422c.506.283 1.15.104 1.438-.398l3.382-5.903Zm7.293-4.525a1.036 1.036 0 0 0-.395-1.422 1.062 1.062 0 0 0-1.437.399l-3.383 5.902a1.036 1.036 0 0 0 .395 1.422 1.063 1.063 0 0 0 1.437-.399l3.383-5.902Zm-11.219 0a1.035 1.035 0 0 0-.394-1.422 1.064 1.064 0 0 0-1.438.398l-3.382 5.903a1.036 1.036 0 0 0 .394 1.422c.506.282 1.15.104 1.438-.399l3.382-5.902Z"
         return make_badge_from_path(drizzle_d, "#C5F74F", bg)
 
     if filename == "CUSTOM_JWT":
-        # Official JSON Web Tokens logomark path
         jwt_d = "M10.2 0v6.456L12 8.928l1.8-2.472V0zm3.6 6.456v3.072l2.904-.96L20.52 3.36l-2.928-2.136zm2.904 2.112l-1.8 2.496 2.928.936 6.144-1.992-1.128-3.432zM17.832 12l-2.928.936 1.8 2.496 6.144 1.992 1.128-3.432zm-1.128 3.432l-2.904-.96v3.072l3.792 5.232 2.928-2.136zM13.8 17.544L12 15.072l-1.8 2.472V24h3.6zm-3.6 0v-3.072l-2.904.96L3.48 20.64l2.928 2.136zm-2.904-2.112l1.8-2.496L6.168 12 .024 13.992l1.128 3.432zM6.168 12l2.928-.936-1.8-2.496-6.144-1.992-1.128 3.432zm1.128-3.432l2.904.96V6.456L6.408 1.224 3.48 3.36Z"
         return make_badge_from_path(jwt_d, "#D63AFF", bg)
 
     if filename == "CUSTOM_DNS":
-        # Official DNS / Network system emblem
-        dns_d = "M12 1a11 11 0 1 0 11 11A11.013 11.013 0 0 0 12 1zm0 20a9 9 0 1 1 9-9 9.01 9.01 0 0 1-9 9zm-1-14h2v2h-2zm0 4h2v6h-2z"
-        return make_badge_from_path(dns_d, "#00D8FF", bg)
+        # Wireframe Globe matching Image 2
+        return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
+<circle cx="128" cy="128" r="68" fill="none" stroke="{fg}" stroke-width="8"/>
+<ellipse cx="128" cy="128" rx="34" ry="68" fill="none" stroke="{fg}" stroke-width="8"/>
+<line x1="60" y1="128" x2="196" y2="128" stroke="{fg}" stroke-width="8"/>
+<line x1="72" y1="94" x2="184" y2="94" stroke="{fg}" stroke-width="7"/>
+<line x1="72" y1="162" x2="184" y2="162" stroke="{fg}" stroke-width="7"/>
+<line x1="128" y1="60" x2="128" y2="196" stroke="{fg}" stroke-width="8"/>'''
+
+    if filename == "CUSTOM_MACOS":
+        # Classic dual-tone Finder face
+        return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
+<g transform="translate(48, 48)">
+  <rect width="160" height="160" rx="36" fill="#D0D7DE"/>
+  <path d="M 80 0 A 80 80 0 0 1 160 80 L 160 124 A 36 36 0 0 1 124 160 L 80 160 Z" fill="#90A4AE"/>
+  <!-- Eyes -->
+  <rect x="36" y="52" width="16" height="28" rx="8" fill="#1E293B"/>
+  <rect x="108" y="52" width="16" height="28" rx="8" fill="#1E293B"/>
+  <!-- Nose line -->
+  <path d="M 80 40 L 80 96 L 96 96" fill="none" stroke="#1E293B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Smile -->
+  <path d="M 44 116 Q 80 148 116 116" fill="none" stroke="#1E293B" stroke-width="8" stroke-linecap="round"/>
+</g>'''
 
     cache_path = os.path.join(CACHE_DIR, filename)
     if not os.path.exists(cache_path):
@@ -138,11 +171,9 @@ def get_icon_svg(skill_id, filename, is_dark):
     with open(cache_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # Extract inside of <svg ...> ... </svg>
     match = re.search(r'<svg[^>]*>(.*)</svg>', content, re.DOTALL)
     inner = match.group(1).strip() if match else content
 
-    # Scope all IDs with skill_id to prevent collision
     ids = re.findall(r'id=["\']([^"\']+)["\']', inner)
     for id_val in set(ids):
         new_id = f"{skill_id}_{id_val}"
@@ -166,8 +197,8 @@ def build_toolchain(is_dark=True):
     lane_txt = "#C8D0D8" if is_dark else "#3A4450"
     label_txt = "#C8D0D8" if is_dark else "#3A4450"
     accent = "#FF6B35" if is_dark else "#C96A4B"
+    hdr_title_color = "#FFFFFF" if is_dark else "#0D1117"
 
-    # Rocket base64
     rocket_path = os.path.join(os.path.dirname(__file__), "..", "assets", "skills", "rocket.png")
     with open(rocket_path, "rb") as f:
         rocket_b64 = base64.b64encode(f.read()).decode("utf-8")
@@ -248,8 +279,6 @@ def build_toolchain(is_dark=True):
     <circle cx="1340" cy="670" r="0.8"/><circle cx="40" cy="330" r="0.7"/><circle cx="1485" cy="340" r="0.9"/>
   </g>''')
 
-    hdr_title_color = "#FFFFFF" if is_dark else "#0D1117"
-
     svg_parts.append(f'''  <!-- Left orbital arc trajectory -->
   <path d="M 170 680 C -40 520 -40 180 170 40" fill="none" stroke="{accent}" stroke-width="1.4" opacity="0.2"/>
   <g transform="translate(90, 375)">
@@ -272,12 +301,31 @@ def build_toolchain(is_dark=True):
     # Build lanes 1 to 5
     for lane_idx in range(1, 6):
         lane_y = LANE_Y[lane_idx]
-        num_str, name_str = LANE_LABELS[lane_idx]
+        num_str, line1, line2 = LANE_LABELS[lane_idx]
         lane_skills = [s for s in SKILLS if s[0] == lane_idx]
+
+        # 2-line or 1-line label rendering
+        if line2:
+            label_markup = f'''<text class="mono{theme_suffix}" x="0" y="-18" font-size="22" font-weight="900" fill="{accent}" letter-spacing="0.5">{num_str}</text>
+      <text class="mono{theme_suffix}" x="0" y="2" font-size="12" font-weight="700" fill="{lane_txt}" letter-spacing="1.5">{line1}</text>
+      <text class="mono{theme_suffix}" x="0" y="17" font-size="12" font-weight="700" fill="{lane_txt}" letter-spacing="1.5">{line2}</text>
+      <g transform="translate(0, 26)" fill="{track_term}">
+        <rect x="0" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="7" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="14" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="21" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="28" y="0" width="3.5" height="3.5" rx="0.5"/>
+      </g>'''
+        else:
+            label_markup = f'''<text class="mono{theme_suffix}" x="0" y="-18" font-size="22" font-weight="900" fill="{accent}" letter-spacing="0.5">{num_str}</text>
+      <text class="mono{theme_suffix}" x="0" y="6" font-size="12.5" font-weight="700" fill="{lane_txt}" letter-spacing="1.5">{line1}</text>
+      <g transform="translate(0, 18)" fill="{track_term}">
+        <rect x="0" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="7" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="14" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="21" y="0" width="3.5" height="3.5" rx="0.5"/>
+        <rect x="28" y="0" width="3.5" height="3.5" rx="0.5"/>
+      </g>'''
 
         svg_parts.append(f'''
   <!-- ════════════════════════════════════════
-       LANE {num_str} — {name_str}  (Y={lane_y})
+       LANE {num_str} — {line1} {line2}  (Y={lane_y})
        ════════════════════════════════════════ -->
   <g transform="translate(0, {lane_y})">
     <line x1="175" y1="0" x2="1440" y2="0" stroke="{track_col}" stroke-width="2.5"/>
@@ -295,13 +343,7 @@ def build_toolchain(is_dark=True):
 
     <!-- Lane label -->
     <g transform="translate(42, 0)">
-      <text class="mono{theme_suffix}" x="0" y="-16" font-size="22" font-weight="900" fill="{accent}" letter-spacing="0.5">{num_str}</text>
-      <text class="mono{theme_suffix}" x="0" y="8" font-size="13" font-weight="700" fill="{lane_txt}" letter-spacing="1.5">{name_str}</text>
-      <g transform="translate(0, 20)" fill="{track_term}">
-        <rect x="0" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="7" y="0" width="3.5" height="3.5" rx="0.5"/>
-        <rect x="14" y="0" width="3.5" height="3.5" rx="0.5"/><rect x="21" y="0" width="3.5" height="3.5" rx="0.5"/>
-        <rect x="28" y="0" width="3.5" height="3.5" rx="0.5"/>
-      </g>
+      {label_markup}
     </g>''')
 
         # Skills in this lane
@@ -311,7 +353,6 @@ def build_toolchain(is_dark=True):
             inner_svg = get_icon_svg(skill_id, icon_file, is_dark)
             cx = COL_X[col_idx]
 
-            # Card size: 68x68 for compact crisp grid
             w, h = 68, 68
             x_off, y_off = -w // 2, -h // 2
             border_radius = 16
@@ -332,7 +373,7 @@ def build_toolchain(is_dark=True):
       <text class="label{theme_suffix}" x="0" y="54" font-size="13" fill="{label_txt}" text-anchor="middle">{label}</text>
     </g>''')
 
-        # Add rocket in Lane 01 where there are 9 items (at x=1320)
+        # Rocket placement in Lane 01 where there are 9 items (at x=1320)
         if lane_idx == 1:
             svg_parts.append(f'''
     <!-- Spacecraft (rocket) -->
@@ -349,7 +390,6 @@ if __name__ == "__main__":
     dark_svg = build_toolchain(is_dark=True)
     light_svg = build_toolchain(is_dark=False)
 
-    # Validate XML with ElementTree
     try:
         ET.fromstring(dark_svg)
         print("dark_svg is VALID XML!")
