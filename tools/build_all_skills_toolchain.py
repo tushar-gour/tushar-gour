@@ -2,17 +2,13 @@
 """
 tools/build_all_skills_toolchain.py
 
-Builds the 5-lane animated Engineering Stack SVGs (Dark + Light) matching the user's rethought layout:
-- 2-line category labels to prevent truncation and provide clean spacing
-- Exact 5-lane arrangement & ordering from the approved layout:
-    01: CLIENT & UI (Flutter, Dart, React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Vite)
-    02: BACKEND & LANGUAGES (Node.js, Express, Socket.IO, Java, Python, C++, C, Kotlin, Lua, JWT)
-    03: DATA & PERSISTENCE (PostgreSQL, MongoDB, Redis, MySQL, SQLite, Prisma, Drizzle, Supabase, Firebase)
-    04: CLOUD & DELIVERY (AWS, GCP, Docker, Linux, Cloudflare, CI/CD, Vercel, Netlify, Render, Railway, Hostinger)
-    05: TOOLS & CREATIVE (Git, GitHub, Postman, npm, DNS, Windows, macOS, Figma, Blender, Unity, Roblox Studio)
-- Full laser pulse animation with tapered gradient tail across all lanes
-- Cruising rocket on track
-- Validated XML with scoped IDs and xlink namespace
+Builds the 6-lane animated Engineering Stack SVGs (Dark + Light):
+- 01: CLIENT & UI (Flutter, Dart, React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Vite)
+- 02: BACKEND & LANGUAGES (Node.js, Express, Socket.IO, Java, Python, C++, C, Kotlin, Lua, JWT)
+- 03: DATA & PERSISTENCE (PostgreSQL, MongoDB, Redis, MySQL, SQLite, Prisma, Drizzle, Supabase, Firebase)
+- 04: CLOUD & DELIVERY (AWS, GCP, Docker, Linux, Cloudflare, CI/CD, Vercel, Netlify, Render, Railway, Hostinger)
+- 05: TOOLS & CREATIVE (Git, GitHub, Postman, npm, DNS, Windows, macOS, Figma, Blender, Unity, Roblox Studio)
+- 06: AI (ChatGPT / Codex, Claude / Code, Gemini / AGY, DeepSeek, Perplexity, Manus, MiniMax, Blackbox AI)
 """
 
 import urllib.request
@@ -85,19 +81,30 @@ SKILLS = [
     (5, 8, "Blender", "Blender", False, "Blender-Dark.svg", "Blender-Light.svg"),
     (5, 9, "Unity", "Unity", True, "Unity-Dark.svg", "Unity-Light.svg"),
     (5, 10, "Roblox", "Roblox Studio", False, "RobloxStudio.svg", "RobloxStudio.svg"),
+
+    # ─── Lane 06: AI (Y=735) ───
+    (6, 0, "ChatGPT", "ChatGPT / Codex", True, "CUSTOM_OPENAI", "CUSTOM_OPENAI"),
+    (6, 1, "Claude", "Claude / Code", True, "CUSTOM_CLAUDE", "CUSTOM_CLAUDE"),
+    (6, 2, "Gemini", "Gemini / AGY", True, "CUSTOM_GEMINI", "CUSTOM_GEMINI"),
+    (6, 3, "DeepSeek", "DeepSeek", True, "CUSTOM_DEEPSEEK", "CUSTOM_DEEPSEEK"),
+    (6, 4, "Perplexity", "Perplexity", False, "CUSTOM_PERPLEXITY", "CUSTOM_PERPLEXITY"),
+    (6, 5, "Manus", "Manus", False, "CUSTOM_MANUS", "CUSTOM_MANUS"),
+    (6, 6, "MiniMax", "MiniMax", False, "CUSTOM_MINIMAX", "CUSTOM_MINIMAX"),
+    (6, 7, "Blackbox", "Blackbox AI", False, "CUSTOM_BLACKBOX", "CUSTOM_BLACKBOX"),
 ]
 
 # 11 columns with 115px pitch
 COL_X = [225, 340, 455, 570, 685, 800, 915, 1030, 1145, 1260, 1375]
-LANE_Y = {1: 135, 2: 255, 3: 375, 4: 495, 5: 615}
+LANE_Y = {1: 135, 2: 255, 3: 375, 4: 495, 5: 615, 6: 735}
 
-# 2-line category labels (escaped for XML)
+# Category labels
 LANE_LABELS = {
     1: ("01", "CLIENT &amp; UI", ""),
     2: ("02", "BACKEND &amp;", "LANGUAGES"),
     3: ("03", "DATA &amp;", "PERSISTENCE"),
     4: ("04", "CLOUD &amp;", "DELIVERY"),
     5: ("05", "TOOLS &amp;", "CREATIVE"),
+    6: ("06", "AI", ""),
 }
 
 def make_badge_from_path(path_d, fill_color, bg_color="#242938", scale=6.6667, translate=(48, 48)):
@@ -110,6 +117,76 @@ def get_icon_svg(skill_id, filename, is_dark):
     bg = "#242938" if is_dark else "#FFFFFF"
     fg = "#FFFFFF" if is_dark else "#1F2328"
 
+    # AI Tools
+    if filename == "CUSTOM_OPENAI":
+        openai_d = "M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"
+        return make_badge_from_path(openai_d, "#10A37F" if is_dark else "#10A37F", bg)
+
+    if filename == "CUSTOM_CLAUDE":
+        claude_path = os.path.join(CACHE_DIR, "claude.svg")
+        with open(claude_path, "r", encoding="utf-8") as f:
+            claude_txt = f.read()
+        claude_d = re.search(r'd="([^"]+)"', claude_txt).group(1)
+        return make_badge_from_path(claude_d, "#D97706" if is_dark else "#D97706", bg)
+
+    if filename == "CUSTOM_GEMINI":
+        gemini_d = "M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"
+        return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
+<defs>
+  <linearGradient id="{skill_id}_geminiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#4E75F8"/>
+    <stop offset="50%" stop-color="#9B72CB"/>
+    <stop offset="100%" stop-color="#F37380"/>
+  </linearGradient>
+</defs>
+<g transform="translate(48, 48) scale(6.6667)">
+  <path d="{gemini_d}" fill="url(#{skill_id}_geminiGrad)"/>
+</g>'''
+
+    if filename == "CUSTOM_DEEPSEEK":
+        deepseek_path = os.path.join(CACHE_DIR, "deepseek.svg")
+        with open(deepseek_path, "r", encoding="utf-8") as f:
+            deepseek_txt = f.read()
+        deepseek_d = re.search(r'd="([^"]+)"', deepseek_txt).group(1)
+        return make_badge_from_path(deepseek_d, "#0066FF" if is_dark else "#0066FF", bg)
+
+    if filename == "CUSTOM_PERPLEXITY":
+        perpl_path = os.path.join(CACHE_DIR, "perplexity.svg")
+        with open(perpl_path, "r", encoding="utf-8") as f:
+            perpl_txt = f.read()
+        perpl_d = re.search(r'd="([^"]+)"', perpl_txt).group(1)
+        return make_badge_from_path(perpl_d, "#20B2AA" if is_dark else "#008080", bg)
+
+    if filename == "CUSTOM_MINIMAX":
+        minimax_path = os.path.join(CACHE_DIR, "minimax.svg")
+        with open(minimax_path, "r", encoding="utf-8") as f:
+            minimax_txt = f.read()
+        minimax_d = re.search(r'd="([^"]+)"', minimax_txt).group(1)
+        return make_badge_from_path(minimax_d, "#E03131" if is_dark else "#E03131", bg)
+
+    if filename == "CUSTOM_MANUS":
+        manus_path = os.path.join(CACHE_DIR, "manus.svg")
+        with open(manus_path, "r", encoding="utf-8") as f:
+            manus_txt = f.read()
+        match = re.search(r'<svg[^>]*>(.*)</svg>', manus_txt, re.DOTALL)
+        inner = match.group(1).strip() if match else manus_txt
+        return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
+<g transform="translate(48, 48) scale(0.625)">
+  {inner}
+</g>'''
+
+    if filename == "CUSTOM_BLACKBOX":
+        blackbox_d1 = "M75.5572 34.3324C88.7347 42.2162 102.993 50.3876 115.919 58.5073C94.6995 70.7628 61.0157 88.8504 41.4509 101.802C41.4503 150.926 42.9122 209.169 41.3355 257.576C32.3066 252.354 8.25927 237.57 0 233.852V77.9571C20.5984 65.811 55.1389 44.4756 75.5572 34.3324Z"
+        blackbox_d2 = "M134.304 0H135.204C145.166 7.08673 167.646 19.5747 178.714 26.1553C210.351 44.8007 241.884 63.6219 273.312 82.6181C274.071 107.793 273.415 136.913 273.431 162.379C260.716 170.359 244.62 179.1 231.408 186.761L231.369 104.969L94.2639 23.2964C107.679 15.6494 121.027 7.88363 134.304 0Z"
+        blackbox_d3 = "M272.205 185.262C274.309 187.586 273.457 225.275 273.439 231.532C259.764 238.431 240.572 250.373 226.585 258.464L134.56 311.71C110.707 297.246 84.9748 282.861 60.7132 268.858C59.535 264.734 60.1441 227.775 60.2148 221.383L134.926 264.627C149.348 255.575 167.098 245.87 182.016 237.244L272.205 185.262Z"
+        return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
+<g transform="translate(48, 48) scale(0.512)">
+  <path d="{blackbox_d1}" fill="#00FF9D"/>
+  <path d="{blackbox_d2}" fill="{fg}"/>
+  <path d="{blackbox_d3}" fill="#00C476"/>
+</g>'''
+
+    # Other tools
     if filename == "CUSTOM_RENDER":
         render_d = "M18.263.007c-3.121-.147-5.744 2.109-6.192 5.082-.018.138-.045.272-.067.405-.696 3.703-3.936 6.507-7.827 6.507-1.388 0-2.691-.356-3.825-.979a.2024.2024 0 0 0-.302.178V24H12v-8.999c0-1.656 1.338-3 2.987-3h2.988c3.382 0 6.103-2.817 5.97-6.244-.12-3.084-2.61-5.603-5.682-5.75"
         return make_badge_from_path(render_d, "#46E3B7" if is_dark else "#14B8A6", bg)
@@ -135,7 +212,6 @@ def get_icon_svg(skill_id, filename, is_dark):
         return make_badge_from_path(jwt_d, "#D63AFF", bg)
 
     if filename == "CUSTOM_DNS":
-        # Wireframe Globe matching Image 2
         return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
 <circle cx="128" cy="128" r="68" fill="none" stroke="{fg}" stroke-width="8"/>
 <ellipse cx="128" cy="128" rx="34" ry="68" fill="none" stroke="{fg}" stroke-width="8"/>
@@ -145,17 +221,13 @@ def get_icon_svg(skill_id, filename, is_dark):
 <line x1="128" y1="60" x2="128" y2="196" stroke="{fg}" stroke-width="8"/>'''
 
     if filename == "CUSTOM_MACOS":
-        # Classic dual-tone Finder face
         return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
 <g transform="translate(48, 48)">
   <rect width="160" height="160" rx="36" fill="#D0D7DE"/>
   <path d="M 80 0 A 80 80 0 0 1 160 80 L 160 124 A 36 36 0 0 1 124 160 L 80 160 Z" fill="#90A4AE"/>
-  <!-- Eyes -->
   <rect x="36" y="52" width="16" height="28" rx="8" fill="#1E293B"/>
   <rect x="108" y="52" width="16" height="28" rx="8" fill="#1E293B"/>
-  <!-- Nose line -->
   <path d="M 80 40 L 80 96 L 96 96" fill="none" stroke="#1E293B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Smile -->
   <path d="M 44 116 Q 80 148 116 116" fill="none" stroke="#1E293B" stroke-width="8" stroke-linecap="round"/>
 </g>'''
 
@@ -204,7 +276,7 @@ def build_toolchain(is_dark=True):
         rocket_b64 = base64.b64encode(f.read()).decode("utf-8")
 
     svg_parts = []
-    svg_parts.append(f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1520 720" width="100%" height="100%">
+    svg_parts.append(f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1520 835" width="100%" height="100%">
   <defs>
     <radialGradient id="bgVignette{theme_suffix}" cx="50%" cy="50%" r="75%">
       <stop offset="0%" stop-color="{bg_vignette}"/>
@@ -224,7 +296,7 @@ def build_toolchain(is_dark=True):
     <radialGradient id="flareGrad{theme_suffix}" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="{accent}" stop-opacity="1"/>
       <stop offset="40%" stop-color="{accent}" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="{accent}" stop-opacity="0"/>
+      <stop offset="100%" stop-color="{accent}" stop-opacity="0.0"/>
     </radialGradient>
 
     <filter id="laserGlow{theme_suffix}" x="-200%" y="-400%" width="500%" height="900%">
@@ -257,6 +329,7 @@ def build_toolchain(is_dark=True):
       .b3{theme_suffix} {{ animation: bulletAnim{theme_suffix} 7.6s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 3.5s; }}
       .b4{theme_suffix} {{ animation: bulletAnim{theme_suffix} 8.8s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 0.8s; }}
       .b5{theme_suffix} {{ animation: bulletAnim{theme_suffix} 8.0s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 2.6s; }}
+      .b6{theme_suffix} {{ animation: bulletAnim{theme_suffix} 7.8s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 4.2s; }}
 
       @keyframes cardPulse{theme_suffix} {{
         0%,100% {{ stroke-opacity:0.85; }}
@@ -267,21 +340,21 @@ def build_toolchain(is_dark=True):
   </defs>
 
   <!-- Background -->
-  <rect width="1520" height="720" rx="14" fill="url(#bgVignette{theme_suffix})"/>
-  <rect width="1520" height="720" rx="14" fill="none" stroke="{border_col}" stroke-width="1.2"/>''')
+  <rect width="1520" height="835" rx="14" fill="url(#bgVignette{theme_suffix})"/>
+  <rect width="1520" height="835" rx="14" fill="none" stroke="{border_col}" stroke-width="1.2"/>''')
 
     if is_dark:
         svg_parts.append('''  <!-- Star field -->
   <g fill="#FFFFFF" opacity="0.35">
     <circle cx="82" cy="44" r="0.8"/><circle cx="220" cy="28" r="1"/><circle cx="410" cy="52" r="0.7"/>
     <circle cx="660" cy="30" r="0.9"/><circle cx="870" cy="45" r="0.7"/><circle cx="1180" cy="25" r="1"/><circle cx="1420" cy="40" r="0.8"/>
-    <circle cx="135" cy="680" r="0.8"/><circle cx="490" cy="695" r="0.7"/><circle cx="940" cy="685" r="1"/>
-    <circle cx="1340" cy="670" r="0.8"/><circle cx="40" cy="330" r="0.7"/><circle cx="1485" cy="340" r="0.9"/>
+    <circle cx="135" cy="790" r="0.8"/><circle cx="490" cy="805" r="0.7"/><circle cx="940" cy="795" r="1"/>
+    <circle cx="1340" cy="780" r="0.8"/><circle cx="40" cy="430" r="0.7"/><circle cx="1485" cy="440" r="0.9"/>
   </g>''')
 
     svg_parts.append(f'''  <!-- Left orbital arc trajectory -->
-  <path d="M 170 680 C -40 520 -40 180 170 40" fill="none" stroke="{accent}" stroke-width="1.4" opacity="0.2"/>
-  <g transform="translate(90, 375)">
+  <path d="M 170 790 C -40 600 -40 180 170 40" fill="none" stroke="{accent}" stroke-width="1.4" opacity="0.2"/>
+  <g transform="translate(90, 435)">
     <circle cx="0" cy="0" r="5" fill="url(#flareGrad{theme_suffix})" opacity="0.9"/>
     <circle cx="0" cy="0" r="3" fill="{accent}"/>
     <line x1="-14" y1="0" x2="14" y2="0" stroke="{accent}" stroke-width="1.2" opacity="0.6"/>
@@ -298,13 +371,12 @@ def build_toolchain(is_dark=True):
   </g>
   <line x1="42" y1="58" x2="1478" y2="58" stroke="{track_col}" stroke-width="1.2"/>''')
 
-    # Build lanes 1 to 5
-    for lane_idx in range(1, 6):
+    # Build lanes 1 to 6
+    for lane_idx in range(1, 7):
         lane_y = LANE_Y[lane_idx]
         num_str, line1, line2 = LANE_LABELS[lane_idx]
         lane_skills = [s for s in SKILLS if s[0] == lane_idx]
 
-        # 2-line or 1-line label rendering
         if line2:
             label_markup = f'''<text class="mono{theme_suffix}" x="0" y="-18" font-size="22" font-weight="900" fill="{accent}" letter-spacing="0.5">{num_str}</text>
       <text class="mono{theme_suffix}" x="0" y="2" font-size="12" font-weight="700" fill="{lane_txt}" letter-spacing="1.5">{line1}</text>
@@ -373,7 +445,7 @@ def build_toolchain(is_dark=True):
       <text class="label{theme_suffix}" x="0" y="54" font-size="13" fill="{label_txt}" text-anchor="middle">{label}</text>
     </g>''')
 
-        # Rocket placement in Lane 01 where there are 9 items (at x=1320)
+        # Rocket placement in Lane 01 (at x=1320)
         if lane_idx == 1:
             svg_parts.append(f'''
     <!-- Spacecraft (rocket) -->
