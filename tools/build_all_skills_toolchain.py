@@ -3,8 +3,10 @@
 tools/build_all_skills_toolchain.py
 
 Builds the 6-lane animated Engineering Stack SVGs (Dark + Light)
-- 980 x 755 canvas (55% larger rendered graphics with zero text overlap)
-- Multi-line centered labels for long names (ChatGPT / Codex, Claude / Code, Gemini / AGY, etc.)
+- Standardized to high-impact visual proportions (viewBox="0 0 1120 880")
+- Fixes right-edge overflow with 66px safe border margin
+- 58x58 substantial skill badges with +40% enlarged icon vector scale
+- 15-18px readable typography with zero text collision
 """
 
 import urllib.request
@@ -18,7 +20,7 @@ os.makedirs(CACHE_DIR, exist_ok=True)
 
 # List of skill definitions: (lane_idx, col_idx, id, display_label, is_primary, icon_dark, icon_light)
 SKILLS = [
-    # ─── Lane 01: CLIENT & UI (Y=132) ───
+    # ─── Lane 01: CLIENT & UI (Y=150) ───
     (1, 0, "Flutter", "Flutter", True, "Flutter-Dark.svg", "Flutter-Light.svg"),
     (1, 1, "Dart", "Dart", False, "Dart-Dark.svg", "Dart-Light.svg"),
     (1, 2, "React", "React", True, "CUSTOM_REACT", "CUSTOM_REACT"),
@@ -29,7 +31,7 @@ SKILLS = [
     (1, 7, "Tailwind", "Tailwind\nCSS", False, "TailwindCSS-Dark.svg", "TailwindCSS-Light.svg"),
     (1, 8, "Vite", "Vite", False, "Vite-Dark.svg", "Vite-Light.svg"),
 
-    # ─── Lane 02: BACKEND & LANGUAGES (Y=240) ───
+    # ─── Lane 02: BACKEND & LANGUAGES (Y=275) ───
     (2, 0, "NodeJS", "Node.js", True, "NodeJS-Dark.svg", "NodeJS-Light.svg"),
     (2, 1, "Express", "Express", False, "ExpressJS-Dark.svg", "ExpressJS-Light.svg"),
     (2, 2, "SocketIO", "Socket.IO", False, "CUSTOM_SOCKETIO", "CUSTOM_SOCKETIO"),
@@ -41,7 +43,7 @@ SKILLS = [
     (2, 8, "Lua", "Lua", False, "CUSTOM_LUA", "CUSTOM_LUA"),
     (2, 9, "JWT", "JWT", False, "CUSTOM_JWT", "CUSTOM_JWT"),
 
-    # ─── Lane 03: DATA & PERSISTENCE (Y=348) ───
+    # ─── Lane 03: DATA & PERSISTENCE (Y=400) ───
     (3, 0, "PostgreSQL", "PostgreSQL", True, "PostgreSQL-Dark.svg", "PostgreSQL-Light.svg"),
     (3, 1, "MongoDB", "MongoDB", False, "MongoDB.svg", "MongoDB.svg"),
     (3, 2, "Redis", "Redis", True, "Redis-Dark.svg", "Redis-Light.svg"),
@@ -52,7 +54,7 @@ SKILLS = [
     (3, 7, "Supabase", "Supabase", False, "Supabase-Dark.svg", "Supabase-Light.svg"),
     (3, 8, "Firebase", "Firebase", False, "Firebase-Dark.svg", "Firebase-Light.svg"),
 
-    # ─── Lane 04: CLOUD & DELIVERY (Y=456) ───
+    # ─── Lane 04: CLOUD & DELIVERY (Y=525) ───
     (4, 0, "AWS", "AWS", True, "AWS-Dark.svg", "AWS-Light.svg"),
     (4, 1, "GCP", "GCP", False, "GCP-Dark.svg", "GCP-Light.svg"),
     (4, 2, "Docker", "Docker", True, "Docker.svg", "Docker.svg"),
@@ -65,7 +67,7 @@ SKILLS = [
     (4, 9, "Railway", "Railway", False, "CUSTOM_RAILWAY", "CUSTOM_RAILWAY"),
     (4, 10, "Hostinger", "Hostinger", False, "CUSTOM_HOSTINGER", "CUSTOM_HOSTINGER"),
 
-    # ─── Lane 05: TOOLS & CREATIVE (Y=564) ───
+    # ─── Lane 05: TOOLS & CREATIVE (Y=650) ───
     (5, 0, "Git", "Git", True, "Git.svg", "Git.svg"),
     (5, 1, "GitHub", "GitHub", False, "Github-Dark.svg", "Github-Light.svg"),
     (5, 2, "Postman", "Postman", False, "Postman.svg", "Postman.svg"),
@@ -78,7 +80,7 @@ SKILLS = [
     (5, 9, "Unity", "Unity", True, "Unity-Dark.svg", "Unity-Light.svg"),
     (5, 10, "Roblox", "Roblox\nStudio", False, "RobloxStudio.svg", "RobloxStudio.svg"),
 
-    # ─── Lane 06: AI (Y=672) ───
+    # ─── Lane 06: AI (Y=775) ───
     (6, 0, "ChatGPT", "ChatGPT\n/ Codex", True, "CUSTOM_OPENAI", "CUSTOM_OPENAI"),
     (6, 1, "Claude", "Claude\n/ Code", True, "CUSTOM_CLAUDE", "CUSTOM_CLAUDE"),
     (6, 2, "Gemini", "Gemini\n/ AGY", True, "CUSTOM_GEMINI", "CUSTOM_GEMINI"),
@@ -89,9 +91,9 @@ SKILLS = [
     (6, 7, "Blackbox", "Blackbox\nAI", False, "CUSTOM_BLACKBOX", "CUSTOM_BLACKBOX"),
 ]
 
-# 11 columns in 980px canvas (step = 81px)
-COL_X = [135, 216, 297, 378, 459, 540, 621, 702, 783, 864, 945]
-LANE_Y = {1: 132, 2: 240, 3: 348, 4: 456, 5: 564, 6: 672}
+# 11 columns perfectly proportioned across 1120px canvas (step = 86px)
+COL_X = [165, 251, 337, 423, 509, 595, 681, 767, 853, 939, 1025]
+LANE_Y = {1: 150, 2: 275, 3: 400, 4: 525, 5: 650, 6: 775}
 
 # Category labels
 LANE_LABELS = {
@@ -294,10 +296,10 @@ def build_toolchain(is_dark=True):
     border_col = "#1C2632" if is_dark else "#D0D7DE"
     track_col = "#1E2830" if is_dark else "#D8DDE3"
     track_term = "#374448" if is_dark else "#A0AAB2"
-    hdr_sub = "#586068" if is_dark else "#8A9299"
-    lane_txt = "#C8D0D8" if is_dark else "#3A4450"
-    label_txt = "#D5DDE5" if is_dark else "#24292E"
-    accent = "#FF6B35" if is_dark else "#C96A4B"
+    hdr_sub = "#5E7284" if is_dark else "#57606A"
+    lane_txt = "#D5DDE5" if is_dark else "#24292E"
+    label_txt = "#EDE8DF" if is_dark else "#1F2328"
+    accent = "#C97B4B" if is_dark else "#C96A4B"
     hdr_title_color = "#FFFFFF" if is_dark else "#0D1117"
 
     rocket_path = os.path.join(os.path.dirname(__file__), "..", "assets", "skills", "rocket.png")
@@ -305,8 +307,8 @@ def build_toolchain(is_dark=True):
         rocket_b64 = base64.b64encode(f.read()).decode("utf-8")
 
     svg_parts = []
-    # 980 x 755 canvas (55% larger rendered graphics with zero text overlap)
-    svg_parts.append(f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 980 755" width="100%" height="100%">
+    # 1120 x 880 canvas: High-impact scale, 125px row pitch, 66px safe right border
+    svg_parts.append(f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1120 880" width="100%" height="100%">
   <defs>
     <radialGradient id="bgVignette{theme_suffix}" cx="50%" cy="50%" r="75%">
       <stop offset="0%" stop-color="{bg_vignette}"/>
@@ -316,9 +318,9 @@ def build_toolchain(is_dark=True):
     <!-- Laser bullet gradient tail -->
     <linearGradient id="laserTail{theme_suffix}" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="{accent}" stop-opacity="0"/>
-      <stop offset="20%" stop-color="{accent}" stop-opacity="0.12"/>
-      <stop offset="50%" stop-color="{accent}" stop-opacity="0.45"/>
-      <stop offset="80%" stop-color="#FFA880" stop-opacity="0.8"/>
+      <stop offset="20%" stop-color="{accent}" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="{accent}" stop-opacity="0.5"/>
+      <stop offset="80%" stop-color="#FFA880" stop-opacity="0.85"/>
       <stop offset="95%" stop-color="#FFFFFF" stop-opacity="0.95"/>
       <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
     </linearGradient>
@@ -347,11 +349,11 @@ def build_toolchain(is_dark=True):
       .label{theme_suffix} {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 700; }}
 
       @keyframes bulletAnim{theme_suffix} {{
-        0%   {{ transform: translateX(85px); opacity: 0; }}
-        3%   {{ transform: translateX(120px); opacity: 1; }}
-        56%  {{ transform: translateX(920px); opacity: 1; }}
-        62%  {{ transform: translateX(955px); opacity: 0; }}
-        100% {{ transform: translateX(955px); opacity: 0; }}
+        0%   {{ transform: translateX(95px); opacity: 0; }}
+        3%   {{ transform: translateX(140px); opacity: 1; }}
+        56%  {{ transform: translateX(1050px); opacity: 1; }}
+        62%  {{ transform: translateX(1085px); opacity: 0; }}
+        100% {{ transform: translateX(1085px); opacity: 0; }}
       }}
 
       .b1{theme_suffix} {{ animation: bulletAnim{theme_suffix} 7.0s cubic-bezier(.25,0,.25,1) infinite; }}
@@ -370,36 +372,36 @@ def build_toolchain(is_dark=True):
   </defs>
 
   <!-- Background -->
-  <rect width="980" height="755" rx="14" fill="url(#bgVignette{theme_suffix})"/>
-  <rect width="980" height="755" rx="14" fill="none" stroke="{border_col}" stroke-width="1.2"/>''')
+  <rect width="1120" height="880" rx="14" fill="url(#bgVignette{theme_suffix})"/>
+  <rect width="1120" height="880" rx="14" fill="none" stroke="{border_col}" stroke-width="1.2"/>''')
 
     if is_dark:
         svg_parts.append('''  <!-- Star field -->
   <g fill="#FFFFFF" opacity="0.35">
     <circle cx="82" cy="44" r="0.8"/><circle cx="220" cy="28" r="1"/><circle cx="410" cy="52" r="0.7"/>
-    <circle cx="660" cy="30" r="0.9"/><circle cx="880" cy="45" r="0.7"/>
-    <circle cx="135" cy="710" r="0.8"/><circle cx="490" cy="725" r="0.7"/><circle cx="820" cy="715" r="1"/>
-    <circle cx="945" cy="700" r="0.8"/><circle cx="35" cy="375" r="0.7"/><circle cx="955" cy="385" r="0.9"/>
+    <circle cx="660" cy="30" r="0.9"/><circle cx="940" cy="45" r="0.7"/>
+    <circle cx="135" cy="830" r="0.8"/><circle cx="490" cy="845" r="0.7"/><circle cx="880" cy="835" r="1"/>
+    <circle cx="1060" cy="820" r="0.8"/><circle cx="35" cy="440" r="0.7"/><circle cx="1085" cy="450" r="0.9"/>
   </g>''')
 
     svg_parts.append(f'''  <!-- Left orbital arc trajectory -->
-  <path d="M 115 710 C -20 530 -20 160 115 40" fill="none" stroke="{accent}" stroke-width="1.4" opacity="0.2"/>
-  <g transform="translate(58, 385)">
-    <circle cx="0" cy="0" r="5" fill="url(#flareGrad{theme_suffix})" opacity="0.9"/>
-    <circle cx="0" cy="0" r="3" fill="{accent}"/>
-    <line x1="-14" y1="0" x2="14" y2="0" stroke="{accent}" stroke-width="1.2" opacity="0.6"/>
-    <line x1="0" y1="-14" x2="0" y2="14" stroke="{accent}" stroke-width="1.2" opacity="0.6"/>
+  <path d="M 125 830 C -20 620 -20 200 125 50" fill="none" stroke="{accent}" stroke-width="1.4" opacity="0.2"/>
+  <g transform="translate(62, 450)">
+    <circle cx="0" cy="0" r="6" fill="url(#flareGrad{theme_suffix})" opacity="0.9"/>
+    <circle cx="0" cy="0" r="3.5" fill="{accent}"/>
+    <line x1="-16" y1="0" x2="16" y2="0" stroke="{accent}" stroke-width="1.4" opacity="0.6"/>
+    <line x1="0" y1="-16" x2="0" y2="16" stroke="{accent}" stroke-width="1.4" opacity="0.6"/>
   </g>
 
   <!-- Header -->
-  <g transform="translate(32, 42)">
-    <text class="mono{theme_suffix}" x="0" y="2" font-size="25" font-weight="900" fill="{hdr_title_color}" letter-spacing="2">ENGINEERING STACK</text>
-    <text class="mono{theme_suffix}" x="315" y="0" font-size="12" font-weight="600" fill="{hdr_sub}" letter-spacing="1">/ SOFTWARE DELIVERY PATH</text>
-    <text class="mono{theme_suffix}" x="900" y="0" font-size="11" font-weight="600" fill="{hdr_sub}" letter-spacing="1" text-anchor="end">SIGNAL TRANSMISSION</text>
-    <circle cx="908" cy="-4" r="4" fill="{accent}" opacity="0.9"/>
-    <circle cx="908" cy="-4" r="7" fill="{accent}" opacity="0.25"/>
+  <g transform="translate(36, 48)">
+    <text class="mono{theme_suffix}" x="0" y="2" font-size="30" font-weight="900" fill="{hdr_title_color}" letter-spacing="2">ENGINEERING STACK</text>
+    <text class="mono{theme_suffix}" x="380" y="0" font-size="15" font-weight="600" fill="{hdr_sub}" letter-spacing="1.5">/ TOOLS ACROSS THE SOFTWARE DELIVERY PATH</text>
+    <text class="mono{theme_suffix}" x="1030" y="0" font-size="14" font-weight="600" fill="{hdr_sub}" letter-spacing="1.5" text-anchor="end">SIGNAL TRANSMISSION</text>
+    <circle cx="1042" cy="-5" r="4.5" fill="{accent}" opacity="0.9"/>
+    <circle cx="1042" cy="-5" r="8" fill="{accent}" opacity="0.25"/>
   </g>
-  <line x1="32" y1="60" x2="948" y2="60" stroke="{track_col}" stroke-width="1.2"/>''')
+  <line x1="36" y1="74" x2="1084" y2="74" stroke="{track_col}" stroke-width="1.2"/>''')
 
     # Build lanes 1 to 6
     for lane_idx in range(1, 7):
@@ -408,21 +410,21 @@ def build_toolchain(is_dark=True):
         lane_skills = [s for s in SKILLS if s[0] == lane_idx]
 
         if line2:
-            label_markup = f'''<text class="mono{theme_suffix}" x="0" y="-14" font-size="20" font-weight="900" fill="{accent}" letter-spacing="0.5">{num_str}</text>
-      <text class="mono{theme_suffix}" x="0" y="2" font-size="10.5" font-weight="700" fill="{lane_txt}" letter-spacing="0.5">{line1}</text>
-      <text class="mono{theme_suffix}" x="0" y="15" font-size="10.5" font-weight="700" fill="{lane_txt}" letter-spacing="0.5">{line2}</text>
-      <g transform="translate(0, 22)" fill="{track_term}">
-        <rect x="0" y="0" width="3" height="3" rx="0.5"/><rect x="5" y="0" width="3" height="3" rx="0.5"/>
-        <rect x="10" y="0" width="3" height="3" rx="0.5"/><rect x="15" y="0" width="3" height="3" rx="0.5"/>
-        <rect x="20" y="0" width="3" height="3" rx="0.5"/>
+            label_markup = f'''<text class="mono{theme_suffix}" x="0" y="-18" font-size="28" font-weight="900" fill="{accent}" letter-spacing="0.5">{num_str}</text>
+      <text class="mono{theme_suffix}" x="0" y="4" font-size="14" font-weight="700" fill="{lane_txt}" letter-spacing="0.5">{line1}</text>
+      <text class="mono{theme_suffix}" x="0" y="22" font-size="14" font-weight="700" fill="{lane_txt}" letter-spacing="0.5">{line2}</text>
+      <g transform="translate(0, 32)" fill="{track_term}">
+        <rect x="0" y="0" width="3.5" height="3.5" rx="0.8"/><rect x="6" y="0" width="3.5" height="3.5" rx="0.8"/>
+        <rect x="12" y="0" width="3.5" height="3.5" rx="0.8"/><rect x="18" y="0" width="3.5" height="3.5" rx="0.8"/>
+        <rect x="24" y="0" width="3.5" height="3.5" rx="0.8"/>
       </g>'''
         else:
-            label_markup = f'''<text class="mono{theme_suffix}" x="0" y="-14" font-size="20" font-weight="900" fill="{accent}" letter-spacing="0.5">{num_str}</text>
-      <text class="mono{theme_suffix}" x="0" y="6" font-size="11" font-weight="700" fill="{lane_txt}" letter-spacing="0.5">{line1}</text>
-      <g transform="translate(0, 15)" fill="{track_term}">
-        <rect x="0" y="0" width="3" height="3" rx="0.5"/><rect x="5" y="0" width="3" height="3" rx="0.5"/>
-        <rect x="10" y="0" width="3" height="3" rx="0.5"/><rect x="15" y="0" width="3" height="3" rx="0.5"/>
-        <rect x="20" y="0" width="3" height="3" rx="0.5"/>
+            label_markup = f'''<text class="mono{theme_suffix}" x="0" y="-18" font-size="28" font-weight="900" fill="{accent}" letter-spacing="0.5">{num_str}</text>
+      <text class="mono{theme_suffix}" x="0" y="10" font-size="15" font-weight="700" fill="{lane_txt}" letter-spacing="0.5">{line1}</text>
+      <g transform="translate(0, 22)" fill="{track_term}">
+        <rect x="0" y="0" width="3.5" height="3.5" rx="0.8"/><rect x="6" y="0" width="3.5" height="3.5" rx="0.8"/>
+        <rect x="12" y="0" width="3.5" height="3.5" rx="0.8"/><rect x="18" y="0" width="3.5" height="3.5" rx="0.8"/>
+        <rect x="24" y="0" width="3.5" height="3.5" rx="0.8"/>
       </g>'''
 
         svg_parts.append(f'''
@@ -430,21 +432,21 @@ def build_toolchain(is_dark=True):
        LANE {num_str} — {line1} {line2}  (Y={lane_y})
        ════════════════════════════════════════ -->
   <g transform="translate(0, {lane_y})">
-    <line x1="100" y1="0" x2="930" y2="0" stroke="{track_col}" stroke-width="2.2"/>
-    <line x1="930" y1="0" x2="945" y2="0" stroke="{track_col}" stroke-width="1.8" stroke-dasharray="3,3"/>
-    <circle cx="950" cy="0" r="4.5" fill="none" stroke="{track_term}" stroke-width="1.8"/>
-    <circle cx="950" cy="0" r="1.8" fill="{track_term}"/>
+    <line x1="120" y1="0" x2="1055" y2="0" stroke="{track_col}" stroke-width="2.2"/>
+    <line x1="1055" y1="0" x2="1075" y2="0" stroke="{track_col}" stroke-width="1.8" stroke-dasharray="3,3"/>
+    <circle cx="1080" cy="0" r="5" fill="none" stroke="{track_term}" stroke-width="1.8"/>
+    <circle cx="1080" cy="0" r="2" fill="{track_term}"/>
 
     <!-- Laser bullet with tapered tail -->
     <g class="b{lane_idx}{theme_suffix}">
-      <path d="M -70 0 C -40 -1, -12 -2.5, 0 -2.5 L 0 2.5 C -12 2.5, -40 1, -70 0 Z" fill="url(#laserTail{theme_suffix})"/>
-      <ellipse cx="-2" cy="0" rx="7" ry="3" fill="url(#flareGrad{theme_suffix})" opacity="0.65"/>
-      <circle cx="0" cy="0" r="3.5" fill="#FFFFFF" filter="url(#laserGlow{theme_suffix})"/>
-      <circle cx="0" cy="0" r="2" fill="#FFFFFF"/>
+      <path d="M -80 0 C -50 -1, -15 -3, 0 -3 L 0 3 C -15 3, -50 1, -80 0 Z" fill="url(#laserTail{theme_suffix})"/>
+      <ellipse cx="-3" cy="0" rx="8" ry="3.5" fill="url(#flareGrad{theme_suffix})" opacity="0.65"/>
+      <circle cx="0" cy="0" r="4" fill="#FFFFFF" filter="url(#laserGlow{theme_suffix})"/>
+      <circle cx="0" cy="0" r="2.2" fill="#FFFFFF"/>
     </g>
 
     <!-- Lane label -->
-    <g transform="translate(32, 0)">
+    <g transform="translate(36, 0)">
       {label_markup}
     </g>''')
 
@@ -455,23 +457,23 @@ def build_toolchain(is_dark=True):
             inner_svg = get_icon_svg(skill_id, icon_file, is_dark)
             cx = COL_X[col_idx]
 
-            # 50x50 cards in 980px canvas (scale factor 0.90 vs 0.58 originally = +55% rendered size!)
-            w, h = 50, 50
+            # 58x58 cards in 1120px canvas
+            w, h = 58, 58
             x_off, y_off = -w // 2, -h // 2
-            border_radius = 12
+            border_radius = 14
 
             if is_pri:
-                border_elem = f'<rect class="pri{theme_suffix}" x="{x_off}" y="{y_off}" width="{w}" height="{h}" rx="{border_radius}" fill="none" stroke="{accent}" stroke-width="2.2" filter="url(#cardGlow{theme_suffix})"/>'
+                border_elem = f'<rect class="pri{theme_suffix}" x="{x_off}" y="{y_off}" width="{w}" height="{h}" rx="{border_radius}" fill="none" stroke="{accent}" stroke-width="2.4" filter="url(#cardGlow{theme_suffix})"/>'
             else:
-                card_border = "#252E3A" if is_dark else "#D0D7DE"
-                border_elem = f'<rect x="{x_off}" y="{y_off}" width="{w}" height="{h}" rx="{border_radius}" fill="none" stroke="{card_border}" stroke-width="1.2"/>'
+                card_border = "#263240" if is_dark else "#D0D7DE"
+                border_elem = f'<rect x="{x_off}" y="{y_off}" width="{w}" height="{h}" rx="{border_radius}" fill="none" stroke="{card_border}" stroke-width="1.3"/>'
 
-            # Format label: if contains newline, render 2 lines with tight vertical spacing
+            # Format label
             if "\n" in label:
                 lines = label.split("\n")
-                label_markup = f'<text class="label{theme_suffix}" x="0" y="38" font-size="11" fill="{label_txt}" text-anchor="middle">{lines[0]}</text><text class="label{theme_suffix}" x="0" y="49" font-size="10" fill="{label_txt}" text-anchor="middle">{lines[1]}</text>'
+                label_markup = f'<text class="label{theme_suffix}" x="0" y="46" font-size="13.5" fill="{label_txt}" text-anchor="middle">{lines[0]}</text><text class="label{theme_suffix}" x="0" y="60" font-size="12.5" fill="{label_txt}" text-anchor="middle">{lines[1]}</text>'
             else:
-                label_markup = f'<text class="label{theme_suffix}" x="0" y="40" font-size="11.5" fill="{label_txt}" text-anchor="middle">{label}</text>'
+                label_markup = f'<text class="label{theme_suffix}" x="0" y="48" font-size="14.5" fill="{label_txt}" text-anchor="middle">{label}</text>'
 
             svg_parts.append(f'''
     <!-- {label.replace(chr(10), " ")} (Col {col_idx+1}: {cx}) -->
@@ -483,12 +485,12 @@ def build_toolchain(is_dark=True):
       {label_markup}
     </g>''')
 
-        # Rocket placement in Lane 01 (at x=900)
+        # Rocket placement in Lane 01 (at x=980)
         if lane_idx == 1:
             svg_parts.append(f'''
     <!-- Spacecraft (rocket) -->
-    <g transform="translate(900, 0)">
-      <image href="data:image/png;base64,{rocket_b64}" x="-32" y="-14" width="64" height="28"/>
+    <g transform="translate(980, 0)">
+      <image href="data:image/png;base64,{rocket_b64}" x="-37" y="-16" width="74" height="32"/>
     </g>''')
 
         svg_parts.append('  </g>')
