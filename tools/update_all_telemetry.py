@@ -23,7 +23,7 @@ USERNAME = os.getenv("GITHUB_USER", "tushar-gour")
 TOKEN = os.getenv("GITHUB_TOKEN", "").strip()
 
 # >>> MANUALLY SET YOUR TOTAL REPOSITORY COUNT (PUBLIC + PRIVATE) HERE <<<
-TOTAL_REPOSITORIES = 92
+TOTAL_REPOSITORIES = 93
 # ─────────────────────────────────────────────────────────────────────────────
 
 ROOT = Path(__file__).resolve().parents[1]
