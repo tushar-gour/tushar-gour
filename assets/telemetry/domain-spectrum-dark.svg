@@ -67,7 +67,7 @@
   <circle cx="640" cy="275" r="6" fill="#2E3E4E"/>
   <text class="s" x="656" y="280" font-size="16" font-weight="700" fill="#DED5C6">Other</text>
   <text class="m" x="1050" y="280" font-size="15" font-weight="800" fill="#2E3E4E" text-anchor="end">1.5%</text>
-  <text class="m" x="1130" y="280" font-size="13" font-weight="600" fill="#374A5C" text-anchor="end">144,443 B</text>
+  <text class="m" x="1130" y="280" font-size="13" font-weight="600" fill="#374A5C" text-anchor="end">144,326 B</text>
   <rect x="656" y="291" width="474" height="6" rx="3" fill="#192230"/>
   <rect x="656" y="291" width="7" height="6" rx="3" fill="#2E3E4E"/>
 </svg>
