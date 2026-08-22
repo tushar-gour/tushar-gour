@@ -18,7 +18,7 @@
 
   <!-- Stats summary strip -->
   <text class="m" x="42" y="72" font-size="11.5" font-weight="600" fill="#4A5E6E" letter-spacing="0.5">TOTAL 365D:</text>
-  <text class="m" x="135" y="72" font-size="11.5" font-weight="700" fill="#C8C0B2" letter-spacing="0.5">2,342</text>
+  <text class="m" x="135" y="72" font-size="11.5" font-weight="700" fill="#C8C0B2" letter-spacing="0.5">2,348</text>
   <text class="m" x="192" y="72" font-size="11.5" fill="#3A4E5E">  |  </text>
   <text class="m" x="218" y="72" font-size="11.5" font-weight="600" fill="#4A5E6E" letter-spacing="0.5">ACTIVE DAYS:</text>
   <text class="m" x="310" y="72" font-size="11.5" font-weight="700" fill="#C8C0B2" letter-spacing="0.5">232</text>
@@ -27,7 +27,7 @@
   <text class="m" x="452" y="72" font-size="11.5" font-weight="800" fill="#C97B4B" letter-spacing="0.5">153</text>
   <text class="m" x="480" y="72" font-size="11.5" fill="#3A4E5E">  |  </text>
   <text class="m" x="508" y="72" font-size="11.5" font-weight="600" fill="#4A5E6E" letter-spacing="0.5">CURRENT WEEK:</text>
-  <text class="m" x="616" y="72" font-size="11.5" font-weight="800" fill="#C8C0B2" letter-spacing="0.5">85</text>
+  <text class="m" x="616" y="72" font-size="11.5" font-weight="800" fill="#C8C0B2" letter-spacing="0.5">91</text>
 
   <!-- Divider -->
   <line x1="42" y1="84" x2="1158" y2="84" stroke="#192230" stroke-width="1"/>
@@ -91,7 +91,7 @@
   <rect x="1072" y="335.0" width="15" height="27.0" rx="2" fill="#2A3A48"/>
   <rect x="1093" y="320.0" width="15" height="42.0" rx="2" fill="#2A3A48"/>
   <rect x="1114" y="255.5" width="15" height="106.5" rx="2" fill="#4A6272"/>
-  <rect x="1135" y="234.5" width="15" height="127.5" rx="2" fill="#6A7F8E"/>
+  <rect x="1135" y="225.5" width="15" height="136.5" rx="2" fill="#6A7F8E"/>
   <text class="m" x="64" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">SEP</text>
   <text class="m" x="148" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">OCT</text>
   <text class="m" x="232" y="388" font-size="10.5" font-weight="600" fill="#3A4E5E">NOV</text>
