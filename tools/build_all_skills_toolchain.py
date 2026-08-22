@@ -165,18 +165,13 @@ def get_icon_svg(skill_id, filename, is_dark):
         return make_badge_from_path(minimax_d, "#E03131" if is_dark else "#E03131", bg)
 
     if filename == "CUSTOM_MANUS":
+        manus_file = "manus_white.png" if is_dark else "manus_dark.png"
+        manus_path = os.path.join(CACHE_DIR, manus_file)
+        with open(manus_path, "rb") as f:
+            manus_b64 = base64.b64encode(f.read()).decode("utf-8")
         return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
-<g transform="translate(128, 136)">
-  <!-- 3 Radiating Rays -->
-  <line x1="0" y1="-82" x2="0" y2="-64" stroke="{fg}" stroke-width="8" stroke-linecap="round"/>
-  <line x1="-22" y1="-76" x2="-11" y2="-60" stroke="{fg}" stroke-width="8" stroke-linecap="round"/>
-  <line x1="22" y1="-76" x2="11" y2="-60" stroke="{fg}" stroke-width="8" stroke-linecap="round"/>
-  <!-- Snapping hand body silhouette -->
-  <path d="M -26 -46 C -40 -46 -52 -34 -52 -18 C -52 -4 -42 6 -32 14 C -36 22 -36 34 -24 44 C -12 54 4 56 16 48 C 26 40 32 28 32 14 C 32 -2 24 -16 12 -28 C 4 -36 -6 -46 -26 -46 Z" fill="{fg}"/>
-  <!-- Inner finger snap gap -->
-  <ellipse cx="-20" cy="-18" rx="14" ry="14" fill="{bg}"/>
-  <path d="M -14 6 C -4 8 8 6 18 -2" fill="none" stroke="{bg}" stroke-width="6" stroke-linecap="round"/>
-  <path d="M -6 22 C 2 24 10 22 18 14" fill="none" stroke="{bg}" stroke-width="6" stroke-linecap="round"/>
+<g transform="translate(128, 128)">
+  <image href="data:image/png;base64,{manus_b64}" x="-62" y="-80" width="124" height="160"/>
 </g>'''
 
     if filename == "CUSTOM_BLACKBOX":
