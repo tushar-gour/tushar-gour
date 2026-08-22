@@ -42,7 +42,7 @@ SKILLS = [
     (2, 5, "CPP", "C++", True, "CPP.svg", "CPP.svg"),
     (2, 6, "C", "C", False, "C.svg", "C.svg"),
     (2, 7, "Kotlin", "Kotlin", False, "Kotlin-Dark.svg", "Kotlin-Light.svg"),
-    (2, 8, "Lua", "Lua", False, "Lua-Dark.svg", "Lua-Light.svg"),
+    (2, 8, "Lua", "Lua", False, "CUSTOM_LUA", "CUSTOM_LUA"),
     (2, 9, "JWT", "JWT", False, "CUSTOM_JWT", "CUSTOM_JWT"),
 
     # ─── Lane 03: DATA & PERSISTENCE (Y=375) ───
@@ -165,28 +165,58 @@ def get_icon_svg(skill_id, filename, is_dark):
         return make_badge_from_path(minimax_d, "#E03131" if is_dark else "#E03131", bg)
 
     if filename == "CUSTOM_MANUS":
-        manus_path = os.path.join(CACHE_DIR, "manus.svg")
-        with open(manus_path, "r", encoding="utf-8") as f:
-            manus_txt = f.read()
-        match = re.search(r'<svg[^>]*>(.*)</svg>', manus_txt, re.DOTALL)
-        inner = match.group(1).strip() if match else manus_txt
         return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
-<g transform="translate(48, 48) scale(0.625)">
-  {inner}
+<g transform="translate(128, 136)">
+  <!-- 3 Radiating Rays -->
+  <line x1="0" y1="-82" x2="0" y2="-64" stroke="{fg}" stroke-width="8" stroke-linecap="round"/>
+  <line x1="-22" y1="-76" x2="-11" y2="-60" stroke="{fg}" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22" y1="-76" x2="11" y2="-60" stroke="{fg}" stroke-width="8" stroke-linecap="round"/>
+  <!-- Snapping hand body silhouette -->
+  <path d="M -26 -46 C -40 -46 -52 -34 -52 -18 C -52 -4 -42 6 -32 14 C -36 22 -36 34 -24 44 C -12 54 4 56 16 48 C 26 40 32 28 32 14 C 32 -2 24 -16 12 -28 C 4 -36 -6 -46 -26 -46 Z" fill="{fg}"/>
+  <!-- Inner finger snap gap -->
+  <ellipse cx="-20" cy="-18" rx="14" ry="14" fill="{bg}"/>
+  <path d="M -14 6 C -4 8 8 6 18 -2" fill="none" stroke="{bg}" stroke-width="6" stroke-linecap="round"/>
+  <path d="M -6 22 C 2 24 10 22 18 14" fill="none" stroke="{bg}" stroke-width="6" stroke-linecap="round"/>
 </g>'''
 
     if filename == "CUSTOM_BLACKBOX":
-        blackbox_d1 = "M75.5572 34.3324C88.7347 42.2162 102.993 50.3876 115.919 58.5073C94.6995 70.7628 61.0157 88.8504 41.4509 101.802C41.4503 150.926 42.9122 209.169 41.3355 257.576C32.3066 252.354 8.25927 237.57 0 233.852V77.9571C20.5984 65.811 55.1389 44.4756 75.5572 34.3324Z"
-        blackbox_d2 = "M134.304 0H135.204C145.166 7.08673 167.646 19.5747 178.714 26.1553C210.351 44.8007 241.884 63.6219 273.312 82.6181C274.071 107.793 273.415 136.913 273.431 162.379C260.716 170.359 244.62 179.1 231.408 186.761L231.369 104.969L94.2639 23.2964C107.679 15.6494 121.027 7.88363 134.304 0Z"
-        blackbox_d3 = "M272.205 185.262C274.309 187.586 273.457 225.275 273.439 231.532C259.764 238.431 240.572 250.373 226.585 258.464L134.56 311.71C110.707 297.246 84.9748 282.861 60.7132 268.858C59.535 264.734 60.1441 227.775 60.2148 221.383L134.926 264.627C149.348 255.575 167.098 245.87 182.016 237.244L272.205 185.262Z"
         return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
-<g transform="translate(48, 48) scale(0.512)">
-  <path d="{blackbox_d1}" fill="#00FF9D"/>
-  <path d="{blackbox_d2}" fill="{fg}"/>
-  <path d="{blackbox_d3}" fill="#00C476"/>
+<g transform="translate(128, 128) scale(1.15)">
+  <!-- Outer Hexagon Frame -->
+  <path d="M -52 -30 L 0 -60 L 52 -30 L 52 30 L 0 60 L -52 30 Z" fill="none" stroke="{fg}" stroke-width="16" stroke-linejoin="miter"/>
+  <!-- Left Inward Angled 3D Notch -->
+  <path d="M -52 -30 L 0 0 L 52 -30" fill="none" stroke="{fg}" stroke-width="16" stroke-linejoin="miter"/>
+  <path d="M 0 0 L 0 60" fill="none" stroke="{fg}" stroke-width="16" stroke-linejoin="miter"/>
+  <!-- Hollow inner notch cut -->
+  <polygon points="-26,-15 0,-30 26,-15 26,15 0,30 -26,15" fill="{bg}"/>
 </g>'''
 
-    # Other tools
+    if filename == "CUSTOM_LUA":
+        return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
+<!-- Lua Dashed Orbital Path -->
+<circle cx="128" cy="136" r="76" fill="none" stroke="#7A8A9E" stroke-width="2.8" stroke-dasharray="6,6"/>
+<!-- Main Blue Planet -->
+<circle cx="128" cy="136" r="54" fill="#000080"/>
+<!-- Inner Moon Cutout -->
+<circle cx="152" cy="112" r="16" fill="#FFFFFF"/>
+<!-- Outer Satellite Blue Planet -->
+<circle cx="186" cy="78" r="16" fill="#000080"/>'''
+
+    if filename == "CUSTOM_JWT":
+        return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
+<g transform="translate(128, 128) scale(1.3) translate(-50, -50)">
+  <path d="M57.5,26.9 L57.5,0 L42.5,0 L42.5,26.9 L50,37.2 L57.5,26.9 Z" fill="#FFFFFF"/>
+  <path d="M42.5,73.1 L42.5,100 L57.5,100 L57.5,73.1 L50,62.8 L42.5,73.1 Z" fill="#FFFFFF"/>
+  <path d="M57.5,73.1 L73.3,94.9 L85.5,86 L69.6,64.3 L57.5,60.3 L57.5,73.1 Z" fill="#00F2E6"/>
+  <path d="M42.5,26.9 L26.7,5.1 L14.5,14 L30.4,35.7 L42.5,39.7 L42.5,26.9 Z" fill="#00F2E6"/>
+  <path d="M30.4,35.7 L4.8,27.4 L0.1,41.7 L25.7,50 L37.9,46.1 L30.4,35.7 Z" fill="#00B9F1"/>
+  <path d="M62.1,53.9 L69.6,64.3 L95.2,72.6 L99.9,58.3 L74.3,50 L62.1,53.9 Z" fill="#00B9F1"/>
+  <path d="M74.3,50 L99.9,41.7 L95.2,27.4 L69.6,35.7 L62.1,46.1 L74.3,50 Z" fill="#D63AFF"/>
+  <path d="M25.7,50 L0.1,58.3 L4.8,72.6 L30.4,64.3 L37.9,53.9 L25.7,50 Z" fill="#D63AFF"/>
+  <path d="M30.4,64.3 L14.5,86 L26.7,94.9 L42.5,73.1 L42.5,60.3 L30.4,64.3 Z" fill="#FB015B"/>
+  <path d="M69.6,35.7 L85.5,14 L73.3,5.1 L57.5,26.9 L57.5,39.7 L69.6,35.7 Z" fill="#FB015B"/>
+</g>'''
+
     if filename == "CUSTOM_RENDER":
         render_d = "M18.263.007c-3.121-.147-5.744 2.109-6.192 5.082-.018.138-.045.272-.067.405-.696 3.703-3.936 6.507-7.827 6.507-1.388 0-2.691-.356-3.825-.979a.2024.2024 0 0 0-.302.178V24H12v-8.999c0-1.656 1.338-3 2.987-3h2.988c3.382 0 6.103-2.817 5.97-6.244-.12-3.084-2.61-5.603-5.682-5.75"
         return make_badge_from_path(render_d, "#46E3B7" if is_dark else "#14B8A6", bg)
@@ -206,10 +236,6 @@ def get_icon_svg(skill_id, filename, is_dark):
     if filename == "CUSTOM_DRIZZLE":
         drizzle_d = "M5.353 11.823a1.036 1.036 0 0 0-.395-1.422 1.063 1.063 0 0 0-1.437.399L.138 16.702a1.035 1.035 0 0 0 .395 1.422 1.063 1.063 0 0 0 1.437-.398l3.383-5.903Zm11.216 0a1.036 1.036 0 0 0-.394-1.422 1.064 1.064 0 0 0-1.438.399l-3.382 5.902a1.036 1.036 0 0 0 .394 1.422c.506.283 1.15.104 1.438-.398l3.382-5.903Zm7.293-4.525a1.036 1.036 0 0 0-.395-1.422 1.062 1.062 0 0 0-1.437.399l-3.383 5.902a1.036 1.036 0 0 0 .395 1.422 1.063 1.063 0 0 0 1.437-.399l3.383-5.902Zm-11.219 0a1.035 1.035 0 0 0-.394-1.422 1.064 1.064 0 0 0-1.438.398l-3.382 5.903a1.036 1.036 0 0 0 .394 1.422c.506.282 1.15.104 1.438-.399l3.382-5.902Z"
         return make_badge_from_path(drizzle_d, "#C5F74F", bg)
-
-    if filename == "CUSTOM_JWT":
-        jwt_d = "M10.2 0v6.456L12 8.928l1.8-2.472V0zm3.6 6.456v3.072l2.904-.96L20.52 3.36l-2.928-2.136zm2.904 2.112l-1.8 2.496 2.928.936 6.144-1.992-1.128-3.432zM17.832 12l-2.928.936 1.8 2.496 6.144 1.992 1.128-3.432zm-1.128 3.432l-2.904-.96v3.072l3.792 5.232 2.928-2.136zM13.8 17.544L12 15.072l-1.8 2.472V24h3.6zm-3.6 0v-3.072l-2.904.96L3.48 20.64l2.928 2.136zm-2.904-2.112l1.8-2.496L6.168 12 .024 13.992l1.128 3.432zM6.168 12l2.928-.936-1.8-2.496-6.144-1.992-1.128 3.432zm1.128-3.432l2.904.96V6.456L6.408 1.224 3.48 3.36Z"
-        return make_badge_from_path(jwt_d, "#D63AFF", bg)
 
     if filename == "CUSTOM_DNS":
         return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
