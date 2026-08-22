@@ -1,8 +1,4 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/identity/hero-editorial-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/identity/hero-editorial-light.svg">
-  <img src="./assets/identity/hero-editorial-dark.svg" alt="Tushar Gour — Software Engineer" width="100%">
-</picture>
+<img src="./assets/identity/hero-banner.png" alt="Tushar Gour — Software Engineer" width="100%">
 
 <br><br>
 
