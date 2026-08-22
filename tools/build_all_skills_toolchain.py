@@ -25,7 +25,7 @@ SKILLS = [
     # ─── Lane 01: CLIENT & UI (Y=135) ───
     (1, 0, "Flutter", "Flutter", True, "Flutter-Dark.svg", "Flutter-Light.svg"),
     (1, 1, "Dart", "Dart", False, "Dart-Dark.svg", "Dart-Light.svg"),
-    (1, 2, "React", "React", True, "React-Dark.svg", "React-Light.svg"),
+    (1, 2, "React", "React", True, "CUSTOM_REACT", "CUSTOM_REACT"),
     (1, 3, "TypeScript", "TypeScript", True, "TypeScript.svg", "TypeScript.svg"),
     (1, 4, "JavaScript", "JavaScript", False, "JavaScript.svg", "JavaScript.svg"),
     (1, 5, "HTML5", "HTML5", False, "HTML.svg", "HTML.svg"),
@@ -116,6 +116,16 @@ def make_badge_from_path(path_d, fill_color, bg_color="#242938", scale=6.6667, t
 def get_icon_svg(skill_id, filename, is_dark):
     bg = "#242938" if is_dark else "#FFFFFF"
     fg = "#FFFFFF" if is_dark else "#1F2328"
+
+    if filename == "CUSTOM_REACT":
+        cyan = "#00D8FF"
+        return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
+<g transform="translate(128, 128)">
+  <circle cx="0" cy="0" r="22" fill="{cyan}"/>
+  <ellipse cx="0" cy="0" rx="104" ry="39" fill="none" stroke="{cyan}" stroke-width="14"/>
+  <ellipse cx="0" cy="0" rx="104" ry="39" fill="none" stroke="{cyan}" stroke-width="14" transform="rotate(60)"/>
+  <ellipse cx="0" cy="0" rx="104" ry="39" fill="none" stroke="{cyan}" stroke-width="14" transform="rotate(120)"/>
+</g>'''
 
     # AI Tools
     if filename == "CUSTOM_OPENAI":
