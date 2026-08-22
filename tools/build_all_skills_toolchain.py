@@ -121,10 +121,12 @@ def get_icon_svg(skill_id, filename, is_dark):
         cyan = "#00D8FF"
         return f'''<rect width="256" height="256" rx="60" fill="{bg}"/>
 <g transform="translate(128, 128)">
-  <circle cx="0" cy="0" r="22" fill="{cyan}"/>
-  <ellipse cx="0" cy="0" rx="104" ry="39" fill="none" stroke="{cyan}" stroke-width="14"/>
-  <ellipse cx="0" cy="0" rx="104" ry="39" fill="none" stroke="{cyan}" stroke-width="14" transform="rotate(60)"/>
-  <ellipse cx="0" cy="0" rx="104" ry="39" fill="none" stroke="{cyan}" stroke-width="14" transform="rotate(120)"/>
+  <g fill="none" stroke="{cyan}" stroke-width="9.5">
+    <ellipse rx="96" ry="37"/>
+    <ellipse rx="96" ry="37" transform="rotate(60)"/>
+    <ellipse rx="96" ry="37" transform="rotate(120)"/>
+  </g>
+  <circle cx="0" cy="0" r="19" fill="{cyan}"/>
 </g>'''
 
     # AI Tools
