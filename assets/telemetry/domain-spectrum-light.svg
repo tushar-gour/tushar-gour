@@ -19,36 +19,36 @@
   <!-- Stacked Full-Width Spectrum Bar with Gaps (y=72, h=22, w=1116) -->
   <g transform="translate(42, 72)">
     <rect width="1116" height="22" rx="5" fill="#F8FAFC" stroke="#E1E4E8" stroke-width="1"/>
-    <rect x="0" y="0" width="440" height="22" rx="4" fill="#C97B4B"/>
-    <rect x="444" y="0" width="378" height="22" rx="4" fill="#2B6CB0"/>
-    <rect x="826" y="0" width="211" height="22" rx="4" fill="#319795"/>
-    <rect x="1041" y="0" width="21" height="22" rx="4" fill="#805AD5"/>
-    <rect x="1066" y="0" width="10" height="22" rx="4" fill="#DD6B20"/>
-    <rect x="1080" y="0" width="36" height="22" rx="4" fill="#A0AEC0"/>
+    <rect x="0" y="0" width="447" height="22" rx="4" fill="#C97B4B"/>
+    <rect x="451" y="0" width="383" height="22" rx="4" fill="#2B6CB0"/>
+    <rect x="838" y="0" width="214" height="22" rx="4" fill="#319795"/>
+    <rect x="1056" y="0" width="21" height="22" rx="4" fill="#805AD5"/>
+    <rect x="1081" y="0" width="12" height="22" rx="4" fill="#DD6B20"/>
+    <rect x="1097" y="0" width="19" height="22" rx="4" fill="#A0AEC0"/>
   </g>
 
   <!-- Two-Column Language Details Grid -->
   <!-- JavaScript -->
   <circle cx="50" cy="145" r="6" fill="#C97B4B"/>
   <text class="s" x="66" y="150" font-size="16" font-weight="700" fill="#24292E">JavaScript</text>
-  <text class="m" x="460" y="150" font-size="15" font-weight="800" fill="#C97B4B" text-anchor="end">40.2%</text>
+  <text class="m" x="460" y="150" font-size="15" font-weight="800" fill="#C97B4B" text-anchor="end">40.8%</text>
   <text class="m" x="540" y="150" font-size="13" font-weight="600" fill="#8C959F" text-anchor="end">3,841,751 B</text>
   <rect x="66" y="161" width="474" height="6" rx="3" fill="#E1E4E8"/>
-  <rect x="66" y="161" width="190" height="6" rx="3" fill="#C97B4B"/>
+  <rect x="66" y="161" width="193" height="6" rx="3" fill="#C97B4B"/>
   <!-- TypeScript -->
   <circle cx="50" cy="210" r="6" fill="#2B6CB0"/>
   <text class="s" x="66" y="215" font-size="16" font-weight="700" fill="#24292E">TypeScript</text>
-  <text class="m" x="460" y="215" font-size="15" font-weight="800" fill="#2B6CB0" text-anchor="end">34.5%</text>
+  <text class="m" x="460" y="215" font-size="15" font-weight="800" fill="#2B6CB0" text-anchor="end">35.0%</text>
   <text class="m" x="540" y="215" font-size="13" font-weight="600" fill="#8C959F" text-anchor="end">3,299,789 B</text>
   <rect x="66" y="226" width="474" height="6" rx="3" fill="#E1E4E8"/>
-  <rect x="66" y="226" width="163" height="6" rx="3" fill="#2B6CB0"/>
+  <rect x="66" y="226" width="165" height="6" rx="3" fill="#2B6CB0"/>
   <!-- Dart -->
   <circle cx="50" cy="275" r="6" fill="#319795"/>
   <text class="s" x="66" y="280" font-size="16" font-weight="700" fill="#24292E">Dart</text>
-  <text class="m" x="460" y="280" font-size="15" font-weight="800" fill="#319795" text-anchor="end">19.3%</text>
+  <text class="m" x="460" y="280" font-size="15" font-weight="800" fill="#319795" text-anchor="end">19.6%</text>
   <text class="m" x="540" y="280" font-size="13" font-weight="600" fill="#8C959F" text-anchor="end">1,846,238 B</text>
   <rect x="66" y="291" width="474" height="6" rx="3" fill="#E1E4E8"/>
-  <rect x="66" y="291" width="91" height="6" rx="3" fill="#319795"/>
+  <rect x="66" y="291" width="92" height="6" rx="3" fill="#319795"/>
   <!-- C++ -->
   <circle cx="640" cy="145" r="6" fill="#805AD5"/>
   <text class="s" x="656" y="150" font-size="16" font-weight="700" fill="#24292E">C++</text>
@@ -59,15 +59,15 @@
   <!-- Kotlin -->
   <circle cx="640" cy="210" r="6" fill="#DD6B20"/>
   <text class="s" x="656" y="215" font-size="16" font-weight="700" fill="#24292E">Kotlin</text>
-  <text class="m" x="1050" y="215" font-size="15" font-weight="800" fill="#DD6B20" text-anchor="end">1.0%</text>
+  <text class="m" x="1050" y="215" font-size="15" font-weight="800" fill="#DD6B20" text-anchor="end">1.1%</text>
   <text class="m" x="1130" y="215" font-size="13" font-weight="600" fill="#8C959F" text-anchor="end">100,395 B</text>
   <rect x="656" y="226" width="474" height="6" rx="3" fill="#E1E4E8"/>
-  <rect x="656" y="226" width="4" height="6" rx="3" fill="#DD6B20"/>
+  <rect x="656" y="226" width="5" height="6" rx="3" fill="#DD6B20"/>
   <!-- Other -->
   <circle cx="640" cy="275" r="6" fill="#A0AEC0"/>
   <text class="s" x="656" y="280" font-size="16" font-weight="700" fill="#24292E">Other</text>
-  <text class="m" x="1050" y="280" font-size="15" font-weight="800" fill="#A0AEC0" text-anchor="end">3.0%</text>
-  <text class="m" x="1130" y="280" font-size="13" font-weight="600" fill="#8C959F" text-anchor="end">282,436 B</text>
+  <text class="m" x="1050" y="280" font-size="15" font-weight="800" fill="#A0AEC0" text-anchor="end">1.5%</text>
+  <text class="m" x="1130" y="280" font-size="13" font-weight="600" fill="#8C959F" text-anchor="end">144,436 B</text>
   <rect x="656" y="291" width="474" height="6" rx="3" fill="#E1E4E8"/>
-  <rect x="656" y="291" width="14" height="6" rx="3" fill="#A0AEC0"/>
+  <rect x="656" y="291" width="7" height="6" rx="3" fill="#A0AEC0"/>
 </svg>

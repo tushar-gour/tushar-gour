@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-08-22T10:06:41.974831+00:00",
+  "generatedAt": "2026-08-22T10:07:22.965317+00:00",
   "user": "tushar-gour",
   "repositories": {
     "total": 93,
     "visibility": "PUBLIC + PRIVATE"
   },
   "contributions": {
-    "total365": 2350,
+    "total365": 2342,
     "activeDays": 232,
     "peakWeek": 153,
-    "currentWeek": 93,
+    "currentWeek": 85,
     "weeklyPulse": [
       0,
       0,
@@ -62,26 +62,26 @@
       18,
       28,
       71,
-      93
+      85
     ]
   },
   "languages": {
-    "totalBytes": 9558530,
+    "totalBytes": 9420530,
     "breakdown": [
       {
         "language": "JavaScript",
         "bytes": 3841751,
-        "percentage": 40.2
+        "percentage": 40.8
       },
       {
         "language": "TypeScript",
         "bytes": 3299789,
-        "percentage": 34.5
+        "percentage": 35.0
       },
       {
         "language": "Dart",
         "bytes": 1846238,
-        "percentage": 19.3
+        "percentage": 19.6
       },
       {
         "language": "C++",
@@ -91,12 +91,12 @@
       {
         "language": "Kotlin",
         "bytes": 100395,
-        "percentage": 1.0
+        "percentage": 1.1
       },
       {
         "language": "Other",
-        "bytes": 282436,
-        "percentage": 3.0
+        "bytes": 144436,
+        "percentage": 1.5
       }
     ]
   }
