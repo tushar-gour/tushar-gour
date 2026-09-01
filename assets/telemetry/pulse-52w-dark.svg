@@ -14,7 +14,7 @@
   <text class="m" x="42" y="46" font-size="16" font-weight="800" fill="#C97B4B" letter-spacing="2">METRIC</text>
   <text class="s" x="124" y="46" font-size="30" font-weight="900" fill="#EDE8DF" letter-spacing="-0.5">CONTRIBUTION PULSE</text>
   <text class="m" x="440" y="46" font-size="16" font-weight="600" fill="#5E7488" letter-spacing="1">/ 52 DISCRETE WEEKS</text>
-  <text class="m" x="1158" y="46" font-size="16" font-weight="600" fill="#5E7488" letter-spacing="1" text-anchor="end">SEP 2025 — AUG 2026</text>
+  <text class="m" x="1158" y="46" font-size="16" font-weight="600" fill="#5E7488" letter-spacing="1" text-anchor="end">SEP 2025 — SEP 2026</text>
 
   <!-- Stats summary strip -->
   <text class="m" x="42" y="80" font-size="15" font-weight="600" fill="#5E7488" letter-spacing="0.5">TOTAL 365D:</text>
