@@ -21,13 +21,13 @@
   <text class="m" x="156" y="80" font-size="16" font-weight="800" fill="#D5CCC0" letter-spacing="0.5">3,271</text>
   <text class="m" x="228" y="80" font-size="15" fill="#4A6072">  |  </text>
   <text class="m" x="256" y="80" font-size="15" font-weight="600" fill="#5E7488" letter-spacing="0.5">ACTIVE DAYS:</text>
-  <text class="m" x="375" y="80" font-size="16" font-weight="800" fill="#D5CCC0" letter-spacing="0.5">244</text>
+  <text class="m" x="375" y="80" font-size="16" font-weight="800" fill="#D5CCC0" letter-spacing="0.5">245</text>
   <text class="m" x="414" y="80" font-size="15" fill="#4A6072">  |  </text>
   <text class="m" x="442" y="80" font-size="15" font-weight="600" fill="#5E7488" letter-spacing="0.5">PEAK WEEK:</text>
   <text class="m" x="548" y="80" font-size="16" font-weight="800" fill="#C97B4B" letter-spacing="0.5">227</text>
   <text class="m" x="586" y="80" font-size="15" fill="#4A6072">  |  </text>
   <text class="m" x="614" y="80" font-size="15" font-weight="600" fill="#5E7488" letter-spacing="0.5">CURRENT WEEK:</text>
-  <text class="m" x="748" y="80" font-size="16" font-weight="800" fill="#D5CCC0" letter-spacing="0.5">0</text>
+  <text class="m" x="748" y="80" font-size="16" font-weight="800" fill="#D5CCC0" letter-spacing="0.5">1</text>
 
   <!-- Divider -->
   <line x1="42" y1="96" x2="1158" y2="96" stroke="#192230" stroke-width="1.2"/>
@@ -71,7 +71,7 @@
   <rect x="652" y="234.8" width="16" height="155.2" rx="2.5" fill="#6A7F8E"/>
   <rect x="673" y="216.2" width="16" height="173.8" rx="2.5" fill="#6A7F8E"/>
   <rect x="694" y="351.2" width="16" height="38.8" rx="2.5" fill="#2A3A48"/>
-  <rect x="715" y="344.4" width="16" height="45.6" rx="2.5" fill="#2A3A48"/>
+  <rect x="715" y="346.1" width="16" height="43.9" rx="2.5" fill="#2A3A48"/>
   <rect x="736" y="337.7" width="16" height="52.3" rx="2.5" fill="#2A3A48"/>
   <rect x="757" y="217.9" width="16" height="172.1" rx="2.5" fill="#6A7F8E"/>
   <rect x="778" y="271.9" width="16" height="118.1" rx="2.5" fill="#4A6272"/>
@@ -91,7 +91,7 @@
   <rect x="1072" y="101.4" width="16" height="288.6" rx="2.5" fill="#6A7F8E"/>
   <rect x="1093" y="228.0" width="16" height="162.0" rx="2.5" fill="#6A7F8E"/>
   <rect x="1114" y="295.5" width="16" height="94.5" rx="2.5" fill="#4A6272"/>
-  <rect x="1135" y="386.0" width="16" height="4.0" rx="2.5" fill="#16202C"/>
+  <rect x="1135" y="386.0" width="16" height="4.0" rx="2.5" fill="#2A3A48"/>
   <text class="m" x="64" y="420" font-size="15" font-weight="700" fill="#4A6072">SEP</text>
   <text class="m" x="148" y="420" font-size="15" font-weight="700" fill="#4A6072">OCT</text>
   <text class="m" x="232" y="420" font-size="15" font-weight="700" fill="#4A6072">NOV</text>
