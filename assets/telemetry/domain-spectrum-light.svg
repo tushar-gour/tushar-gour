@@ -39,7 +39,7 @@
   <circle cx="52" cy="245" r="8" fill="#2B6CB0"/>
   <text class="s" x="72" y="252" font-size="22" font-weight="700" fill="#1F2328">TypeScript</text>
   <text class="m" x="420" y="252" font-size="22" font-weight="800" fill="#2B6CB0" text-anchor="end">35.0%</text>
-  <text class="m" x="540" y="252" font-size="18" font-weight="600" fill="#6E7781" text-anchor="end">3,299,789 B</text>
+  <text class="m" x="540" y="252" font-size="18" font-weight="600" fill="#6E7781" text-anchor="end">3,299,779 B</text>
   <rect x="72" y="265" width="468" height="10" rx="5" fill="#E1E4E8"/>
   <rect x="72" y="265" width="163" height="10" rx="5" fill="#2B6CB0"/>
   <!-- Dart -->

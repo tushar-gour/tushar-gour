@@ -18,16 +18,16 @@
 
   <!-- Stats summary strip -->
   <text class="m" x="42" y="80" font-size="15" font-weight="600" fill="#5E7488" letter-spacing="0.5">TOTAL 365D:</text>
-  <text class="m" x="156" y="80" font-size="16" font-weight="800" fill="#D5CCC0" letter-spacing="0.5">3,271</text>
+  <text class="m" x="156" y="80" font-size="16" font-weight="800" fill="#D5CCC0" letter-spacing="0.5">3,272</text>
   <text class="m" x="228" y="80" font-size="15" fill="#4A6072">  |  </text>
   <text class="m" x="256" y="80" font-size="15" font-weight="600" fill="#5E7488" letter-spacing="0.5">ACTIVE DAYS:</text>
-  <text class="m" x="375" y="80" font-size="16" font-weight="800" fill="#D5CCC0" letter-spacing="0.5">245</text>
+  <text class="m" x="375" y="80" font-size="16" font-weight="800" fill="#D5CCC0" letter-spacing="0.5">246</text>
   <text class="m" x="414" y="80" font-size="15" fill="#4A6072">  |  </text>
   <text class="m" x="442" y="80" font-size="15" font-weight="600" fill="#5E7488" letter-spacing="0.5">PEAK WEEK:</text>
   <text class="m" x="548" y="80" font-size="16" font-weight="800" fill="#C97B4B" letter-spacing="0.5">227</text>
   <text class="m" x="586" y="80" font-size="15" fill="#4A6072">  |  </text>
   <text class="m" x="614" y="80" font-size="15" font-weight="600" fill="#5E7488" letter-spacing="0.5">CURRENT WEEK:</text>
-  <text class="m" x="748" y="80" font-size="16" font-weight="800" fill="#D5CCC0" letter-spacing="0.5">1</text>
+  <text class="m" x="748" y="80" font-size="16" font-weight="800" fill="#D5CCC0" letter-spacing="0.5">2</text>
 
   <!-- Divider -->
   <line x1="42" y1="96" x2="1158" y2="96" stroke="#192230" stroke-width="1.2"/>
