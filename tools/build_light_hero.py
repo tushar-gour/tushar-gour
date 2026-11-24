@@ -10,6 +10,41 @@ ROOT = Path(__file__).resolve().parents[1]
 source = ROOT / "assets/identity/hero-gold.png"
 target = source.with_name("hero-gold-light.png")
 
+def refine_hero_accents(image, is_dark):
+    """Restore the background beneath the old accents, then draw the new rules.
+
+    Coordinates are defined in the original 2048 x 731 composition.
+    Text, map, crest and border are outside the edited regions.
+    """
+    pixels = np.array(image.convert("RGB"), dtype=np.float32)
+
+    def restore(box, horizontal):
+        x0, y0, x1, y1 = box
+        if horizontal:
+            before = pixels[y0-3:y0, x0:x1].mean(axis=0)
+            after = pixels[y1:y1+3, x0:x1].mean(axis=0)
+            weight = np.linspace(0, 1, y1-y0)[:, None, None]
+            pixels[y0:y1, x0:x1] = before[None] * (1-weight) + after[None] * weight
+        else:
+            before = pixels[y0:y1, x0-3:x0].mean(axis=1)
+            after = pixels[y0:y1, x1:x1+3].mean(axis=1)
+            weight = np.linspace(0, 1, x1-x0)[None, :, None]
+            pixels[y0:y1, x0:x1] = before[:, None] * (1-weight) + after[:, None] * weight
+
+    restore((108,109,520,130), True)
+    restore((120,417,1240,437), True)
+    restore((125,479,145,599), False)
+    result = Image.fromarray(np.uint8(np.clip(pixels,0,255)))
+    draw = ImageDraw.Draw(result)
+    gold = (236,193,135) if is_dark else (153,86,23)
+    graphite = (65,68,70) if is_dark else (200,183,163)
+    separator = (77,80,81) if is_dark else (200,183,163)
+    draw.line((112,119,500,119), fill=graphite, width=3)
+    draw.line((112,119,232,119), fill=gold, width=3)
+    draw.line((125,426,1210,426), fill=separator, width=2)
+    return result
+
+
 def generate():
     original = Image.open(source).convert("RGB")
     # Exact approved crop: 1978 x 600. Recover the two edge pixels only
@@ -28,6 +63,9 @@ def generate():
         im.paste(original,(35,64))
     else:
         raise ValueError(f"Unexpected hero dimensions: {original.size}")
+    # The exact top-rule color also marks the already-refined dark artwork.
+    if im.getpixel((160,119)) != (236,193,135):
+        im = refine_hero_accents(im, True)
     a = np.asarray(im).astype(np.float32)/255
     r,g,b = a.transpose(2,0,1)
     y = .2126*r+.7152*g+.0722*b
@@ -78,9 +116,10 @@ def generate():
     frame=ImageDraw.Draw(out)
     frame.rounded_rectangle((36,64,2011,663),radius=17,outline=(216,205,190,255),width=2)
     # Crop away the outside margins. Both variants use identical framing and dimensions.
-    out.convert("RGB").crop(bounds).save(target,optimize=True)
-    if original.size != (1978,600):
-        im.crop(bounds).save(source,optimize=True)
+    refine_hero_accents(out, False).crop(bounds).save(target,optimize=True)
+    cropped = im.crop(bounds)
+    if original.size != cropped.size or not np.array_equal(np.asarray(original), np.asarray(cropped)):
+        cropped.save(source,optimize=True)
     with Image.open(source) as check:
         assert check.size == (1978,600)
         check.verify()
