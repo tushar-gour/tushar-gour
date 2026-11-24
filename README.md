@@ -1,4 +1,8 @@
-<img src="./assets/identity/hero-gold.png" alt="Tushar Gour — Software Engineer" width="100%">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/identity/hero-gold.png">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/identity/hero-gold-light.png">
+  <img src="./assets/identity/hero-gold.png" alt="Tushar Gour — Software Engineer" width="100%">
+</picture>
 
 <!-- ================================================================= -->
 <!-- 02 — ENGINEERING STACK & SIGNAL LANES                             -->
