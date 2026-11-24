@@ -2,6 +2,9 @@
 from pathlib import Path
 from PIL import Image, ImageChops
 import hashlib
+import base64
+import io
+from profile_design import palette
 import re
 import numpy as np
 
@@ -10,6 +13,20 @@ DIR = ROOT / "assets/footer"
 SOURCE = DIR / "footer-original.png"
 KEYS = ("github", "linkedin", "email", "resume")
 EXPECTED = "e144bf32ad10ad63a56947861c23f64862efa7de9129bb03f254447093c40c8b"
+
+def framed_slice(image, key, x, theme):
+    """Keep the PNG pixels unchanged beneath a single shared outer frame."""
+    buffer = io.BytesIO()
+    image.save(buffer, format="PNG", optimize=True)
+    b = base64.b64encode(buffer.getvalue()).decode("ascii")
+    stroke = palette(theme == "dark")["line"]
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="{x} 0 543 724" width="543" height="724" overflow="hidden" role="img" aria-label="{key} contact">
+<defs><clipPath id="frame" clipPathUnits="userSpaceOnUse"><rect width="2172" height="724" rx="28.314"/></clipPath></defs>
+<g clip-path="url(#frame)"><image x="{x}" y="0" width="543" height="724" xlink:href="data:image/png;base64,{b}"/></g>
+<rect x="1.164" y="1.164" width="2169.672" height="721.672" rx="27.15" fill="none" stroke="{stroke}" stroke-width="2.328"/>
+</svg>
+'''
+
 
 def main():
     if hashlib.sha256(SOURCE.read_bytes()).hexdigest() != EXPECTED:
@@ -31,14 +48,17 @@ def main():
         rebuilt = Image.new("RGB", image.size)
         for i,key in enumerate(KEYS):
             x = i*543
-            path = DIR / f"connect-{key}-{theme}.png"
-            image.crop((x,0,x+543,724)).save(path,optimize=True)
-            rebuilt.paste(Image.open(path).convert("RGB"),(x,0))
+            path = DIR / f"connect-{key}-{theme}.svg"
+            crop = image.crop((x,0,x+543,724))
+            svg = framed_slice(crop, key, x, theme)
+            path.write_text(svg, encoding="utf-8")
+            payload = svg.split("data:image/png;base64,",1)[1].split('"',1)[0]
+            rebuilt.paste(Image.open(io.BytesIO(base64.b64decode(payload))).convert("RGB"),(x,0))
         assert ImageChops.difference(image,rebuilt).getbbox() is None, "Slice pixels changed"
     readme = ROOT / "README.md"
     old = readme.read_text(encoding="utf-8")
-    pattern = r"(assets/footer/connect-(?:github|linkedin|email|resume)-(?:dark|light))\.svg"
-    new, n = re.subn(pattern,r"\1.png",old)
+    pattern = r"(assets/footer/connect-(?:github|linkedin|email|resume)-(?:dark|light))\.(?:png|svg)"
+    new, n = re.subn(pattern,r"\1.svg",old)
     if n != 12:
         raise ValueError(f"Unexpected footer layout: {n} image references")
     assert 'mailto:official@tushargour.com' in new
@@ -46,11 +66,11 @@ def main():
     readme.write_text(new,encoding="utf-8")
     for key in KEYS:
         for theme in ("dark","light"):
-            (DIR / f"connect-{key}-{theme}.svg").unlink(missing_ok=True)
+            (DIR / f"connect-{key}-{theme}.png").unlink(missing_ok=True)
     SOURCE.unlink()
     docs = ROOT / "assets/README.md"
     content = docs.read_text(encoding="utf-8")
-    content = re.sub(r"^- `footer/`:.*$", "- `footer/`: four lossless PNG slices of the approved 2172 × 724 dark contact banner, plus a matching light-palette adaptation. Each slice is independently linked. No duplicate original or obsolete SVG artwork is retained.",content,flags=re.M)
+    content = re.sub(r"^- `footer/`:.*$", "- `footer/`: four lossless embedded PNG slices of the approved 2172 × 724 dark contact banner, plus a matching light-palette adaptation, wrapped in SVGs with a continuous rounded outer frame. Each slice is independently linked. The frame matches the shared 1120-unit card design (14-unit radius, 1.2-unit stroke). No duplicate artwork is retained.",content,flags=re.M)
     docs.write_text(content,encoding="utf-8")
     print("Verified all original dark pixels and clickable footer references")
 
