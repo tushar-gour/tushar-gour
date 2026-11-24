@@ -14,23 +14,12 @@
 <br><br>
 
 <!-- ================================================================= -->
-<!-- 03 — GITHUB METRICS & REPOSITORY STATISTICS (LOCKED)              -->
-<!-- ================================================================= -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/stats-editorial-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry/stats-editorial-light.svg">
-  <img src="./assets/telemetry/stats-editorial-dark.svg" alt="GitHub Metrics &amp; Repository Statistics" width="100%">
-</picture>
-
-<br><br>
-
-<!-- ================================================================= -->
-<!-- 04 — 52-WEEK CONTRIBUTION PULSE (LOCKED)                          -->
+<!-- 03 — ENGINEERING ACTIVITY                                         -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/pulse-52w-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry/pulse-52w-light.svg">
-  <img src="./assets/telemetry/pulse-52w-dark.svg" alt="52-Week Contribution Pulse" width="100%">
+  <img src="./assets/telemetry/pulse-52w-dark.svg" alt="Engineering activity: contributions, active days and 52-week contribution distribution" width="100%">
 </picture>
 
 <br><br>

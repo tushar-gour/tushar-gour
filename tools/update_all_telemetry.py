@@ -144,15 +144,8 @@ def fetch_live_contributions() -> dict:
                 "months": ["SEP", "OCT", "NOV", "DEC", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG"]
             }
     except Exception as e:
-        print(f"Contributions fetch notice: {e}")
-        return {
-            "total": 2257,
-            "active_days": 226,
-            "peak_week": 153,
-            "current_week": 70,
-            "weekly_52": [1, 0, 0, 3, 5, 16, 2, 4, 4, 4, 16, 2, 6, 2, 9, 3, 29, 7, 23, 47, 7, 5, 30, 4, 7, 97, 133, 130, 38, 116, 99, 64, 92, 103, 23, 22, 25, 60, 48, 95, 69, 72, 79, 153, 78, 100, 77, 23, 109, 18, 28, 70],
-            "months": ["SEP", "OCT", "NOV", "DEC", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG"]
-        }
+        raise RuntimeError("Contribution feeds unavailable; preserving the last published snapshot") from e
+
 
 def fetch_live_languages() -> list:
     """Fetch live aggregated language byte statistics across all repositories."""
@@ -255,106 +248,32 @@ def build_stats_svg(total_repos=TOTAL_REPOSITORIES, total_contribs=2257, active_
 </svg>'''
 
 def build_pulse_svg(contrib_data: dict, is_dark=True):
-    bg = "#0C1018" if is_dark else "#F8FAFC"
-    border = "#1C2632" if is_dark else "#D0D7DE"
-    divider = "#192230" if is_dark else "#E1E4E8"
-    grid = "#1A2838" if is_dark else "#EAEFF4"
-    grid_lbl = "#4A6072" if is_dark else "#6E7781"
-    hdr_sub = "#5E7488" if is_dark else "#57606A"
-    val_txt = "#D5CCC0" if is_dark else "#1F2328"
-    accent = "#C97B4B" if is_dark else "#C96A4B"
-    txt = "#EDE8DF" if is_dark else "#1F2328"
-
-    total = contrib_data["total"]
-    active_days = contrib_data["active_days"]
-    peak = max(contrib_data["peak_week"], 1)
-    current = contrib_data["current_week"]
+    """Render combined engineering activity from the actual contribution calendar."""
+    palette = {"bg":"#0D1117","fg":"#F0F3F6","sub":"#AAB4BE","muted":"#8996A3","grid":"#27313C","bar":"#687987","accent":"#D99465"} if is_dark else {"bg":"#FFFFFF","fg":"#1F2328","sub":"#57606A","muted":"#596773","grid":"#D8DEE4","bar":"#687987","accent":"#B65C30"}
     weeks = contrib_data["weekly_52"]
-
-    # Month header span
-    now = datetime.now(timezone.utc)
-    start_date = now - timedelta(days=364)
-    time_span = f"{start_date.strftime('%b %Y').upper()} — {now.strftime('%b %Y').upper()}"
-
-    # Determine Y-axis max rounded up nicely
-    y_max = 160 if peak > 120 else (120 if peak > 80 else 100)
-    y_zero = 390
-    chart_h = 270
-    ppu = chart_h / y_max
-
-    grid_steps = [int(y_max * f) for f in (1.0, 0.75, 0.5, 0.25)]
-
-    svg_parts = [f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" width="100%" height="100%">
-  <defs>
-    <style>
-      .m {{ font-family: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }}
-      .s {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }}
-    </style>
-  </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="450" rx="12" fill="{bg}"/>
-  <rect width="1200" height="450" rx="12" fill="none" stroke="{border}" stroke-width="1.2"/>
-
-  <!-- HEADER -->
-  <text class="m" x="42" y="46" font-size="16" font-weight="800" fill="{accent}" letter-spacing="2">METRIC</text>
-  <text class="s" x="124" y="46" font-size="30" font-weight="900" fill="{txt}" letter-spacing="-0.5">CONTRIBUTION PULSE</text>
-  <text class="m" x="440" y="46" font-size="16" font-weight="600" fill="{hdr_sub}" letter-spacing="1">/ 52 DISCRETE WEEKS</text>
-  <text class="m" x="1158" y="46" font-size="16" font-weight="600" fill="{hdr_sub}" letter-spacing="1" text-anchor="end">{time_span}</text>
-
-  <!-- Stats summary strip -->
-  <text class="m" x="42" y="80" font-size="15" font-weight="600" fill="{hdr_sub}" letter-spacing="0.5">TOTAL 365D:</text>
-  <text class="m" x="156" y="80" font-size="16" font-weight="800" fill="{val_txt}" letter-spacing="0.5">{total:,}</text>
-  <text class="m" x="228" y="80" font-size="15" fill="{grid_lbl}">  |  </text>
-  <text class="m" x="256" y="80" font-size="15" font-weight="600" fill="{hdr_sub}" letter-spacing="0.5">ACTIVE DAYS:</text>
-  <text class="m" x="375" y="80" font-size="16" font-weight="800" fill="{val_txt}" letter-spacing="0.5">{active_days}</text>
-  <text class="m" x="414" y="80" font-size="15" fill="{grid_lbl}">  |  </text>
-  <text class="m" x="442" y="80" font-size="15" font-weight="600" fill="{hdr_sub}" letter-spacing="0.5">PEAK WEEK:</text>
-  <text class="m" x="548" y="80" font-size="16" font-weight="800" fill="{accent}" letter-spacing="0.5">{peak}</text>
-  <text class="m" x="586" y="80" font-size="15" fill="{grid_lbl}">  |  </text>
-  <text class="m" x="614" y="80" font-size="15" font-weight="600" fill="{hdr_sub}" letter-spacing="0.5">CURRENT WEEK:</text>
-  <text class="m" x="748" y="80" font-size="16" font-weight="800" fill="{val_txt}" letter-spacing="0.5">{current}</text>
-
-  <!-- Divider -->
-  <line x1="42" y1="96" x2="1158" y2="96" stroke="{divider}" stroke-width="1.2"/>''']
-
-    # Grid lines
-    for step in grid_steps:
-        gy = y_zero - (step * ppu)
-        svg_parts.append(f'  <line x1="64" y1="{gy:.1f}" x2="1158" y2="{gy:.1f}" stroke="{grid}" stroke-width="1" stroke-dasharray="4 4"/>')
-        svg_parts.append(f'  <text class="m" x="56" y="{gy+5:.1f}" font-size="15" font-weight="600" fill="{grid_lbl}" text-anchor="end">{step}</text>')
-    
-    svg_parts.append(f'  <text class="m" x="56" y="{y_zero+5}" font-size="15" font-weight="600" fill="{grid_lbl}" text-anchor="end">0</text>')
-
-    # 52 Bars (width 16, pitch 21, start x=64)
+    if len(weeks) != 52 or any(not isinstance(n, int) or n < 0 for n in weeks):
+        raise ValueError("Expected 52 non-negative weekly contribution counts")
+    peak = max(weeks)
+    # Six tick labels; keep 50-contribution intervals through 250.
+    # Increase the scale for future peaks instead of drawing outside the plot.
+    step_size = max(50, ((peak + 249) // 250) * 50)
+    y_max = 5 * step_size
+    header = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1142 434\" width=\"1142\" height=\"434\" role=\"img\" aria-labelledby=\"title desc\">\n  <title id=\"title\">Engineering activity</title>\n  <desc id=\"desc\">{total} contributions, {active_days} active days, weekly contribution distribution across 52 weeks. Peak: {peak}.</desc>\n  <rect width=\"1142\" height=\"434\" fill=\"{bg}\"/>\n  <g font-family=\"Arial, Helvetica, sans-serif\">\n    <text x=\"22\" y=\"56\" font-family=\"Consolas, monospace\" font-size=\"18\" fill=\"{accent}\">03</text>\n    <text x=\"82\" y=\"62\" font-size=\"40\" font-weight=\"600\" fill=\"{fg}\">Engineering activity</text>\n    <text x=\"1118\" y=\"57\" text-anchor=\"end\" font-family=\"Consolas, monospace\" font-size=\"16\" fill=\"{muted}\">365-DAY SNAPSHOT</text>\n    <text x=\"22\" y=\"149\" font-size=\"64\" font-weight=\"600\" fill=\"{fg}\">{total}</text>\n    <text x=\"22\" y=\"192\" font-size=\"21\" fill=\"{sub}\">Contributions</text>\n    <line x1=\"300\" y1=\"105\" x2=\"300\" y2=\"203\" stroke=\"{grid}\" stroke-width=\"2\"/>\n    <text x=\"336\" y=\"149\" font-size=\"64\" font-weight=\"600\" fill=\"{fg}\">{active_days}</text>\n    <text x=\"336\" y=\"192\" font-size=\"21\" fill=\"{sub}\">Active days</text>\n    <line x1=\"572\" y1=\"105\" x2=\"572\" y2=\"203\" stroke=\"{grid}\" stroke-width=\"2\"/>\n    <text x=\"606\" y=\"136\" font-size=\"40\" font-weight=\"600\" fill=\"{fg}\">52 weeks</text>\n    <text x=\"606\" y=\"179\" font-size=\"21\" fill=\"{sub}\">Weekly contribution distribution</text>\n  </g>"
+    grid_line = "  <line x1=\"76\" y1=\"{y}\" x2=\"1118\" y2=\"{y}\" stroke=\"{grid}\" stroke-width=\"1.5\"/>\n  <text x=\"58\" y=\"{label_y}\" font-family=\"Consolas, monospace\" font-size=\"16\" text-anchor=\"end\" fill=\"{muted}\">{step}</text>"
+    bar_line = "  <rect x=\"{x}\" y=\"{y}\" width=\"15.2\" height=\"{h}\" rx=\"{radius}\" fill=\"{fill}\"><title>Week {week}: {count} contributions</title></rect>"
+    footer = "  <g font-family=\"Consolas, monospace\" font-size=\"16\" fill=\"{muted}\">\n    <text x=\"76\" y=\"418\">WEEK 01</text>\n    <text x=\"1118\" y=\"418\" text-anchor=\"end\">WEEK 52</text>\n  </g>\n</svg>\n"
+    parts = [header.format(**palette, total=f'{contrib_data["total"]:,}', active_days=contrib_data["active_days"], peak=peak)]
+    for step in range(0, y_max + 1, step_size):
+        y = 390 - 166 * step / y_max
+        parts.append(grid_line.format(**palette, y=f"{y:.2f}", label_y=f"{y + 5:.2f}", step=step))
     for i, count in enumerate(weeks):
-        x = 64 + i * 21
-        h = max(4.0, count * ppu)
-        y = y_zero - h
-        
-        # Color coding
-        if count == peak and count > 0:
-            fill_col = accent
-        elif count >= y_max * 0.5:
-            fill_col = "#6A7F8E" if is_dark else "#4A5568"
-        elif count >= y_max * 0.25:
-            fill_col = "#4A6272" if is_dark else "#718096"
-        elif count > 0:
-            fill_col = "#2A3A48" if is_dark else "#CBD5E1"
-        else:
-            fill_col = "#16202C" if is_dark else "#E2E8F0"
-
-        svg_parts.append(f'  <rect x="{x}" y="{y:.1f}" width="16" height="{h:.1f}" rx="2.5" fill="{fill_col}"/>')
-
-    # Month markers along the bottom (52 / 12 ~= 4.33 weeks per month)
-    months = ["SEP", "OCT", "NOV", "DEC", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG"]
-    for m_idx, m_name in enumerate(months):
-        col_idx = int(m_idx * 4.33)
-        mx = 64 + col_idx * 21
-        svg_parts.append(f'  <text class="m" x="{mx}" y="420" font-size="15" font-weight="700" fill="{grid_lbl}">{m_name}</text>')
-
-    svg_parts.append('</svg>\n')
-    return "\n".join(svg_parts)
+        if count == 0:
+            continue
+        h = 166 * count / y_max
+        x = 76 + (i + 0.5) * 1042 / 52 - 7.6
+        parts.append(bar_line.format(x=f"{x:.2f}", y=f"{390 - h:.2f}", h=f"{h:.2f}", radius=f"{min(2.5, h / 2):.2f}", fill=palette["accent"] if count == peak else palette["bar"], week=i + 1, count=count))
+    parts.append(footer.format(**palette))
+    return "\n".join(parts)
 
 def build_spectrum_svg(languages: list, is_dark=True):
     bg = "#0C1018" if is_dark else "#F8FAFC"
