@@ -22,10 +22,10 @@ os.makedirs(CACHE_DIR, exist_ok=True)
 SKILLS = [
     # ─── Lane 01: CLIENT & UI (Y=150) ───
     (1, 0, "Flutter", "Flutter", True, "Flutter-Dark.svg", "Flutter-Light.svg"),
-    (1, 1, "Dart", "Dart", False, "Dart-Dark.svg", "Dart-Light.svg"),
+    (1, 1, "Dart", "Dart", True, "Dart-Dark.svg", "Dart-Light.svg"),
     (1, 2, "React", "React", True, "CUSTOM_REACT", "CUSTOM_REACT"),
     (1, 3, "TypeScript", "TypeScript", True, "TypeScript.svg", "TypeScript.svg"),
-    (1, 4, "JavaScript", "JavaScript", False, "JavaScript.svg", "JavaScript.svg"),
+    (1, 4, "JavaScript", "JavaScript", True, "JavaScript.svg", "JavaScript.svg"),
     (1, 5, "HTML5", "HTML5", False, "HTML.svg", "HTML.svg"),
     (1, 6, "CSS3", "CSS3", False, "CSS.svg", "CSS.svg"),
     (1, 7, "Tailwind", "Tailwind\nCSS", False, "TailwindCSS-Dark.svg", "TailwindCSS-Light.svg"),
@@ -33,11 +33,11 @@ SKILLS = [
 
     # ─── Lane 02: BACKEND & LANGUAGES (Y=275) ───
     (2, 0, "NodeJS", "Node.js", True, "NodeJS-Dark.svg", "NodeJS-Light.svg"),
-    (2, 1, "Express", "Express", False, "ExpressJS-Dark.svg", "ExpressJS-Light.svg"),
+    (2, 1, "Express", "Express", True, "ExpressJS-Dark.svg", "ExpressJS-Light.svg"),
     (2, 2, "SocketIO", "Socket.IO", False, "CUSTOM_SOCKETIO", "CUSTOM_SOCKETIO"),
-    (2, 3, "Java", "Java", True, "Java-Dark.svg", "Java-Light.svg"),
-    (2, 4, "Python", "Python", True, "Python-Dark.svg", "Python-Light.svg"),
-    (2, 5, "CPP", "C++", True, "CPP.svg", "CPP.svg"),
+    (2, 3, "Java", "Java", False, "Java-Dark.svg", "Java-Light.svg"),
+    (2, 4, "Python", "Python", False, "Python-Dark.svg", "Python-Light.svg"),
+    (2, 5, "CPP", "C++", False, "CPP.svg", "CPP.svg"),
     (2, 6, "C", "C", False, "C.svg", "C.svg"),
     (2, 7, "Kotlin", "Kotlin", False, "Kotlin-Dark.svg", "Kotlin-Light.svg"),
     (2, 8, "Lua", "Lua", False, "CUSTOM_LUA", "CUSTOM_LUA"),
@@ -58,7 +58,7 @@ SKILLS = [
     (4, 0, "AWS", "AWS", True, "AWS-Dark.svg", "AWS-Light.svg"),
     (4, 1, "GCP", "GCP", False, "GCP-Dark.svg", "GCP-Light.svg"),
     (4, 2, "Docker", "Docker", True, "Docker.svg", "Docker.svg"),
-    (4, 3, "Linux", "Linux", False, "Linux-Dark.svg", "Linux-Light.svg"),
+    (4, 3, "Linux", "Linux", True, "Linux-Dark.svg", "Linux-Light.svg"),
     (4, 4, "Cloudflare", "Cloudflare", False, "Cloudflare-Dark.svg", "Cloudflare-Light.svg"),
     (4, 5, "CICD", "CI/CD", False, "GithubActions-Dark.svg", "GithubActions-Light.svg"),
     (4, 6, "Vercel", "Vercel", False, "Vercel-Dark.svg", "Vercel-Light.svg"),
@@ -77,22 +77,22 @@ SKILLS = [
     (5, 6, "macOS", "macOS", False, "CUSTOM_MACOS", "CUSTOM_MACOS"),
     (5, 7, "Figma", "Figma", False, "Figma-Dark.svg", "Figma-Light.svg"),
     (5, 8, "Blender", "Blender", False, "Blender-Dark.svg", "Blender-Light.svg"),
-    (5, 9, "Unity", "Unity", True, "Unity-Dark.svg", "Unity-Light.svg"),
-    (5, 10, "Roblox", "Roblox\nStudio", False, "RobloxStudio.svg", "RobloxStudio.svg"),
+    (5, 9, "Unity", "Unity", False, "Unity-Dark.svg", "Unity-Light.svg"),
+    (5, 10, "Roblox", "Roblox\nStudio", True, "RobloxStudio.svg", "RobloxStudio.svg"),
 
     # ─── Lane 06: AI (Y=775) ───
-    (6, 0, "ChatGPT", "ChatGPT\n/ Codex", True, "CUSTOM_OPENAI", "CUSTOM_OPENAI"),
-    (6, 1, "Claude", "Claude\n/ Code", True, "CUSTOM_CLAUDE", "CUSTOM_CLAUDE"),
-    (6, 2, "Gemini", "Gemini\n/ AGY", True, "CUSTOM_GEMINI", "CUSTOM_GEMINI"),
-    (6, 3, "DeepSeek", "DeepSeek", True, "CUSTOM_DEEPSEEK", "CUSTOM_DEEPSEEK"),
+    (6, 0, "ChatGPT", "ChatGPT\n/ Codex", False, "CUSTOM_OPENAI", "CUSTOM_OPENAI"),
+    (6, 1, "Claude", "Claude\n/ Code", False, "CUSTOM_CLAUDE", "CUSTOM_CLAUDE"),
+    (6, 2, "Gemini", "Gemini\n/ AGY", False, "CUSTOM_GEMINI", "CUSTOM_GEMINI"),
+    (6, 3, "DeepSeek", "DeepSeek", False, "CUSTOM_DEEPSEEK", "CUSTOM_DEEPSEEK"),
     (6, 4, "Perplexity", "Perplexity", False, "CUSTOM_PERPLEXITY", "CUSTOM_PERPLEXITY"),
     (6, 5, "Manus", "Manus", False, "CUSTOM_MANUS", "CUSTOM_MANUS"),
     (6, 6, "MiniMax", "MiniMax", False, "CUSTOM_MINIMAX", "CUSTOM_MINIMAX"),
     (6, 7, "Blackbox", "Blackbox\nAI", False, "CUSTOM_BLACKBOX", "CUSTOM_BLACKBOX"),
 ]
 
-# 11 columns perfectly proportioned across 1120px canvas (step = 86px)
-COL_X = [165, 251, 337, 423, 509, 595, 681, 767, 853, 939, 1025]
+# 11 aligned columns; extra room for lane labels (84px pitch)
+COL_X = [186, 270, 354, 438, 522, 606, 690, 774, 858, 942, 1026]
 LANE_Y = {1: 150, 2: 275, 3: 400, 4: 525, 5: 650, 6: 775}
 
 # Category labels
@@ -289,6 +289,43 @@ def get_icon_svg(skill_id, filename, is_dark):
 
     return inner
 
+def build_skill_border(skill_id, is_pri, is_dark):
+    """A restrained diagonal border sweep, with independent 2–5s intervals."""
+    if not is_pri:
+        card_border = "#3C352E" if is_dark else "#D8CDBE"
+        return f'<rect x="-29" y="-29" width="58" height="58" rx="14" fill="none" stroke="{card_border}" stroke-width="1.3"/>'
+
+    # Deterministic pseudo-random schedules work in script-free GitHub SVG images.
+    seed = 2166136261
+    for char in skill_id:
+        seed = ((seed ^ ord(char)) * 16777619) & 0xffffffff
+
+    def rand():
+        nonlocal seed
+        seed = (seed * 1664525 + 1013904223) & 0xffffffff
+        return seed
+
+    phase = rand() % 5000
+    intervals = [2000 + rand() % 3001 for _ in range(24)]
+    total = sum(intervals)
+    times, values = [0], ["-80 -80"]
+    t = 0
+    for interval in intervals:
+        times.extend([t + 850, t + interval - 1, t + interval])
+        values.extend(["80 80", "80 80", "-80 -80"])
+        t += interval
+
+    keys = ";".join(f"{x / total:.8f}" for x in times)
+    shifts = ";".join(values)
+    duration = f"{total / 1000:.3f}"
+    begin = f"{-phase / 1000:.3f}"
+    base_color = "#9A8066" if is_dark else "#9B5A1C"
+    mid = "#F8BA6A" if is_dark else "#BA7229"
+    shine = "#FFF1CE" if is_dark else "#E9A54F"
+    gid = f"shimmer_{skill_id}" + ("" if is_dark else "L")
+    return f'<defs><linearGradient id="{gid}" gradientUnits="userSpaceOnUse" x1="-30" y1="-30" x2="30" y2="30" gradientTransform="translate(-80 -80)"><stop offset="0" stop-color="{base_color}"/><stop offset="0.34" stop-color="{base_color}"/><stop offset="0.45" stop-color="{mid}"/><stop offset="0.50" stop-color="{shine}"/><stop offset="0.55" stop-color="{mid}"/><stop offset="0.66" stop-color="{base_color}"/><stop offset="1" stop-color="{base_color}"/><animateTransform attributeName="gradientTransform" type="translate" values="{shifts}" keyTimes="{keys}" dur="{duration}s" begin="{begin}s" repeatCount="indefinite" calcMode="linear"/></linearGradient></defs><rect x="-29" y="-29" width="58" height="58" rx="14" fill="none" stroke="url(#{gid})" stroke-width="2.1"/>'
+
+
 def build_toolchain(is_dark=True):
     theme_suffix = "" if is_dark else "L"
     bg_vignette = "#191816" if is_dark else "#FAF7F2"
@@ -337,13 +374,6 @@ def build_toolchain(is_dark=True):
       <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
-    <filter id="cardGlow{theme_suffix}" x="-25%" y="-25%" width="150%" height="150%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
-      <feFlood flood-color="{accent}" flood-opacity="0.4" result="c"/>
-      <feComposite in="c" in2="blur" operator="in" result="glow"/>
-      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-
     <style>
       .mono{theme_suffix} {{ font-family: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }}
       .label{theme_suffix} {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 700; }}
@@ -363,11 +393,6 @@ def build_toolchain(is_dark=True):
       .b5{theme_suffix} {{ animation: bulletAnim{theme_suffix} 8.0s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 2.6s; }}
       .b6{theme_suffix} {{ animation: bulletAnim{theme_suffix} 7.8s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 4.2s; }}
 
-      @keyframes cardPulse{theme_suffix} {{
-        0%,100% {{ stroke-opacity:0.85; }}
-        50% {{ stroke-opacity:1; }}
-      }}
-      .pri{theme_suffix} {{ animation: cardPulse{theme_suffix} 3.5s ease-in-out infinite; }}
     </style>
   </defs>
 
@@ -462,18 +487,14 @@ def build_toolchain(is_dark=True):
             x_off, y_off = -w // 2, -h // 2
             border_radius = 14
 
-            if is_pri:
-                border_elem = f'<rect class="pri{theme_suffix}" x="{x_off}" y="{y_off}" width="{w}" height="{h}" rx="{border_radius}" fill="none" stroke="{accent}" stroke-width="2.4" filter="url(#cardGlow{theme_suffix})"/>'
-            else:
-                card_border = "#3C352E" if is_dark else "#D8CDBE"
-                border_elem = f'<rect x="{x_off}" y="{y_off}" width="{w}" height="{h}" rx="{border_radius}" fill="none" stroke="{card_border}" stroke-width="1.3"/>'
+            border_elem = build_skill_border(skill_id, is_pri, is_dark)
 
             # Format label
             if "\n" in label:
                 lines = label.split("\n")
-                label_markup = f'<text class="label{theme_suffix}" x="0" y="46" font-size="13.5" fill="{label_txt}" text-anchor="middle">{lines[0]}</text><text class="label{theme_suffix}" x="0" y="60" font-size="12.5" fill="{label_txt}" text-anchor="middle">{lines[1]}</text>'
+                label_markup = f'<text class="label{theme_suffix}" x="0" y="48" font-size="14" fill="{label_txt}" text-anchor="middle">{lines[0]}</text><text class="label{theme_suffix}" x="0" y="64" font-size="14" fill="{label_txt}" text-anchor="middle">{lines[1]}</text>'
             else:
-                label_markup = f'<text class="label{theme_suffix}" x="0" y="48" font-size="14.5" fill="{label_txt}" text-anchor="middle">{label}</text>'
+                label_markup = f'<text class="label{theme_suffix}" x="0" y="48" font-size="14" fill="{label_txt}" text-anchor="middle">{label}</text>'
 
             svg_parts.append(f'''
     <!-- {label.replace(chr(10), " ")} (Col {col_idx+1}: {cx}) -->
