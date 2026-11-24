@@ -291,15 +291,15 @@ def get_icon_svg(skill_id, filename, is_dark):
 
 def build_toolchain(is_dark=True):
     theme_suffix = "" if is_dark else "L"
-    bg_vignette = "#0F1923" if is_dark else "#F8FAFC"
-    bg_vignette_outer = "#080C11" if is_dark else "#EDF2F7"
-    border_col = "#1C2632" if is_dark else "#D0D7DE"
-    track_col = "#1E2830" if is_dark else "#D8DDE3"
-    track_term = "#374448" if is_dark else "#A0AAB2"
-    hdr_sub = "#5E7284" if is_dark else "#57606A"
-    lane_txt = "#D5DDE5" if is_dark else "#24292E"
-    label_txt = "#EDE8DF" if is_dark else "#1F2328"
-    accent = "#C97B4B" if is_dark else "#C96A4B"
+    bg_vignette = "#191816" if is_dark else "#FAF7F2"
+    bg_vignette_outer = "#0B0D0E" if is_dark else "#EFE9E0"
+    border_col = "#38322D" if is_dark else "#D8CDBE"
+    track_col = "#302B26" if is_dark else "#E2D9CC"
+    track_term = "#716254" if is_dark else "#A99A89"
+    hdr_sub = "#A89A89" if is_dark else "#746557"
+    lane_txt = "#D8D0C3" if is_dark else "#332B25"
+    label_txt = "#F0E9DD" if is_dark else "#1F2328"
+    accent = "#F8BA6A" if is_dark else "#9B5A1C"
     hdr_title_color = "#FFFFFF" if is_dark else "#0D1117"
 
     rocket_path = os.path.join(os.path.dirname(__file__), "..", "assets", "skills", "rocket.png")
@@ -320,7 +320,7 @@ def build_toolchain(is_dark=True):
       <stop offset="0%" stop-color="{accent}" stop-opacity="0"/>
       <stop offset="20%" stop-color="{accent}" stop-opacity="0.15"/>
       <stop offset="50%" stop-color="{accent}" stop-opacity="0.5"/>
-      <stop offset="80%" stop-color="#FFA880" stop-opacity="0.85"/>
+      <stop offset="80%" stop-color="#FFD39A" stop-opacity="0.85"/>
       <stop offset="95%" stop-color="#FFFFFF" stop-opacity="0.95"/>
       <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
     </linearGradient>
@@ -465,7 +465,7 @@ def build_toolchain(is_dark=True):
             if is_pri:
                 border_elem = f'<rect class="pri{theme_suffix}" x="{x_off}" y="{y_off}" width="{w}" height="{h}" rx="{border_radius}" fill="none" stroke="{accent}" stroke-width="2.4" filter="url(#cardGlow{theme_suffix})"/>'
             else:
-                card_border = "#263240" if is_dark else "#D0D7DE"
+                card_border = "#3C352E" if is_dark else "#D8CDBE"
                 border_elem = f'<rect x="{x_off}" y="{y_off}" width="{w}" height="{h}" rx="{border_radius}" fill="none" stroke="{card_border}" stroke-width="1.3"/>'
 
             # Format label

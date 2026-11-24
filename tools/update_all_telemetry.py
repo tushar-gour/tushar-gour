@@ -196,14 +196,14 @@ def fetch_live_languages() -> list:
 # ─── SVG GENERATORS ───────────────────────────────────────────────────────────
 
 def build_stats_svg(total_repos=TOTAL_REPOSITORIES, total_contribs=2257, active_days=226, peak_week=153, is_dark=True):
-    bg = "#0C1018" if is_dark else "#F8FAFC"
-    border = "#1C2632" if is_dark else "#D0D7DE"
-    divider = "#192230" if is_dark else "#E1E4E8"
-    lbl_color = "#5A6D80" if is_dark else "#57606A"
-    sub_color = "#455A6E" if is_dark else "#6E7781"
-    txt_color = "#EDE8DF" if is_dark else "#1F2328"
-    accent = "#C97B4B" if is_dark else "#C96A4B"
-    underline = "#2E4255" if is_dark else "#D0D7DE"
+    bg = "#101110" if is_dark else "#FAF7F2"
+    border = "#38322D" if is_dark else "#D8CDBE"
+    divider = "#3A332B" if is_dark else "#E2D9CC"
+    lbl_color = "#B7A58E" if is_dark else "#695C4E"
+    sub_color = "#AA9A87" if is_dark else "#746557"
+    txt_color = "#F0E9DD" if is_dark else "#28231E"
+    accent = "#F8BA6A" if is_dark else "#9B5A1C"
+    underline = "#504338" if is_dark else "#D8CDBE"
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" width="100%" height="100%">
   <defs>
@@ -249,7 +249,7 @@ def build_stats_svg(total_repos=TOTAL_REPOSITORIES, total_contribs=2257, active_
 
 def build_pulse_svg(contrib_data: dict, is_dark=True):
     """Render combined engineering activity from the actual contribution calendar."""
-    palette = {"bg":"#0D1117","fg":"#F0F3F6","sub":"#AAB4BE","muted":"#8996A3","grid":"#27313C","bar":"#687987","accent":"#D99465"} if is_dark else {"bg":"#FFFFFF","fg":"#1F2328","sub":"#57606A","muted":"#596773","grid":"#D8DEE4","bar":"#687987","accent":"#B65C30"}
+    palette = {"bg":"#101110","fg":"#F0E9DD","sub":"#C6BAAA","muted":"#AA9A87","grid":"#3A332B","bar":"#9A8066","accent":"#F8BA6A"} if is_dark else {"bg":"#FAF7F2","fg":"#28231E","sub":"#695C4E","muted":"#746557","grid":"#DCCFC0","bar":"#9A8066","accent":"#995617"}
     weeks = contrib_data["weekly_52"]
     if len(weeks) != 52 or any(not isinstance(n, int) or n < 0 for n in weeks):
         raise ValueError("Expected 52 non-negative weekly contribution counts")
@@ -276,21 +276,21 @@ def build_pulse_svg(contrib_data: dict, is_dark=True):
     return "\n".join(parts)
 
 def build_spectrum_svg(languages: list, is_dark=True):
-    bg = "#0C1018" if is_dark else "#F8FAFC"
-    border = "#1C2632" if is_dark else "#D0D7DE"
-    divider = "#192230" if is_dark else "#E1E4E8"
-    lbl_color = "#5E7488" if is_dark else "#57606A"
-    txt_color = "#EDE8DF" if is_dark else "#1F2328"
-    accent = "#C97B4B" if is_dark else "#C96A4B"
-    meta = "#4A6074" if is_dark else "#6E7781"
+    bg = "#101110" if is_dark else "#FAF7F2"
+    border = "#38322D" if is_dark else "#D8CDBE"
+    divider = "#3A332B" if is_dark else "#E2D9CC"
+    lbl_color = "#B7A58E" if is_dark else "#695C4E"
+    txt_color = "#F0E9DD" if is_dark else "#28231E"
+    accent = "#F8BA6A" if is_dark else "#9B5A1C"
+    meta = "#AA9A87" if is_dark else "#746557"
 
     palette = [
-        "#C97B4B",  # Terracotta
-        "#D0C8B8" if is_dark else "#2B6CB0",  # Cream / Blue
-        "#9AB0C0" if is_dark else "#319795",  # Teal
-        "#6A8090" if is_dark else "#805AD5",  # Purple
-        "#4A6070" if is_dark else "#DD6B20",  # Orange
-        "#2E3E4E" if is_dark else "#A0AEC0"   # Slate
+        "#F8BA6A",  # Terracotta
+        "#E3D2B5" if is_dark else "#775A3F",  # Cream / Blue
+        "#C5A37C" if is_dark else "#9B7952",  # Teal
+        "#A5805B" if is_dark else "#B59A7B",  # Purple
+        "#79634E" if is_dark else "#715F50",  # Orange
+        "#594E43" if is_dark else "#AFA399"   # Slate
     ]
 
     total_bytes = sum(l["bytes"] for l in languages)

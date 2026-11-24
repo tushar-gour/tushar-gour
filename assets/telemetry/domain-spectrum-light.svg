@@ -7,67 +7,67 @@
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="430" rx="12" fill="#F8FAFC"/>
-  <rect width="1200" height="430" rx="12" fill="none" stroke="#D0D7DE" stroke-width="1.2"/>
+  <rect width="1200" height="430" rx="12" fill="#FAF7F2"/>
+  <rect width="1200" height="430" rx="12" fill="none" stroke="#D8CDBE" stroke-width="1.2"/>
 
   <!-- Header -->
-  <text class="m" x="42" y="46" font-size="16" font-weight="800" fill="#C96A4B" letter-spacing="2">TELEMETRY</text>
-  <text class="s" x="146" y="46" font-size="30" font-weight="900" fill="#1F2328" letter-spacing="-0.5">LANGUAGE FOOTPRINT</text>
-  <text class="m" x="495" y="46" font-size="16" font-weight="600" fill="#57606A" letter-spacing="1">/ AGGREGATED CODE VOLUME</text>
-  <text class="m" x="1158" y="46" font-size="15" font-weight="600" fill="#57606A" letter-spacing="1" text-anchor="end">ALL AUTHORED REPOSITORIES</text>
+  <text class="m" x="42" y="46" font-size="16" font-weight="800" fill="#9B5A1C" letter-spacing="2">TELEMETRY</text>
+  <text class="s" x="146" y="46" font-size="30" font-weight="900" fill="#28231E" letter-spacing="-0.5">LANGUAGE FOOTPRINT</text>
+  <text class="m" x="495" y="46" font-size="16" font-weight="600" fill="#695C4E" letter-spacing="1">/ AGGREGATED CODE VOLUME</text>
+  <text class="m" x="1158" y="46" font-size="15" font-weight="600" fill="#695C4E" letter-spacing="1" text-anchor="end">ALL AUTHORED REPOSITORIES</text>
 
   <!-- Stacked Full-Width Spectrum Bar with Gaps (y=76, h=30, w=1116) -->
   <g transform="translate(42, 76)">
-    <rect width="1116" height="30" rx="6" fill="#F8FAFC" stroke="#E1E4E8" stroke-width="1"/>
-    <rect x="0" y="0" width="445" height="30" rx="5" fill="#C97B4B"/>
-    <rect x="450" y="0" width="381" height="30" rx="5" fill="#2B6CB0"/>
-    <rect x="836" y="0" width="213" height="30" rx="5" fill="#319795"/>
-    <rect x="1054" y="0" width="21" height="30" rx="5" fill="#805AD5"/>
-    <rect x="1080" y="0" width="12" height="30" rx="5" fill="#DD6B20"/>
-    <rect x="1097" y="0" width="19" height="30" rx="5" fill="#A0AEC0"/>
+    <rect width="1116" height="30" rx="6" fill="#FAF7F2" stroke="#E2D9CC" stroke-width="1"/>
+    <rect x="0" y="0" width="445" height="30" rx="5" fill="#F8BA6A"/>
+    <rect x="450" y="0" width="381" height="30" rx="5" fill="#775A3F"/>
+    <rect x="836" y="0" width="213" height="30" rx="5" fill="#9B7952"/>
+    <rect x="1054" y="0" width="21" height="30" rx="5" fill="#B59A7B"/>
+    <rect x="1080" y="0" width="12" height="30" rx="5" fill="#715F50"/>
+    <rect x="1097" y="0" width="19" height="30" rx="5" fill="#AFA399"/>
   </g>
 
   <!-- Two-Column Language Details Grid -->
   <!-- JavaScript -->
-  <circle cx="52" cy="160" r="8" fill="#C97B4B"/>
-  <text class="s" x="72" y="167" font-size="22" font-weight="700" fill="#1F2328">JavaScript</text>
-  <text class="m" x="420" y="167" font-size="22" font-weight="800" fill="#C97B4B" text-anchor="end">40.8%</text>
-  <text class="m" x="540" y="167" font-size="18" font-weight="600" fill="#6E7781" text-anchor="end">3,841,751 B</text>
-  <rect x="72" y="180" width="468" height="10" rx="5" fill="#E1E4E8"/>
-  <rect x="72" y="180" width="190" height="10" rx="5" fill="#C97B4B"/>
+  <circle cx="52" cy="160" r="8" fill="#F8BA6A"/>
+  <text class="s" x="72" y="167" font-size="22" font-weight="700" fill="#28231E">JavaScript</text>
+  <text class="m" x="420" y="167" font-size="22" font-weight="800" fill="#F8BA6A" text-anchor="end">40.8%</text>
+  <text class="m" x="540" y="167" font-size="18" font-weight="600" fill="#746557" text-anchor="end">3,841,751 B</text>
+  <rect x="72" y="180" width="468" height="10" rx="5" fill="#E2D9CC"/>
+  <rect x="72" y="180" width="190" height="10" rx="5" fill="#F8BA6A"/>
   <!-- TypeScript -->
-  <circle cx="52" cy="245" r="8" fill="#2B6CB0"/>
-  <text class="s" x="72" y="252" font-size="22" font-weight="700" fill="#1F2328">TypeScript</text>
-  <text class="m" x="420" y="252" font-size="22" font-weight="800" fill="#2B6CB0" text-anchor="end">35.0%</text>
-  <text class="m" x="540" y="252" font-size="18" font-weight="600" fill="#6E7781" text-anchor="end">3,299,779 B</text>
-  <rect x="72" y="265" width="468" height="10" rx="5" fill="#E1E4E8"/>
-  <rect x="72" y="265" width="163" height="10" rx="5" fill="#2B6CB0"/>
+  <circle cx="52" cy="245" r="8" fill="#775A3F"/>
+  <text class="s" x="72" y="252" font-size="22" font-weight="700" fill="#28231E">TypeScript</text>
+  <text class="m" x="420" y="252" font-size="22" font-weight="800" fill="#775A3F" text-anchor="end">35.0%</text>
+  <text class="m" x="540" y="252" font-size="18" font-weight="600" fill="#746557" text-anchor="end">3,299,779 B</text>
+  <rect x="72" y="265" width="468" height="10" rx="5" fill="#E2D9CC"/>
+  <rect x="72" y="265" width="163" height="10" rx="5" fill="#775A3F"/>
   <!-- Dart -->
-  <circle cx="52" cy="330" r="8" fill="#319795"/>
-  <text class="s" x="72" y="337" font-size="22" font-weight="700" fill="#1F2328">Dart</text>
-  <text class="m" x="420" y="337" font-size="22" font-weight="800" fill="#319795" text-anchor="end">19.6%</text>
-  <text class="m" x="540" y="337" font-size="18" font-weight="600" fill="#6E7781" text-anchor="end">1,846,238 B</text>
-  <rect x="72" y="350" width="468" height="10" rx="5" fill="#E1E4E8"/>
-  <rect x="72" y="350" width="91" height="10" rx="5" fill="#319795"/>
+  <circle cx="52" cy="330" r="8" fill="#9B7952"/>
+  <text class="s" x="72" y="337" font-size="22" font-weight="700" fill="#28231E">Dart</text>
+  <text class="m" x="420" y="337" font-size="22" font-weight="800" fill="#9B7952" text-anchor="end">19.6%</text>
+  <text class="m" x="540" y="337" font-size="18" font-weight="600" fill="#746557" text-anchor="end">1,846,238 B</text>
+  <rect x="72" y="350" width="468" height="10" rx="5" fill="#E2D9CC"/>
+  <rect x="72" y="350" width="91" height="10" rx="5" fill="#9B7952"/>
   <!-- C++ -->
-  <circle cx="642" cy="160" r="8" fill="#805AD5"/>
-  <text class="s" x="662" y="167" font-size="22" font-weight="700" fill="#1F2328">C++</text>
-  <text class="m" x="1010" y="167" font-size="22" font-weight="800" fill="#805AD5" text-anchor="end">2.0%</text>
-  <text class="m" x="1130" y="167" font-size="18" font-weight="600" fill="#6E7781" text-anchor="end">187,921 B</text>
-  <rect x="662" y="180" width="468" height="10" rx="5" fill="#E1E4E8"/>
-  <rect x="662" y="180" width="9" height="10" rx="5" fill="#805AD5"/>
+  <circle cx="642" cy="160" r="8" fill="#B59A7B"/>
+  <text class="s" x="662" y="167" font-size="22" font-weight="700" fill="#28231E">C++</text>
+  <text class="m" x="1010" y="167" font-size="22" font-weight="800" fill="#B59A7B" text-anchor="end">2.0%</text>
+  <text class="m" x="1130" y="167" font-size="18" font-weight="600" fill="#746557" text-anchor="end">187,921 B</text>
+  <rect x="662" y="180" width="468" height="10" rx="5" fill="#E2D9CC"/>
+  <rect x="662" y="180" width="9" height="10" rx="5" fill="#B59A7B"/>
   <!-- Kotlin -->
-  <circle cx="642" cy="245" r="8" fill="#DD6B20"/>
-  <text class="s" x="662" y="252" font-size="22" font-weight="700" fill="#1F2328">Kotlin</text>
-  <text class="m" x="1010" y="252" font-size="22" font-weight="800" fill="#DD6B20" text-anchor="end">1.1%</text>
-  <text class="m" x="1130" y="252" font-size="18" font-weight="600" fill="#6E7781" text-anchor="end">100,395 B</text>
-  <rect x="662" y="265" width="468" height="10" rx="5" fill="#E1E4E8"/>
-  <rect x="662" y="265" width="5" height="10" rx="5" fill="#DD6B20"/>
+  <circle cx="642" cy="245" r="8" fill="#715F50"/>
+  <text class="s" x="662" y="252" font-size="22" font-weight="700" fill="#28231E">Kotlin</text>
+  <text class="m" x="1010" y="252" font-size="22" font-weight="800" fill="#715F50" text-anchor="end">1.1%</text>
+  <text class="m" x="1130" y="252" font-size="18" font-weight="600" fill="#746557" text-anchor="end">100,395 B</text>
+  <rect x="662" y="265" width="468" height="10" rx="5" fill="#E2D9CC"/>
+  <rect x="662" y="265" width="5" height="10" rx="5" fill="#715F50"/>
   <!-- Other -->
-  <circle cx="642" cy="330" r="8" fill="#A0AEC0"/>
-  <text class="s" x="662" y="337" font-size="22" font-weight="700" fill="#1F2328">Other</text>
-  <text class="m" x="1010" y="337" font-size="22" font-weight="800" fill="#A0AEC0" text-anchor="end">1.5%</text>
-  <text class="m" x="1130" y="337" font-size="18" font-weight="600" fill="#6E7781" text-anchor="end">149,839 B</text>
-  <rect x="662" y="350" width="468" height="10" rx="5" fill="#E1E4E8"/>
-  <rect x="662" y="350" width="7" height="10" rx="5" fill="#A0AEC0"/>
+  <circle cx="642" cy="330" r="8" fill="#AFA399"/>
+  <text class="s" x="662" y="337" font-size="22" font-weight="700" fill="#28231E">Other</text>
+  <text class="m" x="1010" y="337" font-size="22" font-weight="800" fill="#AFA399" text-anchor="end">1.5%</text>
+  <text class="m" x="1130" y="337" font-size="18" font-weight="600" fill="#746557" text-anchor="end">149,839 B</text>
+  <rect x="662" y="350" width="468" height="10" rx="5" fill="#E2D9CC"/>
+  <rect x="662" y="350" width="7" height="10" rx="5" fill="#AFA399"/>
 </svg>
