@@ -174,51 +174,79 @@ def fetch_repository_count():
     return {**previous, "fresh": False}
 
 
-def fetch_live_languages() -> list:
-    """Fetch live aggregated language byte statistics across all repositories."""
+LANGUAGE_METHOD = "max_js_ts"
+
+
+def summarize_language_bytes(lang_bytes):
+    """Adjusted footprint: retain max(JS, TS), not their sum, under TypeScript.
+
+    This is an explicit display heuristic, not exact generated-code detection.
+    All other language byte counts are unchanged.
+    """
+    counts = dict(lang_bytes)
+    js = counts.pop("JavaScript", 0)
+    ts = counts.pop("TypeScript", 0)
+    if max(js, ts):
+        counts["TypeScript"] = max(js, ts)
+    total = sum(counts.values())
+    if not total:
+        raise ValueError("No language bytes available")
+    ranked = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
+    top = ranked[:5]
+    other = total - sum(b for _, b in top)
+    if other:
+        top.append(("Other", other))
+    return {
+        "totalBytes": total,
+        "breakdown": [{"language": lang, "bytes": b, "percentage": round(100*b/total,1)} for lang,b in top],
+        "method": LANGUAGE_METHOD,
+        "rawJavaScriptBytes": js,
+        "rawTypeScriptBytes": ts,
+        "source": "public_repository_language_api",
+    }
+
+
+def fetch_live_languages() -> dict:
+    """Read all public owned repositories, retaining the prior adjusted snapshot on API failure."""
     print("Fetching live repository languages...")
-    repos_url = f"https://api.github.com/users/{USERNAME}/repos?per_page=100"
-    repos = gh_api_request(repos_url)
-    if not isinstance(repos, list) or not repos:
-        # Fallback cached verified distribution
-        return [
-            {"language": "JavaScript", "bytes": 3841751, "percentage": 40.2},
-            {"language": "TypeScript", "bytes": 3299789, "percentage": 34.5},
-            {"language": "Dart", "bytes": 1846238, "percentage": 19.3},
-            {"language": "C++", "bytes": 187921, "percentage": 2.0},
-            {"language": "Kotlin", "bytes": 100395, "percentage": 1.0},
-            {"language": "Other", "bytes": 282436, "percentage": 3.0}
-        ]
+    try:
+        repos = []
+        page = 1
+        while True:
+            data = gh_api_request(f"https://api.github.com/users/{USERNAME}/repos?per_page=100&page={page}&type=owner")
+            if not isinstance(data, list):
+                raise RuntimeError("Repository enumeration failed")
+            repos.extend(data)
+            if len(data) < 100:
+                break
+            page += 1
 
-    lang_bytes = {}
-    for r in repos:
-        if r.get("fork") or r.get("archived"):
-            continue
-        l_url = r.get("languages_url")
-        if l_url:
-            data = gh_api_request(l_url)
-            if isinstance(data, dict):
-                for lang, b in data.items():
-                    if lang not in SKIP_LANGS:
-                        lang_bytes[lang] = lang_bytes.get(lang, 0) + b
+        lang_bytes = {}
+        for r in repos:
+            if r.get("fork") or r.get("archived"):
+                continue
+            url = r.get("languages_url")
+            if not url:
+                raise RuntimeError("Missing languages endpoint")
+            # Request directly so an empty repository can be distinguished from API failure.
+            req = urllib.request.Request(url, headers={"User-Agent": f"{USERNAME}-telemetry-pipeline", "Accept": "application/vnd.github+json"})
+            if TOKEN:
+                req.add_header("Authorization", f"Bearer {TOKEN}")
+            with urllib.request.urlopen(req, timeout=15) as response:
+                data = json.loads(response.read().decode("utf-8"))
+            if not isinstance(data, dict) or any(type(b) is not int or b < 0 for b in data.values()):
+                raise RuntimeError("Invalid language response")
+            for lang,b in data.items():
+                if lang not in SKIP_LANGS:
+                    lang_bytes[lang] = lang_bytes.get(lang,0)+b
             time.sleep(0.04)
-
-    total_bytes = sum(lang_bytes.values()) or 1
-    sorted_langs = sorted(lang_bytes.items(), key=lambda x: x[1], reverse=True)
-
-    breakdown = []
-    top_sum = 0
-    for lang, b in sorted_langs[:5]:
-        pct = round((b / total_bytes) * 100, 1)
-        top_sum += pct
-        breakdown.append({"language": lang, "bytes": b, "percentage": pct})
-
-    other_pct = round(max(0.0, 100.0 - top_sum), 1)
-    if other_pct > 0:
-        other_bytes = total_bytes - sum(x["bytes"] for x in breakdown)
-        breakdown.append({"language": "Other", "bytes": max(0, other_bytes), "percentage": other_pct})
-
-    return breakdown
+        return summarize_language_bytes(lang_bytes)
+    except Exception as exc:
+        print(f"Language refresh unavailable; retaining last adjusted snapshot: {exc}", file=sys.stderr)
+        previous = json.loads((GENERATED_DIR / "metrics.json").read_text(encoding="utf-8"))["languages"]
+        if previous.get("method") != LANGUAGE_METHOD:
+            raise RuntimeError("No adjusted language snapshot available") from exc
+        return previous
 
 # ─── SVG GENERATORS ───────────────────────────────────────────────────────────
 
@@ -253,7 +281,8 @@ def build_spectrum_svg(languages: list, is_dark=True):
     p = palette(is_dark)
     total = sum(l["bytes"] for l in languages)
     rows = (len(languages)+1)//2
-    parts = [card(166+rows*76,"LANGUAGE FOOTPRINT","CODE VOLUME BY LANGUAGE",p)]
+    parts = [card(166+rows*76,"LANGUAGE FOOTPRINT","ADJUSTED CODE VOLUME · MAX(JS, TS)",p)]
+    parts.append("<desc>JavaScript and TypeScript share a single TypeScript bucket equal to the larger raw byte total, not their sum. Other languages retain their original counts. This is a display heuristic.</desc>")
     x = 36
     usable = 1048-4*max(0,len(languages)-1)
     for i,l in enumerate(languages):
@@ -278,7 +307,8 @@ def main():
     
     # 1. Fetch live metrics
     contrib_data = fetch_live_contributions()
-    languages = fetch_live_languages()
+    language_snapshot = fetch_live_languages()
+    languages = language_snapshot["breakdown"]
 
     repositories = fetch_repository_count()
     total_repos = repositories['total']
@@ -317,10 +347,7 @@ def main():
             "weeklyPulse": contrib_data["weekly_52"],
             "activeWeeks": sum(n>0 for n in contrib_data["weekly_52"])
         },
-        "languages": {
-            "totalBytes": sum(l["bytes"] for l in languages),
-            "breakdown": languages
-        }
+        "languages": language_snapshot
     }
     (GENERATED_DIR / "metrics.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     print("Saved generated/metrics.json manifest.")

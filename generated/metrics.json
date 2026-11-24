@@ -72,38 +72,37 @@
     "activeWeeks": 50
   },
   "languages": {
-    "totalBytes": 9420730,
+    "totalBytes": 6120951,
     "breakdown": [
       {
-        "language": "JavaScript",
-        "bytes": 3841751,
-        "percentage": 40.8
-      },
-      {
         "language": "TypeScript",
-        "bytes": 3299779,
-        "percentage": 35.0
+        "bytes": 3841751,
+        "percentage": 62.8
       },
       {
         "language": "Dart",
         "bytes": 1846238,
-        "percentage": 19.6
+        "percentage": 30.2
       },
       {
         "language": "C++",
         "bytes": 187921,
-        "percentage": 2.0
+        "percentage": 3.1
       },
       {
         "language": "Kotlin",
         "bytes": 100395,
-        "percentage": 1.1
+        "percentage": 1.6
       },
       {
         "language": "Other",
         "bytes": 144646,
-        "percentage": 1.5
+        "percentage": 2.4
       }
-    ]
+    ],
+    "method": "max_js_ts",
+    "rawJavaScriptBytes": 3841751,
+    "rawTypeScriptBytes": 3299779,
+    "source": "previous_published_language_snapshot"
   }
 }
