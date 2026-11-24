@@ -9,13 +9,13 @@ ROOT = Path(__file__).resolve().parents[1]
 DIR = ROOT / "assets/footer"
 SOURCE = DIR / "footer-original.png"
 KEYS = ("github", "linkedin", "email", "resume")
-EXPECTED = "701d4f2650a4264d33e283699fbb9abb6334d7062da459cdc275c749a5d42ec8"
+EXPECTED = "e144bf32ad10ad63a56947861c23f64862efa7de9129bb03f254447093c40c8b"
 
 def main():
     if hashlib.sha256(SOURCE.read_bytes()).hexdigest() != EXPECTED:
         raise ValueError("Upload the exact approved footer-original.png, without resaving it")
     dark = Image.open(SOURCE).convert("RGB")
-    assert dark.size == (2048, 682)
+    assert dark.size == (2172, 724)
     # Light is explicitly a palette adaptation; dark is never recolored.
     a = np.asarray(dark, dtype=np.float32)/255
     r,g,b = a.transpose(2,0,1)
@@ -30,9 +30,9 @@ def main():
     for theme, image in (("dark",dark),("light",light)):
         rebuilt = Image.new("RGB", image.size)
         for i,key in enumerate(KEYS):
-            x = i*512
+            x = i*543
             path = DIR / f"connect-{key}-{theme}.png"
-            image.crop((x,0,x+512,682)).save(path,optimize=True)
+            image.crop((x,0,x+543,724)).save(path,optimize=True)
             rebuilt.paste(Image.open(path).convert("RGB"),(x,0))
         assert ImageChops.difference(image,rebuilt).getbbox() is None, "Slice pixels changed"
     readme = ROOT / "README.md"
@@ -50,7 +50,7 @@ def main():
     SOURCE.unlink()
     docs = ROOT / "assets/README.md"
     content = docs.read_text(encoding="utf-8")
-    content = re.sub(r"^- `footer/`:.*$", "- `footer/`: four lossless PNG slices of the approved 2048 × 682 dark contact banner, plus a matching light-palette adaptation. Each slice is independently linked. No duplicate original or obsolete SVG artwork is retained.",content,flags=re.M)
+    content = re.sub(r"^- `footer/`:.*$", "- `footer/`: four lossless PNG slices of the approved 2172 × 724 dark contact banner, plus a matching light-palette adaptation. Each slice is independently linked. No duplicate original or obsolete SVG artwork is retained.",content,flags=re.M)
     docs.write_text(content,encoding="utf-8")
     print("Verified all original dark pixels and clickable footer references")
 
