@@ -33,7 +33,8 @@ def refine_hero_accents(image, is_dark):
 
     restore((108,109,520,130), True)
     restore((120,417,1240,437), True)
-    restore((125,479,145,599), False)
+    if is_dark:
+        restore((125,479,145,599), False)
     result = Image.fromarray(np.uint8(np.clip(pixels,0,255)))
     draw = ImageDraw.Draw(result)
     gold = (236,193,135) if is_dark else (153,86,23)
@@ -41,8 +42,43 @@ def refine_hero_accents(image, is_dark):
     separator = (77,80,81) if is_dark else (200,183,163)
     draw.line((112,119,500,119), fill=graphite, width=3)
     draw.line((112,119,232,119), fill=gold, width=3)
-    draw.line((125,426,1210,426), fill=separator, width=2)
-    return result
+    return fading_rule(result, is_dark)
+
+
+def align_summary(image):
+    """Shift the original three lines 49 pixels left, preserving lettering."""
+    a = np.array(image.convert("RGB"), dtype=np.float32)
+    x0, y0, x1, y1 = 160, 477, 1230, 602
+    patch = a[y0:y1, x0:x1].copy()
+    lum = patch.max(axis=2)
+    mask = Image.fromarray(np.uint8(np.clip((lum-42)/25,0,1)*255))
+    mask = mask.filter(ImageFilter.MaxFilter(5)).filter(ImageFilter.GaussianBlur(.65))
+    alpha = np.asarray(mask, dtype=np.float32)/255
+    valid = 1-alpha
+    weight = np.asarray(Image.fromarray(np.uint8(valid*255)).filter(ImageFilter.GaussianBlur(12)), dtype=np.float32)/255
+    bg = np.stack([
+        np.asarray(Image.fromarray(np.uint8(patch[:,:,c]*valid)).filter(ImageFilter.GaussianBlur(12)), dtype=np.float32)/np.maximum(weight,.03)
+        for c in range(3)
+    ], axis=-1)
+    a[y0:y1,x0:x1] = patch*(1-alpha[...,None])+bg*alpha[...,None]
+    dst = a[y0:y1,x0-49:x1-49]
+    dst[:] = dst*(1-alpha[...,None])+patch*alpha[...,None]
+    return Image.fromarray(np.uint8(np.clip(a,0,255)))
+
+
+def fading_rule(image, is_dark):
+    """Replace the solid separator with a smooth rightward fade into the wall."""
+    a = np.array(image.convert("RGB"), dtype=np.float32)
+    x0,x1 = 125,1210
+    before = a[421:424,120:1240].mean(axis=0)
+    after = a[433:436,120:1240].mean(axis=0)
+    weight = np.linspace(0,1,9)[:,None,None]
+    a[423:432,120:1240] = before[None]*(1-weight)+after[None]*weight
+    t = np.linspace(0,1,x1-x0)
+    alpha = np.where(t<.40,1,np.clip((1-t)/.60,0,1)**1.4)[None,:,None]
+    color = np.array((76,79,80) if is_dark else (200,183,163))
+    a[425:427,x0:x1] = a[425:427,x0:x1]*(1-alpha)+color*alpha
+    return Image.fromarray(np.uint8(np.clip(a,0,255)))
 
 
 def generate():
@@ -64,8 +100,13 @@ def generate():
     else:
         raise ValueError(f"Unexpected hero dimensions: {original.size}")
     # The exact top-rule color also marks the already-refined dark artwork.
-    if im.getpixel((160,119)) != (236,193,135):
-        im = refine_hero_accents(im, True)
+    # Check the new separator's opaque leading pixel before migration.
+    # This makes future runs idempotent and avoids shifting the text twice.
+    if im.getpixel((125,425)) != (76,79,80):
+        if im.getpixel((160,119)) != (236,193,135):
+            im = refine_hero_accents(im, True)
+        im = align_summary(im)
+        im = fading_rule(im, True)
     a = np.asarray(im).astype(np.float32)/255
     r,g,b = a.transpose(2,0,1)
     y = .2126*r+.7152*g+.0722*b
