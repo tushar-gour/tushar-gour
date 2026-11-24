@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T09:04:05.032412+00:00",
+  "generatedAt": "2026-11-24T09:06:02.872369+00:00",
   "user": "tushar-gour",
   "repositories": {
     "total": 100,
@@ -11,10 +11,10 @@
     "fresh": false
   },
   "contributions": {
-    "total365": 3316,
+    "total365": 3317,
     "activeDays": 239,
     "peakWeek": 227,
-    "currentWeek": 20,
+    "currentWeek": 21,
     "weeklyPulse": [
       3,
       29,
@@ -67,7 +67,7 @@
       8,
       0,
       13,
-      20
+      21
     ],
     "activeWeeks": 50
   },
@@ -95,14 +95,19 @@
         "percentage": 1.6
       },
       {
+        "language": "Python",
+        "bytes": 61572,
+        "percentage": 1.0
+      },
+      {
         "language": "Other",
-        "bytes": 144646,
-        "percentage": 2.4
+        "bytes": 83074,
+        "percentage": 1.4
       }
     ],
     "method": "max_js_ts",
     "rawJavaScriptBytes": 3841751,
     "rawTypeScriptBytes": 3299779,
-    "source": "previous_published_language_snapshot"
+    "source": "public_repository_language_api"
   }
 }

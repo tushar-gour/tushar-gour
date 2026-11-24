@@ -5,11 +5,12 @@
   <text x="1084" y="47" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#695C4E" letter-spacing="0.5">ADJUSTED CODE VOLUME · MAX(JS, TS)</text>
   <line x1="36" y1="74" x2="1084" y2="74" stroke="#C8B7A3" stroke-width="1.2"/>
 <desc>JavaScript and TypeScript share a single TypeScript bucket equal to the larger raw byte total, not their sum. Other languages retain their original counts. This is a display heuristic.</desc>
-  <rect x="36.00" y="96" width="647.72" height="28" rx="4.00" fill="#E9A54F"/>
-  <rect x="687.72" y="96" width="311.28" height="28" rx="4.00" fill="#D8C1A0"/>
-  <rect x="1003.00" y="96" width="31.68" height="28" rx="4.00" fill="#B88D61"/>
-  <rect x="1038.69" y="96" width="16.93" height="28" rx="4.00" fill="#9B7952"/>
-  <rect x="1059.61" y="96" width="24.39" height="28" rx="4.00" fill="#715F50"/>
+  <rect x="36.00" y="96" width="645.21" height="28" rx="4.00" fill="#E9A54F"/>
+  <rect x="685.21" y="96" width="310.07" height="28" rx="4.00" fill="#D8C1A0"/>
+  <rect x="999.29" y="96" width="31.56" height="28" rx="4.00" fill="#B88D61"/>
+  <rect x="1034.85" y="96" width="16.86" height="28" rx="4.00" fill="#9B7952"/>
+  <rect x="1055.71" y="96" width="10.34" height="28" rx="4.00" fill="#715F50"/>
+  <rect x="1070.05" y="96" width="13.95" height="28" rx="4.00" fill="#AFA399"/>
   <line x1="36" y1="144" x2="1084" y2="144" stroke="#C8B7A3" stroke-width="1.2"/>
   <circle cx="43" cy="176" r="7" fill="#E9A54F"/>
   <text x="60" y="182" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#28231E" text-anchor="start">TypeScript</text>
@@ -43,11 +44,18 @@
   <rect x="608" y="196" width="7.81" height="9" rx="3.90" fill="#9B7952"/>
   <line x1="584" y1="221" x2="1084" y2="221" stroke="#C8B7A3" stroke-width="1.2"/>
   <circle cx="591" cy="252" r="7" fill="#715F50"/>
-  <text x="608" y="258" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#28231E" text-anchor="start">Other</text>
-  <text x="912" y="258" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600" fill="#995617" text-anchor="end">2.4%</text>
+  <text x="608" y="258" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#28231E" text-anchor="start">Python</text>
+  <text x="912" y="258" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600" fill="#995617" text-anchor="end">1.0%</text>
   <text x="932" y="258" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#695C4E" text-anchor="middle">|</text>
-  <text x="1084" y="258" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#695C4E" text-anchor="end">144,646 B</text>
+  <text x="1084" y="258" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#695C4E" text-anchor="end">61,572 B</text>
   <rect x="608" y="272" width="476" height="9" rx="4.5" fill="#E2D9CC"/>
-  <rect x="608" y="272" width="11.25" height="9" rx="4.50" fill="#715F50"/>
+  <rect x="608" y="272" width="4.79" height="9" rx="2.39" fill="#715F50"/>
   <line x1="584" y1="297" x2="1084" y2="297" stroke="#C8B7A3" stroke-width="1.2"/>
+  <circle cx="591" cy="328" r="7" fill="#AFA399"/>
+  <text x="608" y="334" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#28231E" text-anchor="start">Other</text>
+  <text x="912" y="334" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600" fill="#995617" text-anchor="end">1.4%</text>
+  <text x="932" y="334" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#695C4E" text-anchor="middle">|</text>
+  <text x="1084" y="334" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#695C4E" text-anchor="end">83,074 B</text>
+  <rect x="608" y="348" width="476" height="9" rx="4.5" fill="#E2D9CC"/>
+  <rect x="608" y="348" width="6.46" height="9" rx="3.23" fill="#AFA399"/>
 </svg>
