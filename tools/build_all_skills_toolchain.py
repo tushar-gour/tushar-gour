@@ -330,19 +330,42 @@ def build_skill_border(skill_id, is_pri, is_dark):
 
 
 def signal_keyframes(suffix):
-    """Sample a smooth acceleration/deceleration trajectory for all exhaust layers."""
+    """Launch at full speed, brake to a stop, and merge with the terminal."""
     frames = [f"      @keyframes signalFlight{suffix} {{"]
-    for t in range(0, 67, 3):
-        u = t / 66
-        x = 145 + 935 * (3*u*u - 2*u*u*u)
-        op = min(1, t/6, (66-t)/6)
+    for t in range(0,59,2):
+        u = t / 58
+        x = 145 + 935 * (2*u-u*u)
+        op = 0 if t == 0 else 1
         frames.append(f"        {t}% {{ transform: translateX({x:.2f}px); opacity: {op:.3f}; }}")
-    frames.extend(["        100% { transform: translateX(1080px); opacity: 0; }", "      }"])
+    frames.extend([
+        "        62% { transform: translateX(1080px); opacity: 1; }",
+        "        68% { transform: translateX(1080px); opacity: 1; }",
+        "        72%, 100% { transform: translateX(1080px); opacity: 0; }",
+        "      }",
+        f"      @keyframes flameLength{suffix} {{",
+        "        0% { transform: scaleX(2.40); opacity: 1; }",
+        "        58%, 62% { transform: scaleX(1); opacity: 1; }",
+        "        68% { transform: scaleX(1); opacity: 0; }",
+        "        72%, 100% { transform: scaleX(1); opacity: 0; }",
+        "      }",
+        f"      @keyframes signalMerge{suffix} {{",
+        "        0%, 58% { transform: scale(1); }",
+        "        62% { transform: scale(1.55); }",
+        "        67% { transform: scale(.72); }",
+        "        72%, 100% { transform: scale(.45); }",
+        "      }",
+        f"      @keyframes terminalPulse{suffix} {{",
+        "        0%, 57% { transform: scale(.65); opacity: 0; }",
+        "        62% { transform: scale(1); opacity: .95; }",
+        "        68% { transform: scale(1.8); opacity: .48; }",
+        "        74%, 100% { transform: scale(2.2); opacity: 0; }",
+        "      }",
+    ])
     return "\n".join(frames)
 
 
 def build_signal_exhaust(lane, is_dark):
-    """Time-delayed copies of the trajectory form a speed-dependent exhaust wake."""
+    """Soft velocity-dependent wake with an always-present tapered 28-unit flame during flight."""
     import math
     suffix = "" if is_dark else "L"
     accent = "#F8BA6A" if is_dark else "#9B5A1C"
@@ -350,22 +373,28 @@ def build_signal_exhaust(lane, is_dark):
     duration = [7,8.5,7.6,8.8,8,7.8][lane-1]
     delay = [0,1.8,3.5,.8,2.6,4.2][lane-1]
 
-    def anim(age):
-        return f"opacity:0; animation:signalFlight{suffix} {duration:.1f}s linear {delay+age:.3f}s infinite"
+    def anim(name, age=0):
+        return f"opacity:0; animation:{name}{suffix} {duration:.1f}s linear {delay+age:.3f}s infinite"
+
+    def effect(name):
+        return f"animation:{name}{suffix} {duration:.1f}s linear {delay:.3f}s infinite"
 
     parts = ["    <!-- Velocity-dependent exhaust wake -->", "    <g>"]
-    for j in range(19,0,-1):
-        age = j*.017
-        life = j/20
-        alpha = .67*(1-life)**1.65
-        rx = 6.4*(1-life)+1.5
-        ry = 2.2+2.3*math.sin(math.pi*life)
-        dy = math.sin(j*2.15)*2.0*life
-        parts.append(f'      <g style="{anim(age)}"><ellipse cx="{-2-life*3:.2f}" cy="{dy:.2f}" rx="{rx:.2f}" ry="{ry:.2f}" fill="{accent}" opacity="{alpha:.3f}"><animate attributeName="ry" values="{ry:.2f};{ry*.68:.2f};{ry*1.13:.2f};{ry:.2f}" dur="{.19+j*.013:.3f}s" begin="{-j*.041:.3f}s" repeatCount="indefinite"/></ellipse></g>')
-        if j <= 10:
-            parts.append(f'      <g style="{anim(age)}"><ellipse cx="-1" cy="0" rx="{rx*.83:.2f}" ry="{1.45*(1-life):.2f}" fill="{core}" opacity="{.72*(1-life)**2:.3f}"/></g>')
-    parts.append(f'      <g style="{anim(0)}"><ellipse cx="-3" cy="0" rx="12" ry="7" fill="url(#flareGrad{suffix})" opacity="0.70"/><circle cx="0" cy="0" r="3.6" fill="{core}" filter="url(#laserGlow{suffix})"/><circle cx="0" cy="0" r="2.5" fill="{core}"/></g>')
-    parts.append("    </g>")
+    for j in range(15,0,-1):
+        life = j/16
+        age = j*.011
+        alpha = .43*(1-life)**1.65
+        rx = 5.6*(1-life)+1.5
+        ry = 1.1+1.6*(1-life)
+        dy = math.sin(j*2.15)*.65*life
+        parts.append(f'      <g style="{anim("signalFlight",age)}"><ellipse cx="{-4-life*3:.2f}" cy="{dy:.2f}" rx="{rx:.2f}" ry="{ry:.2f}" fill="{accent}" opacity="{alpha:.3f}"><animate attributeName="ry" values="{ry:.2f};{ry*.85:.2f};{ry*1.08:.2f};{ry:.2f}" dur="{.23+j*.013:.3f}s" begin="{-j*.041:.3f}s" repeatCount="indefinite"/></ellipse></g>')
+    parts.append(f'''      <g style="{anim("signalFlight")}">
+        <defs><linearGradient id="minimumFlame{suffix}{lane}" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0" stop-color="{accent}" stop-opacity="0.15"/><stop offset=".60" stop-color="{accent}" stop-opacity=".75"/><stop offset="1" stop-color="{core}"/></linearGradient></defs>
+        <g style="{effect("flameLength")}"><path d="M -28 0 Q -12 -1.8 -2 -3 Q 1 0 -2 3 Q -12 1.8 -28 0 Z" fill="url(#minimumFlame{suffix}{lane})"/><path d="M -20 0 L -2 -1.1 Q 0 0 -2 1.1 Z" fill="{core}" opacity=".65"/></g>
+        <g style="{effect("signalMerge")}"><ellipse cx="-2" cy="0" rx="10" ry="6" fill="url(#flareGrad{suffix})" opacity=".55"/><circle cx="0" cy="0" r="3.6" fill="{core}" filter="url(#laserGlow{suffix})"/><circle cx="0" cy="0" r="2.5" fill="{core}"/></g>
+      </g>
+      <g transform="translate(1080,0)"><g style="{anim("terminalPulse")}"><circle r="7" fill="none" stroke="{accent}" stroke-width="1.5"/><circle r="3" fill="{core}"/></g></g>
+    </g>''')
     return "\n".join(parts)
 
 
