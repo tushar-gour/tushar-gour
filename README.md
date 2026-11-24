@@ -1,7 +1,5 @@
 <img src="./assets/identity/hero-gold.png" alt="Tushar Gour — Software Engineer" width="100%">
 
-<br><br>
-
 <!-- ================================================================= -->
 <!-- 02 — ENGINEERING STACK & SIGNAL LANES                             -->
 <!-- ================================================================= -->
@@ -10,8 +8,6 @@
   <source media="(prefers-color-scheme: light)" srcset="./assets/skills/toolchain-light.svg">
   <img src="./assets/skills/toolchain-dark.svg" alt="Engineering Stack &amp; Tools Across The Software Delivery Path" width="100%">
 </picture>
-
-<br><br>
 
 <!-- ================================================================= -->
 <!-- 03 — ENGINEERING ACTIVITY                                         -->
@@ -22,8 +18,6 @@
   <img src="./assets/telemetry/pulse-52w-dark.svg" alt="Engineering activity: contributions, active days and 52-week contribution distribution" width="100%">
 </picture>
 
-<br><br>
-
 <!-- ================================================================= -->
 <!-- 05 — LANGUAGE FOOTPRINT (LOCKED)                                  -->
 <!-- ================================================================= -->
@@ -32,8 +26,6 @@
   <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry/domain-spectrum-light.svg">
   <img src="./assets/telemetry/domain-spectrum-dark.svg" alt="Aggregated Language Footprint" width="100%">
 </picture>
-
-<br><br>
 
 <!-- ================================================================= -->
 <!-- 06 — PROFESSIONAL IDENTITY FOOTER                                 -->
