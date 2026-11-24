@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="840 0 280 373" width="280" height="373" role="img" aria-label="Resume: resume.tushargour.com"><title>Resume: resume.tushargour.com</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1120" y2="373" gradientUnits="userSpaceOnUse"><stop stop-color="#0B0D0E"/><stop offset=".43" stop-color="#171410"/><stop offset=".75" stop-color="#0B0D0E"/><stop offset="1" stop-color="#0B0D0E"/></linearGradient>
+<linearGradient id="wave" x1="0" x2="1120" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#E9A54F" stop-opacity=".24"/><stop offset=".17" stop-color="#E9A54F" stop-opacity=".9"/><stop offset=".23" stop-color="#FFF3D1"/><stop offset=".34" stop-color="#E9A54F"/><stop offset=".47" stop-color="#FFF3D1"/><stop offset=".58" stop-color="#E9A54F"/><stop offset=".76" stop-color="#FFF3D1"/><stop offset=".84" stop-color="#E9A54F"/><stop offset="1" stop-color="#E9A54F" stop-opacity=".25"/></linearGradient>
+<filter id="glow" x="-10%" y="-60%" width="120%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<rect x="0" y="0" width="1120" height="373" fill="url(#bg)"/>
+<rect x="54" y="91" width="50" height="8" rx="4" fill="#F8BA6A"/>
+<text x="124" y="103" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" letter-spacing="6" fill="#F0E9DD">LET’S CONNECT</text>
+<text x="54" y="142" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" letter-spacing="4.3" fill="#D8D0C3">OPEN TO OPPORTUNITIES &amp; COLLABORATIONS</text>
+<g transform="translate(22,177) scale(1.34)" color="#F0E9DD"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0 1 12 6.82c.85 0 1.7.11 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" fill="currentColor"/></g>
+<text x="67" y="190" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="600" fill="#F0E9DD">GitHub</text>
+<text x="67" y="211" font-family="Arial, Helvetica, sans-serif" font-size="13.1" font-weight="400" fill="#D8D0C3">github.com/tushar-gour</text>
+<g transform="translate(256,201)" stroke="#F8BA6A" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 0h7v7M13 0 5 8M3 2H0v11h11v-3"/></g>
+<line x1="277" y1="176" x2="277" y2="216" stroke="#746557" stroke-width="1"/>
+<g transform="translate(302,177) scale(1.34)" color="#F8BA6A"><rect x="1.5" y="1.5" width="21" height="21" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 9h3v11H5zm1.5-5a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6ZM10 9h3v1.5a4 4 0 0 1 7 2.7V20h-3v-6.1a2 2 0 0 0-4 0V20h-3Z" fill="currentColor"/></g>
+<text x="347" y="190" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="600" fill="#F0E9DD">LinkedIn</text>
+<text x="347" y="211" font-family="Arial, Helvetica, sans-serif" font-size="13.1" font-weight="400" fill="#D8D0C3">linkedin.com/in/tushar-gour</text>
+<g transform="translate(536,201)" stroke="#F8BA6A" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 0h7v7M13 0 5 8M3 2H0v11h11v-3"/></g>
+<line x1="557" y1="176" x2="557" y2="216" stroke="#746557" stroke-width="1"/>
+<g transform="translate(582,177) scale(1.34)" color="#F0E9DD"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3 6 9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></g>
+<text x="627" y="190" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="600" fill="#F0E9DD">Email</text>
+<text x="627" y="211" font-family="Arial, Helvetica, sans-serif" font-size="13.1" font-weight="400" fill="#D8D0C3">official@tushargour.com</text>
+<g transform="translate(816,201)" stroke="#F8BA6A" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 0h7v7M13 0 5 8M3 2H0v11h11v-3"/></g>
+<line x1="837" y1="176" x2="837" y2="216" stroke="#746557" stroke-width="1"/>
+<g transform="translate(862,177) scale(1.34)" color="#F8BA6A"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13.5a4.3 4.3 0 0 0 6.1 0l4-4a4.3 4.3 0 0 0-6.1-6.1l-2.3 2.3"/><path d="M14 10.5a4.3 4.3 0 0 0-6.1 0l-4 4a4.3 4.3 0 0 0 6.1 6.1l2.3-2.3"/></g></g>
+<text x="907" y="190" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="600" fill="#F0E9DD">Resume</text>
+<text x="907" y="211" font-family="Arial, Helvetica, sans-serif" font-size="13.1" font-weight="400" fill="#D8D0C3">resume.tushargour.com</text>
+<g transform="translate(1096,201)" stroke="#F8BA6A" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 0h7v7M13 0 5 8M3 2H0v11h11v-3"/></g>
+<path d="M -20 244.00 C 150 208.00 272 297.00 400 313.00 S 541 371.00 687 302.00 S 906 217.00 1140 249.00" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.150"/>
+<path d="M -20 246.09 C 150 210.35 272 296.48 400 313.35 S 541 369.09 687 302.70 S 906 219.35 1140 252.22" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.166"/>
+<path d="M -20 248.17 C 150 212.70 272 295.96 400 313.70 S 541 367.17 687 303.39 S 906 221.70 1140 255.43" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.181"/>
+<path d="M -20 250.26 C 150 215.04 272 295.43 400 314.04 S 541 365.26 687 304.09 S 906 224.04 1140 258.65" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.197"/>
+<path d="M -20 252.35 C 150 217.39 272 294.91 400 314.39 S 541 363.35 687 304.78 S 906 226.39 1140 261.87" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.213"/>
+<path d="M -20 254.43 C 150 219.74 272 294.39 400 314.74 S 541 361.43 687 305.48 S 906 228.74 1140 265.09" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.228"/>
+<path d="M -20 256.52 C 150 222.09 272 293.87 400 315.09 S 541 359.52 687 306.17 S 906 231.09 1140 268.30" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.244"/>
+<path d="M -20 258.61 C 150 224.43 272 293.35 400 315.43 S 541 357.61 687 306.87 S 906 233.43 1140 271.52" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.260"/>
+<path d="M -20 260.70 C 150 226.78 272 292.83 400 315.78 S 541 355.70 687 307.57 S 906 235.78 1140 274.74" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.275"/>
+<path d="M -20 262.78 C 150 229.13 272 292.30 400 316.13 S 541 353.78 687 308.26 S 906 238.13 1140 277.96" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.291"/>
+<path d="M -20 264.87 C 150 231.48 272 291.78 400 316.48 S 541 351.87 687 308.96 S 906 240.48 1140 281.17" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.307"/>
+<path d="M -20 266.96 C 150 233.83 272 291.26 400 316.83 S 541 349.96 687 309.65 S 906 242.83 1140 284.39" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.322"/>
+<path d="M -20 269.04 C 150 236.17 272 290.74 400 317.17 S 541 348.04 687 310.35 S 906 245.17 1140 287.61" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.322"/>
+<path d="M -20 271.13 C 150 238.52 272 290.22 400 317.52 S 541 346.13 687 311.04 S 906 247.52 1140 290.83" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.307"/>
+<path d="M -20 273.22 C 150 240.87 272 289.70 400 317.87 S 541 344.22 687 311.74 S 906 249.87 1140 294.04" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.291"/>
+<path d="M -20 275.30 C 150 243.22 272 289.17 400 318.22 S 541 342.30 687 312.43 S 906 252.22 1140 297.26" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.275"/>
+<path d="M -20 277.39 C 150 245.57 272 288.65 400 318.57 S 541 340.39 687 313.13 S 906 254.57 1140 300.48" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.260"/>
+<path d="M -20 279.48 C 150 247.91 272 288.13 400 318.91 S 541 338.48 687 313.83 S 906 256.91 1140 303.70" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.244"/>
+<path d="M -20 281.57 C 150 250.26 272 287.61 400 319.26 S 541 336.57 687 314.52 S 906 259.26 1140 306.91" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.228"/>
+<path d="M -20 283.65 C 150 252.61 272 287.09 400 319.61 S 541 334.65 687 315.22 S 906 261.61 1140 310.13" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.213"/>
+<path d="M -20 285.74 C 150 254.96 272 286.57 400 319.96 S 541 332.74 687 315.91 S 906 263.96 1140 313.35" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.197"/>
+<path d="M -20 287.83 C 150 257.30 272 286.04 400 320.30 S 541 330.83 687 316.61 S 906 266.30 1140 316.57" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.181"/>
+<path d="M -20 289.91 C 150 259.65 272 285.52 400 320.65 S 541 328.91 687 317.30 S 906 268.65 1140 319.78" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.166"/>
+<path d="M -20 292.00 C 150 262.00 272 285.00 400 321.00 S 541 327.00 687 318.00 S 906 271.00 1140 323.00" fill="none" stroke="url(#wave)" stroke-width=".65" opacity="0.150"/>
+<path d="M -20 280 C 150 249 272 293 400 317 S 541 349 687 310 S 906 244 1140 292" fill="none" stroke="#E9A54F" stroke-width="7" opacity="0.6" filter="url(#glow)"/><path d="M -20 280 C 150 249 272 293 400 317 S 541 349 687 310 S 906 244 1140 292" fill="none" stroke="url(#wave)" stroke-width="1.7"/>
+</svg>

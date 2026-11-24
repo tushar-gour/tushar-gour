@@ -7,7 +7,7 @@ The profile uses the current charcoal, amber-gold and warm ivory design.
 - `telemetry/pulse-52w-{dark,light}.svg`: engineering activity.
 - `telemetry/domain-spectrum-{dark,light}.svg`: language footprint.
 - `section-gap.svg`: shared transparent spacing between all five profile sections.
-- `footer/`: current individually linked GitHub, LinkedIn and email SVGs.
+- `footer/`: one continuous Let's Connect banner split into four independently linked, theme-aware SVG slices (GitHub, LinkedIn, Email and Resume). The slices share the same 1120 × 373 artwork coordinate system.
 - `../tools/skillicons_cache/`: source icons required to rebuild the engineering stack.
 - `../generated/metrics.json`: generated telemetry snapshot.
 
