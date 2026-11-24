@@ -5,6 +5,7 @@ import hashlib
 import base64
 import io
 from profile_design import palette
+from footer_motion import animate_footer
 import re
 import numpy as np
 
@@ -50,7 +51,7 @@ def main():
             x = i*543
             path = DIR / f"connect-{key}-{theme}.svg"
             crop = image.crop((x,0,x+543,724))
-            svg = framed_slice(crop, key, x, theme)
+            svg = animate_footer(framed_slice(crop, key, x, theme), x)
             path.write_text(svg, encoding="utf-8")
             payload = svg.split("data:image/png;base64,",1)[1].split('"',1)[0]
             rebuilt.paste(Image.open(io.BytesIO(base64.b64decode(payload))).convert("RGB"),(x,0))
@@ -70,7 +71,7 @@ def main():
     SOURCE.unlink()
     docs = ROOT / "assets/README.md"
     content = docs.read_text(encoding="utf-8")
-    content = re.sub(r"^- `footer/`:.*$", "- `footer/`: four lossless embedded PNG slices of the approved 2172 × 724 dark contact banner, plus a matching light-palette adaptation, wrapped in SVGs with a continuous rounded outer frame. Each slice is independently linked. The frame matches the shared 1120-unit card design (14-unit radius, 1.2-unit stroke). No duplicate artwork is retained.",content,flags=re.M)
+    content = re.sub(r"^- `footer/`:.*$", "- `footer/`: four lossless embedded PNG slices of the approved 2172 × 724 dark contact banner, plus a matching light-palette adaptation, wrapped in SVGs with a continuous rounded outer frame. Each slice is independently linked. The frame matches the shared 1120-unit card design (14-unit radius, 1.2-unit stroke). No duplicate artwork is retained. The golden waves use a nine-second travelling deformation; reduced-motion preferences disable it.",content,flags=re.M)
     docs.write_text(content,encoding="utf-8")
     print("Verified all original dark pixels and clickable footer references")
 
