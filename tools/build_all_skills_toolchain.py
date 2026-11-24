@@ -92,8 +92,8 @@ SKILLS = [
     (6, 7, "Blackbox", "Blackbox\nAI", False, "CUSTOM_BLACKBOX", "CUSTOM_BLACKBOX"),
 ]
 
-# 11 aligned columns; extra room for lane labels (84px pitch)
-COL_X = [186, 270, 354, 438, 522, 606, 690, 774, 858, 942, 1026]
+# 11 aligned columns, 76px pitch; reserve a clear right-side animation runway
+COL_X = [180, 256, 332, 408, 484, 560, 636, 712, 788, 864, 940]
 LANE_Y = {1: 150, 2: 275, 3: 400, 4: 525, 5: 650, 6: 775}
 
 # Category labels
@@ -385,9 +385,9 @@ def build_toolchain(is_dark=True):
       @keyframes bulletAnim{theme_suffix} {{
         0%   {{ transform: translateX(95px); opacity: 0; }}
         3%   {{ transform: translateX(140px); opacity: 1; }}
-        56%  {{ transform: translateX(1050px); opacity: 1; }}
-        62%  {{ transform: translateX(1085px); opacity: 0; }}
-        100% {{ transform: translateX(1085px); opacity: 0; }}
+        58%  {{ transform: translateX(1065px); opacity: 1; }}
+        66%  {{ transform: translateX(1080px); opacity: 0; }}
+        100% {{ transform: translateX(1080px); opacity: 0; }}
       }}
 
       .b1{theme_suffix} {{ animation: bulletAnim{theme_suffix} 7.0s cubic-bezier(.25,0,.25,1) infinite; }}
