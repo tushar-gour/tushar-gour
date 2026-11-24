@@ -22,10 +22,10 @@ os.makedirs(CACHE_DIR, exist_ok=True)
 SKILLS = [
     # ─── Lane 01: CLIENT & UI (Y=150) ───
     (1, 0, "Flutter", "Flutter", True, "Flutter-Dark.svg", "Flutter-Light.svg"),
-    (1, 1, "Dart", "Dart", True, "Dart-Dark.svg", "Dart-Light.svg"),
-    (1, 2, "React", "React", True, "CUSTOM_REACT", "CUSTOM_REACT"),
+    (1, 1, "Dart", "Dart", False, "Dart-Dark.svg", "Dart-Light.svg"),
+    (1, 2, "React", "React", False, "CUSTOM_REACT", "CUSTOM_REACT"),
     (1, 3, "TypeScript", "TypeScript", True, "TypeScript.svg", "TypeScript.svg"),
-    (1, 4, "JavaScript", "JavaScript", True, "JavaScript.svg", "JavaScript.svg"),
+    (1, 4, "JavaScript", "JavaScript", False, "JavaScript.svg", "JavaScript.svg"),
     (1, 5, "HTML5", "HTML5", False, "HTML.svg", "HTML.svg"),
     (1, 6, "CSS3", "CSS3", False, "CSS.svg", "CSS.svg"),
     (1, 7, "Tailwind", "Tailwind\nCSS", False, "TailwindCSS-Dark.svg", "TailwindCSS-Light.svg"),
@@ -33,11 +33,11 @@ SKILLS = [
 
     # ─── Lane 02: BACKEND & LANGUAGES (Y=275) ───
     (2, 0, "NodeJS", "Node.js", True, "NodeJS-Dark.svg", "NodeJS-Light.svg"),
-    (2, 1, "Express", "Express", True, "ExpressJS-Dark.svg", "ExpressJS-Light.svg"),
+    (2, 1, "Express", "Express", False, "ExpressJS-Dark.svg", "ExpressJS-Light.svg"),
     (2, 2, "SocketIO", "Socket.IO", False, "CUSTOM_SOCKETIO", "CUSTOM_SOCKETIO"),
-    (2, 3, "Java", "Java", False, "Java-Dark.svg", "Java-Light.svg"),
+    (2, 3, "Java", "Java", True, "Java-Dark.svg", "Java-Light.svg"),
     (2, 4, "Python", "Python", False, "Python-Dark.svg", "Python-Light.svg"),
-    (2, 5, "CPP", "C++", False, "CPP.svg", "CPP.svg"),
+    (2, 5, "CPP", "C++", True, "CPP.svg", "CPP.svg"),
     (2, 6, "C", "C", False, "C.svg", "C.svg"),
     (2, 7, "Kotlin", "Kotlin", False, "Kotlin-Dark.svg", "Kotlin-Light.svg"),
     (2, 8, "Lua", "Lua", False, "CUSTOM_LUA", "CUSTOM_LUA"),
@@ -49,41 +49,41 @@ SKILLS = [
     (3, 2, "Redis", "Redis", True, "Redis-Dark.svg", "Redis-Light.svg"),
     (3, 3, "MySQL", "MySQL", False, "MySQL-Dark.svg", "MySQL-Light.svg"),
     (3, 4, "SQLite", "SQLite", False, "SQLite.svg", "SQLite.svg"),
-    (3, 5, "Prisma", "Prisma", False, "Prisma.svg", "Prisma.svg"),
+    (3, 5, "Prisma", "Prisma", True, "Prisma.svg", "Prisma.svg"),
     (3, 6, "Drizzle", "Drizzle", False, "CUSTOM_DRIZZLE", "CUSTOM_DRIZZLE"),
     (3, 7, "Supabase", "Supabase", False, "Supabase-Dark.svg", "Supabase-Light.svg"),
     (3, 8, "Firebase", "Firebase", False, "Firebase-Dark.svg", "Firebase-Light.svg"),
 
     # ─── Lane 04: CLOUD & DELIVERY (Y=525) ───
     (4, 0, "AWS", "AWS", True, "AWS-Dark.svg", "AWS-Light.svg"),
-    (4, 1, "GCP", "GCP", False, "GCP-Dark.svg", "GCP-Light.svg"),
-    (4, 2, "Docker", "Docker", True, "Docker.svg", "Docker.svg"),
-    (4, 3, "Linux", "Linux", True, "Linux-Dark.svg", "Linux-Light.svg"),
-    (4, 4, "Cloudflare", "Cloudflare", False, "Cloudflare-Dark.svg", "Cloudflare-Light.svg"),
-    (4, 5, "CICD", "CI/CD", False, "GithubActions-Dark.svg", "GithubActions-Light.svg"),
-    (4, 6, "Vercel", "Vercel", False, "Vercel-Dark.svg", "Vercel-Light.svg"),
-    (4, 7, "Netlify", "Netlify", False, "Netlify-Dark.svg", "Netlify-Light.svg"),
-    (4, 8, "Render", "Render", False, "CUSTOM_RENDER", "CUSTOM_RENDER"),
+    (4, 1, "CICD", "CI/CD", False, "GithubActions-Dark.svg", "GithubActions-Light.svg"),
+    (4, 2, "GCP", "GCP", True, "GCP-Dark.svg", "GCP-Light.svg"),
+    (4, 3, "Vercel", "Vercel", False, "Vercel-Dark.svg", "Vercel-Light.svg"),
+    (4, 4, "Docker", "Docker", True, "Docker.svg", "Docker.svg"),
+    (4, 5, "Netlify", "Netlify", False, "Netlify-Dark.svg", "Netlify-Light.svg"),
+    (4, 6, "Linux", "Linux", True, "Linux-Dark.svg", "Linux-Light.svg"),
+    (4, 7, "Render", "Render", False, "CUSTOM_RENDER", "CUSTOM_RENDER"),
+    (4, 8, "Cloudflare", "Cloudflare", True, "Cloudflare-Dark.svg", "Cloudflare-Light.svg"),
     (4, 9, "Railway", "Railway", False, "CUSTOM_RAILWAY", "CUSTOM_RAILWAY"),
     (4, 10, "Hostinger", "Hostinger", False, "CUSTOM_HOSTINGER", "CUSTOM_HOSTINGER"),
 
     # ─── Lane 05: TOOLS & CREATIVE (Y=650) ───
-    (5, 0, "Git", "Git", True, "Git.svg", "Git.svg"),
-    (5, 1, "GitHub", "GitHub", False, "Github-Dark.svg", "Github-Light.svg"),
-    (5, 2, "Postman", "Postman", False, "Postman.svg", "Postman.svg"),
-    (5, 3, "NPM", "npm", False, "Npm-Dark.svg", "Npm-Light.svg"),
+    (5, 0, "Git", "Git", False, "Git.svg", "Git.svg"),
+    (5, 1, "GitHub", "GitHub", True, "Github-Dark.svg", "Github-Light.svg"),
+    (5, 2, "NPM", "npm", False, "Npm-Dark.svg", "Npm-Light.svg"),
+    (5, 3, "Postman", "Postman", True, "Postman.svg", "Postman.svg"),
     (5, 4, "DNS", "DNS", False, "CUSTOM_DNS", "CUSTOM_DNS"),
     (5, 5, "Windows", "Windows", False, "Windows-Dark.svg", "Windows-Light.svg"),
     (5, 6, "macOS", "macOS", False, "CUSTOM_MACOS", "CUSTOM_MACOS"),
     (5, 7, "Figma", "Figma", False, "Figma-Dark.svg", "Figma-Light.svg"),
     (5, 8, "Blender", "Blender", False, "Blender-Dark.svg", "Blender-Light.svg"),
     (5, 9, "Unity", "Unity", False, "Unity-Dark.svg", "Unity-Light.svg"),
-    (5, 10, "Roblox", "Roblox\nStudio", True, "RobloxStudio.svg", "RobloxStudio.svg"),
+    (5, 10, "Roblox", "Roblox\nStudio", False, "RobloxStudio.svg", "RobloxStudio.svg"),
 
     # ─── Lane 06: AI (Y=775) ───
-    (6, 0, "ChatGPT", "ChatGPT\n/ Codex", False, "CUSTOM_OPENAI", "CUSTOM_OPENAI"),
-    (6, 1, "Claude", "Claude\n/ Code", False, "CUSTOM_CLAUDE", "CUSTOM_CLAUDE"),
-    (6, 2, "Gemini", "Gemini\n/ AGY", False, "CUSTOM_GEMINI", "CUSTOM_GEMINI"),
+    (6, 0, "ChatGPT", "ChatGPT\n/ Codex", True, "CUSTOM_OPENAI", "CUSTOM_OPENAI"),
+    (6, 1, "Gemini", "Gemini\n/ AGY", False, "CUSTOM_GEMINI", "CUSTOM_GEMINI"),
+    (6, 2, "Claude", "Claude\n/ Code", True, "CUSTOM_CLAUDE", "CUSTOM_CLAUDE"),
     (6, 3, "DeepSeek", "DeepSeek", False, "CUSTOM_DEEPSEEK", "CUSTOM_DEEPSEEK"),
     (6, 4, "Perplexity", "Perplexity", False, "CUSTOM_PERPLEXITY", "CUSTOM_PERPLEXITY"),
     (6, 5, "Manus", "Manus", False, "CUSTOM_MANUS", "CUSTOM_MANUS"),
@@ -290,7 +290,7 @@ def get_icon_svg(skill_id, filename, is_dark):
     return inner
 
 def build_skill_border(skill_id, is_pri, is_dark):
-    """A restrained diagonal border sweep, with independent 2–5s intervals."""
+    """Static gold border and a narrow, offset top-left to bottom-right shine."""
     if not is_pri:
         card_border = "#3C352E" if is_dark else "#D8CDBE"
         return f'<rect x="-29" y="-29" width="58" height="58" rx="14" fill="none" stroke="{card_border}" stroke-width="1.3"/>'
@@ -308,22 +308,24 @@ def build_skill_border(skill_id, is_pri, is_dark):
     phase = rand() % 5000
     intervals = [2000 + rand() % 3001 for _ in range(24)]
     total = sum(intervals)
-    times, values = [0], ["-80 -80"]
+    times, values, alpha = [0], ["-42 -68"], ["0"]
     t = 0
     for interval in intervals:
-        times.extend([t + 850, t + interval - 1, t + interval])
-        values.extend(["80 80", "80 80", "-80 -80"])
+        times.extend([t + 100, t + 1050, t + 1150, t + interval - 1, t + interval])
+        values.extend(["-34.695652 -56.173913", "34.695652 56.173913", "42 68", "42 68", "-42 -68"])
+        alpha.extend(["1", "1", "0", "0", "0"])
         t += interval
 
     keys = ";".join(f"{x / total:.8f}" for x in times)
     shifts = ";".join(values)
+    opacity = ";".join(alpha)
     duration = f"{total / 1000:.3f}"
     begin = f"{-phase / 1000:.3f}"
-    base_color = "#9A8066" if is_dark else "#9B5A1C"
-    mid = "#F8BA6A" if is_dark else "#BA7229"
-    shine = "#FFF1CE" if is_dark else "#E9A54F"
+    base_color = "#C09A69" if is_dark else "#9B5A1C"
+    mid = "#FFC77F" if is_dark else "#D58A32"
+    shine = "#FFF8E8" if is_dark else "#FFF3D3"
     gid = f"shimmer_{skill_id}" + ("" if is_dark else "L")
-    return f'<defs><linearGradient id="{gid}" gradientUnits="userSpaceOnUse" x1="-30" y1="-30" x2="30" y2="30" gradientTransform="translate(-80 -80)"><stop offset="0" stop-color="{base_color}"/><stop offset="0.34" stop-color="{base_color}"/><stop offset="0.45" stop-color="{mid}"/><stop offset="0.50" stop-color="{shine}"/><stop offset="0.55" stop-color="{mid}"/><stop offset="0.66" stop-color="{base_color}"/><stop offset="1" stop-color="{base_color}"/><animateTransform attributeName="gradientTransform" type="translate" values="{shifts}" keyTimes="{keys}" dur="{duration}s" begin="{begin}s" repeatCount="indefinite" calcMode="linear"/></linearGradient></defs><rect x="-29" y="-29" width="58" height="58" rx="14" fill="none" stroke="url(#{gid})" stroke-width="2.1"/>'
+    return f'<rect x="-29" y="-29" width="58" height="58" rx="14" fill="none" stroke="{base_color}" stroke-width="2.1"/><defs><linearGradient id="{gid}" gradientUnits="userSpaceOnUse" x1="-25" y1="-40" x2="25" y2="40" gradientTransform="translate(-42 -68)"><stop offset="0" stop-color="{mid}" stop-opacity="0"/><stop offset="0.34" stop-color="{mid}" stop-opacity="0"/><stop offset="0.44" stop-color="{mid}" stop-opacity="0.85"/><stop offset="0.50" stop-color="{shine}" stop-opacity="1"/><stop offset="0.56" stop-color="{mid}" stop-opacity="0.85"/><stop offset="0.66" stop-color="{mid}" stop-opacity="0"/><stop offset="1" stop-color="{mid}" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" values="{shifts}" keyTimes="{keys}" dur="{duration}s" begin="{begin}s" repeatCount="indefinite" calcMode="linear"/></linearGradient></defs><rect x="-29" y="-29" width="58" height="58" rx="14" fill="none" stroke="url(#{gid})" stroke-width="2.5" opacity="0"><animate attributeName="opacity" values="{opacity}" keyTimes="{keys}" dur="{duration}s" begin="{begin}s" repeatCount="indefinite" calcMode="linear"/></rect>'
 
 
 def build_toolchain(is_dark=True):
