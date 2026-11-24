@@ -5,7 +5,6 @@ tools/update_all_telemetry.py
 Fetches 100% REAL dynamic GitHub metrics and contribution telemetry for tushar-gour:
 - Live 52-week contribution pulse (discrete weeks, peak week, current week, active days, 365D total)
 - Live language footprint byte aggregation across all user repositories
-- Live editorial statistics card (91 repos count preserved, real contributions, active days, peak records)
 - Generates pixel-perfect Dark and Light SVG assets and generated/metrics.json.
 """
 
@@ -195,58 +194,6 @@ def fetch_live_languages() -> list:
 
 # ─── SVG GENERATORS ───────────────────────────────────────────────────────────
 
-def build_stats_svg(total_repos=TOTAL_REPOSITORIES, total_contribs=2257, active_days=226, peak_week=153, is_dark=True):
-    bg = "#101110" if is_dark else "#FAF7F2"
-    border = "#38322D" if is_dark else "#D8CDBE"
-    divider = "#3A332B" if is_dark else "#E2D9CC"
-    lbl_color = "#B7A58E" if is_dark else "#695C4E"
-    sub_color = "#AA9A87" if is_dark else "#746557"
-    txt_color = "#F0E9DD" if is_dark else "#28231E"
-    accent = "#F8BA6A" if is_dark else "#9B5A1C"
-    underline = "#504338" if is_dark else "#D8CDBE"
-
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" width="100%" height="100%">
-  <defs>
-    <style>
-      .m {{ font-family: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }}
-      .s {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }}
-    </style>
-  </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="200" rx="12" fill="{bg}"/>
-  <rect width="1200" height="200" rx="12" fill="none" stroke="{border}" stroke-width="1.2"/>
-
-  <!-- Column dividers -->
-  <line x1="300" y1="20" x2="300" y2="180" stroke="{divider}" stroke-width="1.2"/>
-  <line x1="600" y1="20" x2="600" y2="180" stroke="{divider}" stroke-width="1.2"/>
-  <line x1="900" y1="20" x2="900" y2="180" stroke="{divider}" stroke-width="1.2"/>
-
-  <!-- COL 1: TOTAL REPOSITORIES -->
-  <text class="m" x="42" y="48" font-size="18" font-weight="700" fill="{lbl_color}" letter-spacing="2">TOTAL REPOSITORIES</text>
-  <text class="s" x="42" y="130" font-size="80" font-weight="900" fill="{accent}" letter-spacing="-2">{total_repos}</text>
-  <line x1="42" y1="145" x2="140" y2="145" stroke="{accent}" stroke-width="3.5" stroke-linecap="round"/>
-  <text class="m" x="42" y="178" font-size="16" font-weight="600" fill="{sub_color}" letter-spacing="1.5">PUBLIC + PRIVATE</text>
-
-  <!-- COL 2: CONTRIBUTIONS -->
-  <text class="m" x="342" y="48" font-size="18" font-weight="700" fill="{lbl_color}" letter-spacing="2">CONTRIBUTIONS</text>
-  <text class="s" x="342" y="130" font-size="80" font-weight="900" fill="{txt_color}" letter-spacing="-2">{total_contribs:,}</text>
-  <line x1="342" y1="145" x2="510" y2="145" stroke="{underline}" stroke-width="3.5" stroke-linecap="round"/>
-  <text class="m" x="342" y="178" font-size="16" font-weight="600" fill="{sub_color}" letter-spacing="1.5">PAST 365 DAYS</text>
-
-  <!-- COL 3: ACTIVE DAYS -->
-  <text class="m" x="642" y="48" font-size="18" font-weight="700" fill="{lbl_color}" letter-spacing="2">ACTIVE DAYS</text>
-  <text class="s" x="642" y="130" font-size="80" font-weight="900" fill="{txt_color}" letter-spacing="-2">{active_days}</text>
-  <line x1="642" y1="145" x2="760" y2="145" stroke="{underline}" stroke-width="3.5" stroke-linecap="round"/>
-  <text class="m" x="642" y="178" font-size="16" font-weight="600" fill="{sub_color}" letter-spacing="1.5">CONTRIBUTED DAYS</text>
-
-  <!-- COL 4: PEAK RECORD -->
-  <text class="m" x="942" y="48" font-size="18" font-weight="700" fill="{lbl_color}" letter-spacing="2">PEAK WEEK</text>
-  <text class="s" x="942" y="130" font-size="80" font-weight="900" fill="{txt_color}" letter-spacing="-2">{peak_week}</text>
-  <line x1="942" y1="145" x2="1050" y2="145" stroke="{underline}" stroke-width="3.5" stroke-linecap="round"/>
-  <text class="m" x="942" y="178" font-size="16" font-weight="600" fill="{sub_color}" letter-spacing="1.5">SINGLE WEEK RECORD</text>
-</svg>'''
-
 def build_pulse_svg(contrib_data: dict, is_dark=True):
     """Render combined engineering activity from the actual contribution calendar."""
     palette = {"bg":"#101110","fg":"#F0E9DD","sub":"#C6BAAA","muted":"#AA9A87","grid":"#3A332B","bar":"#9A8066","accent":"#F8BA6A"} if is_dark else {"bg":"#FAF7F2","fg":"#28231E","sub":"#695C4E","muted":"#746557","grid":"#DCCFC0","bar":"#9A8066","accent":"#995617"}
@@ -381,15 +328,7 @@ def main():
 
     print(f"Metrics: Repos={total_repos}, Contribs={total_contribs}, ActiveDays={active_days}, PeakWeek={peak_week}")
 
-    # 2. Generate Stats Editorial SVGs
-    stats_dark = build_stats_svg(total_repos, total_contribs, active_days, peak_week, is_dark=True)
-    stats_light = build_stats_svg(total_repos, total_contribs, active_days, peak_week, is_dark=False)
-    
-    (ASSETS_DIR / "stats-editorial-dark.svg").write_text(stats_dark, encoding="utf-8")
-    (ASSETS_DIR / "stats-editorial-light.svg").write_text(stats_light, encoding="utf-8")
-    print("Generated stats-editorial-dark.svg & stats-editorial-light.svg")
-
-    # 3. Generate 52-Week Pulse SVGs
+    # 2. Generate Engineering Activity SVGs
     pulse_dark = build_pulse_svg(contrib_data, is_dark=True)
     pulse_light = build_pulse_svg(contrib_data, is_dark=False)
 
@@ -397,7 +336,7 @@ def main():
     (ASSETS_DIR / "pulse-52w-light.svg").write_text(pulse_light, encoding="utf-8")
     print("Generated pulse-52w-dark.svg & pulse-52w-light.svg")
 
-    # 4. Generate Language Footprint Spectrum SVGs
+    # 3. Generate Language Footprint Spectrum SVGs
     spec_dark = build_spectrum_svg(languages, is_dark=True)
     spec_light = build_spectrum_svg(languages, is_dark=False)
 
@@ -405,7 +344,7 @@ def main():
     (ASSETS_DIR / "domain-spectrum-light.svg").write_text(spec_light, encoding="utf-8")
     print("Generated domain-spectrum-dark.svg & domain-spectrum-light.svg")
 
-    # 5. Output Machine-Readable Manifest
+    # 4. Output Machine-Readable Manifest
     manifest = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "user": USERNAME,

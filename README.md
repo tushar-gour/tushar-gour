@@ -1,4 +1,4 @@
-<img src="./assets/identity/hero-banner.png" alt="Tushar Gour — Software Engineer" width="100%">
+<img src="./assets/identity/hero-gold.png" alt="Tushar Gour — Software Engineer" width="100%">
 
 <br><br>
 
