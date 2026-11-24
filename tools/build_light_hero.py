@@ -8,8 +8,15 @@ source = ROOT / "assets/identity/hero-gold.png"
 target = source.with_name("hero-gold-light.png")
 
 def generate():
-    im = Image.open(source).convert("RGB")
-    assert im.size == (2048,731), "Unexpected hero dimensions"
+    original = Image.open(source).convert("RGB")
+    bounds = (36,64,2012,664)
+    if original.size == (2048,731):
+        im = original
+    elif original.size == (1976,600):
+        im = Image.new("RGB",(2048,731),(13,16,17))
+        im.paste(original,(36,64))
+    else:
+        raise ValueError(f"Unexpected hero dimensions: {original.size}")
     a = np.asarray(im).astype(np.float32)/255
     r,g,b = a.transpose(2,0,1)
     y = .2126*r+.7152*g+.0722*b
@@ -59,7 +66,13 @@ def generate():
     out=Image.alpha_composite(out,crest)
     frame=ImageDraw.Draw(out)
     frame.rounded_rectangle((36,64,2011,663),radius=17,outline=(216,205,190,255),width=2)
-    out.convert("RGB").save(target,optimize=True)
+    # Crop away the outside margins. Both variants use identical framing and dimensions.
+    out.convert("RGB").crop(bounds).save(target,optimize=True)
+    if original.size == (2048,731):
+        original.crop(bounds).save(source,optimize=True)
+    with Image.open(source) as check:
+        assert check.size == (1976,600)
+        check.verify()
     with Image.open(target) as check:
         check.verify()
 

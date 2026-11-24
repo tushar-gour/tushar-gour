@@ -22,8 +22,7 @@ from profile_design import palette, card, text, line, rect
 USERNAME = os.getenv("GITHUB_USER", "tushar-gour")
 TOKEN = os.getenv("GITHUB_TOKEN", "").strip()
 
-# >>> MANUALLY SET YOUR TOTAL REPOSITORY COUNT (PUBLIC + PRIVATE) HERE <<<
-TOTAL_REPOSITORIES = 98
+OWNER_TOKEN = os.getenv("PROFILE_READ_TOKEN", "").strip()
 # ─────────────────────────────────────────────────────────────────────────────
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -147,6 +146,34 @@ def fetch_live_contributions() -> dict:
         raise RuntimeError("Contribution feeds unavailable; preserving the last published snapshot") from e
 
 
+def fetch_repository_count():
+    """Read owner-visible public and private totals. Never count a restricted Actions token as owner access."""
+    if OWNER_TOKEN:
+        req = urllib.request.Request("https://api.github.com/user", headers={
+            "Authorization": f"Bearer {OWNER_TOKEN}",
+            "Accept": "application/vnd.github+json",
+            "User-Agent": f"{USERNAME}-telemetry-pipeline",
+        })
+        try:
+            with urllib.request.urlopen(req, timeout=15) as response:
+                user = json.loads(response.read().decode("utf-8"))
+                scopes = {s.strip() for s in response.headers.get("X-OAuth-Scopes", "").split(",")}
+            if user.get("login","").lower() != USERNAME.lower() or "repo" not in scopes:
+                raise ValueError("PROFILE_READ_TOKEN must be an owner classic PAT with repo scope")
+            public, private = user["public_repos"], user["total_private_repos"]
+            if not isinstance(public,int) or not isinstance(private,int) or min(public,private)<0:
+                raise ValueError("Invalid repository totals")
+            return {"total": public+private, "public": public, "private": private,
+                    "visibility": "PUBLIC + PRIVATE", "source": "owner_api",
+                    "verifiedAt": datetime.now(timezone.utc).isoformat(), "fresh": True}
+        except Exception as exc:
+            print(f"Owner repository count unavailable: {exc}", file=sys.stderr)
+    previous = json.loads((GENERATED_DIR / "metrics.json").read_text(encoding="utf-8"))["repositories"]
+    if previous.get("visibility") != "PUBLIC + PRIVATE" or "verifiedAt" not in previous:
+        raise RuntimeError("No verified complete repository snapshot available")
+    return {**previous, "fresh": False}
+
+
 def fetch_live_languages() -> list:
     """Fetch live aggregated language byte statistics across all repositories."""
     print("Fetching live repository languages...")
@@ -195,18 +222,22 @@ def fetch_live_languages() -> list:
 
 # ─── SVG GENERATORS ───────────────────────────────────────────────────────────
 
-def build_pulse_svg(contrib_data: dict, is_dark=True):
+def build_pulse_svg(contrib_data: dict, repositories: dict, is_dark=True):
     p = palette(is_dark)
     weeks = contrib_data["weekly_52"]
     if len(weeks) != 52 or any(not isinstance(n, int) or n < 0 for n in weeks):
         raise ValueError("Expected 52 non-negative weekly contribution counts")
     peak = max(weeks)
+    top_five = set(sorted((i for i,n in enumerate(weeks) if n>0), key=lambda i: (-weeks[i],i))[:5])
+    active_weeks = sum(n>0 for n in weeks)
     step = max(50, ((peak + 249) // 250) * 50)
     y_max = 5 * step
     parts = [card(438, "ENGINEERING ACTIVITY", "365-DAY SNAPSHOT", p)]
-    for x, value, label in [(36, f'{contrib_data["total"]:,}', "Contributions"), (367, contrib_data["active_days"], "Active days"), (698, "52", "Weeks of activity")]:
-        parts.extend([text(x,132,value,38,600,p["fg"]), text(x,157,label,18,400,p["muted"])])
-    parts.extend([line(335,94,335,161,p),line(666,94,666,161,p),line(36,180,1084,180,p)])
+    for x, value, label in [(36, f'{repositories["total"]:,}', "Repositories (public + private)"), (310, f'{contrib_data["total"]:,}', "Contributions"), (580, contrib_data["active_days"], "Active days"), (850, active_weeks, "Active weeks / 52")]:
+        parts.extend([text(x,132,value,36,600,p["fg"]), text(x,157,label,15,400,p["muted"])])
+    if not repositories.get("fresh"):
+        parts.append(text(36,174,"Last verified repository count",11,400,p["muted"]))
+    parts.extend([line(292,94,292,170,p),line(562,94,562,170,p),line(832,94,832,170,p),line(36,184,1084,184,p)])
     for tick in range(0,y_max+1,step):
         y = 391 - 182*tick/y_max
         parts.extend([line(78,f"{y:.2f}",1084,f"{y:.2f}",p),text(64,f"{y+5:.2f}",tick,14,400,p["muted"],"end")])
@@ -215,7 +246,7 @@ def build_pulse_svg(contrib_data: dict, is_dark=True):
             continue
         h = 182*n/y_max
         x = 78+(i+.5)*1006/52-7.2
-        fill = p["accent"] if n==peak else p["bar"]
+        fill = p["accent"] if i in top_five else p["bar"]
         parts.append(f'  <rect x="{x:.2f}" y="{391-h:.2f}" width="14.4" height="{h:.2f}" rx="{min(2.5,h/2):.2f}" fill="{fill}"><title>Week {i+1}: {n} contributions</title></rect>')
     parts.extend([text(78,414,"WEEK 01",14,500,p["muted"]),text(1084,414,"WEEK 52",14,500,p["muted"],"end"),"</svg>\n"])
     return "\n".join(parts)
@@ -251,7 +282,8 @@ def main():
     contrib_data = fetch_live_contributions()
     languages = fetch_live_languages()
 
-    total_repos = TOTAL_REPOSITORIES  # Configured at top of file
+    repositories = fetch_repository_count()
+    total_repos = repositories['total']
     total_contribs = contrib_data["total"]
     active_days = contrib_data["active_days"]
     peak_week = contrib_data["peak_week"]
@@ -259,8 +291,8 @@ def main():
     print(f"Metrics: Repos={total_repos}, Contribs={total_contribs}, ActiveDays={active_days}, PeakWeek={peak_week}")
 
     # 2. Generate Engineering Activity SVGs
-    pulse_dark = build_pulse_svg(contrib_data, is_dark=True)
-    pulse_light = build_pulse_svg(contrib_data, is_dark=False)
+    pulse_dark = build_pulse_svg(contrib_data, repositories, is_dark=True)
+    pulse_light = build_pulse_svg(contrib_data, repositories, is_dark=False)
 
     (ASSETS_DIR / "pulse-52w-dark.svg").write_text(pulse_dark, encoding="utf-8")
     (ASSETS_DIR / "pulse-52w-light.svg").write_text(pulse_light, encoding="utf-8")
@@ -278,16 +310,14 @@ def main():
     manifest = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "user": USERNAME,
-        "repositories": {
-            "total": total_repos,
-            "visibility": "PUBLIC + PRIVATE"
-        },
+        "repositories": repositories,
         "contributions": {
             "total365": total_contribs,
             "activeDays": active_days,
             "peakWeek": peak_week,
             "currentWeek": contrib_data["current_week"],
-            "weeklyPulse": contrib_data["weekly_52"]
+            "weeklyPulse": contrib_data["weekly_52"],
+            "activeWeeks": sum(n>0 for n in contrib_data["weekly_52"])
         },
         "languages": {
             "totalBytes": sum(l["bytes"] for l in languages),

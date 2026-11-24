@@ -21,7 +21,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/pulse-52w-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry/pulse-52w-light.svg">
-  <img src="./assets/telemetry/pulse-52w-dark.svg" alt="Engineering activity: contributions, active days and 52-week contribution distribution" width="100%">
+  <img src="./assets/telemetry/pulse-52w-dark.svg" alt="Engineering activity: repositories, contributions, active days, active weeks and 52-week contribution distribution" width="100%">
 </picture>
 
 <br>

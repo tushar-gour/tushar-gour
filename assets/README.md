@@ -20,8 +20,10 @@ python tools/update_all_telemetry.py
 python tools/check_readme.py
 ```
 
-The telemetry workflow refreshes the activity and language SVGs daily. The dark hero is the original PNG. To rebuild the matching light hero, install Pillow and NumPy and run `python tools/build_light_hero.py`. Both theme assets are selected using `<picture>`.
+The telemetry workflow refreshes the activity and language SVGs every two hours. The hero PNGs are cropped to the card boundary, with no outer image margins. To rebuild the matching light hero, install Pillow and NumPy and run `python tools/build_light_hero.py`. Both theme assets are selected using `<picture>`.
 
 Only active artwork and generator inputs are retained in the working tree.
 
 The shared `tools/profile_design.py` module defines the 1120-unit card system, serif heading, semantic palette and common padding.
+
+Repository totals: add an owner-authorized classic PAT with `repo` scope as the Actions secret `PROFILE_READ_TOKEN`. The pipeline reads the authenticated owner's public/private totals. Without this secret (or on error), it keeps the last verified count and explicitly labels it as such. Never commit the token to the repository.

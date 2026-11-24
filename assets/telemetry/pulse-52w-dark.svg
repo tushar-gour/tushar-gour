@@ -1,29 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 438" width="1120" height="438" role="img" aria-label="ENGINEERING ACTIVITY">
-  <rect x="0.6" y="0.6" width="1118.8" height="436.8" rx="14" fill="#101110" stroke="#38322D" stroke-width="1.2"/>
+  <rect x="0.6" y="0.6" width="1118.8" height="436.8" rx="14" fill="#101110" stroke="#55483B" stroke-width="1.2"/>
   <rect x="36" y="24" width="6" height="30" rx="1" fill="#F8BA6A"/>
   <text x="56" y="49" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#F0E9DD">ENGINEERING ACTIVITY</text>
   <text x="1084" y="47" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#B8AA99" letter-spacing="0.5">365-DAY SNAPSHOT</text>
-  <line x1="36" y1="74" x2="1084" y2="74" stroke="#38322D" stroke-width="1.2"/>
-  <text x="36" y="132" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="600" fill="#F0E9DD" text-anchor="start">3,309</text>
-  <text x="36" y="157" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#B8AA99" text-anchor="start">Contributions</text>
-  <text x="367" y="132" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="600" fill="#F0E9DD" text-anchor="start">239</text>
-  <text x="367" y="157" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#B8AA99" text-anchor="start">Active days</text>
-  <text x="698" y="132" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="600" fill="#F0E9DD" text-anchor="start">52</text>
-  <text x="698" y="157" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#B8AA99" text-anchor="start">Weeks of activity</text>
-  <line x1="335" y1="94" x2="335" y2="161" stroke="#38322D" stroke-width="1.2"/>
-  <line x1="666" y1="94" x2="666" y2="161" stroke="#38322D" stroke-width="1.2"/>
-  <line x1="36" y1="180" x2="1084" y2="180" stroke="#38322D" stroke-width="1.2"/>
-  <line x1="78" y1="391.00" x2="1084" y2="391.00" stroke="#38322D" stroke-width="1.2"/>
+  <line x1="36" y1="74" x2="1084" y2="74" stroke="#55483B" stroke-width="1.2"/>
+  <text x="36" y="132" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="600" fill="#F0E9DD" text-anchor="start">100</text>
+  <text x="36" y="157" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#B8AA99" text-anchor="start">Repositories (public + private)</text>
+  <text x="310" y="132" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="600" fill="#F0E9DD" text-anchor="start">3,309</text>
+  <text x="310" y="157" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#B8AA99" text-anchor="start">Contributions</text>
+  <text x="580" y="132" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="600" fill="#F0E9DD" text-anchor="start">239</text>
+  <text x="580" y="157" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#B8AA99" text-anchor="start">Active days</text>
+  <text x="850" y="132" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="600" fill="#F0E9DD" text-anchor="start">50</text>
+  <text x="850" y="157" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#B8AA99" text-anchor="start">Active weeks / 52</text>
+  <text x="36" y="174" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#B8AA99" text-anchor="start">Last verified repository count</text>
+  <line x1="292" y1="94" x2="292" y2="170" stroke="#55483B" stroke-width="1.2"/>
+  <line x1="562" y1="94" x2="562" y2="170" stroke="#55483B" stroke-width="1.2"/>
+  <line x1="832" y1="94" x2="832" y2="170" stroke="#55483B" stroke-width="1.2"/>
+  <line x1="36" y1="184" x2="1084" y2="184" stroke="#55483B" stroke-width="1.2"/>
+  <line x1="78" y1="391.00" x2="1084" y2="391.00" stroke="#55483B" stroke-width="1.2"/>
   <text x="64" y="396.00" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#B8AA99" text-anchor="end">0</text>
-  <line x1="78" y1="354.60" x2="1084" y2="354.60" stroke="#38322D" stroke-width="1.2"/>
+  <line x1="78" y1="354.60" x2="1084" y2="354.60" stroke="#55483B" stroke-width="1.2"/>
   <text x="64" y="359.60" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#B8AA99" text-anchor="end">50</text>
-  <line x1="78" y1="318.20" x2="1084" y2="318.20" stroke="#38322D" stroke-width="1.2"/>
+  <line x1="78" y1="318.20" x2="1084" y2="318.20" stroke="#55483B" stroke-width="1.2"/>
   <text x="64" y="323.20" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#B8AA99" text-anchor="end">100</text>
-  <line x1="78" y1="281.80" x2="1084" y2="281.80" stroke="#38322D" stroke-width="1.2"/>
+  <line x1="78" y1="281.80" x2="1084" y2="281.80" stroke="#55483B" stroke-width="1.2"/>
   <text x="64" y="286.80" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#B8AA99" text-anchor="end">150</text>
-  <line x1="78" y1="245.40" x2="1084" y2="245.40" stroke="#38322D" stroke-width="1.2"/>
+  <line x1="78" y1="245.40" x2="1084" y2="245.40" stroke="#55483B" stroke-width="1.2"/>
   <text x="64" y="250.40" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#B8AA99" text-anchor="end">200</text>
-  <line x1="78" y1="209.00" x2="1084" y2="209.00" stroke="#38322D" stroke-width="1.2"/>
+  <line x1="78" y1="209.00" x2="1084" y2="209.00" stroke="#55483B" stroke-width="1.2"/>
   <text x="64" y="214.00" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#B8AA99" text-anchor="end">250</text>
   <rect x="80.47" y="388.82" width="14.4" height="2.18" rx="1.09" fill="#9A8066"><title>Week 1: 3 contributions</title></rect>
   <rect x="99.82" y="369.89" width="14.4" height="21.11" rx="2.50" fill="#9A8066"><title>Week 2: 29 contributions</title></rect>
@@ -49,20 +53,20 @@
   <rect x="486.74" y="368.43" width="14.4" height="22.57" rx="2.50" fill="#9A8066"><title>Week 22: 31 contributions</title></rect>
   <rect x="506.09" y="316.74" width="14.4" height="74.26" rx="2.50" fill="#9A8066"><title>Week 23: 102 contributions</title></rect>
   <rect x="525.43" y="340.04" width="14.4" height="50.96" rx="2.50" fill="#9A8066"><title>Week 24: 70 contributions</title></rect>
-  <rect x="544.78" y="285.44" width="14.4" height="105.56" rx="2.50" fill="#9A8066"><title>Week 25: 145 contributions</title></rect>
+  <rect x="544.78" y="285.44" width="14.4" height="105.56" rx="2.50" fill="#F8BA6A"><title>Week 25: 145 contributions</title></rect>
   <rect x="564.13" y="313.10" width="14.4" height="77.90" rx="2.50" fill="#9A8066"><title>Week 26: 107 contributions</title></rect>
   <rect x="583.47" y="310.19" width="14.4" height="80.81" rx="2.50" fill="#9A8066"><title>Week 27: 111 contributions</title></rect>
   <rect x="602.82" y="295.63" width="14.4" height="95.37" rx="2.50" fill="#9A8066"><title>Week 28: 131 contributions</title></rect>
   <rect x="622.17" y="225.74" width="14.4" height="165.26" rx="2.50" fill="#F8BA6A"><title>Week 29: 227 contributions</title></rect>
   <rect x="641.51" y="299.27" width="14.4" height="91.73" rx="2.50" fill="#9A8066"><title>Week 30: 126 contributions</title></rect>
-  <rect x="660.86" y="293.45" width="14.4" height="97.55" rx="2.50" fill="#9A8066"><title>Week 31: 134 contributions</title></rect>
+  <rect x="660.86" y="293.45" width="14.4" height="97.55" rx="2.50" fill="#F8BA6A"><title>Week 31: 134 contributions</title></rect>
   <rect x="680.20" y="297.82" width="14.4" height="93.18" rx="2.50" fill="#9A8066"><title>Week 32: 128 contributions</title></rect>
   <rect x="699.55" y="360.42" width="14.4" height="30.58" rx="2.50" fill="#9A8066"><title>Week 33: 42 contributions</title></rect>
-  <rect x="718.90" y="265.78" width="14.4" height="125.22" rx="2.50" fill="#9A8066"><title>Week 34: 172 contributions</title></rect>
+  <rect x="718.90" y="265.78" width="14.4" height="125.22" rx="2.50" fill="#F8BA6A"><title>Week 34: 172 contributions</title></rect>
   <rect x="738.24" y="356.78" width="14.4" height="34.22" rx="2.50" fill="#9A8066"><title>Week 35: 47 contributions</title></rect>
   <rect x="757.59" y="314.56" width="14.4" height="76.44" rx="2.50" fill="#9A8066"><title>Week 36: 105 contributions</title></rect>
   <rect x="776.93" y="309.46" width="14.4" height="81.54" rx="2.50" fill="#9A8066"><title>Week 37: 112 contributions</title></rect>
-  <rect x="796.28" y="266.51" width="14.4" height="124.49" rx="2.50" fill="#9A8066"><title>Week 38: 171 contributions</title></rect>
+  <rect x="796.28" y="266.51" width="14.4" height="124.49" rx="2.50" fill="#F8BA6A"><title>Week 38: 171 contributions</title></rect>
   <rect x="815.63" y="321.11" width="14.4" height="69.89" rx="2.50" fill="#9A8066"><title>Week 39: 96 contributions</title></rect>
   <rect x="834.97" y="350.23" width="14.4" height="40.77" rx="2.50" fill="#9A8066"><title>Week 40: 56 contributions</title></rect>
   <rect x="854.32" y="388.09" width="14.4" height="2.91" rx="1.46" fill="#9A8066"><title>Week 41: 4 contributions</title></rect>

@@ -5,7 +5,7 @@ SERIF = "Georgia, 'Times New Roman', serif"
 SANS = "Arial, Helvetica, sans-serif"
 
 def palette(is_dark):
-    return {"bg":"#101110","fg":"#F0E9DD","muted":"#B8AA99","line":"#38322D","track":"#3A332B","accent":"#F8BA6A","bar":"#9A8066","colors":["#F8BA6A","#E3D2B5","#C5A37C","#A5805B","#79634E","#594E43"]} if is_dark else {"bg":"#FAF7F2","fg":"#28231E","muted":"#695C4E","line":"#D8CDBE","track":"#E2D9CC","accent":"#995617","bar":"#9A8066","colors":["#E9A54F","#D8C1A0","#B88D61","#9B7952","#715F50","#AFA399"]}
+    return {"bg":"#101110","fg":"#F0E9DD","muted":"#B8AA99","line":"#55483B","track":"#3A332B","accent":"#F8BA6A","bar":"#9A8066","colors":["#F8BA6A","#E3D2B5","#C5A37C","#A5805B","#79634E","#594E43"]} if is_dark else {"bg":"#FAF7F2","fg":"#28231E","muted":"#695C4E","line":"#C8B7A3","track":"#E2D9CC","accent":"#995617","bar":"#9A8066","colors":["#E9A54F","#D8C1A0","#B88D61","#9B7952","#715F50","#AFA399"]}
 
 def header(title, meta, p):
     return f'''  <rect x="36" y="24" width="6" height="30" rx="1" fill="{p['accent']}"/>

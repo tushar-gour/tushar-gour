@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 394" width="1120" height="394" role="img" aria-label="LANGUAGE FOOTPRINT">
-  <rect x="0.6" y="0.6" width="1118.8" height="392.8" rx="14" fill="#101110" stroke="#38322D" stroke-width="1.2"/>
+  <rect x="0.6" y="0.6" width="1118.8" height="392.8" rx="14" fill="#101110" stroke="#55483B" stroke-width="1.2"/>
   <rect x="36" y="24" width="6" height="30" rx="1" fill="#F8BA6A"/>
   <text x="56" y="49" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#F0E9DD">LANGUAGE FOOTPRINT</text>
   <text x="1084" y="47" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#B8AA99" letter-spacing="0.5">CODE VOLUME BY LANGUAGE</text>
-  <line x1="36" y1="74" x2="1084" y2="74" stroke="#38322D" stroke-width="1.2"/>
+  <line x1="36" y1="74" x2="1084" y2="74" stroke="#55483B" stroke-width="1.2"/>
   <rect x="36.00" y="96" width="419.22" height="28" rx="4.00" fill="#F8BA6A"/>
   <rect x="459.22" y="96" width="360.08" height="28" rx="4.00" fill="#E3D2B5"/>
   <rect x="823.29" y="96" width="201.46" height="28" rx="4.00" fill="#C5A37C"/>
   <rect x="1028.75" y="96" width="20.51" height="28" rx="4.00" fill="#A5805B"/>
   <rect x="1053.26" y="96" width="10.96" height="28" rx="4.00" fill="#79634E"/>
   <rect x="1068.22" y="96" width="15.78" height="28" rx="4.00" fill="#594E43"/>
-  <line x1="36" y1="144" x2="1084" y2="144" stroke="#38322D" stroke-width="1.2"/>
+  <line x1="36" y1="144" x2="1084" y2="144" stroke="#55483B" stroke-width="1.2"/>
   <circle cx="43" cy="176" r="7" fill="#F8BA6A"/>
   <text x="60" y="182" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#F0E9DD" text-anchor="start">JavaScript</text>
   <text x="364" y="182" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600" fill="#F8BA6A" text-anchor="end">40.8%</text>
@@ -18,7 +18,7 @@
   <text x="536" y="182" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#B8AA99" text-anchor="end">3,841,751 B</text>
   <rect x="60" y="196" width="476" height="9" rx="4.5" fill="#3A332B"/>
   <rect x="60" y="196" width="194.11" height="9" rx="4.50" fill="#F8BA6A"/>
-  <line x1="36" y1="221" x2="536" y2="221" stroke="#38322D" stroke-width="1.2"/>
+  <line x1="36" y1="221" x2="536" y2="221" stroke="#55483B" stroke-width="1.2"/>
   <circle cx="43" cy="252" r="7" fill="#E3D2B5"/>
   <text x="60" y="258" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#F0E9DD" text-anchor="start">TypeScript</text>
   <text x="364" y="258" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600" fill="#F8BA6A" text-anchor="end">35.0%</text>
@@ -26,7 +26,7 @@
   <text x="536" y="258" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#B8AA99" text-anchor="end">3,299,779 B</text>
   <rect x="60" y="272" width="476" height="9" rx="4.5" fill="#3A332B"/>
   <rect x="60" y="272" width="166.73" height="9" rx="4.50" fill="#E3D2B5"/>
-  <line x1="36" y1="297" x2="536" y2="297" stroke="#38322D" stroke-width="1.2"/>
+  <line x1="36" y1="297" x2="536" y2="297" stroke="#55483B" stroke-width="1.2"/>
   <circle cx="43" cy="328" r="7" fill="#C5A37C"/>
   <text x="60" y="334" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#F0E9DD" text-anchor="start">Dart</text>
   <text x="364" y="334" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600" fill="#F8BA6A" text-anchor="end">19.6%</text>
@@ -41,7 +41,7 @@
   <text x="1084" y="182" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#B8AA99" text-anchor="end">187,921 B</text>
   <rect x="608" y="196" width="476" height="9" rx="4.5" fill="#3A332B"/>
   <rect x="608" y="196" width="9.50" height="9" rx="4.50" fill="#A5805B"/>
-  <line x1="584" y1="221" x2="1084" y2="221" stroke="#38322D" stroke-width="1.2"/>
+  <line x1="584" y1="221" x2="1084" y2="221" stroke="#55483B" stroke-width="1.2"/>
   <circle cx="591" cy="252" r="7" fill="#79634E"/>
   <text x="608" y="258" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#F0E9DD" text-anchor="start">Kotlin</text>
   <text x="912" y="258" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600" fill="#F8BA6A" text-anchor="end">1.1%</text>
@@ -49,7 +49,7 @@
   <text x="1084" y="258" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#B8AA99" text-anchor="end">100,395 B</text>
   <rect x="608" y="272" width="476" height="9" rx="4.5" fill="#3A332B"/>
   <rect x="608" y="272" width="5.07" height="9" rx="2.54" fill="#79634E"/>
-  <line x1="584" y1="297" x2="1084" y2="297" stroke="#38322D" stroke-width="1.2"/>
+  <line x1="584" y1="297" x2="1084" y2="297" stroke="#55483B" stroke-width="1.2"/>
   <circle cx="591" cy="328" r="7" fill="#594E43"/>
   <text x="608" y="334" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#F0E9DD" text-anchor="start">Other</text>
   <text x="912" y="334" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600" fill="#F8BA6A" text-anchor="end">1.5%</text>

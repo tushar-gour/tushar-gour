@@ -322,9 +322,9 @@ def build_skill_border(skill_id, is_pri, is_dark):
     opacity = ";".join(alpha)
     duration = f"{total / 1000:.3f}"
     begin = f"{-phase / 1000:.3f}"
-    base_color = "#C09A69" if is_dark else "#9B5A1C"
-    mid = "#FFC77F" if is_dark else "#D58A32"
-    shine = "#FFF8E8" if is_dark else "#FFF3D3"
+    base_color = "#E7D3B2" if is_dark else "#754617"
+    mid = "#FFE2AF" if is_dark else "#9B5A1C"
+    shine = "#FFFFFF" if is_dark else "#38200D"
     gid = f"shimmer_{skill_id}" + ("" if is_dark else "L")
     return f'<rect x="-29" y="-29" width="58" height="58" rx="14" fill="none" stroke="{base_color}" stroke-width="2.1"/><defs><linearGradient id="{gid}" gradientUnits="userSpaceOnUse" x1="-25" y1="-40" x2="25" y2="40" gradientTransform="translate(-42 -68)"><stop offset="0" stop-color="{mid}" stop-opacity="0"/><stop offset="0.34" stop-color="{mid}" stop-opacity="0"/><stop offset="0.44" stop-color="{mid}" stop-opacity="0.85"/><stop offset="0.50" stop-color="{shine}" stop-opacity="1"/><stop offset="0.56" stop-color="{mid}" stop-opacity="0.85"/><stop offset="0.66" stop-color="{mid}" stop-opacity="0"/><stop offset="1" stop-color="{mid}" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" values="{shifts}" keyTimes="{keys}" dur="{duration}s" begin="{begin}s" repeatCount="indefinite" calcMode="linear"/></linearGradient></defs><rect x="-29" y="-29" width="58" height="58" rx="14" fill="none" stroke="url(#{gid})" stroke-width="2.5" opacity="0"><animate attributeName="opacity" values="{opacity}" keyTimes="{keys}" dur="{duration}s" begin="{begin}s" repeatCount="indefinite" calcMode="linear"/></rect>'
 
@@ -334,7 +334,7 @@ def build_toolchain(is_dark=True):
     p = palette(is_dark)
     bg_vignette = p["bg"]
     bg_vignette_outer = p["bg"]
-    border_col = "#38322D" if is_dark else "#D8CDBE"
+    border_col = p["line"]
     track_col = "#302B26" if is_dark else "#E2D9CC"
     track_term = "#716254" if is_dark else "#A99A89"
     hdr_sub = "#A89A89" if is_dark else "#746557"
