@@ -12,7 +12,6 @@
   <text x="580" y="157" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#695C4E" text-anchor="start">Active days</text>
   <text x="850" y="132" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="600" fill="#28231E" text-anchor="start">50</text>
   <text x="850" y="157" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#695C4E" text-anchor="start">Active weeks / 52</text>
-  <text x="36" y="174" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#695C4E" text-anchor="start">Last verified repository count</text>
   <line x1="292" y1="94" x2="292" y2="170" stroke="#C8B7A3" stroke-width="1.2"/>
   <line x1="562" y1="94" x2="562" y2="170" stroke="#C8B7A3" stroke-width="1.2"/>
   <line x1="832" y1="94" x2="832" y2="170" stroke="#C8B7A3" stroke-width="1.2"/>

@@ -5,16 +5,6 @@
       <stop offset="100%" stop-color="#FAF7F2"/>
     </radialGradient>
 
-    <!-- Laser bullet gradient tail -->
-    <linearGradient id="laserTailL" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#9B5A1C" stop-opacity="0"/>
-      <stop offset="20%" stop-color="#9B5A1C" stop-opacity="0.15"/>
-      <stop offset="50%" stop-color="#9B5A1C" stop-opacity="0.5"/>
-      <stop offset="80%" stop-color="#FFD39A" stop-opacity="0.85"/>
-      <stop offset="95%" stop-color="#FFFFFF" stop-opacity="0.95"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
-    </linearGradient>
-
     <radialGradient id="flareGradL" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#9B5A1C" stop-opacity="1"/>
       <stop offset="40%" stop-color="#9B5A1C" stop-opacity="0.4"/>
@@ -31,20 +21,32 @@
       .monoL { font-family: Arial, Helvetica, sans-serif; }
       .labelL { font-family: Arial, Helvetica, sans-serif; font-weight: 600; }
 
-      @keyframes bulletAnimL {
-        0%   { transform: translateX(95px); opacity: 0; }
-        3%   { transform: translateX(140px); opacity: 1; }
-        58%  { transform: translateX(1065px); opacity: 1; }
-        66%  { transform: translateX(1080px); opacity: 0; }
+      @keyframes signalFlightL {
+        0% { transform: translateX(145.00px); opacity: 0.000; }
+        3% { transform: translateX(150.62px); opacity: 0.500; }
+        6% { transform: translateX(166.78px); opacity: 1.000; }
+        9% { transform: translateX(192.42px); opacity: 1.000; }
+        12% { transform: translateX(226.49px); opacity: 1.000; }
+        15% { transform: translateX(267.93px); opacity: 1.000; }
+        18% { transform: translateX(315.70px); opacity: 1.000; }
+        21% { transform: translateX(368.74px); opacity: 1.000; }
+        24% { transform: translateX(425.99px); opacity: 1.000; }
+        27% { transform: translateX(486.40px); opacity: 1.000; }
+        30% { transform: translateX(548.93px); opacity: 1.000; }
+        33% { transform: translateX(612.50px); opacity: 1.000; }
+        36% { transform: translateX(676.07px); opacity: 1.000; }
+        39% { transform: translateX(738.60px); opacity: 1.000; }
+        42% { transform: translateX(799.01px); opacity: 1.000; }
+        45% { transform: translateX(856.26px); opacity: 1.000; }
+        48% { transform: translateX(909.30px); opacity: 1.000; }
+        51% { transform: translateX(957.07px); opacity: 1.000; }
+        54% { transform: translateX(998.51px); opacity: 1.000; }
+        57% { transform: translateX(1032.58px); opacity: 1.000; }
+        60% { transform: translateX(1058.22px); opacity: 1.000; }
+        63% { transform: translateX(1074.38px); opacity: 0.500; }
+        66% { transform: translateX(1080.00px); opacity: 0.000; }
         100% { transform: translateX(1080px); opacity: 0; }
       }
-
-      .b1L { animation: bulletAnimL 7.0s cubic-bezier(.25,0,.25,1) infinite; }
-      .b2L { animation: bulletAnimL 8.5s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 1.8s; }
-      .b3L { animation: bulletAnimL 7.6s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 3.5s; }
-      .b4L { animation: bulletAnimL 8.8s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 0.8s; }
-      .b5L { animation: bulletAnimL 8.0s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 2.6s; }
-      .b6L { animation: bulletAnimL 7.8s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 4.2s; }
 
     </style>
   </defs>
@@ -75,12 +77,38 @@
     <circle cx="1080" cy="0" r="5" fill="none" stroke="#A99A89" stroke-width="1.8"/>
     <circle cx="1080" cy="0" r="2" fill="#A99A89"/>
 
-    <!-- Laser bullet with tapered tail -->
-    <g class="b1L">
-      <path d="M -80 0 C -50 -1, -15 -3, 0 -3 L 0 3 C -15 3, -50 1, -80 0 Z" fill="url(#laserTailL)"/>
-      <ellipse cx="-3" cy="0" rx="8" ry="3.5" fill="url(#flareGradL)" opacity="0.65"/>
-      <circle cx="0" cy="0" r="4" fill="#FFFFFF" filter="url(#laserGlowL)"/>
-      <circle cx="0" cy="0" r="2.2" fill="#FFFFFF"/>
+    <!-- Velocity-dependent exhaust wake -->
+    <g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.323s infinite"><ellipse cx="-4.85" cy="-0.02" rx="1.82" ry="2.56" fill="#9B5A1C" opacity="0.005"><animate attributeName="ry" values="2.56;1.74;2.89;2.56" dur="0.437s" begin="-0.779s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.306s infinite"><ellipse cx="-4.70" cy="1.52" rx="2.14" ry="2.91" fill="#9B5A1C" opacity="0.015"><animate attributeName="ry" values="2.91;1.98;3.29;2.91" dur="0.424s" begin="-0.738s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.289s infinite"><ellipse cx="-4.55" cy="-1.55" rx="2.46" ry="3.24" fill="#9B5A1C" opacity="0.029"><animate attributeName="ry" values="3.24;2.21;3.67;3.24" dur="0.411s" begin="-0.697s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.272s infinite"><ellipse cx="-4.40" cy="0.25" rx="2.78" ry="3.55" fill="#9B5A1C" opacity="0.047"><animate attributeName="ry" values="3.55;2.42;4.01;3.55" dur="0.398s" begin="-0.656s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.255s infinite"><ellipse cx="-4.25" cy="1.11" rx="3.10" ry="3.83" fill="#9B5A1C" opacity="0.068"><animate attributeName="ry" values="3.83;2.60;4.32;3.83" dur="0.385s" begin="-0.615s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.238s infinite"><ellipse cx="-4.10" cy="-1.35" rx="3.42" ry="4.06" fill="#9B5A1C" opacity="0.092"><animate attributeName="ry" values="4.06;2.76;4.59;4.06" dur="0.372s" begin="-0.574s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.221s infinite"><ellipse cx="-3.95" cy="0.41" rx="3.74" ry="4.25" fill="#9B5A1C" opacity="0.119"><animate attributeName="ry" values="4.25;2.89;4.80;4.25" dur="0.359s" begin="-0.533s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.204s infinite"><ellipse cx="-3.80" cy="0.74" rx="4.06" ry="4.39" fill="#9B5A1C" opacity="0.148"><animate attributeName="ry" values="4.39;2.98;4.96;4.39" dur="0.346s" begin="-0.492s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.187s infinite"><ellipse cx="-3.65" cy="-1.10" rx="4.38" ry="4.47" fill="#9B5A1C" opacity="0.179"><animate attributeName="ry" values="4.47;3.04;5.05;4.47" dur="0.333s" begin="-0.451s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.170s infinite"><ellipse cx="-3.50" cy="0.47" rx="4.70" ry="4.50" fill="#9B5A1C" opacity="0.213"><animate attributeName="ry" values="4.50;3.06;5.08;4.50" dur="0.320s" begin="-0.410s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.170s infinite"><ellipse cx="-1" cy="0" rx="3.90" ry="0.72" fill="#FFF1CD" opacity="0.180"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.153s infinite"><ellipse cx="-3.35" cy="0.43" rx="5.02" ry="4.47" fill="#9B5A1C" opacity="0.250"><animate attributeName="ry" values="4.47;3.04;5.05;4.47" dur="0.307s" begin="-0.369s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.153s infinite"><ellipse cx="-1" cy="0" rx="4.17" ry="0.80" fill="#FFF1CD" opacity="0.218"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.136s infinite"><ellipse cx="-3.20" cy="-0.80" rx="5.34" ry="4.39" fill="#9B5A1C" opacity="0.288"><animate attributeName="ry" values="4.39;2.98;4.96;4.39" dur="0.294s" begin="-0.328s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.136s infinite"><ellipse cx="-1" cy="0" rx="4.43" ry="0.87" fill="#FFF1CD" opacity="0.259"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.119s infinite"><ellipse cx="-3.05" cy="0.43" rx="5.66" ry="4.25" fill="#9B5A1C" opacity="0.329"><animate attributeName="ry" values="4.25;2.89;4.80;4.25" dur="0.281s" begin="-0.287s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.119s infinite"><ellipse cx="-1" cy="0" rx="4.70" ry="0.94" fill="#FFF1CD" opacity="0.304"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.102s infinite"><ellipse cx="-2.90" cy="0.20" rx="5.98" ry="4.06" fill="#9B5A1C" opacity="0.372"><animate attributeName="ry" values="4.06;2.76;4.59;4.06" dur="0.268s" begin="-0.246s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.102s infinite"><ellipse cx="-1" cy="0" rx="4.96" ry="1.01" fill="#FFF1CD" opacity="0.353"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.085s infinite"><ellipse cx="-2.75" cy="-0.48" rx="6.30" ry="3.83" fill="#9B5A1C" opacity="0.417"><animate attributeName="ry" values="3.83;2.60;4.32;3.83" dur="0.255s" begin="-0.205s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.085s infinite"><ellipse cx="-1" cy="0" rx="5.23" ry="1.09" fill="#FFF1CD" opacity="0.405"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.068s infinite"><ellipse cx="-2.60" cy="0.29" rx="6.62" ry="3.55" fill="#9B5A1C" opacity="0.464"><animate attributeName="ry" values="3.55;2.42;4.01;3.55" dur="0.242s" begin="-0.164s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.068s infinite"><ellipse cx="-1" cy="0" rx="5.49" ry="1.16" fill="#FFF1CD" opacity="0.461"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.051s infinite"><ellipse cx="-2.45" cy="0.05" rx="6.94" ry="3.24" fill="#9B5A1C" opacity="0.512"><animate attributeName="ry" values="3.24;2.21;3.67;3.24" dur="0.229s" begin="-0.123s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.051s infinite"><ellipse cx="-1" cy="0" rx="5.76" ry="1.23" fill="#FFF1CD" opacity="0.520"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.034s infinite"><ellipse cx="-2.30" cy="-0.18" rx="7.26" ry="2.91" fill="#9B5A1C" opacity="0.563"><animate attributeName="ry" values="2.91;1.98;3.29;2.91" dur="0.216s" begin="-0.082s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.034s infinite"><ellipse cx="-1" cy="0" rx="6.03" ry="1.30" fill="#FFF1CD" opacity="0.583"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.017s infinite"><ellipse cx="-2.15" cy="0.08" rx="7.58" ry="2.56" fill="#9B5A1C" opacity="0.616"><animate attributeName="ry" values="2.56;1.74;2.89;2.56" dur="0.203s" begin="-0.041s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.017s infinite"><ellipse cx="-1" cy="0" rx="6.29" ry="1.38" fill="#FFF1CD" opacity="0.650"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.0s linear 0.000s infinite"><ellipse cx="-3" cy="0" rx="12" ry="7" fill="url(#flareGradL)" opacity="0.70"/><circle cx="0" cy="0" r="3.6" fill="#FFF1CD" filter="url(#laserGlowL)"/><circle cx="0" cy="0" r="2.5" fill="#FFF1CD"/></g>
     </g>
 
     <!-- Lane label -->
@@ -211,12 +239,38 @@
     <circle cx="1080" cy="0" r="5" fill="none" stroke="#A99A89" stroke-width="1.8"/>
     <circle cx="1080" cy="0" r="2" fill="#A99A89"/>
 
-    <!-- Laser bullet with tapered tail -->
-    <g class="b2L">
-      <path d="M -80 0 C -50 -1, -15 -3, 0 -3 L 0 3 C -15 3, -50 1, -80 0 Z" fill="url(#laserTailL)"/>
-      <ellipse cx="-3" cy="0" rx="8" ry="3.5" fill="url(#flareGradL)" opacity="0.65"/>
-      <circle cx="0" cy="0" r="4" fill="#FFFFFF" filter="url(#laserGlowL)"/>
-      <circle cx="0" cy="0" r="2.2" fill="#FFFFFF"/>
+    <!-- Velocity-dependent exhaust wake -->
+    <g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 2.123s infinite"><ellipse cx="-4.85" cy="-0.02" rx="1.82" ry="2.56" fill="#9B5A1C" opacity="0.005"><animate attributeName="ry" values="2.56;1.74;2.89;2.56" dur="0.437s" begin="-0.779s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 2.106s infinite"><ellipse cx="-4.70" cy="1.52" rx="2.14" ry="2.91" fill="#9B5A1C" opacity="0.015"><animate attributeName="ry" values="2.91;1.98;3.29;2.91" dur="0.424s" begin="-0.738s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 2.089s infinite"><ellipse cx="-4.55" cy="-1.55" rx="2.46" ry="3.24" fill="#9B5A1C" opacity="0.029"><animate attributeName="ry" values="3.24;2.21;3.67;3.24" dur="0.411s" begin="-0.697s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 2.072s infinite"><ellipse cx="-4.40" cy="0.25" rx="2.78" ry="3.55" fill="#9B5A1C" opacity="0.047"><animate attributeName="ry" values="3.55;2.42;4.01;3.55" dur="0.398s" begin="-0.656s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 2.055s infinite"><ellipse cx="-4.25" cy="1.11" rx="3.10" ry="3.83" fill="#9B5A1C" opacity="0.068"><animate attributeName="ry" values="3.83;2.60;4.32;3.83" dur="0.385s" begin="-0.615s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 2.038s infinite"><ellipse cx="-4.10" cy="-1.35" rx="3.42" ry="4.06" fill="#9B5A1C" opacity="0.092"><animate attributeName="ry" values="4.06;2.76;4.59;4.06" dur="0.372s" begin="-0.574s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 2.021s infinite"><ellipse cx="-3.95" cy="0.41" rx="3.74" ry="4.25" fill="#9B5A1C" opacity="0.119"><animate attributeName="ry" values="4.25;2.89;4.80;4.25" dur="0.359s" begin="-0.533s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 2.004s infinite"><ellipse cx="-3.80" cy="0.74" rx="4.06" ry="4.39" fill="#9B5A1C" opacity="0.148"><animate attributeName="ry" values="4.39;2.98;4.96;4.39" dur="0.346s" begin="-0.492s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.987s infinite"><ellipse cx="-3.65" cy="-1.10" rx="4.38" ry="4.47" fill="#9B5A1C" opacity="0.179"><animate attributeName="ry" values="4.47;3.04;5.05;4.47" dur="0.333s" begin="-0.451s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.970s infinite"><ellipse cx="-3.50" cy="0.47" rx="4.70" ry="4.50" fill="#9B5A1C" opacity="0.213"><animate attributeName="ry" values="4.50;3.06;5.08;4.50" dur="0.320s" begin="-0.410s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.970s infinite"><ellipse cx="-1" cy="0" rx="3.90" ry="0.72" fill="#FFF1CD" opacity="0.180"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.953s infinite"><ellipse cx="-3.35" cy="0.43" rx="5.02" ry="4.47" fill="#9B5A1C" opacity="0.250"><animate attributeName="ry" values="4.47;3.04;5.05;4.47" dur="0.307s" begin="-0.369s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.953s infinite"><ellipse cx="-1" cy="0" rx="4.17" ry="0.80" fill="#FFF1CD" opacity="0.218"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.936s infinite"><ellipse cx="-3.20" cy="-0.80" rx="5.34" ry="4.39" fill="#9B5A1C" opacity="0.288"><animate attributeName="ry" values="4.39;2.98;4.96;4.39" dur="0.294s" begin="-0.328s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.936s infinite"><ellipse cx="-1" cy="0" rx="4.43" ry="0.87" fill="#FFF1CD" opacity="0.259"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.919s infinite"><ellipse cx="-3.05" cy="0.43" rx="5.66" ry="4.25" fill="#9B5A1C" opacity="0.329"><animate attributeName="ry" values="4.25;2.89;4.80;4.25" dur="0.281s" begin="-0.287s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.919s infinite"><ellipse cx="-1" cy="0" rx="4.70" ry="0.94" fill="#FFF1CD" opacity="0.304"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.902s infinite"><ellipse cx="-2.90" cy="0.20" rx="5.98" ry="4.06" fill="#9B5A1C" opacity="0.372"><animate attributeName="ry" values="4.06;2.76;4.59;4.06" dur="0.268s" begin="-0.246s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.902s infinite"><ellipse cx="-1" cy="0" rx="4.96" ry="1.01" fill="#FFF1CD" opacity="0.353"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.885s infinite"><ellipse cx="-2.75" cy="-0.48" rx="6.30" ry="3.83" fill="#9B5A1C" opacity="0.417"><animate attributeName="ry" values="3.83;2.60;4.32;3.83" dur="0.255s" begin="-0.205s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.885s infinite"><ellipse cx="-1" cy="0" rx="5.23" ry="1.09" fill="#FFF1CD" opacity="0.405"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.868s infinite"><ellipse cx="-2.60" cy="0.29" rx="6.62" ry="3.55" fill="#9B5A1C" opacity="0.464"><animate attributeName="ry" values="3.55;2.42;4.01;3.55" dur="0.242s" begin="-0.164s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.868s infinite"><ellipse cx="-1" cy="0" rx="5.49" ry="1.16" fill="#FFF1CD" opacity="0.461"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.851s infinite"><ellipse cx="-2.45" cy="0.05" rx="6.94" ry="3.24" fill="#9B5A1C" opacity="0.512"><animate attributeName="ry" values="3.24;2.21;3.67;3.24" dur="0.229s" begin="-0.123s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.851s infinite"><ellipse cx="-1" cy="0" rx="5.76" ry="1.23" fill="#FFF1CD" opacity="0.520"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.834s infinite"><ellipse cx="-2.30" cy="-0.18" rx="7.26" ry="2.91" fill="#9B5A1C" opacity="0.563"><animate attributeName="ry" values="2.91;1.98;3.29;2.91" dur="0.216s" begin="-0.082s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.834s infinite"><ellipse cx="-1" cy="0" rx="6.03" ry="1.30" fill="#FFF1CD" opacity="0.583"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.817s infinite"><ellipse cx="-2.15" cy="0.08" rx="7.58" ry="2.56" fill="#9B5A1C" opacity="0.616"><animate attributeName="ry" values="2.56;1.74;2.89;2.56" dur="0.203s" begin="-0.041s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.817s infinite"><ellipse cx="-1" cy="0" rx="6.29" ry="1.38" fill="#FFF1CD" opacity="0.650"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.5s linear 1.800s infinite"><ellipse cx="-3" cy="0" rx="12" ry="7" fill="url(#flareGradL)" opacity="0.70"/><circle cx="0" cy="0" r="3.6" fill="#FFF1CD" filter="url(#laserGlowL)"/><circle cx="0" cy="0" r="2.5" fill="#FFF1CD"/></g>
     </g>
 
     <!-- Lane label -->
@@ -356,12 +410,38 @@
     <circle cx="1080" cy="0" r="5" fill="none" stroke="#A99A89" stroke-width="1.8"/>
     <circle cx="1080" cy="0" r="2" fill="#A99A89"/>
 
-    <!-- Laser bullet with tapered tail -->
-    <g class="b3L">
-      <path d="M -80 0 C -50 -1, -15 -3, 0 -3 L 0 3 C -15 3, -50 1, -80 0 Z" fill="url(#laserTailL)"/>
-      <ellipse cx="-3" cy="0" rx="8" ry="3.5" fill="url(#flareGradL)" opacity="0.65"/>
-      <circle cx="0" cy="0" r="4" fill="#FFFFFF" filter="url(#laserGlowL)"/>
-      <circle cx="0" cy="0" r="2.2" fill="#FFFFFF"/>
+    <!-- Velocity-dependent exhaust wake -->
+    <g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.823s infinite"><ellipse cx="-4.85" cy="-0.02" rx="1.82" ry="2.56" fill="#9B5A1C" opacity="0.005"><animate attributeName="ry" values="2.56;1.74;2.89;2.56" dur="0.437s" begin="-0.779s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.806s infinite"><ellipse cx="-4.70" cy="1.52" rx="2.14" ry="2.91" fill="#9B5A1C" opacity="0.015"><animate attributeName="ry" values="2.91;1.98;3.29;2.91" dur="0.424s" begin="-0.738s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.789s infinite"><ellipse cx="-4.55" cy="-1.55" rx="2.46" ry="3.24" fill="#9B5A1C" opacity="0.029"><animate attributeName="ry" values="3.24;2.21;3.67;3.24" dur="0.411s" begin="-0.697s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.772s infinite"><ellipse cx="-4.40" cy="0.25" rx="2.78" ry="3.55" fill="#9B5A1C" opacity="0.047"><animate attributeName="ry" values="3.55;2.42;4.01;3.55" dur="0.398s" begin="-0.656s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.755s infinite"><ellipse cx="-4.25" cy="1.11" rx="3.10" ry="3.83" fill="#9B5A1C" opacity="0.068"><animate attributeName="ry" values="3.83;2.60;4.32;3.83" dur="0.385s" begin="-0.615s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.738s infinite"><ellipse cx="-4.10" cy="-1.35" rx="3.42" ry="4.06" fill="#9B5A1C" opacity="0.092"><animate attributeName="ry" values="4.06;2.76;4.59;4.06" dur="0.372s" begin="-0.574s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.721s infinite"><ellipse cx="-3.95" cy="0.41" rx="3.74" ry="4.25" fill="#9B5A1C" opacity="0.119"><animate attributeName="ry" values="4.25;2.89;4.80;4.25" dur="0.359s" begin="-0.533s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.704s infinite"><ellipse cx="-3.80" cy="0.74" rx="4.06" ry="4.39" fill="#9B5A1C" opacity="0.148"><animate attributeName="ry" values="4.39;2.98;4.96;4.39" dur="0.346s" begin="-0.492s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.687s infinite"><ellipse cx="-3.65" cy="-1.10" rx="4.38" ry="4.47" fill="#9B5A1C" opacity="0.179"><animate attributeName="ry" values="4.47;3.04;5.05;4.47" dur="0.333s" begin="-0.451s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.670s infinite"><ellipse cx="-3.50" cy="0.47" rx="4.70" ry="4.50" fill="#9B5A1C" opacity="0.213"><animate attributeName="ry" values="4.50;3.06;5.08;4.50" dur="0.320s" begin="-0.410s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.670s infinite"><ellipse cx="-1" cy="0" rx="3.90" ry="0.72" fill="#FFF1CD" opacity="0.180"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.653s infinite"><ellipse cx="-3.35" cy="0.43" rx="5.02" ry="4.47" fill="#9B5A1C" opacity="0.250"><animate attributeName="ry" values="4.47;3.04;5.05;4.47" dur="0.307s" begin="-0.369s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.653s infinite"><ellipse cx="-1" cy="0" rx="4.17" ry="0.80" fill="#FFF1CD" opacity="0.218"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.636s infinite"><ellipse cx="-3.20" cy="-0.80" rx="5.34" ry="4.39" fill="#9B5A1C" opacity="0.288"><animate attributeName="ry" values="4.39;2.98;4.96;4.39" dur="0.294s" begin="-0.328s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.636s infinite"><ellipse cx="-1" cy="0" rx="4.43" ry="0.87" fill="#FFF1CD" opacity="0.259"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.619s infinite"><ellipse cx="-3.05" cy="0.43" rx="5.66" ry="4.25" fill="#9B5A1C" opacity="0.329"><animate attributeName="ry" values="4.25;2.89;4.80;4.25" dur="0.281s" begin="-0.287s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.619s infinite"><ellipse cx="-1" cy="0" rx="4.70" ry="0.94" fill="#FFF1CD" opacity="0.304"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.602s infinite"><ellipse cx="-2.90" cy="0.20" rx="5.98" ry="4.06" fill="#9B5A1C" opacity="0.372"><animate attributeName="ry" values="4.06;2.76;4.59;4.06" dur="0.268s" begin="-0.246s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.602s infinite"><ellipse cx="-1" cy="0" rx="4.96" ry="1.01" fill="#FFF1CD" opacity="0.353"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.585s infinite"><ellipse cx="-2.75" cy="-0.48" rx="6.30" ry="3.83" fill="#9B5A1C" opacity="0.417"><animate attributeName="ry" values="3.83;2.60;4.32;3.83" dur="0.255s" begin="-0.205s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.585s infinite"><ellipse cx="-1" cy="0" rx="5.23" ry="1.09" fill="#FFF1CD" opacity="0.405"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.568s infinite"><ellipse cx="-2.60" cy="0.29" rx="6.62" ry="3.55" fill="#9B5A1C" opacity="0.464"><animate attributeName="ry" values="3.55;2.42;4.01;3.55" dur="0.242s" begin="-0.164s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.568s infinite"><ellipse cx="-1" cy="0" rx="5.49" ry="1.16" fill="#FFF1CD" opacity="0.461"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.551s infinite"><ellipse cx="-2.45" cy="0.05" rx="6.94" ry="3.24" fill="#9B5A1C" opacity="0.512"><animate attributeName="ry" values="3.24;2.21;3.67;3.24" dur="0.229s" begin="-0.123s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.551s infinite"><ellipse cx="-1" cy="0" rx="5.76" ry="1.23" fill="#FFF1CD" opacity="0.520"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.534s infinite"><ellipse cx="-2.30" cy="-0.18" rx="7.26" ry="2.91" fill="#9B5A1C" opacity="0.563"><animate attributeName="ry" values="2.91;1.98;3.29;2.91" dur="0.216s" begin="-0.082s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.534s infinite"><ellipse cx="-1" cy="0" rx="6.03" ry="1.30" fill="#FFF1CD" opacity="0.583"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.517s infinite"><ellipse cx="-2.15" cy="0.08" rx="7.58" ry="2.56" fill="#9B5A1C" opacity="0.616"><animate attributeName="ry" values="2.56;1.74;2.89;2.56" dur="0.203s" begin="-0.041s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.517s infinite"><ellipse cx="-1" cy="0" rx="6.29" ry="1.38" fill="#FFF1CD" opacity="0.650"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.6s linear 3.500s infinite"><ellipse cx="-3" cy="0" rx="12" ry="7" fill="url(#flareGradL)" opacity="0.70"/><circle cx="0" cy="0" r="3.6" fill="#FFF1CD" filter="url(#laserGlowL)"/><circle cx="0" cy="0" r="2.5" fill="#FFF1CD"/></g>
     </g>
 
     <!-- Lane label -->
@@ -478,12 +558,38 @@
     <circle cx="1080" cy="0" r="5" fill="none" stroke="#A99A89" stroke-width="1.8"/>
     <circle cx="1080" cy="0" r="2" fill="#A99A89"/>
 
-    <!-- Laser bullet with tapered tail -->
-    <g class="b4L">
-      <path d="M -80 0 C -50 -1, -15 -3, 0 -3 L 0 3 C -15 3, -50 1, -80 0 Z" fill="url(#laserTailL)"/>
-      <ellipse cx="-3" cy="0" rx="8" ry="3.5" fill="url(#flareGradL)" opacity="0.65"/>
-      <circle cx="0" cy="0" r="4" fill="#FFFFFF" filter="url(#laserGlowL)"/>
-      <circle cx="0" cy="0" r="2.2" fill="#FFFFFF"/>
+    <!-- Velocity-dependent exhaust wake -->
+    <g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 1.123s infinite"><ellipse cx="-4.85" cy="-0.02" rx="1.82" ry="2.56" fill="#9B5A1C" opacity="0.005"><animate attributeName="ry" values="2.56;1.74;2.89;2.56" dur="0.437s" begin="-0.779s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 1.106s infinite"><ellipse cx="-4.70" cy="1.52" rx="2.14" ry="2.91" fill="#9B5A1C" opacity="0.015"><animate attributeName="ry" values="2.91;1.98;3.29;2.91" dur="0.424s" begin="-0.738s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 1.089s infinite"><ellipse cx="-4.55" cy="-1.55" rx="2.46" ry="3.24" fill="#9B5A1C" opacity="0.029"><animate attributeName="ry" values="3.24;2.21;3.67;3.24" dur="0.411s" begin="-0.697s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 1.072s infinite"><ellipse cx="-4.40" cy="0.25" rx="2.78" ry="3.55" fill="#9B5A1C" opacity="0.047"><animate attributeName="ry" values="3.55;2.42;4.01;3.55" dur="0.398s" begin="-0.656s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 1.055s infinite"><ellipse cx="-4.25" cy="1.11" rx="3.10" ry="3.83" fill="#9B5A1C" opacity="0.068"><animate attributeName="ry" values="3.83;2.60;4.32;3.83" dur="0.385s" begin="-0.615s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 1.038s infinite"><ellipse cx="-4.10" cy="-1.35" rx="3.42" ry="4.06" fill="#9B5A1C" opacity="0.092"><animate attributeName="ry" values="4.06;2.76;4.59;4.06" dur="0.372s" begin="-0.574s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 1.021s infinite"><ellipse cx="-3.95" cy="0.41" rx="3.74" ry="4.25" fill="#9B5A1C" opacity="0.119"><animate attributeName="ry" values="4.25;2.89;4.80;4.25" dur="0.359s" begin="-0.533s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 1.004s infinite"><ellipse cx="-3.80" cy="0.74" rx="4.06" ry="4.39" fill="#9B5A1C" opacity="0.148"><animate attributeName="ry" values="4.39;2.98;4.96;4.39" dur="0.346s" begin="-0.492s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.987s infinite"><ellipse cx="-3.65" cy="-1.10" rx="4.38" ry="4.47" fill="#9B5A1C" opacity="0.179"><animate attributeName="ry" values="4.47;3.04;5.05;4.47" dur="0.333s" begin="-0.451s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.970s infinite"><ellipse cx="-3.50" cy="0.47" rx="4.70" ry="4.50" fill="#9B5A1C" opacity="0.213"><animate attributeName="ry" values="4.50;3.06;5.08;4.50" dur="0.320s" begin="-0.410s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.970s infinite"><ellipse cx="-1" cy="0" rx="3.90" ry="0.72" fill="#FFF1CD" opacity="0.180"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.953s infinite"><ellipse cx="-3.35" cy="0.43" rx="5.02" ry="4.47" fill="#9B5A1C" opacity="0.250"><animate attributeName="ry" values="4.47;3.04;5.05;4.47" dur="0.307s" begin="-0.369s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.953s infinite"><ellipse cx="-1" cy="0" rx="4.17" ry="0.80" fill="#FFF1CD" opacity="0.218"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.936s infinite"><ellipse cx="-3.20" cy="-0.80" rx="5.34" ry="4.39" fill="#9B5A1C" opacity="0.288"><animate attributeName="ry" values="4.39;2.98;4.96;4.39" dur="0.294s" begin="-0.328s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.936s infinite"><ellipse cx="-1" cy="0" rx="4.43" ry="0.87" fill="#FFF1CD" opacity="0.259"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.919s infinite"><ellipse cx="-3.05" cy="0.43" rx="5.66" ry="4.25" fill="#9B5A1C" opacity="0.329"><animate attributeName="ry" values="4.25;2.89;4.80;4.25" dur="0.281s" begin="-0.287s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.919s infinite"><ellipse cx="-1" cy="0" rx="4.70" ry="0.94" fill="#FFF1CD" opacity="0.304"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.902s infinite"><ellipse cx="-2.90" cy="0.20" rx="5.98" ry="4.06" fill="#9B5A1C" opacity="0.372"><animate attributeName="ry" values="4.06;2.76;4.59;4.06" dur="0.268s" begin="-0.246s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.902s infinite"><ellipse cx="-1" cy="0" rx="4.96" ry="1.01" fill="#FFF1CD" opacity="0.353"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.885s infinite"><ellipse cx="-2.75" cy="-0.48" rx="6.30" ry="3.83" fill="#9B5A1C" opacity="0.417"><animate attributeName="ry" values="3.83;2.60;4.32;3.83" dur="0.255s" begin="-0.205s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.885s infinite"><ellipse cx="-1" cy="0" rx="5.23" ry="1.09" fill="#FFF1CD" opacity="0.405"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.868s infinite"><ellipse cx="-2.60" cy="0.29" rx="6.62" ry="3.55" fill="#9B5A1C" opacity="0.464"><animate attributeName="ry" values="3.55;2.42;4.01;3.55" dur="0.242s" begin="-0.164s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.868s infinite"><ellipse cx="-1" cy="0" rx="5.49" ry="1.16" fill="#FFF1CD" opacity="0.461"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.851s infinite"><ellipse cx="-2.45" cy="0.05" rx="6.94" ry="3.24" fill="#9B5A1C" opacity="0.512"><animate attributeName="ry" values="3.24;2.21;3.67;3.24" dur="0.229s" begin="-0.123s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.851s infinite"><ellipse cx="-1" cy="0" rx="5.76" ry="1.23" fill="#FFF1CD" opacity="0.520"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.834s infinite"><ellipse cx="-2.30" cy="-0.18" rx="7.26" ry="2.91" fill="#9B5A1C" opacity="0.563"><animate attributeName="ry" values="2.91;1.98;3.29;2.91" dur="0.216s" begin="-0.082s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.834s infinite"><ellipse cx="-1" cy="0" rx="6.03" ry="1.30" fill="#FFF1CD" opacity="0.583"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.817s infinite"><ellipse cx="-2.15" cy="0.08" rx="7.58" ry="2.56" fill="#9B5A1C" opacity="0.616"><animate attributeName="ry" values="2.56;1.74;2.89;2.56" dur="0.203s" begin="-0.041s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.817s infinite"><ellipse cx="-1" cy="0" rx="6.29" ry="1.38" fill="#FFF1CD" opacity="0.650"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.8s linear 0.800s infinite"><ellipse cx="-3" cy="0" rx="12" ry="7" fill="url(#flareGradL)" opacity="0.70"/><circle cx="0" cy="0" r="3.6" fill="#FFF1CD" filter="url(#laserGlowL)"/><circle cx="0" cy="0" r="2.5" fill="#FFF1CD"/></g>
     </g>
 
     <!-- Lane label -->
@@ -631,12 +737,38 @@
     <circle cx="1080" cy="0" r="5" fill="none" stroke="#A99A89" stroke-width="1.8"/>
     <circle cx="1080" cy="0" r="2" fill="#A99A89"/>
 
-    <!-- Laser bullet with tapered tail -->
-    <g class="b5L">
-      <path d="M -80 0 C -50 -1, -15 -3, 0 -3 L 0 3 C -15 3, -50 1, -80 0 Z" fill="url(#laserTailL)"/>
-      <ellipse cx="-3" cy="0" rx="8" ry="3.5" fill="url(#flareGradL)" opacity="0.65"/>
-      <circle cx="0" cy="0" r="4" fill="#FFFFFF" filter="url(#laserGlowL)"/>
-      <circle cx="0" cy="0" r="2.2" fill="#FFFFFF"/>
+    <!-- Velocity-dependent exhaust wake -->
+    <g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.923s infinite"><ellipse cx="-4.85" cy="-0.02" rx="1.82" ry="2.56" fill="#9B5A1C" opacity="0.005"><animate attributeName="ry" values="2.56;1.74;2.89;2.56" dur="0.437s" begin="-0.779s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.906s infinite"><ellipse cx="-4.70" cy="1.52" rx="2.14" ry="2.91" fill="#9B5A1C" opacity="0.015"><animate attributeName="ry" values="2.91;1.98;3.29;2.91" dur="0.424s" begin="-0.738s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.889s infinite"><ellipse cx="-4.55" cy="-1.55" rx="2.46" ry="3.24" fill="#9B5A1C" opacity="0.029"><animate attributeName="ry" values="3.24;2.21;3.67;3.24" dur="0.411s" begin="-0.697s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.872s infinite"><ellipse cx="-4.40" cy="0.25" rx="2.78" ry="3.55" fill="#9B5A1C" opacity="0.047"><animate attributeName="ry" values="3.55;2.42;4.01;3.55" dur="0.398s" begin="-0.656s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.855s infinite"><ellipse cx="-4.25" cy="1.11" rx="3.10" ry="3.83" fill="#9B5A1C" opacity="0.068"><animate attributeName="ry" values="3.83;2.60;4.32;3.83" dur="0.385s" begin="-0.615s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.838s infinite"><ellipse cx="-4.10" cy="-1.35" rx="3.42" ry="4.06" fill="#9B5A1C" opacity="0.092"><animate attributeName="ry" values="4.06;2.76;4.59;4.06" dur="0.372s" begin="-0.574s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.821s infinite"><ellipse cx="-3.95" cy="0.41" rx="3.74" ry="4.25" fill="#9B5A1C" opacity="0.119"><animate attributeName="ry" values="4.25;2.89;4.80;4.25" dur="0.359s" begin="-0.533s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.804s infinite"><ellipse cx="-3.80" cy="0.74" rx="4.06" ry="4.39" fill="#9B5A1C" opacity="0.148"><animate attributeName="ry" values="4.39;2.98;4.96;4.39" dur="0.346s" begin="-0.492s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.787s infinite"><ellipse cx="-3.65" cy="-1.10" rx="4.38" ry="4.47" fill="#9B5A1C" opacity="0.179"><animate attributeName="ry" values="4.47;3.04;5.05;4.47" dur="0.333s" begin="-0.451s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.770s infinite"><ellipse cx="-3.50" cy="0.47" rx="4.70" ry="4.50" fill="#9B5A1C" opacity="0.213"><animate attributeName="ry" values="4.50;3.06;5.08;4.50" dur="0.320s" begin="-0.410s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.770s infinite"><ellipse cx="-1" cy="0" rx="3.90" ry="0.72" fill="#FFF1CD" opacity="0.180"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.753s infinite"><ellipse cx="-3.35" cy="0.43" rx="5.02" ry="4.47" fill="#9B5A1C" opacity="0.250"><animate attributeName="ry" values="4.47;3.04;5.05;4.47" dur="0.307s" begin="-0.369s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.753s infinite"><ellipse cx="-1" cy="0" rx="4.17" ry="0.80" fill="#FFF1CD" opacity="0.218"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.736s infinite"><ellipse cx="-3.20" cy="-0.80" rx="5.34" ry="4.39" fill="#9B5A1C" opacity="0.288"><animate attributeName="ry" values="4.39;2.98;4.96;4.39" dur="0.294s" begin="-0.328s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.736s infinite"><ellipse cx="-1" cy="0" rx="4.43" ry="0.87" fill="#FFF1CD" opacity="0.259"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.719s infinite"><ellipse cx="-3.05" cy="0.43" rx="5.66" ry="4.25" fill="#9B5A1C" opacity="0.329"><animate attributeName="ry" values="4.25;2.89;4.80;4.25" dur="0.281s" begin="-0.287s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.719s infinite"><ellipse cx="-1" cy="0" rx="4.70" ry="0.94" fill="#FFF1CD" opacity="0.304"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.702s infinite"><ellipse cx="-2.90" cy="0.20" rx="5.98" ry="4.06" fill="#9B5A1C" opacity="0.372"><animate attributeName="ry" values="4.06;2.76;4.59;4.06" dur="0.268s" begin="-0.246s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.702s infinite"><ellipse cx="-1" cy="0" rx="4.96" ry="1.01" fill="#FFF1CD" opacity="0.353"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.685s infinite"><ellipse cx="-2.75" cy="-0.48" rx="6.30" ry="3.83" fill="#9B5A1C" opacity="0.417"><animate attributeName="ry" values="3.83;2.60;4.32;3.83" dur="0.255s" begin="-0.205s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.685s infinite"><ellipse cx="-1" cy="0" rx="5.23" ry="1.09" fill="#FFF1CD" opacity="0.405"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.668s infinite"><ellipse cx="-2.60" cy="0.29" rx="6.62" ry="3.55" fill="#9B5A1C" opacity="0.464"><animate attributeName="ry" values="3.55;2.42;4.01;3.55" dur="0.242s" begin="-0.164s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.668s infinite"><ellipse cx="-1" cy="0" rx="5.49" ry="1.16" fill="#FFF1CD" opacity="0.461"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.651s infinite"><ellipse cx="-2.45" cy="0.05" rx="6.94" ry="3.24" fill="#9B5A1C" opacity="0.512"><animate attributeName="ry" values="3.24;2.21;3.67;3.24" dur="0.229s" begin="-0.123s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.651s infinite"><ellipse cx="-1" cy="0" rx="5.76" ry="1.23" fill="#FFF1CD" opacity="0.520"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.634s infinite"><ellipse cx="-2.30" cy="-0.18" rx="7.26" ry="2.91" fill="#9B5A1C" opacity="0.563"><animate attributeName="ry" values="2.91;1.98;3.29;2.91" dur="0.216s" begin="-0.082s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.634s infinite"><ellipse cx="-1" cy="0" rx="6.03" ry="1.30" fill="#FFF1CD" opacity="0.583"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.617s infinite"><ellipse cx="-2.15" cy="0.08" rx="7.58" ry="2.56" fill="#9B5A1C" opacity="0.616"><animate attributeName="ry" values="2.56;1.74;2.89;2.56" dur="0.203s" begin="-0.041s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.617s infinite"><ellipse cx="-1" cy="0" rx="6.29" ry="1.38" fill="#FFF1CD" opacity="0.650"/></g>
+      <g style="opacity:0; animation:signalFlightL 8.0s linear 2.600s infinite"><ellipse cx="-3" cy="0" rx="12" ry="7" fill="url(#flareGradL)" opacity="0.70"/><circle cx="0" cy="0" r="3.6" fill="#FFF1CD" filter="url(#laserGlowL)"/><circle cx="0" cy="0" r="2.5" fill="#FFF1CD"/></g>
     </g>
 
     <!-- Lane label -->
@@ -820,12 +952,38 @@
     <circle cx="1080" cy="0" r="5" fill="none" stroke="#A99A89" stroke-width="1.8"/>
     <circle cx="1080" cy="0" r="2" fill="#A99A89"/>
 
-    <!-- Laser bullet with tapered tail -->
-    <g class="b6L">
-      <path d="M -80 0 C -50 -1, -15 -3, 0 -3 L 0 3 C -15 3, -50 1, -80 0 Z" fill="url(#laserTailL)"/>
-      <ellipse cx="-3" cy="0" rx="8" ry="3.5" fill="url(#flareGradL)" opacity="0.65"/>
-      <circle cx="0" cy="0" r="4" fill="#FFFFFF" filter="url(#laserGlowL)"/>
-      <circle cx="0" cy="0" r="2.2" fill="#FFFFFF"/>
+    <!-- Velocity-dependent exhaust wake -->
+    <g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.523s infinite"><ellipse cx="-4.85" cy="-0.02" rx="1.82" ry="2.56" fill="#9B5A1C" opacity="0.005"><animate attributeName="ry" values="2.56;1.74;2.89;2.56" dur="0.437s" begin="-0.779s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.506s infinite"><ellipse cx="-4.70" cy="1.52" rx="2.14" ry="2.91" fill="#9B5A1C" opacity="0.015"><animate attributeName="ry" values="2.91;1.98;3.29;2.91" dur="0.424s" begin="-0.738s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.489s infinite"><ellipse cx="-4.55" cy="-1.55" rx="2.46" ry="3.24" fill="#9B5A1C" opacity="0.029"><animate attributeName="ry" values="3.24;2.21;3.67;3.24" dur="0.411s" begin="-0.697s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.472s infinite"><ellipse cx="-4.40" cy="0.25" rx="2.78" ry="3.55" fill="#9B5A1C" opacity="0.047"><animate attributeName="ry" values="3.55;2.42;4.01;3.55" dur="0.398s" begin="-0.656s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.455s infinite"><ellipse cx="-4.25" cy="1.11" rx="3.10" ry="3.83" fill="#9B5A1C" opacity="0.068"><animate attributeName="ry" values="3.83;2.60;4.32;3.83" dur="0.385s" begin="-0.615s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.438s infinite"><ellipse cx="-4.10" cy="-1.35" rx="3.42" ry="4.06" fill="#9B5A1C" opacity="0.092"><animate attributeName="ry" values="4.06;2.76;4.59;4.06" dur="0.372s" begin="-0.574s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.421s infinite"><ellipse cx="-3.95" cy="0.41" rx="3.74" ry="4.25" fill="#9B5A1C" opacity="0.119"><animate attributeName="ry" values="4.25;2.89;4.80;4.25" dur="0.359s" begin="-0.533s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.404s infinite"><ellipse cx="-3.80" cy="0.74" rx="4.06" ry="4.39" fill="#9B5A1C" opacity="0.148"><animate attributeName="ry" values="4.39;2.98;4.96;4.39" dur="0.346s" begin="-0.492s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.387s infinite"><ellipse cx="-3.65" cy="-1.10" rx="4.38" ry="4.47" fill="#9B5A1C" opacity="0.179"><animate attributeName="ry" values="4.47;3.04;5.05;4.47" dur="0.333s" begin="-0.451s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.370s infinite"><ellipse cx="-3.50" cy="0.47" rx="4.70" ry="4.50" fill="#9B5A1C" opacity="0.213"><animate attributeName="ry" values="4.50;3.06;5.08;4.50" dur="0.320s" begin="-0.410s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.370s infinite"><ellipse cx="-1" cy="0" rx="3.90" ry="0.72" fill="#FFF1CD" opacity="0.180"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.353s infinite"><ellipse cx="-3.35" cy="0.43" rx="5.02" ry="4.47" fill="#9B5A1C" opacity="0.250"><animate attributeName="ry" values="4.47;3.04;5.05;4.47" dur="0.307s" begin="-0.369s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.353s infinite"><ellipse cx="-1" cy="0" rx="4.17" ry="0.80" fill="#FFF1CD" opacity="0.218"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.336s infinite"><ellipse cx="-3.20" cy="-0.80" rx="5.34" ry="4.39" fill="#9B5A1C" opacity="0.288"><animate attributeName="ry" values="4.39;2.98;4.96;4.39" dur="0.294s" begin="-0.328s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.336s infinite"><ellipse cx="-1" cy="0" rx="4.43" ry="0.87" fill="#FFF1CD" opacity="0.259"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.319s infinite"><ellipse cx="-3.05" cy="0.43" rx="5.66" ry="4.25" fill="#9B5A1C" opacity="0.329"><animate attributeName="ry" values="4.25;2.89;4.80;4.25" dur="0.281s" begin="-0.287s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.319s infinite"><ellipse cx="-1" cy="0" rx="4.70" ry="0.94" fill="#FFF1CD" opacity="0.304"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.302s infinite"><ellipse cx="-2.90" cy="0.20" rx="5.98" ry="4.06" fill="#9B5A1C" opacity="0.372"><animate attributeName="ry" values="4.06;2.76;4.59;4.06" dur="0.268s" begin="-0.246s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.302s infinite"><ellipse cx="-1" cy="0" rx="4.96" ry="1.01" fill="#FFF1CD" opacity="0.353"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.285s infinite"><ellipse cx="-2.75" cy="-0.48" rx="6.30" ry="3.83" fill="#9B5A1C" opacity="0.417"><animate attributeName="ry" values="3.83;2.60;4.32;3.83" dur="0.255s" begin="-0.205s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.285s infinite"><ellipse cx="-1" cy="0" rx="5.23" ry="1.09" fill="#FFF1CD" opacity="0.405"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.268s infinite"><ellipse cx="-2.60" cy="0.29" rx="6.62" ry="3.55" fill="#9B5A1C" opacity="0.464"><animate attributeName="ry" values="3.55;2.42;4.01;3.55" dur="0.242s" begin="-0.164s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.268s infinite"><ellipse cx="-1" cy="0" rx="5.49" ry="1.16" fill="#FFF1CD" opacity="0.461"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.251s infinite"><ellipse cx="-2.45" cy="0.05" rx="6.94" ry="3.24" fill="#9B5A1C" opacity="0.512"><animate attributeName="ry" values="3.24;2.21;3.67;3.24" dur="0.229s" begin="-0.123s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.251s infinite"><ellipse cx="-1" cy="0" rx="5.76" ry="1.23" fill="#FFF1CD" opacity="0.520"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.234s infinite"><ellipse cx="-2.30" cy="-0.18" rx="7.26" ry="2.91" fill="#9B5A1C" opacity="0.563"><animate attributeName="ry" values="2.91;1.98;3.29;2.91" dur="0.216s" begin="-0.082s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.234s infinite"><ellipse cx="-1" cy="0" rx="6.03" ry="1.30" fill="#FFF1CD" opacity="0.583"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.217s infinite"><ellipse cx="-2.15" cy="0.08" rx="7.58" ry="2.56" fill="#9B5A1C" opacity="0.616"><animate attributeName="ry" values="2.56;1.74;2.89;2.56" dur="0.203s" begin="-0.041s" repeatCount="indefinite"/></ellipse></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.217s infinite"><ellipse cx="-1" cy="0" rx="6.29" ry="1.38" fill="#FFF1CD" opacity="0.650"/></g>
+      <g style="opacity:0; animation:signalFlightL 7.8s linear 4.200s infinite"><ellipse cx="-3" cy="0" rx="12" ry="7" fill="url(#flareGradL)" opacity="0.70"/><circle cx="0" cy="0" r="3.6" fill="#FFF1CD" filter="url(#laserGlowL)"/><circle cx="0" cy="0" r="2.5" fill="#FFF1CD"/></g>
     </g>
 
     <!-- Lane label -->

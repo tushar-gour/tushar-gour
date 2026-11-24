@@ -235,8 +235,6 @@ def build_pulse_svg(contrib_data: dict, repositories: dict, is_dark=True):
     parts = [card(438, "ENGINEERING ACTIVITY", "365-DAY SNAPSHOT", p)]
     for x, value, label in [(36, f'{repositories["total"]:,}', "Repositories (public + private)"), (310, f'{contrib_data["total"]:,}', "Contributions"), (580, contrib_data["active_days"], "Active days"), (850, active_weeks, "Active weeks / 52")]:
         parts.extend([text(x,132,value,36,600,p["fg"]), text(x,157,label,15,400,p["muted"])])
-    if not repositories.get("fresh"):
-        parts.append(text(36,174,"Last verified repository count",11,400,p["muted"]))
     parts.extend([line(292,94,292,170,p),line(562,94,562,170,p),line(832,94,832,170,p),line(36,184,1084,184,p)])
     for tick in range(0,y_max+1,step):
         y = 391 - 182*tick/y_max

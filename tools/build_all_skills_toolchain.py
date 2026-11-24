@@ -329,6 +329,46 @@ def build_skill_border(skill_id, is_pri, is_dark):
     return f'<rect x="-29" y="-29" width="58" height="58" rx="14" fill="none" stroke="{base_color}" stroke-width="2.1"/><defs><linearGradient id="{gid}" gradientUnits="userSpaceOnUse" x1="-25" y1="-40" x2="25" y2="40" gradientTransform="translate(-42 -68)"><stop offset="0" stop-color="{mid}" stop-opacity="0"/><stop offset="0.34" stop-color="{mid}" stop-opacity="0"/><stop offset="0.44" stop-color="{mid}" stop-opacity="0.85"/><stop offset="0.50" stop-color="{shine}" stop-opacity="1"/><stop offset="0.56" stop-color="{mid}" stop-opacity="0.85"/><stop offset="0.66" stop-color="{mid}" stop-opacity="0"/><stop offset="1" stop-color="{mid}" stop-opacity="0"/><animateTransform attributeName="gradientTransform" type="translate" values="{shifts}" keyTimes="{keys}" dur="{duration}s" begin="{begin}s" repeatCount="indefinite" calcMode="linear"/></linearGradient></defs><rect x="-29" y="-29" width="58" height="58" rx="14" fill="none" stroke="url(#{gid})" stroke-width="2.5" opacity="0"><animate attributeName="opacity" values="{opacity}" keyTimes="{keys}" dur="{duration}s" begin="{begin}s" repeatCount="indefinite" calcMode="linear"/></rect>'
 
 
+def signal_keyframes(suffix):
+    """Sample a smooth acceleration/deceleration trajectory for all exhaust layers."""
+    frames = [f"      @keyframes signalFlight{suffix} {{"]
+    for t in range(0, 67, 3):
+        u = t / 66
+        x = 145 + 935 * (3*u*u - 2*u*u*u)
+        op = min(1, t/6, (66-t)/6)
+        frames.append(f"        {t}% {{ transform: translateX({x:.2f}px); opacity: {op:.3f}; }}")
+    frames.extend(["        100% { transform: translateX(1080px); opacity: 0; }", "      }"])
+    return "\n".join(frames)
+
+
+def build_signal_exhaust(lane, is_dark):
+    """Time-delayed copies of the trajectory form a speed-dependent exhaust wake."""
+    import math
+    suffix = "" if is_dark else "L"
+    accent = "#F8BA6A" if is_dark else "#9B5A1C"
+    core = "#FFF9ED" if is_dark else "#FFF1CD"
+    duration = [7,8.5,7.6,8.8,8,7.8][lane-1]
+    delay = [0,1.8,3.5,.8,2.6,4.2][lane-1]
+
+    def anim(age):
+        return f"opacity:0; animation:signalFlight{suffix} {duration:.1f}s linear {delay+age:.3f}s infinite"
+
+    parts = ["    <!-- Velocity-dependent exhaust wake -->", "    <g>"]
+    for j in range(19,0,-1):
+        age = j*.017
+        life = j/20
+        alpha = .67*(1-life)**1.65
+        rx = 6.4*(1-life)+1.5
+        ry = 2.2+2.3*math.sin(math.pi*life)
+        dy = math.sin(j*2.15)*2.0*life
+        parts.append(f'      <g style="{anim(age)}"><ellipse cx="{-2-life*3:.2f}" cy="{dy:.2f}" rx="{rx:.2f}" ry="{ry:.2f}" fill="{accent}" opacity="{alpha:.3f}"><animate attributeName="ry" values="{ry:.2f};{ry*.68:.2f};{ry*1.13:.2f};{ry:.2f}" dur="{.19+j*.013:.3f}s" begin="{-j*.041:.3f}s" repeatCount="indefinite"/></ellipse></g>')
+        if j <= 10:
+            parts.append(f'      <g style="{anim(age)}"><ellipse cx="-1" cy="0" rx="{rx*.83:.2f}" ry="{1.45*(1-life):.2f}" fill="{core}" opacity="{.72*(1-life)**2:.3f}"/></g>')
+    parts.append(f'      <g style="{anim(0)}"><ellipse cx="-3" cy="0" rx="12" ry="7" fill="url(#flareGrad{suffix})" opacity="0.70"/><circle cx="0" cy="0" r="3.6" fill="{core}" filter="url(#laserGlow{suffix})"/><circle cx="0" cy="0" r="2.5" fill="{core}"/></g>')
+    parts.append("    </g>")
+    return "\n".join(parts)
+
+
 def build_toolchain(is_dark=True):
     theme_suffix = "" if is_dark else "L"
     p = palette(is_dark)
@@ -356,16 +396,6 @@ def build_toolchain(is_dark=True):
       <stop offset="100%" stop-color="{bg_vignette_outer}"/>
     </radialGradient>
 
-    <!-- Laser bullet gradient tail -->
-    <linearGradient id="laserTail{theme_suffix}" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="{accent}" stop-opacity="0"/>
-      <stop offset="20%" stop-color="{accent}" stop-opacity="0.15"/>
-      <stop offset="50%" stop-color="{accent}" stop-opacity="0.5"/>
-      <stop offset="80%" stop-color="#FFD39A" stop-opacity="0.85"/>
-      <stop offset="95%" stop-color="#FFFFFF" stop-opacity="0.95"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
-    </linearGradient>
-
     <radialGradient id="flareGrad{theme_suffix}" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="{accent}" stop-opacity="1"/>
       <stop offset="40%" stop-color="{accent}" stop-opacity="0.4"/>
@@ -382,20 +412,7 @@ def build_toolchain(is_dark=True):
       .mono{theme_suffix} {{ font-family: {SANS}; }}
       .label{theme_suffix} {{ font-family: {SANS}; font-weight: 600; }}
 
-      @keyframes bulletAnim{theme_suffix} {{
-        0%   {{ transform: translateX(95px); opacity: 0; }}
-        3%   {{ transform: translateX(140px); opacity: 1; }}
-        58%  {{ transform: translateX(1065px); opacity: 1; }}
-        66%  {{ transform: translateX(1080px); opacity: 0; }}
-        100% {{ transform: translateX(1080px); opacity: 0; }}
-      }}
-
-      .b1{theme_suffix} {{ animation: bulletAnim{theme_suffix} 7.0s cubic-bezier(.25,0,.25,1) infinite; }}
-      .b2{theme_suffix} {{ animation: bulletAnim{theme_suffix} 8.5s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 1.8s; }}
-      .b3{theme_suffix} {{ animation: bulletAnim{theme_suffix} 7.6s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 3.5s; }}
-      .b4{theme_suffix} {{ animation: bulletAnim{theme_suffix} 8.8s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 0.8s; }}
-      .b5{theme_suffix} {{ animation: bulletAnim{theme_suffix} 8.0s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 2.6s; }}
-      .b6{theme_suffix} {{ animation: bulletAnim{theme_suffix} 7.8s cubic-bezier(.25,0,.25,1) infinite; animation-delay: 4.2s; }}
+{signal_keyframes(theme_suffix)}
 
     </style>
   </defs>
@@ -444,13 +461,7 @@ def build_toolchain(is_dark=True):
     <circle cx="1080" cy="0" r="5" fill="none" stroke="{track_term}" stroke-width="1.8"/>
     <circle cx="1080" cy="0" r="2" fill="{track_term}"/>
 
-    <!-- Laser bullet with tapered tail -->
-    <g class="b{lane_idx}{theme_suffix}">
-      <path d="M -80 0 C -50 -1, -15 -3, 0 -3 L 0 3 C -15 3, -50 1, -80 0 Z" fill="url(#laserTail{theme_suffix})"/>
-      <ellipse cx="-3" cy="0" rx="8" ry="3.5" fill="url(#flareGrad{theme_suffix})" opacity="0.65"/>
-      <circle cx="0" cy="0" r="4" fill="#FFFFFF" filter="url(#laserGlow{theme_suffix})"/>
-      <circle cx="0" cy="0" r="2.2" fill="#FFFFFF"/>
-    </g>
+{build_signal_exhaust(lane_idx, is_dark)}
 
     <!-- Lane label -->
     <g transform="translate(36, 0)">
