@@ -6,6 +6,7 @@ The profile uses the current charcoal, amber-gold and warm ivory design.
 - `skills/toolchain-{dark,light}.svg`: engineering stack with animated signal lanes and selective border shines. `rocket.png` is a required generator input.
 - `telemetry/pulse-52w-{dark,light}.svg`: engineering activity.
 - `telemetry/domain-spectrum-{dark,light}.svg`: language footprint.
+- `section-gap.svg`: shared transparent spacing between all five profile sections.
 - `footer/`: current individually linked GitHub, LinkedIn and email SVGs.
 - `../tools/skillicons_cache/`: source icons required to rebuild the engineering stack.
 - `../generated/metrics.json`: generated telemetry snapshot.
@@ -20,7 +21,7 @@ python tools/update_all_telemetry.py
 python tools/check_readme.py
 ```
 
-The telemetry workflow refreshes the activity and language SVGs every two hours. The hero PNGs are cropped to the card boundary, with no outer image margins. To rebuild the matching light hero, install Pillow and NumPy and run `python tools/build_light_hero.py`. Both theme assets are selected using `<picture>`.
+The telemetry workflow refreshes the activity and language SVGs every two hours. The hero PNGs use the same exact 1978 × 600 crop, with no outer image margins. To rebuild the matching light hero, install Pillow and NumPy and run `python tools/build_light_hero.py`. Both theme assets are selected using `<picture>`.
 
 Only active artwork and generator inputs are retained in the working tree.
 

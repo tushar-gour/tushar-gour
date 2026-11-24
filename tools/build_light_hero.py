@@ -2,6 +2,9 @@
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter
 import numpy as np
+import subprocess
+import io
+import hashlib
 
 ROOT = Path(__file__).resolve().parents[1]
 source = ROOT / "assets/identity/hero-gold.png"
@@ -9,12 +12,20 @@ target = source.with_name("hero-gold-light.png")
 
 def generate():
     original = Image.open(source).convert("RGB")
-    bounds = (36,64,2012,664)
-    if original.size == (2048,731):
+    # Exact approved crop: 1978 x 600. Recover the two edge pixels only
+    # when migrating the previous 1976px crop; no backup image is kept.
+    bounds = (35,64,2013,664)
+    if original.size == (1976,600):
+        raw = subprocess.check_output(["git","show","79c248d657eddebb65b60b8463e67da12a56461a:assets/identity/hero-banner.png"], cwd=ROOT)
+        sha = hashlib.sha1(b"blob "+str(len(raw)).encode()+b"\x00"+raw).hexdigest()
+        if sha != "c074aa94b4a3a6d59fb1e334f272b07b4fef4e17":
+            raise ValueError("Original approved banner hash mismatch")
+        im = Image.open(io.BytesIO(raw)).convert("RGB")
+    elif original.size == (2048,731):
         im = original
-    elif original.size == (1976,600):
+    elif original.size == (1978,600):
         im = Image.new("RGB",(2048,731),(13,16,17))
-        im.paste(original,(36,64))
+        im.paste(original,(35,64))
     else:
         raise ValueError(f"Unexpected hero dimensions: {original.size}")
     a = np.asarray(im).astype(np.float32)/255
@@ -68,12 +79,13 @@ def generate():
     frame.rounded_rectangle((36,64,2011,663),radius=17,outline=(216,205,190,255),width=2)
     # Crop away the outside margins. Both variants use identical framing and dimensions.
     out.convert("RGB").crop(bounds).save(target,optimize=True)
-    if original.size == (2048,731):
-        original.crop(bounds).save(source,optimize=True)
+    if original.size != (1978,600):
+        im.crop(bounds).save(source,optimize=True)
     with Image.open(source) as check:
-        assert check.size == (1976,600)
+        assert check.size == (1978,600)
         check.verify()
     with Image.open(target) as check:
+        assert check.size == (1978,600)
         check.verify()
 
 if __name__ == "__main__":

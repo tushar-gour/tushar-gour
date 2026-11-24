@@ -3,6 +3,7 @@
   <source media="(prefers-color-scheme: light)" srcset="./assets/identity/hero-gold-light.png">
   <img src="./assets/identity/hero-gold.png" alt="Tushar Gour — Software Engineer" width="100%">
 </picture>
+<img src="./assets/section-gap.svg" alt="" width="100%">
 
 <!-- ================================================================= -->
 <!-- ENGINEERING STACK & SIGNAL LANES                             -->
@@ -12,8 +13,7 @@
   <source media="(prefers-color-scheme: light)" srcset="./assets/skills/toolchain-light.svg">
   <img src="./assets/skills/toolchain-dark.svg" alt="Engineering Stack &amp; Tools Across The Software Delivery Path" width="100%">
 </picture>
-
-<br>
+<img src="./assets/section-gap.svg" alt="" width="100%">
 
 <!-- ================================================================= -->
 <!-- ENGINEERING ACTIVITY                                         -->
@@ -23,8 +23,7 @@
   <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry/pulse-52w-light.svg">
   <img src="./assets/telemetry/pulse-52w-dark.svg" alt="Engineering activity: repositories, contributions, active days, active weeks and 52-week contribution distribution" width="100%">
 </picture>
-
-<br>
+<img src="./assets/section-gap.svg" alt="" width="100%">
 
 <!-- ================================================================= -->
 <!-- LANGUAGE FOOTPRINT (LOCKED)                                  -->
@@ -34,8 +33,7 @@
   <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry/domain-spectrum-light.svg">
   <img src="./assets/telemetry/domain-spectrum-dark.svg" alt="Aggregated Language Footprint" width="100%">
 </picture>
-
-<br>
+<img src="./assets/section-gap.svg" alt="" width="100%">
 
 <!-- ================================================================= -->
 <!-- PROFESSIONAL IDENTITY FOOTER                                 -->
