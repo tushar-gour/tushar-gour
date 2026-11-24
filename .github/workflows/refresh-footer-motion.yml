@@ -1,0 +1,33 @@
+name: Refresh footer wave motion
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/footer_motion.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: footer-wave-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Regenerate and validate footer animations
+        run: |
+          python tools/footer_motion.py
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/footer/
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish smooth nine-second golden footer waves"
+            git pull --rebase origin main
+            git push origin main
+          fi
