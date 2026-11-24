@@ -12,7 +12,7 @@ The profile uses the current charcoal, amber-gold and warm ivory design.
 
 ## Regeneration
 
-Run from the repository root with Python 3.11 or newer. No third-party Python packages are required.
+Run from the repository root with Python 3.11 or newer. The stack and telemetry generators use the Python standard library. Pillow and NumPy are needed only for the light hero.
 
 ```bash
 python tools/build_all_skills_toolchain.py
@@ -23,3 +23,5 @@ python tools/check_readme.py
 The telemetry workflow refreshes the activity and language SVGs daily. The dark hero is the original PNG. To rebuild the matching light hero, install Pillow and NumPy and run `python tools/build_light_hero.py`. Both theme assets are selected using `<picture>`.
 
 Only active artwork and generator inputs are retained in the working tree.
+
+The shared `tools/profile_design.py` module defines the 1120-unit card system, serif heading, semantic palette and common padding.

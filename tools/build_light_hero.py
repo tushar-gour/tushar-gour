@@ -1,6 +1,6 @@
-"""Generate the light hero from the approved dark artwork, preserving the crest."""
+"""Build a clean ivory hero from the approved full-resolution artwork."""
 from pathlib import Path
-from PIL import Image, ImageFilter, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -8,48 +8,60 @@ source = ROOT / "assets/identity/hero-gold.png"
 target = source.with_name("hero-gold-light.png")
 
 def generate():
-    original = Image.open(source).convert("RGB")
-    size = original.size
-    im = original.resize((2048, 731), Image.Resampling.LANCZOS) if size != (2048, 731) else original
-    a = np.asarray(im).astype("float32") / 255
-    r, g, b = a.transpose(2, 0, 1)
-    y = .2126*r + .7152*g + .0722*b
-    pts = [0,.04,.10,.18,.30,.48,.65,.82,1]
-    colors = np.array([[250,247,242],[249,246,240],[244,239,230],[235,226,212],[218,201,179],[181,152,117],[133,103,74],[71,56,43],[40,35,30]])
-    neutral = np.stack([np.interp(y,pts,colors[:,i]) for i in range(3)],axis=-1)
-    warm = np.clip((r-b-.045)/.22,0,1)*np.clip((y-.13)/.25,0,1)
-    bronzepts = [0,.12,.28,.45,.64,.8,1]
-    bronze = np.array([[250,247,242],[241,230,213],[208,180,140],[154,104,55],[124,74,25],[148,82,24],[156,85,23]])
-    accent = np.stack([np.interp(y,bronzepts,bronze[:,i]) for i in range(3)],axis=-1)
-    original_tone = neutral*(1-warm[...,None])+accent*warm[...,None]
-    blur = np.asarray(Image.fromarray(np.uint8(y*255)).filter(ImageFilter.GaussianBlur(15))).astype("float32")/255
-    dots = np.clip((np.maximum(y-blur,0)-.035)/.42,0,1)
-    base = np.array([247,243,236])
-    dot = np.array([150,103,54])
-    wall = base+(dot-base)*dots[...,None]
-    x = np.arange(im.width)[None,:]
-    mix = np.clip((x-1180)/150,0,1)
-    out = original_tone*(1-mix[...,None])+wall*mix[...,None]
-    # Keep the original metallic crest; the mask follows its outer silhouette.
-    mask = Image.new("L", im.size)
-    ImageDraw.Draw(mask).polygon([(1418,151),(1492,180),(1678,198),(1765,161),(1754,199),(1738,218),(1750,212),(1730,258),(1761,321),(1753,325),(1753,373),(1737,408),(1701,449),(1680,473),(1648,487),(1647,502),(1628,515),(1598,533),(1570,519),(1547,505),(1548,490),(1524,480),(1504,463),(1477,441),(1450,408),(1435,375),(1429,331),(1451,302),(1420,314),(1450,253),(1434,208),(1463,224),(1430,191)],fill=255)
-    alpha = np.asarray(mask.filter(ImageFilter.GaussianBlur(1.4))).astype("float32")/255
-    metal = np.clip(a*255*.91+np.array([18,12,5]),0,255)
-    out = out*(1-alpha[...,None])+metal*alpha[...,None]
-    # Preserve the frame without carrying dark-mode spotlight pools into light mode.
-    edge = np.ones_like(y)
-    edge[:67]=0
-    edge[660:]=0
-    edge[:,:39]=0
-    edge[:,2010:]=0
-    out = out*edge[...,None]+original_tone*(1-edge[...,None])
-    result = Image.fromarray(np.uint8(np.clip(out,0,255)))
-    if size != result.size:
-        result = result.resize(size,Image.Resampling.LANCZOS)
-    result.save(target, optimize=True)
+    im = Image.open(source).convert("RGB")
+    assert im.size == (2048,731), "Unexpected hero dimensions"
+    a = np.asarray(im).astype(np.float32)/255
+    r,g,b = a.transpose(2,0,1)
+    y = .2126*r+.7152*g+.0722*b
+    h,w = y.shape
+    yy,xx = np.mgrid[:h,:w]
+    paper = np.array([250.,247.,242.])
+    wall = np.empty((h,w,3),np.float32)
+    wall[:] = paper
+    # Recover the lettering and icon strokes from local contrast, without inverting the wall.
+    smooth = np.asarray(Image.fromarray(np.uint8(y*255)).filter(ImageFilter.GaussianBlur(18))).astype(np.float32)/255
+    contrast = np.maximum(y-smooth,0)
+    ink = np.clip((contrast-.035)/.62,0,1)
+    ink = np.maximum(ink,np.clip((y-.20)/.58,0,1))
+    warm = np.clip((r-b-.08)/.26,0,1)
+    fg = np.array([40.,35.,30.])*(1-warm[...,None])+np.array([145.,82.,25.])*warm[...,None]
+    # Keep the approved left-hand text and graphics; fade only the empty edge.
+    left = (xx<1240)&(yy>90)&(yy<632)
+    left_alpha = ink*left*np.clip((1240-xx)/50,0,1)
+    wall = wall*(1-left_alpha[...,None])+fg*left_alpha[...,None]
+    # Reconstruct fine map dots; broad spotlights and wall texture are not transferred.
+    dot = np.clip((contrast-.075)/.38,0,1)
+    dot *= ((xx>=1120)&(xx<2002)&(yy>=105)&(yy<=575))
+    dot *= np.clip((xx-1120)/75,0,1)
+    wall = wall*(1-dot[...,None])+np.array([167.,115.,60.])*dot[...,None]
+    out = Image.fromarray(np.uint8(np.clip(wall,0,255))).convert("RGBA")
+    # Trace the original crest at native resolution. Coordinates are from the original artwork.
+    # Preserve recessed black metal areas, but exclude the surrounding wall and top spotlights.
+    outlines = [
+        [(72,46),(146,75),(235,83),(328,86),(411,56),(395,105),(370,113),(354,132),(356,147),(375,183),(411,208),(389,193),(381,210),(400,228),(401,249),(395,280),(380,308),(359,335),(330,356),(314,363),(300,374),(276,380),(257,373),(247,368),(232,377),(207,379),(183,369),(164,354),(145,342),(120,316),(100,283),(87,251),(81,227),(103,200),(96,185),(72,201),(101,148),(102,133),(88,107),(84,96),(99,105),(88,78)],
+        [(199,389),(224,382),(247,373),(270,383),(296,390),(288,399),(272,410),(247,422),(224,408),(207,398)]
+    ]
+    scale=3
+    mask=Image.new("L",(w*scale,h*scale))
+    draw=ImageDraw.Draw(mask)
+    for poly in outlines:
+        draw.polygon([((x+1350)*scale,(y0+110)*scale) for x,y0 in poly],fill=255)
+    mask=mask.resize((w,h),Image.Resampling.LANCZOS).filter(ImageFilter.GaussianBlur(.5))
+    # Remove map dots from behind the crest's silhouette and add a restrained contact shadow.
+    shadow_mask=Image.new("L",im.size)
+    shadow_mask.paste(mask,(2,8))
+    shadow_mask=shadow_mask.filter(ImageFilter.GaussianBlur(7)).point(lambda v: int(v*.22))
+    shadow=Image.new("RGBA",im.size,(53,37,23,0))
+    shadow.putalpha(shadow_mask)
+    out=Image.alpha_composite(out,shadow)
+    crest=im.convert("RGBA")
+    crest.putalpha(mask)
+    out=Image.alpha_composite(out,crest)
+    frame=ImageDraw.Draw(out)
+    frame.rounded_rectangle((36,64,2011,663),radius=17,outline=(216,205,190,255),width=2)
+    out.convert("RGB").save(target,optimize=True)
     with Image.open(target) as check:
         check.verify()
-    print(f"Generated {target.relative_to(ROOT)}")
 
 if __name__ == "__main__":
     generate()

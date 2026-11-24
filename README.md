@@ -5,7 +5,7 @@
 </picture>
 
 <!-- ================================================================= -->
-<!-- 02 — ENGINEERING STACK & SIGNAL LANES                             -->
+<!-- ENGINEERING STACK & SIGNAL LANES                             -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/skills/toolchain-dark.svg">
@@ -13,8 +13,10 @@
   <img src="./assets/skills/toolchain-dark.svg" alt="Engineering Stack &amp; Tools Across The Software Delivery Path" width="100%">
 </picture>
 
+<br>
+
 <!-- ================================================================= -->
-<!-- 03 — ENGINEERING ACTIVITY                                         -->
+<!-- ENGINEERING ACTIVITY                                         -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/pulse-52w-dark.svg">
@@ -22,8 +24,10 @@
   <img src="./assets/telemetry/pulse-52w-dark.svg" alt="Engineering activity: contributions, active days and 52-week contribution distribution" width="100%">
 </picture>
 
+<br>
+
 <!-- ================================================================= -->
-<!-- 05 — LANGUAGE FOOTPRINT (LOCKED)                                  -->
+<!-- LANGUAGE FOOTPRINT (LOCKED)                                  -->
 <!-- ================================================================= -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry/domain-spectrum-dark.svg">
@@ -31,7 +35,9 @@
   <img src="./assets/telemetry/domain-spectrum-dark.svg" alt="Aggregated Language Footprint" width="100%">
 </picture>
 
+<br>
+
 <!-- ================================================================= -->
-<!-- 06 — PROFESSIONAL IDENTITY FOOTER                                 -->
+<!-- PROFESSIONAL IDENTITY FOOTER                                 -->
 <!-- ================================================================= -->
 <p align="center"><a href="https://github.com/tushar-gour"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/footer/github-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/footer/github-light.svg"><img src="./assets/footer/github-dark.svg" alt="GitHub" width="32%"></picture></a> <a href="https://www.linkedin.com/in/tushar-gour/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/footer/linkedin-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/footer/linkedin-light.svg"><img src="./assets/footer/linkedin-dark.svg" alt="LinkedIn" width="32%"></picture></a> <a href="mailto:tushargour004@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/footer/email-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/footer/email-light.svg"><img src="./assets/footer/email-dark.svg" alt="Email" width="32%"></picture></a></p>

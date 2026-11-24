@@ -16,6 +16,7 @@ import urllib.request
 import urllib.error
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from profile_design import palette, card, text, line, rect
 
 # ─── CONFIGURATION ────────────────────────────────────────────────────────────
 USERNAME = os.getenv("GITHUB_USER", "tushar-gour")
@@ -195,123 +196,52 @@ def fetch_live_languages() -> list:
 # ─── SVG GENERATORS ───────────────────────────────────────────────────────────
 
 def build_pulse_svg(contrib_data: dict, is_dark=True):
-    """Render combined engineering activity from the actual contribution calendar."""
-    palette = {"bg":"#101110","fg":"#F0E9DD","sub":"#C6BAAA","muted":"#AA9A87","grid":"#3A332B","bar":"#9A8066","accent":"#F8BA6A"} if is_dark else {"bg":"#FAF7F2","fg":"#28231E","sub":"#695C4E","muted":"#746557","grid":"#DCCFC0","bar":"#9A8066","accent":"#995617"}
+    p = palette(is_dark)
     weeks = contrib_data["weekly_52"]
     if len(weeks) != 52 or any(not isinstance(n, int) or n < 0 for n in weeks):
         raise ValueError("Expected 52 non-negative weekly contribution counts")
     peak = max(weeks)
-    # Six tick labels; keep 50-contribution intervals through 250.
-    # Increase the scale for future peaks instead of drawing outside the plot.
-    step_size = max(50, ((peak + 249) // 250) * 50)
-    y_max = 5 * step_size
-    header = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1142 434\" width=\"1142\" height=\"434\" role=\"img\" aria-labelledby=\"title desc\">\n  <title id=\"title\">Engineering activity</title>\n  <desc id=\"desc\">{total} contributions, {active_days} active days, weekly contribution distribution across 52 weeks. Peak: {peak}.</desc>\n  <rect width=\"1142\" height=\"434\" fill=\"{bg}\"/>\n  <g font-family=\"Arial, Helvetica, sans-serif\">\n    <text x=\"22\" y=\"56\" font-family=\"Consolas, monospace\" font-size=\"18\" fill=\"{accent}\">03</text>\n    <text x=\"82\" y=\"62\" font-size=\"40\" font-weight=\"600\" fill=\"{fg}\">Engineering activity</text>\n    <text x=\"1118\" y=\"57\" text-anchor=\"end\" font-family=\"Consolas, monospace\" font-size=\"16\" fill=\"{muted}\">365-DAY SNAPSHOT</text>\n    <text x=\"22\" y=\"149\" font-size=\"64\" font-weight=\"600\" fill=\"{fg}\">{total}</text>\n    <text x=\"22\" y=\"192\" font-size=\"21\" fill=\"{sub}\">Contributions</text>\n    <line x1=\"300\" y1=\"105\" x2=\"300\" y2=\"203\" stroke=\"{grid}\" stroke-width=\"2\"/>\n    <text x=\"336\" y=\"149\" font-size=\"64\" font-weight=\"600\" fill=\"{fg}\">{active_days}</text>\n    <text x=\"336\" y=\"192\" font-size=\"21\" fill=\"{sub}\">Active days</text>\n    <line x1=\"572\" y1=\"105\" x2=\"572\" y2=\"203\" stroke=\"{grid}\" stroke-width=\"2\"/>\n    <text x=\"606\" y=\"136\" font-size=\"40\" font-weight=\"600\" fill=\"{fg}\">52 weeks</text>\n    <text x=\"606\" y=\"179\" font-size=\"21\" fill=\"{sub}\">Weekly contribution distribution</text>\n  </g>"
-    grid_line = "  <line x1=\"76\" y1=\"{y}\" x2=\"1118\" y2=\"{y}\" stroke=\"{grid}\" stroke-width=\"1.5\"/>\n  <text x=\"58\" y=\"{label_y}\" font-family=\"Consolas, monospace\" font-size=\"16\" text-anchor=\"end\" fill=\"{muted}\">{step}</text>"
-    bar_line = "  <rect x=\"{x}\" y=\"{y}\" width=\"15.2\" height=\"{h}\" rx=\"{radius}\" fill=\"{fill}\"><title>Week {week}: {count} contributions</title></rect>"
-    footer = "  <g font-family=\"Consolas, monospace\" font-size=\"16\" fill=\"{muted}\">\n    <text x=\"76\" y=\"418\">WEEK 01</text>\n    <text x=\"1118\" y=\"418\" text-anchor=\"end\">WEEK 52</text>\n  </g>\n</svg>\n"
-    parts = [header.format(**palette, total=f'{contrib_data["total"]:,}', active_days=contrib_data["active_days"], peak=peak)]
-    for step in range(0, y_max + 1, step_size):
-        y = 390 - 166 * step / y_max
-        parts.append(grid_line.format(**palette, y=f"{y:.2f}", label_y=f"{y + 5:.2f}", step=step))
-    for i, count in enumerate(weeks):
-        if count == 0:
+    step = max(50, ((peak + 249) // 250) * 50)
+    y_max = 5 * step
+    parts = [card(438, "ENGINEERING ACTIVITY", "365-DAY SNAPSHOT", p)]
+    for x, value, label in [(36, f'{contrib_data["total"]:,}', "Contributions"), (367, contrib_data["active_days"], "Active days"), (698, "52", "Weeks of activity")]:
+        parts.extend([text(x,132,value,38,600,p["fg"]), text(x,157,label,18,400,p["muted"])])
+    parts.extend([line(335,94,335,161,p),line(666,94,666,161,p),line(36,180,1084,180,p)])
+    for tick in range(0,y_max+1,step):
+        y = 391 - 182*tick/y_max
+        parts.extend([line(78,f"{y:.2f}",1084,f"{y:.2f}",p),text(64,f"{y+5:.2f}",tick,14,400,p["muted"],"end")])
+    for i,n in enumerate(weeks):
+        if not n:
             continue
-        h = 166 * count / y_max
-        x = 76 + (i + 0.5) * 1042 / 52 - 7.6
-        parts.append(bar_line.format(x=f"{x:.2f}", y=f"{390 - h:.2f}", h=f"{h:.2f}", radius=f"{min(2.5, h / 2):.2f}", fill=palette["accent"] if count == peak else palette["bar"], week=i + 1, count=count))
-    parts.append(footer.format(**palette))
+        h = 182*n/y_max
+        x = 78+(i+.5)*1006/52-7.2
+        fill = p["accent"] if n==peak else p["bar"]
+        parts.append(f'  <rect x="{x:.2f}" y="{391-h:.2f}" width="14.4" height="{h:.2f}" rx="{min(2.5,h/2):.2f}" fill="{fill}"><title>Week {i+1}: {n} contributions</title></rect>')
+    parts.extend([text(78,414,"WEEK 01",14,500,p["muted"]),text(1084,414,"WEEK 52",14,500,p["muted"],"end"),"</svg>\n"])
     return "\n".join(parts)
 
 def build_spectrum_svg(languages: list, is_dark=True):
-    bg = "#101110" if is_dark else "#FAF7F2"
-    border = "#38322D" if is_dark else "#D8CDBE"
-    divider = "#3A332B" if is_dark else "#E2D9CC"
-    lbl_color = "#B7A58E" if is_dark else "#695C4E"
-    txt_color = "#F0E9DD" if is_dark else "#28231E"
-    accent = "#F8BA6A" if is_dark else "#9B5A1C"
-    meta = "#AA9A87" if is_dark else "#746557"
-
-    palette = [
-        "#F8BA6A",  # Terracotta
-        "#E3D2B5" if is_dark else "#775A3F",  # Cream / Blue
-        "#C5A37C" if is_dark else "#9B7952",  # Teal
-        "#A5805B" if is_dark else "#B59A7B",  # Purple
-        "#79634E" if is_dark else "#715F50",  # Orange
-        "#594E43" if is_dark else "#AFA399"   # Slate
-    ]
-
-    total_bytes = sum(l["bytes"] for l in languages)
-
-    svg_parts = [f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" width="100%" height="100%">
-  <defs>
-    <style>
-      .m {{ font-family: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }}
-      .s {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }}
-    </style>
-  </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="430" rx="12" fill="{bg}"/>
-  <rect width="1200" height="430" rx="12" fill="none" stroke="{border}" stroke-width="1.2"/>
-
-  <!-- Header -->
-  <text class="m" x="42" y="46" font-size="16" font-weight="800" fill="{accent}" letter-spacing="2">TELEMETRY</text>
-  <text class="s" x="146" y="46" font-size="30" font-weight="900" fill="{txt_color}" letter-spacing="-0.5">LANGUAGE FOOTPRINT</text>
-  <text class="m" x="495" y="46" font-size="16" font-weight="600" fill="{lbl_color}" letter-spacing="1">/ AGGREGATED CODE VOLUME</text>
-  <text class="m" x="1158" y="46" font-size="15" font-weight="600" fill="{lbl_color}" letter-spacing="1" text-anchor="end">ALL AUTHORED REPOSITORIES</text>
-
-  <!-- Stacked Full-Width Spectrum Bar with Gaps (y=76, h=30, w=1116) -->
-  <g transform="translate(42, 76)">
-    <rect width="1116" height="30" rx="6" fill="{bg}" stroke="{divider}" stroke-width="1"/>''']
-
-    gap = 5
-    n_langs = len(languages)
-    total_gaps = (n_langs - 1) * gap
-    usable_width = 1116 - total_gaps
-
-    cur_x = 0
-    for i, lang in enumerate(languages):
-        if i == n_langs - 1:
-            w = max(4, 1116 - cur_x)
-        else:
-            w = max(4, int(usable_width * (lang["percentage"] / 100.0)))
-        
-        color = palette[i % len(palette)]
-        svg_parts.append(f'    <rect x="{cur_x}" y="0" width="{w}" height="30" rx="5" fill="{color}"/>')
-        cur_x += w + gap
-
-    svg_parts.append('  </g>\n\n  <!-- Two-Column Language Details Grid -->')
-
-    col1 = languages[:3]
-    col2 = languages[3:]
-
-    # Left Column
-    for i, lang in enumerate(col1):
-        y = 150 + i * 85
-        color = palette[i % len(palette)]
-        svg_parts.append(f'''  <!-- {lang["language"]} -->
-  <circle cx="52" cy="{y+10}" r="8" fill="{color}"/>
-  <text class="s" x="72" y="{y+17}" font-size="22" font-weight="700" fill="{txt_color}">{lang["language"]}</text>
-  <text class="m" x="420" y="{y+17}" font-size="22" font-weight="800" fill="{color}" text-anchor="end">{lang["percentage"]}%</text>
-  <text class="m" x="540" y="{y+17}" font-size="18" font-weight="600" fill="{meta}" text-anchor="end">{lang["bytes"]:,} B</text>
-  <rect x="72" y="{y+30}" width="468" height="10" rx="5" fill="{divider}"/>
-  <rect x="72" y="{y+30}" width="{int(468 * (lang['percentage']/100.0))}" height="10" rx="5" fill="{color}"/>''')
-
-    # Right Column
-    for i, lang in enumerate(col2):
-        idx = i + 3
-        y = 150 + i * 85
-        color = palette[idx % len(palette)]
-        svg_parts.append(f'''  <!-- {lang["language"]} -->
-  <circle cx="642" cy="{y+10}" r="8" fill="{color}"/>
-  <text class="s" x="662" y="{y+17}" font-size="22" font-weight="700" fill="{txt_color}">{lang["language"]}</text>
-  <text class="m" x="1010" y="{y+17}" font-size="22" font-weight="800" fill="{color}" text-anchor="end">{lang["percentage"]}%</text>
-  <text class="m" x="1130" y="{y+17}" font-size="18" font-weight="600" fill="{meta}" text-anchor="end">{lang["bytes"]:,} B</text>
-  <rect x="662" y="{y+30}" width="468" height="10" rx="5" fill="{divider}"/>
-  <rect x="662" y="{y+30}" width="{int(468 * (lang['percentage']/100.0))}" height="10" rx="5" fill="{color}"/>''')
-
-    svg_parts.append('</svg>\n')
-    return "\n".join(svg_parts)
+    p = palette(is_dark)
+    total = sum(l["bytes"] for l in languages)
+    rows = (len(languages)+1)//2
+    parts = [card(166+rows*76,"LANGUAGE FOOTPRINT","CODE VOLUME BY LANGUAGE",p)]
+    x = 36
+    usable = 1048-4*max(0,len(languages)-1)
+    for i,l in enumerate(languages):
+        w = usable*l["bytes"]/total if total else 0
+        parts.append(rect(f"{x:.2f}",96,f"{w:.2f}",28,f"{min(4,w/2):.2f}",p["colors"][i%6]))
+        x += w+4
+    parts.append(line(36,144,1084,144,p))
+    for i,l in enumerate(languages):
+        j,col = i%rows,i//rows
+        xx,y = 36+col*548,182+j*76
+        c = p["colors"][i%6]
+        pct = 100*l["bytes"]/total if total else 0
+        parts.extend([f'  <circle cx="{xx+7}" cy="{y-6}" r="7" fill="{c}"/>',text(xx+24,y,l["language"],22,600,p["fg"]),text(xx+328,y,f"{pct:.1f}%",20,600,p["accent"],"end"),text(xx+348,y,"|",18,400,p["muted"],"middle"),text(xx+500,y,f'{l["bytes"]:,} B',17,400,p["muted"],"end"),rect(xx+24,y+14,476,9,4.5,p["track"]),rect(xx+24,y+14,f"{476*pct/100:.2f}",9,f"{min(4.5,476*pct/200):.2f}",c)])
+        if j<rows-1:
+            parts.append(line(xx,y+39,xx+500,y+39,p))
+    parts.append("</svg>\n")
+    return "\n".join(parts)
 
 
 def main():

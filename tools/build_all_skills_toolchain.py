@@ -14,6 +14,7 @@ import os
 import re
 import base64
 import xml.etree.ElementTree as ET
+from profile_design import palette, header, SANS
 
 CACHE_DIR = os.path.join(os.path.dirname(__file__), "skillicons_cache")
 os.makedirs(CACHE_DIR, exist_ok=True)
@@ -330,8 +331,9 @@ def build_skill_border(skill_id, is_pri, is_dark):
 
 def build_toolchain(is_dark=True):
     theme_suffix = "" if is_dark else "L"
-    bg_vignette = "#191816" if is_dark else "#FAF7F2"
-    bg_vignette_outer = "#0B0D0E" if is_dark else "#EFE9E0"
+    p = palette(is_dark)
+    bg_vignette = p["bg"]
+    bg_vignette_outer = p["bg"]
     border_col = "#38322D" if is_dark else "#D8CDBE"
     track_col = "#302B26" if is_dark else "#E2D9CC"
     track_term = "#716254" if is_dark else "#A99A89"
@@ -339,7 +341,7 @@ def build_toolchain(is_dark=True):
     lane_txt = "#D8D0C3" if is_dark else "#332B25"
     label_txt = "#F0E9DD" if is_dark else "#1F2328"
     accent = "#F8BA6A" if is_dark else "#9B5A1C"
-    hdr_title_color = "#FFFFFF" if is_dark else "#0D1117"
+    hdr_title_color = p["fg"]
 
     rocket_path = os.path.join(os.path.dirname(__file__), "..", "assets", "skills", "rocket.png")
     with open(rocket_path, "rb") as f:
@@ -377,8 +379,8 @@ def build_toolchain(is_dark=True):
     </filter>
 
     <style>
-      .mono{theme_suffix} {{ font-family: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }}
-      .label{theme_suffix} {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 700; }}
+      .mono{theme_suffix} {{ font-family: {SANS}; }}
+      .label{theme_suffix} {{ font-family: {SANS}; font-weight: 600; }}
 
       @keyframes bulletAnim{theme_suffix} {{
         0%   {{ transform: translateX(95px); opacity: 0; }}
@@ -399,8 +401,8 @@ def build_toolchain(is_dark=True):
   </defs>
 
   <!-- Background -->
-  <rect width="1120" height="880" rx="14" fill="url(#bgVignette{theme_suffix})"/>
-  <rect width="1120" height="880" rx="14" fill="none" stroke="{border_col}" stroke-width="1.2"/>''')
+  <rect x="0.6" y="0.6" width="1118.8" height="878.8" rx="14" fill="{p['bg']}"/>
+  <rect x="0.6" y="0.6" width="1118.8" height="878.8" rx="14" fill="none" stroke="{border_col}" stroke-width="1.2"/>''')
 
     if is_dark:
         svg_parts.append('''  <!-- Star field -->
@@ -420,15 +422,7 @@ def build_toolchain(is_dark=True):
     <line x1="0" y1="-16" x2="0" y2="16" stroke="{accent}" stroke-width="1.4" opacity="0.6"/>
   </g>
 
-  <!-- Header -->
-  <g transform="translate(36, 48)">
-    <text class="mono{theme_suffix}" x="0" y="2" font-size="30" font-weight="900" fill="{hdr_title_color}" letter-spacing="2">ENGINEERING STACK</text>
-    <text class="mono{theme_suffix}" x="380" y="0" font-size="15" font-weight="600" fill="{hdr_sub}" letter-spacing="1.5">/ TOOLS ACROSS THE SOFTWARE DELIVERY PATH</text>
-    <text class="mono{theme_suffix}" x="1030" y="0" font-size="14" font-weight="600" fill="{hdr_sub}" letter-spacing="1.5" text-anchor="end">SIGNAL TRANSMISSION</text>
-    <circle cx="1042" cy="-5" r="4.5" fill="{accent}" opacity="0.9"/>
-    <circle cx="1042" cy="-5" r="8" fill="{accent}" opacity="0.25"/>
-  </g>
-  <line x1="36" y1="74" x2="1084" y2="74" stroke="{track_col}" stroke-width="1.2"/>''')
+{header("ENGINEERING STACK", "TOOLS ACROSS THE SOFTWARE DELIVERY PATH", p)}''')
 
     # Build lanes 1 to 6
     for lane_idx in range(1, 7):
@@ -436,30 +430,16 @@ def build_toolchain(is_dark=True):
         num_str, line1, line2 = LANE_LABELS[lane_idx]
         lane_skills = [s for s in SKILLS if s[0] == lane_idx]
 
+        label_markup = f'<text class="mono{theme_suffix}" x="0" y="{ -5 if line2 else 5}" font-size="14" font-weight="600" fill="{lane_txt}">{line1}</text>'
         if line2:
-            label_markup = f'''<text class="mono{theme_suffix}" x="0" y="-18" font-size="28" font-weight="900" fill="{accent}" letter-spacing="0.5">{num_str}</text>
-      <text class="mono{theme_suffix}" x="0" y="4" font-size="14" font-weight="700" fill="{lane_txt}" letter-spacing="0.5">{line1}</text>
-      <text class="mono{theme_suffix}" x="0" y="22" font-size="14" font-weight="700" fill="{lane_txt}" letter-spacing="0.5">{line2}</text>
-      <g transform="translate(0, 32)" fill="{track_term}">
-        <rect x="0" y="0" width="3.5" height="3.5" rx="0.8"/><rect x="6" y="0" width="3.5" height="3.5" rx="0.8"/>
-        <rect x="12" y="0" width="3.5" height="3.5" rx="0.8"/><rect x="18" y="0" width="3.5" height="3.5" rx="0.8"/>
-        <rect x="24" y="0" width="3.5" height="3.5" rx="0.8"/>
-      </g>'''
-        else:
-            label_markup = f'''<text class="mono{theme_suffix}" x="0" y="-18" font-size="28" font-weight="900" fill="{accent}" letter-spacing="0.5">{num_str}</text>
-      <text class="mono{theme_suffix}" x="0" y="10" font-size="15" font-weight="700" fill="{lane_txt}" letter-spacing="0.5">{line1}</text>
-      <g transform="translate(0, 22)" fill="{track_term}">
-        <rect x="0" y="0" width="3.5" height="3.5" rx="0.8"/><rect x="6" y="0" width="3.5" height="3.5" rx="0.8"/>
-        <rect x="12" y="0" width="3.5" height="3.5" rx="0.8"/><rect x="18" y="0" width="3.5" height="3.5" rx="0.8"/>
-        <rect x="24" y="0" width="3.5" height="3.5" rx="0.8"/>
-      </g>'''
+            label_markup += f'<text class="mono{theme_suffix}" x="0" y="13" font-size="14" font-weight="600" fill="{lane_txt}">{line2}</text>'
 
         svg_parts.append(f'''
   <!-- ════════════════════════════════════════
        LANE {num_str} — {line1} {line2}  (Y={lane_y})
        ════════════════════════════════════════ -->
   <g transform="translate(0, {lane_y})">
-    <line x1="120" y1="0" x2="1055" y2="0" stroke="{track_col}" stroke-width="2.2"/>
+    <line x1="145" y1="0" x2="1055" y2="0" stroke="{track_col}" stroke-width="2.2"/>
     <line x1="1055" y1="0" x2="1075" y2="0" stroke="{track_col}" stroke-width="1.8" stroke-dasharray="3,3"/>
     <circle cx="1080" cy="0" r="5" fill="none" stroke="{track_term}" stroke-width="1.8"/>
     <circle cx="1080" cy="0" r="2" fill="{track_term}"/>
