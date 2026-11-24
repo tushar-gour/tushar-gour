@@ -819,7 +819,7 @@
   </g>
 
   <!-- ════════════════════════════════════════
-       LANE 06 — AI   (Y=775)
+       LANE 06 — AI TOOLS &amp; AGENTS  (Y=775)
        ════════════════════════════════════════ -->
   <g transform="translate(0, 775)">
     <line x1="145" y1="0" x2="1055" y2="0" stroke="#302B26" stroke-width="2.2"/>
@@ -837,7 +837,7 @@
 
     <!-- Lane label -->
     <g transform="translate(36, 0)">
-      <text class="mono" x="0" y="5" font-size="14" font-weight="600" fill="#D8D0C3">AI</text>
+      <text class="mono" x="0" y="-5" font-size="14" font-weight="600" fill="#D8D0C3">AI TOOLS &amp;</text><text class="mono" x="0" y="13" font-size="14" font-weight="600" fill="#D8D0C3">AGENTS</text>
     </g>
 
     <!-- ChatGPT / Codex (Col 1: 180) -->

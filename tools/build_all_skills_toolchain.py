@@ -103,7 +103,7 @@ LANE_LABELS = {
     3: ("03", "DATA &amp;", "PERSISTENCE"),
     4: ("04", "CLOUD &amp;", "DELIVERY"),
     5: ("05", "TOOLS &amp;", "CREATIVE"),
-    6: ("06", "AI", ""),
+    6: ("06", "AI TOOLS &amp;", "AGENTS"),
 }
 
 def make_badge_from_path(path_d, fill_color, bg_color="#242938", scale=6.6667, translate=(48, 48)):
