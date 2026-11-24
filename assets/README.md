@@ -2,7 +2,7 @@
 
 The profile uses the current charcoal, amber-gold and warm ivory design.
 
-- `identity/hero-gold.png`: approved tiger crest and world-map banner, used in both themes.
+- `identity/hero-gold.png`: approved dark tiger crest and world-map banner. `identity/hero-gold-light.png` is its ivory and bronze light-mode counterpart.
 - `skills/toolchain-{dark,light}.svg`: engineering stack with animated signal lanes and selective border shines. `rocket.png` is a required generator input.
 - `telemetry/pulse-52w-{dark,light}.svg`: engineering activity.
 - `telemetry/domain-spectrum-{dark,light}.svg`: language footprint.
@@ -20,6 +20,6 @@ python tools/update_all_telemetry.py
 python tools/check_readme.py
 ```
 
-The telemetry workflow refreshes the activity and language SVGs daily. The hero is a static PNG; changing it requires replacing the image and updating its README reference if the filename changes.
+The telemetry workflow refreshes the activity and language SVGs daily. The dark hero is the original PNG. To rebuild the matching light hero, install Pillow and NumPy and run `python tools/build_light_hero.py`. Both theme assets are selected using `<picture>`.
 
 Only active artwork and generator inputs are retained in the working tree.
