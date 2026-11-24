@@ -1,0 +1,39 @@
+name: Install approved pixel-exact footer
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/footer/footer-original.png'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: install-approved-footer
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install approved original if present
+        shell: bash
+        run: |
+          if [ ! -f assets/footer/footer-original.png ]; then
+            echo "No source image to install."
+            exit 0
+          fi
+          python -m pip install Pillow numpy
+          python tools/install_original_footer.py
+          python tools/check_readme.py
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A assets/footer README.md assets/README.md
+          git commit -m "Install pixel-exact approved footer with four clickable regions"
+          git pull --rebase origin main
+          git push origin main
