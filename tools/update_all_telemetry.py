@@ -228,7 +228,7 @@ def build_pulse_svg(contrib_data: dict, repositories: dict, is_dark=True):
     if len(weeks) != 52 or any(not isinstance(n, int) or n < 0 for n in weeks):
         raise ValueError("Expected 52 non-negative weekly contribution counts")
     peak = max(weeks)
-    top_five = set(sorted((i for i,n in enumerate(weeks) if n>0), key=lambda i: (-weeks[i],i))[:5])
+    top_seven = set(sorted((i for i,n in enumerate(weeks) if n>0), key=lambda i: (-weeks[i],i))[:7])
     active_weeks = sum(n>0 for n in weeks)
     step = max(50, ((peak + 249) // 250) * 50)
     y_max = 5 * step
@@ -244,7 +244,7 @@ def build_pulse_svg(contrib_data: dict, repositories: dict, is_dark=True):
             continue
         h = 182*n/y_max
         x = 78+(i+.5)*1006/52-7.2
-        fill = p["accent"] if i in top_five else p["bar"]
+        fill = p["accent"] if i in top_seven else p["bar"]
         parts.append(f'  <rect x="{x:.2f}" y="{391-h:.2f}" width="14.4" height="{h:.2f}" rx="{min(2.5,h/2):.2f}" fill="{fill}"><title>Week {i+1}: {n} contributions</title></rect>')
     parts.extend([text(78,414,"WEEK 01",14,500,p["muted"]),text(1084,414,"WEEK 52",14,500,p["muted"],"end"),"</svg>\n"])
     return "\n".join(parts)
