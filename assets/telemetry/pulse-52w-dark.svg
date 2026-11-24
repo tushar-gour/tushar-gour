@@ -4,7 +4,7 @@
   <text x="56" y="49" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#F0E9DD">ENGINEERING ACTIVITY</text>
   <text x="1084" y="47" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#B8AA99" letter-spacing="0.5">365-DAY SNAPSHOT</text>
   <line x1="36" y1="74" x2="1084" y2="74" stroke="#38322D" stroke-width="1.2"/>
-  <text x="36" y="132" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="600" fill="#F0E9DD" text-anchor="start">3,308</text>
+  <text x="36" y="132" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="600" fill="#F0E9DD" text-anchor="start">3,309</text>
   <text x="36" y="157" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#B8AA99" text-anchor="start">Contributions</text>
   <text x="367" y="132" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="600" fill="#F0E9DD" text-anchor="start">239</text>
   <text x="367" y="157" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#B8AA99" text-anchor="start">Active days</text>
@@ -74,7 +74,7 @@
   <rect x="989.74" y="388.09" width="14.4" height="2.91" rx="1.46" fill="#9A8066"><title>Week 48: 4 contributions</title></rect>
   <rect x="1009.09" y="385.18" width="14.4" height="5.82" rx="2.50" fill="#9A8066"><title>Week 49: 8 contributions</title></rect>
   <rect x="1047.78" y="381.54" width="14.4" height="9.46" rx="2.50" fill="#9A8066"><title>Week 51: 13 contributions</title></rect>
-  <rect x="1067.13" y="382.26" width="14.4" height="8.74" rx="2.50" fill="#9A8066"><title>Week 52: 12 contributions</title></rect>
+  <rect x="1067.13" y="381.54" width="14.4" height="9.46" rx="2.50" fill="#9A8066"><title>Week 52: 13 contributions</title></rect>
   <text x="78" y="414" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="500" fill="#B8AA99" text-anchor="start">WEEK 01</text>
   <text x="1084" y="414" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="500" fill="#B8AA99" text-anchor="end">WEEK 52</text>
 </svg>
