@@ -1,64 +1,63 @@
-"""Create a travelling vector ribbon; never deform the contact artwork."""
+"""Morph independent golden SVG paths; never transform the contact artwork."""
 import math
 import re
 from pathlib import Path
 from xml.etree import ElementTree
 
-PERIOD = 3000
-DURATION = 14
-X = [0, 160, 350, 543, 760, 930, 1086, 1300, 1470, 1629, 1850, 2050, 2172, 2400, 2700, 3000]
-A = [502, 500, 524, 572, 627, 643, 627, 574, 558, 553, 545, 590, 617, 642, 565, 502]
-B = [590, 557, 541, 548, 583, 626, 645, 630, 597, 553, 528, 507, 470, 488, 570, 590]
-STOPS = [(0,0,.3),(.06,0,.5),(.14,2,1),(.18,3,.9),(.27,1,.8),(.325,2,1),(.39,0,.45),(.50,2,1),(.55,3,.9),(.60,1,.55),(.70,0,.35),(.79,1,.65),(.85,2,1),(.93,4,.5),(1,0,.3)]
+TAU = 2 * math.pi
+FRAMES = 48
+DURATION = 7
+STEP = 108.6
 
 
-def ribbon_path(u, extra=0):
-    """Two periodic, C1-continuous cubic spline tiles, in global coordinates."""
-    y = [(1-u)*a+u*b+extra+math.sin(math.pi*u)*8*math.sin(2*math.pi*x/PERIOD+.6)
-         for x,a,b in zip(X,A,B)]
-    n = len(X)-1
-    slope = [(y[1]-y[n-1])/(X[1]+PERIOD-X[n-1]) if i in (0,n)
-             else (y[i+1]-y[i-1])/(X[i+1]-X[i-1]) for i in range(n+1)]
-    parts = [f"M 0 {y[0]:.2f}"]
-    for tile in range(2):
-        for i in range(n):
-            a,b = X[i]+tile*PERIOD,X[i+1]+tile*PERIOD
-            h = (b-a)/3
-            parts.append(f"C {a+h:.2f} {y[i]+h*slope[i]:.2f} {b-h:.2f} {y[i+1]-h*slope[i+1]:.2f} {b:.2f} {y[i+1]:.2f}")
+def y_at(x, u, t, extra=0):
+    phase = TAU * t
+    center = (566 + (42 + 7 * math.sin(phase + .6)) * math.sin(TAU*x/1450 - phase + .3)
+              + 17 * math.sin(TAU*x/950 - 2*phase + .5)
+              + 8 * math.sin(TAU*x/2100 - 3*phase - .4))
+    spread = 38 * math.cos(TAU*x/1350 - phase + .9) + 12 * math.sin(TAU*x/1000 - 2*phase + .3)
+    return center + (2*u-1)*spread + 9*math.sin(math.pi*u)*math.sin(TAU*x/1100 - 2*phase + u) + extra
+
+
+def ribbon_path(x, u, t, extra=0):
+    """Fixed horizontal nodes with animated heights and continuous slopes."""
+    nodes = [x+i*STEP for i in range(-1,7)]
+    y = [y_at(v,u,t,extra) for v in nodes]
+    slope = [(y_at(v+.1,u,t,extra)-y_at(v-.1,u,t,extra))/.2 for v in nodes]
+    parts = [f"M {nodes[0]:.1f} {y[0]:.1f}"]
+    for i in range(7):
+        a,b = nodes[i:i+2]
+        h = (b-a)/3
+        parts.append(f"C {a+h:.1f} {y[i]+h*slope[i]:.1f} {b-h:.1f} {y[i+1]-h*slope[i+1]:.1f} {b:.1f} {y[i+1]:.1f}")
     return " ".join(parts)
+
+
+def animated(x,u,attrs):
+    frames = [ribbon_path(x,u,k/FRAMES) for k in range(FRAMES)]
+    frames.append(frames[0])
+    values = ";".join(frames)
+    return f'<path {attrs} d="{frames[0]}"><animate attributeName="d" values="{values}" dur="{DURATION}s" repeatCount="indefinite" calcMode="linear"/></path>'
 
 
 def wave_motion(x, theme):
     dark = theme == "dark"
     paper, bottom = ("#0b0a0c","#09090b") if dark else ("#f9f6f0","#faf7f2")
-    colors = ["#8e420e","#f28c20","#fff2bd","#ffb342","#b46214"] if dark else ["#c9a37b","#ac631d","#743b13","#b6742c","#c19b74"]
-    stops = "".join(f'<stop offset="{p}" stop-color="{colors[c]}" stop-opacity="{o}"/>' for p,c,o in STOPS)
+    colors = ["#8e420e","#fff2bd","#f28c20","#fff2bd","#a3551c","#fff2bd","#8e420e"] if dark else ["#b98b59","#824313","#b6742c","#743b13","#b88a55","#824313","#c19b74"]
+    grad = "".join(f'<stop offset="{p}" stop-color="{c}"/>' for p,c in zip([0,.19,.32,.46,.61,.76,1],colors))
     defs = f'''<linearGradient id="base" gradientUnits="userSpaceOnUse" x1="0" y1="430" x2="0" y2="724"><stop stop-color="{paper}"/><stop offset="1" stop-color="{bottom}"/></linearGradient>
 <linearGradient id="fade" gradientUnits="userSpaceOnUse" x1="0" y1="426" x2="0" y2="466"><stop stop-color="white" stop-opacity="0"/><stop offset="1" stop-color="white"/></linearGradient>
 <mask id="replace-wave" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="{x}" y="420" width="543" height="304"><rect x="{x}" y="420" width="543" height="304" fill="url(#fade)"/></mask>
 <clipPath id="wave-region" clipPathUnits="userSpaceOnUse"><rect x="{x}" y="444" width="543" height="280"/></clipPath>
-<linearGradient id="gold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="{PERIOD}" y2="0" spreadMethod="repeat">{stops}</linearGradient>
-<filter id="bloom" filterUnits="userSpaceOnUse" x="-80" y="425" width="6160" height="320" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="{12 if dark else 7}"/></filter>
-<filter id="halo" filterUnits="userSpaceOnUse" x="-30" y="440" width="6060" height="290" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="{3.5 if dark else 2.5}"/></filter>
-<path id="crest" d="{ribbon_path(0)}"/><path id="ribbon-edge" d="{ribbon_path(1)}"/>'''
+<linearGradient id="gold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2172" y2="0">{grad}</linearGradient>
+<filter id="glow" filterUnits="userSpaceOnUse" x="{x-120}" y="420" width="783" height="304" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="{9 if dark else 5}" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'''
     lines = []
-    for i in range(25):
-        u = (i+1)/26
-        opacity = (.23 if dark else .25)+(1-u)*.1
-        lines.append(f'<path d="{ribbon_path(u)}" stroke-width="{1.2 if i%5==0 else .8}" opacity="{opacity}"/>')
-    tail = [f'<path d="{ribbon_path(.22+i*.07,13+i*4)}" stroke-width=".75" opacity="{.12*(1-i/10)}"/>' for i in range(9)]
-    threads = "\n".join(tail+lines)
-    overlay = f'''<g class="wave-motion">
-<rect x="{x}" y="420" width="543" height="304" fill="url(#base)" mask="url(#replace-wave)"/>
-<g clip-path="url(#wave-region)">
-<g fill="none" stroke="url(#gold)" stroke-linejoin="round" transform="translate(-{PERIOD} 0)">
-<animateTransform attributeName="transform" type="translate" from="-{PERIOD} 0" to="0 0" dur="{DURATION}s" repeatCount="indefinite" calcMode="linear"/>
-<g filter="url(#bloom)" opacity="{.67 if dark else .28}"><use xlink:href="#crest" stroke-width="{22 if dark else 12}"/><use xlink:href="#ribbon-edge" stroke-width="12" opacity=".5"/></g>
-{threads}
-<g filter="url(#halo)" opacity="{.86 if dark else .38}"><use xlink:href="#crest" stroke-width="8"/><use xlink:href="#ribbon-edge" stroke-width="4"/></g>
-<use xlink:href="#ribbon-edge" stroke-width="1.65" opacity=".8"/>
-<use xlink:href="#crest" stroke-width="{3.1 if dark else 2.5}"/>
-</g></g></g>'''
+    for i in range(24):
+        u = (i+1)/25
+        lines.append(animated(x,u,f'stroke-width="{1.15 if i%5==0 else .8}" opacity="{.23+(1-u)*.12}"'))
+    lines.append(animated(x,0,f'stroke-width="{3.3 if dark else 2.5}" filter="url(#glow)"'))
+    lines.append(animated(x,1,'stroke-width="1.6" opacity=".85"'))
+    threads = "\n".join(lines)
+    overlay = f'<g class="wave-motion"><rect x="{x}" y="420" width="543" height="304" fill="url(#base)" mask="url(#replace-wave)"/><g clip-path="url(#wave-region)"><g fill="none" stroke="url(#gold)" stroke-linejoin="round">{threads}</g></g></g>'
     return defs, overlay
 
 
@@ -89,12 +88,12 @@ def refresh_existing():
             new = animate_footer(old, i*543, theme)
             payload = r'data:image/png;base64,([^"]+)'
             assert re.search(payload,new)[1] == re.search(payload,old)[1]
-            assert new.count("<animateTransform ") == 1 and "skewY" not in new
+            assert new.count('<animate attributeName="d"') == 26 and "<animateTransform" not in new
             ElementTree.fromstring(new)
             updates.append((path,new))
     for path,new in updates:
         path.write_text(new,encoding="utf-8")
-    print("Verified 8 vector ribbons and unchanged original artwork.")
+    print("Verified 8 independently morphing vector ribbons and unchanged original artwork.")
 
 
 if __name__ == "__main__":

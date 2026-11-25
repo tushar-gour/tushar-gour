@@ -71,7 +71,7 @@ def main():
     SOURCE.unlink()
     docs = ROOT / "assets/README.md"
     content = docs.read_text(encoding="utf-8")
-    content = re.sub(r"^- `footer/`:.*$", "- `footer/`: four lossless embedded PNG slices of the approved 2172 × 724 dark contact banner, plus a matching light-palette adaptation, wrapped in SVGs with a continuous rounded outer frame. Each slice is independently linked. The frame matches the shared 1120-unit card design (14-unit radius, 1.2-unit stroke). No duplicate artwork is retained. The golden ribbon is recreated as independent periodic SVG curves travelling left to right; reduced-motion preferences show the original artwork.",content,flags=re.M)
+    content = re.sub(r"^- `footer/`:.*$", "- `footer/`: four lossless embedded PNG slices of the approved 2172 × 724 dark contact banner, plus a matching light-palette adaptation, wrapped in SVGs with a continuous rounded outer frame. Each slice is independently linked. The frame matches the shared 1120-unit card design (14-unit radius, 1.2-unit stroke). No duplicate artwork is retained. The golden ribbon uses independently morphing SVG curves in a seven-second periodic wave; reduced-motion preferences show the original artwork.",content,flags=re.M)
     docs.write_text(content,encoding="utf-8")
     print("Verified all original dark pixels and clickable footer references")
 
