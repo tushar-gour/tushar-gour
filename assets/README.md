@@ -7,7 +7,7 @@ The profile uses the current charcoal, amber-gold and warm ivory design.
 - `telemetry/pulse-52w-{dark,light}.svg`: engineering activity.
 - `telemetry/domain-spectrum-{dark,light}.svg`: language footprint.
 - `section-gap.svg`: shared transparent spacing between all five profile sections.
-- `footer/`: four lossless embedded PNG slices of the approved 2172 × 724 dark contact banner, plus a matching light-palette adaptation, wrapped in SVGs with a continuous rounded outer frame. Each slice is independently linked. The frame matches the shared 1120-unit card design (14-unit radius, 1.2-unit stroke). No duplicate artwork is retained. The original raster wave region uses a phase-aligned, nine-second travelling mesh deformation; text, links and border remain static. Reduced-motion preferences display the original static artwork.
+- `footer/`: four lossless embedded PNG slices of the approved 2172 × 724 dark contact banner, plus a matching light-palette adaptation, wrapped in SVGs with a continuous rounded outer frame. Each slice is independently linked. The frame matches the shared 1120-unit card design (14-unit radius, 1.2-unit stroke). No duplicate artwork is retained. The golden ribbon is recreated as independent, periodic SVG Bézier curves travelling left to right in a 14-second loop. The contact raster is never transformed; reduced-motion preferences display the original static artwork.
 - `../tools/skillicons_cache/`: source icons required to rebuild the engineering stack.
 - `../generated/metrics.json`: generated telemetry snapshot.
 
