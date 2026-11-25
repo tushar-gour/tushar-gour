@@ -7,7 +7,7 @@ The profile uses the current charcoal, amber-gold and warm ivory design.
 - `telemetry/pulse-52w-{dark,light}.svg`: engineering activity.
 - `telemetry/domain-spectrum-{dark,light}.svg`: language footprint.
 - `section-gap.svg`: shared transparent spacing between all five profile sections.
-- `footer/`: two visually connected rows forming one 2172 × 724 card. Four static upper contact tiles (543 × 444 each) preserve the original embedded PNGs and individual links. One full-width lower SVG (2172 × 280) per theme uses a single seven-second animation timeline for 26 morphing vector strands, eliminating independently timed seams. Matching backgrounds and shared outer frame join at y=444. Reduced motion displays a static ribbon.
+- `footer/`: two visually connected rows forming one 2172 × 724 card. Four static upper contact tiles (543 × 444 each) preserve the original embedded PNGs and individual links. One full-width lower SVG (2172 × 280) per theme uses a single 16-second animation timeline for 26 morphing vector strands, using oscillating standing modes and a gentle travelling component so the strands rise, fall and exchange vertical positions, eliminating independently timed seams. Matching backgrounds and shared outer frame join at y=444. Reduced motion displays a static ribbon.
 - `../tools/skillicons_cache/`: source icons required to rebuild the engineering stack.
 - `../generated/metrics.json`: generated telemetry snapshot.
 
