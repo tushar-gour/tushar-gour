@@ -5,9 +5,8 @@ from pathlib import Path
 from xml.etree import ElementTree
 
 TAU = 2 * math.pi
-FRAMES = 30          # key shapes per loop; linear blending between them is imperceptible
+FRAMES = 36          # key shapes per loop; linear blending between them is imperceptible
 DURATION = 36        # seconds per seamless loop: slow and soothing
-STRANDS = 44         # fine strands in the bundle
 STEP = 2172 / 15     # fixed horizontal node spacing (equal steps allow smooth "S" joins)
 Y0 = 584             # resting centre line of the ribbon (viewBox y runs 444..724)
 
@@ -24,12 +23,6 @@ WAVES = (
 )
 
 
-def taper(x):
-    """The bundle closes to a single thread just inside both card edges."""
-    a = max(0.0, min(1.0, (min(x, 2172 - x) - 90) / 320))
-    return a * a * (3 - 2 * a)
-
-
 def y_at(x, u, t):
     """Height of strand u (0..1) at horizontal position x and loop time t (0..1)."""
     th = TAU * t
@@ -41,8 +34,8 @@ def y_at(x, u, t):
         # ribbon depth: strands drift past one another like silk instead of moving as one.
         y += amp * swell * math.sin(TAU * x / lam - direction * th + phase + lag * s)
     # Signed ribbon width: it narrows to a pinch, turns over and opens again as it travels.
-    width = 38 * math.sin(TAU * x / 1700 - th + 2.2) + 13 * math.sin(TAU * x / 1050 + th + .5)
-    return y + s * width * taper(x)
+    width = 32 * math.sin(TAU * x / 1700 - th + 2.2) + 11 * math.sin(TAU * x / 1050 + th + .5)
+    return y + s * width
 
 
 def ribbon_path(u, t):
@@ -97,37 +90,22 @@ def render_wave(theme):
     """
     dark = theme == "dark"
     paper, bottom, stroke = theme_colors(theme)
-    colors = ["#b8611a","#f59a2e","#ffa63a","#ffe2b0","#f08a22","#ffb85a","#b8611a"] if dark else ["#ad8051","#986024","#bd8745","#854711","#b88a55","#986024","#bd9465"]
-    # Stops at the ends fade the bundle to nothing so it tapers inside the card.
-    stops = [(0,colors[0],0),(.035,colors[0],0),(.09,colors[0],1)]
-    stops += [(p,c,1) for p,c in zip([.16,.34,.5,.67,.84],colors[1:6])]
-    stops += [(.91,colors[6],1),(.965,colors[6],0),(1,colors[6],0)]
-    grad = "".join(f'<stop offset="{p}" stop-color="{c}" stop-opacity="{o}"/>' for p,c,o in stops)
+    colors = ["#a45a18","#ffd28a","#f3a437","#fff0c6","#c77b25","#ffe0a0","#a45a18"] if dark else ["#ad8051","#986024","#bd8745","#854711","#b88a55","#986024","#bd9465"]
+    grad = "".join(f'<stop offset="{p}" stop-color="{c}"/>' for p,c in zip([0,.16,.34,.5,.67,.84,1],colors))
     specs = []
-    for i in range(STRANDS):
-        u = i/(STRANDS-1)
-        if i in (0,STRANDS-1):
-            attrs = f'stroke-width="{2.4 if dark else 2}" opacity=".95"'
+    for i in range(26):
+        u = i/25
+        if i in (0,25):
+            attrs = f'stroke-width="{2.7 if dark else 2.2}" filter="url(#glow)" opacity=".93"'
         else:
-            attrs = f'stroke-width="{1.05 if i%6==0 else .75}" opacity="{(.17 if dark else .26)+.06*math.cos(math.pi*u)**2:.3f}"'
+            attrs = f'stroke-width="{1.12 if i%5==0 else .8}" opacity="{.21+.11*math.cos(math.pi*u)**2:.3f}"'
         specs.append((u,attrs))
     motion = "\n".join(animated(u,attrs) for u,attrs in specs)
-    # One bloom over the whole bundle: the glow is strongest where many strands
-    # overlap, so the ribbon flares at its pinch points as it moves.
-    if dark:
-        bloom = ('<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="n"/><feGaussianBlur in="SourceGraphic" stdDeviation="14" result="w"/>'
-                 '<feColorMatrix in="n" type="matrix" values="1 0 0 0 0 0 .95 0 0 0 0 0 .8 0 0 0 0 0 0.9 0" result="n2"/>'
-                 '<feColorMatrix in="w" type="matrix" values="1 0 0 0 0 0 .8 0 0 0 0 0 .5 0 0 0 0 0 1.5 0" result="w2"/>'
-                 '<feMerge><feMergeNode in="w2"/><feMergeNode in="n2"/><feMergeNode in="SourceGraphic"/></feMerge>')
-    else:
-        bloom = ('<feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="n"/><feGaussianBlur in="SourceGraphic" stdDeviation="9" result="w"/>'
-                 '<feColorMatrix in="w" type="matrix" values="1 0 0 0 .15 0 .8 0 0 .08 0 0 .4 0 0 0 0 0 1.6 0" result="w2"/>'
-                 '<feMerge><feMergeNode in="w2"/><feMergeNode in="n"/><feMergeNode in="SourceGraphic"/></feMerge>')
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 444 2172 280" width="2172" height="280" overflow="hidden" role="img" aria-label="Soft flowing golden ribbon">
 <defs><clipPath id="frame"><rect width="2172" height="724" rx="28.314"/></clipPath><linearGradient id="base" gradientUnits="userSpaceOnUse" x1="0" y1="444" x2="0" y2="724"><stop stop-color="{paper}"/><stop offset="1" stop-color="{bottom}"/></linearGradient>
 <linearGradient id="gold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2172" y2="0">{grad}</linearGradient>
-<filter id="bloom" filterUnits="userSpaceOnUse" x="-100" y="430" width="2372" height="300" color-interpolation-filters="sRGB">{bloom}</filter></defs>
-<g clip-path="url(#frame)"><rect y="444" width="2172" height="280" fill="url(#base)"/><g fill="none" stroke="url(#gold)" stroke-linejoin="round" filter="url(#bloom)">
+<filter id="glow" filterUnits="userSpaceOnUse" x="-120" y="420" width="2412" height="304" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="{7 if dark else 3}" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g clip-path="url(#frame)"><rect y="444" width="2172" height="280" fill="url(#base)"/><g fill="none" stroke="url(#gold)" stroke-linejoin="round">
 {motion}
 </g></g>
 <rect x="1.164" y="1.164" width="2169.672" height="721.672" rx="27.15" fill="none" stroke="{stroke}" stroke-width="2.328"/>
@@ -162,7 +140,7 @@ def refresh_existing():
         wave = render_wave(theme)
         tree = ElementTree.fromstring(wave)
         anims = tree.findall(".//{http://www.w3.org/2000/svg}animate")
-        assert len(anims) == STRANDS
+        assert len(anims) == 26
         for anim in anims:
             values = anim.attrib["values"].split(";")
             assert len(values) == FRAMES+1 and values[0] == values[-1]
