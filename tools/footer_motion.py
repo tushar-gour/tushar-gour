@@ -7,7 +7,10 @@ def wave_motion(x):
     """Return the clipped, phase-aligned mesh and its shared mask."""
     def displacement(px, t):
         phase = 2 * math.pi * t
-        return 37 * math.sin(2 * math.pi * px / 1600 - phase) + 6 * math.sin(2 * math.pi * px / 1050 - 2 * phase + .7)
+        a = 2 * math.pi * px / 1600
+        b = 2 * math.pi * px / 1050 + .7
+        # Subtract the rest phase so each loop begins at the untouched artwork.
+        return 25 * (math.sin(a - phase) - math.sin(a)) + 5 * (math.sin(b - 2 * phase) - math.sin(b))
 
     clips, strips = [], []
     for j in range(48):
@@ -17,11 +20,11 @@ def wave_motion(x):
         angles = [math.degrees(math.atan((displacement(right, k / 120) - y) / width)) for k, y in enumerate(ys)]
         ys.append(ys[0])
         angles.append(angles[0])
-        dy = ";".join(f"0 {v:.4f}" for v in ys)
-        angle = ";".join(f"{v:.4f}" for v in angles)
-        clips.append(f'<clipPath id="strip{j}"><rect x="-1.5" y="425" width="{width+3:.4f}" height="299"/></clipPath>')
-        strips.append(f'<g transform="translate({left:.4f} 0)"><g><animateTransform attributeName="transform" type="translate" values="{dy}" dur="9s" repeatCount="indefinite" calcMode="linear"/><g><animateTransform attributeName="transform" type="skewY" values="{angle}" dur="9s" repeatCount="indefinite" calcMode="linear"/><g clip-path="url(#strip{j})"><use xlink:href="#artwork" transform="translate({-left:.4f} 0)"/></g></g></g></g>')
-    gradient = f'<linearGradient id="waveMask" x1="0" y1="0" x2="0" y2="724" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="white" stop-opacity="0"/><stop offset="{465/724}" stop-color="white" stop-opacity="0"/><stop offset="{491/724}" stop-color="white"/><stop offset="{675/724}" stop-color="white"/><stop offset="{720/724}" stop-color="white" stop-opacity="0"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient><mask id="motionMask" maskUnits="userSpaceOnUse" x="{x}" y="0" width="543" height="724"><rect x="{x}" width="543" height="724" fill="url(#waveMask)"/></mask>'
+        dy = ";".join(f"0 {(0 if abs(v) < .00005 else v):.4f}" for v in ys)
+        angle = ";".join(f"{(0 if abs(v) < .00005 else v):.4f}" for v in angles)
+        clips.append(f'<clipPath id="strip{j}" clipPathUnits="userSpaceOnUse"><rect x="-1.5" y="405" width="{width+3:.4f}" height="319"/></clipPath>')
+        strips.append(f'<g transform="translate({left:.4f} 0)"><g><animateTransform attributeName="transform" type="translate" values="{dy}" dur="8s" repeatCount="indefinite" calcMode="linear"/><g><animateTransform attributeName="transform" type="skewY" values="{angle}" dur="8s" repeatCount="indefinite" calcMode="linear"/><g clip-path="url(#strip{j})"><use xlink:href="#artwork" transform="translate({-left:.4f} 0)"/></g></g></g></g>')
+    gradient = f'<linearGradient id="waveMask" x1="0" y1="0" x2="0" y2="724" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="white" stop-opacity="0"/><stop offset="{425/724}" stop-color="white" stop-opacity="0"/><stop offset="{465/724}" stop-color="white"/><stop offset="{690/724}" stop-color="white"/><stop offset="{720/724}" stop-color="white" stop-opacity="0"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient><mask id="motionMask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="{x}" y="0" width="543" height="724"><rect x="{x}" width="543" height="724" fill="url(#waveMask)"/></mask>'
     return gradient + "\n" + "\n".join(clips), '<g class="wave-motion" mask="url(#motionMask)">\n' + "\n".join(strips) + "\n</g>"
 
 
