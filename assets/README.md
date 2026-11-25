@@ -7,7 +7,7 @@ The profile uses the current charcoal, amber-gold and warm ivory design.
 - `telemetry/pulse-52w-{dark,light}.svg`: engineering activity.
 - `telemetry/domain-spectrum-{dark,light}.svg`: language footprint.
 - `section-gap.svg`: shared transparent spacing between all five profile sections.
-- `footer/`: four lossless embedded PNG slices of the approved 2172 × 724 dark contact banner, plus a matching light-palette adaptation, wrapped in SVGs with a continuous rounded outer frame. Each slice is independently linked. The frame matches the shared 1120-unit card design (14-unit radius, 1.2-unit stroke). No duplicate artwork is retained. The golden ribbon uses 26 independently morphing SVG Bézier curves with a seven-second periodic travelling wave. The horizontal control-point coordinates stay fixed; curve height, width and curvature evolve over time. The contact raster is never transformed; reduced-motion preferences display the original static artwork.
+- `footer/`: two visually connected rows forming one 2172 × 724 card. Four static upper contact tiles (543 × 444 each) preserve the original embedded PNGs and individual links. One full-width lower SVG (2172 × 280) per theme uses a single seven-second animation timeline for 26 morphing vector strands, eliminating independently timed seams. Matching backgrounds and shared outer frame join at y=444. Reduced motion displays a static ribbon.
 - `../tools/skillicons_cache/`: source icons required to rebuild the engineering stack.
 - `../generated/metrics.json`: generated telemetry snapshot.
 
@@ -18,6 +18,7 @@ Run from the repository root with Python 3.11 or newer. The stack and telemetry 
 ```bash
 python tools/build_all_skills_toolchain.py
 python tools/update_all_telemetry.py
+python tools/footer_motion.py
 python tools/check_readme.py
 ```
 
